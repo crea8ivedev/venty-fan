@@ -1,0 +1,344 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "custom_liquid_rRfrwt": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div style=\"display:flex;align-items: center;gap:6px;\">\n<span style=\"color:#ffd000 ;font-size:22px;\">★★★★★</span>\n<p style=\"color:#031133;font-weight:500;\">200 Reviews</p>\n</div>"
+          }
+        },
+        "rating_qnt8pf": {
+          "type": "rating",
+          "disabled": true,
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_b3rmTB": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {}
+        },
+        "title_n8JPq6": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_Eb933X": {
+          "type": "price",
+          "settings": {}
+        },
+        "benefits_kdEhCh": {
+          "type": "benefits",
+          "settings": {
+            "benefits-img1": "shopify://shop_images/checkmark-circle-primary_1.png",
+            "benefits-txt1": "Charges Phone",
+            "benefits-img2": "shopify://shop_images/checkmark-circle-primary_1_79a7bcfa-5fcc-4a57-afe7-66ea4fc8ae38.png",
+            "benefits-txt2": "Rechargeable",
+            "benefits-img3": "shopify://shop_images/checkmark-circle-primary_1_1e467ae5-db09-484f-a37a-26c886427734.png",
+            "benefits-txt3": "Extendable",
+            "benefits-img4": "shopify://shop_images/checkmark-circle-primary_1_3a2797e1-bbfe-4621-b030-eefb6f35969d.png",
+            "benefits-txt4": "Led Lamp Base",
+            "benefits-img5": "shopify://shop_images/checkmark-circle-primary_1_c5143096-9127-4ceb-9be5-40035f85ec74.png",
+            "benefits-txt5": "Carrying Case",
+            "benefits-img6": "shopify://shop_images/checkmark-circle-primary_1_08e51845-6bb4-49c1-a414-2ed0c84a53be.png",
+            "benefits-txt6": "48hr/Charge"
+          }
+        },
+        "variant_picker_dC4kGN": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_zKaCQU": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "iconwithtext_LkDqRd": {
+          "type": "iconwithtext",
+          "settings": {
+            "icon-shipping": "shopify://shop_images/ca22f309cab155faf701d001bf0137d9.png",
+            "textshipping0": "£10 OFF + FREE SHIPPING ON ANY 2 OR MORE",
+            "textshipping1": "$10 OFF + FREE SHIPPING ON ANY 2 OR MORE",
+            "textshipping2": ""
+          }
+        },
+        "buy_buttons_kqXwFR": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "iconwithtext2_GNCnaf": {
+          "type": "iconwithtext2",
+          "settings": {
+            "icon-shipping1": "shopify://shop_images/ca22f309cab155faf701d001bf0137d9.png",
+            "textshipping0": "£10 Off & Free Shipping",
+            "textshipping1": "$10 Off & Free Shipping",
+            "textshipping3": "On 2+ Original Venty Fans"
+          }
+        }
+      },
+      "block_order": [
+        "custom_liquid_rRfrwt",
+        "rating_qnt8pf",
+        "judge_me_reviews_preview_badge_b3rmTB",
+        "title_n8JPq6",
+        "price_Eb933X",
+        "benefits_kdEhCh",
+        "variant_picker_dC4kGN",
+        "quantity_selector_zKaCQU",
+        "iconwithtext_LkDqRd",
+        "buy_buttons_kqXwFR",
+        "iconwithtext2_GNCnaf"
+      ],
+      "custom_css": [
+        "label.variant-images-selectable img {object-fit: contain;}",
+        "#onward-container {display: none;}",
+        "@media only screen and (max-width: 600px) {product-info {padding: 0px; }}"
+      ],
+      "settings": {
+        "bundle_discount_text": "BUNDLE OFFER: () OFF + FREE SHIPPING",
+        "double_bundle_discount": 0,
+        "sticky_cart": false,
+        "enable_sticky_info": true,
+        "product_off": false,
+        "color_scheme": "scheme-3a101b2e-80e1-4dcb-ba5b-8e268ef99b9f",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 0,
+        "padding_bottom": 80,
+        "enable_group_media": true,
+        "media_grouping_option": "Choose Your Color"
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "<strong>You may also like</strong>",
+        "heading_size": "hxl",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-3",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "gallery_tabs_gQegFU": {
+      "type": "Gallery-Tabs",
+      "blocks": {
+        "tab1_TFHre8": {
+          "type": "Tab1",
+          "settings": {
+            "title1": "Office",
+            "img1": "shopify://shop_images/1_3x_0e2c9ae0-36c4-4469-9296-b7c6d8773cdc.png",
+            "img2": "shopify://shop_images/2_3x_3x_17c41b9b-2fc4-472a-af46-992f25cd4296.png",
+            "img3": "shopify://shop_images/2_3x_b7b3e8eb-f398-4934-b7c2-21d197994541.png"
+          }
+        },
+        "tab2_GpeWCL": {
+          "type": "Tab2",
+          "settings": {
+            "title2_1": "Home",
+            "img2_1": "shopify://shop_images/1_3x_94629d03-96d1-4772-a3f5-fd3e0d5a219d.png",
+            "img2_2": "shopify://shop_images/DSC02646_1_56b74612-2978-4c8d-a20f-84f70e35cc79.jpg",
+            "img2_3": "shopify://shop_images/Screenshot_2024-08-21_at_2.58.53_PM_97d0bf54-d3f1-4406-8b76-67a1520f631b.png"
+          }
+        },
+        "tab3_pU8q8Q": {
+          "type": "Tab3",
+          "settings": {
+            "title3_1": "Outdoor",
+            "img3_1": "shopify://shop_images/1_3x_7fc432cb-6f59-48d6-87b1-9a862f402c40.png",
+            "img3_2": "shopify://shop_images/2_3x_24f6b3b5-6666-428e-beb9-9251ddf61ba4.png",
+            "img3_3": "shopify://shop_images/3_3x_825fd4e4-32b7-48a6-a99e-150fc9eb44ee.png"
+          }
+        },
+        "tab4_Fmh4r7": {
+          "type": "Tab4",
+          "settings": {
+            "title4_1": "Bedroom",
+            "img4_1": "shopify://shop_images/1_3x_7af1b73a-fbd0-4992-9d78-51d427418ea4.png",
+            "img4_2": "shopify://shop_images/3_3x_5640a485-1acf-4147-8faf-877f3f3242d1.png",
+            "img4_3": "shopify://shop_images/2_3x_4b54b4ec-50b6-4e0d-bca0-65c0163482f0.png"
+          }
+        },
+        "tab5_UQhwfe": {
+          "type": "Tab5",
+          "settings": {
+            "title5_1": "Travel",
+            "img5_1": "shopify://shop_images/DSC06901_84bc43d6-bc8c-4398-b441-7867e58802cf.jpg",
+            "img5_2": "shopify://shop_images/DSC07361_cd16a434-4698-4a4b-a3e3-294990ccb4fd.jpg",
+            "img5_3": "shopify://shop_images/DSC07260_0f96249e-8f29-4f5c-8ae6-b53794c9bfa6.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "tab1_TFHre8",
+        "tab2_GpeWCL",
+        "tab3_pU8q8Q",
+        "tab4_Fmh4r7",
+        "tab5_UQhwfe"
+      ],
+      "disabled": true,
+      "settings": {
+        "class": "",
+        "background": "#031133",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mob": 48,
+        "padding_bottom_mob": 0
+      }
+    },
+    "pre_order_promo_VHD4NB": {
+      "type": "pre-order-promo",
+      "blocks": {
+        "image_8Q7KBW": {
+          "type": "image",
+          "settings": {
+            "slide_img": "shopify://shop_images/V1_hi_res_b-removebg-preview_7ec1dd35-3c4c-424d-a90e-e38738d7201e.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_8Q7KBW"
+      ],
+      "custom_css": [
+        ".countdown {display: none;}"
+      ],
+      "name": "Pre Order Promo",
+      "settings": {
+        "title": "<h2>Pre-order the<br/><strong>Mint</strong> <strong>Original Venty</strong></h2>",
+        "subtitle": "",
+        "content_bg": "#24c5ae",
+        "button_link": "",
+        "button_text": "",
+        "end_date": "",
+        "padding-top": 0,
+        "padding-bottom": 0
+      }
+    },
+    "limited_drop_wUdbK6": {
+      "type": "limited-drop",
+      "name": "Limited Drop Promo",
+      "settings": {
+        "top_text": "STAY COOL—CLAIM YOURS BEFORE THEY’RE GONE.",
+        "main_heading": "<p>This Drop is <br/><strong>Limited to 500</strong></p>",
+        "sub_text": "<p>Original Venty fans, only for Venty Insiders.</p>",
+        "preorder_date": "<p>Pre orders go live <br/><strong>Now!</strong></p>",
+        "shipping_date": "<p>Fans ship on <br/><strong>Black Friday</strong></p>",
+        "price": "<p>Pre-order price: <strong><br/>$99.99</strong></p>",
+        "after_price_text": "",
+        "product_image_1": "shopify://shop_images/8_1_09457cd6-71e2-47ab-b156-527751593688.png",
+        "color_scheme": "",
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "multi_images_gallery_KYWGwn": {
+      "type": "multi-images-gallery",
+      "blocks": {
+        "promo_image_x9Lpk3": {
+          "type": "promo_image",
+          "settings": {
+            "image": "shopify://shop_images/4_3.jpg"
+          }
+        },
+        "promo_image_HejjJU": {
+          "type": "promo_image",
+          "settings": {
+            "image": "shopify://shop_images/1_4.jpg"
+          }
+        },
+        "promo_image_N6ATnr": {
+          "type": "promo_image",
+          "settings": {
+            "image": "shopify://shop_images/5_1.jpg"
+          }
+        },
+        "promo_image_VFf4dq": {
+          "type": "promo_image",
+          "settings": {
+            "image": "shopify://shop_images/6_2.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "promo_image_x9Lpk3",
+        "promo_image_HejjJU",
+        "promo_image_N6ATnr",
+        "promo_image_VFf4dq"
+      ],
+      "name": "Multi images gallery",
+      "settings": {
+        "headline": "Pre-Orders",
+        "highlight_text": "Limited to First 500 Insiders",
+        "button_text": "",
+        "button_link": "",
+        "first_image": "shopify://shop_images/02.jpg",
+        "main-bg-color": "",
+        "padding-top": 40,
+        "padding-bottom": 40
+      }
+    },
+    "fans_variants_KAUW7k": {
+      "type": "fans-variants",
+      "custom_css": [
+        ".btn-benefit-wrapper {display: none;}"
+      ],
+      "name": "Fans Variants",
+      "settings": {
+        "title": "Simple, functional",
+        "subtitle": "Design.",
+        "btntext": "",
+        "target": false,
+        "url": "",
+        "img1": "shopify://shop_images/original-venty-mint-1.png",
+        "img2": "shopify://shop_images/blue-vanty-full.png",
+        "img3": "shopify://shop_images/Untitled-5_94638932-8c09-4836-b620-585974fcd5a0.png",
+        "tab1name": "",
+        "tab2name": "",
+        "tab3name": "",
+        "background": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "gallery_tabs_gQegFU",
+    "pre_order_promo_VHD4NB",
+    "limited_drop_wUdbK6",
+    "multi_images_gallery_KYWGwn",
+    "fans_variants_KAUW7k"
+  ]
+}

@@ -1,0 +1,261 @@
+<!--Start fans-variants  -->
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="fan-variants_custom section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="fan-variants_custom_content_top">
+      <h2>{{ section.settings.title }}</h2>
+      <div class="fan-variants_custom_content_flex">
+        <h3>{{ section.settings.subtitle }}</h3>
+        <a href="{{ section.settings.url }}" class="btn-benefit-wrapper" {% if section.settings.target %} target="_blank" {% endif %}>
+          {{ section.settings.btntext }}
+          <span>
+            <img src="https://cdn.shopify.com/s/files/1/0613/3297/9961/files/Right_25.png">
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="main-fan-variant-grid">
+      <div class="single--fan-variant-grid">
+{%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+{%- capture sizes -%}
+(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 3 }}px,
+(min-width: 750px) calc((100vw - 130px) / 3), calc((100vw - 50px) / 3)
+{%- endcapture -%}
+            
+           
+{% assign alt = section.settings.img1.alt  %}
+{{
+section.settings.img1
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, class:'lazyload',title: alt
+
+}}
+
+      </div>
+
+      <div class="single--fan-variant-grid">
+
+           
+{% assign alt = section.settings.img2.alt  %}
+{{
+section.settings.img2
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt,title: alt
+}}
+      </div>
+
+      <div class="single--fan-variant-grid">
+{% assign alt = section.settings.img3.alt  %}
+{{
+section.settings.img3
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, class:'lazyload',title: alt
+}}
+
+      </div>
+    </div>
+
+    <div class="tabs-custom-variant-fan">
+      <div class="tabs-name-custom-variant-fan">
+        <h6 id="tab1variant">{{ section.settings.tab1name }}</h6>
+        <h6 id="tab2variant">{{ section.settings.tab2name }}</h6>
+        <h6 id="tab3variant">{{ section.settings.tab3name }}</h6>
+      </div>
+      <div class="tabs-data-custom-variant-fan">
+{% assign alt = section.settings.img1.alt  %}
+{{
+section.settings.img1
+| image_url: width: 600
+| image_tag: sizes: sizes, widths: widths, alt: alt, class:'lazyload', id:'tab1variant',title: alt
+}}
+
+{% assign alt = section.settings.img2.alt  %}
+{{
+section.settings.img2
+| image_url: width: 600
+| image_tag: sizes: sizes, widths: widths, alt: alt, class:'lazyload', id:'tab2variant',title: alt
+}}
+
+        {% assign alt = section.settings.img3.alt  %}
+{{
+section.settings.img3
+| image_url: width: 600
+| image_tag: sizes: sizes, widths: widths, alt: alt, class:'lazyload', id:'tab3variant',title: alt
+}}
+        
+        
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  // Get all tab headers and images
+  const tabHeaders = document.querySelectorAll('.tabs-name-custom-variant-fan h6');
+  const tabImages = document.querySelectorAll('.tabs-data-custom-variant-fan img');
+
+  // Add click event listener to each tab header
+  tabHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+      // Remove 'classtabsactivated' class from all tab headers and images
+      tabHeaders.forEach(h => h.classList.remove('classtabsactivated'));
+      tabImages.forEach(img => img.classList.remove('classtabsactivated'));
+      
+      // Add 'classtabsactivated' class to the clicked tab header and corresponding image
+      header.classList.add('classtabsactivated');
+      const id = header.id;
+      const correspondingImage = document.querySelector(`.tabs-data-custom-variant-fan img[id="${id}"]`);
+      if (correspondingImage) {
+        correspondingImage.classList.add('classtabsactivated');
+      }
+    });
+  });
+
+  // Optionally, you can set the first tab as classtabsactivated by default
+  if (tabHeaders.length > 0) {
+    tabHeaders[0].classList.add('classtabsactivated');
+    tabImages[0].classList.add('classtabsactivated');
+  }
+});
+
+</script>
+<!--End fans-variants  -->
+{% schema %}
+{
+  "name": "Fans Variants",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Main Title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Bold Title"
+    },
+    {
+      "type": "text",
+      "id": "btntext",
+      "label": "Button Text"
+    },
+    {
+    "type":"checkbox",
+    "id":"target",
+    "label":"Open link in a new tab",
+    "default":false
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "Button Link"
+    },
+      {
+          "type": "image_picker",
+          "id": "img1",
+          "label": "image 1"
+        },
+      {
+          "type": "image_picker",
+          "id": "img2",
+          "label": "image 2"
+        },
+      {
+          "type": "image_picker",
+          "id": "img3",
+          "label": "image 3"
+        },
+    {
+      "type": "text",
+      "id": "tab1name",
+      "label": "Tab 1 Heading"
+    },
+    {
+      "type": "text",
+      "id": "tab2name",
+      "label": "Tab 2 Heading"
+    },
+    {
+      "type": "text",
+      "id": "tab3name",
+     "label": "Tab 3 Heading"
+    },
+    
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top Mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom Mobile",
+      "default": 36
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Fans Variants"
+    }
+  ]
+}
+{% endschema %}

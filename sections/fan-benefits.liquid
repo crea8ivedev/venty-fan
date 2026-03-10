@@ -1,0 +1,222 @@
+<!--Start fan-benefits-column  -->
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background }};
+background-image: url('{{ section.settings.bgimgdesktop | img_url: 'master' }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="fan_benefits_custom section-{{ section.id }}-padding {% if section.settings.fan-benefit-section-position %} fan-benefit-section-position{% endif %} {{ section.settings.class}}" >
+{% if section.settings.mobile-image != blank %}
+<div class="mobille-section">
+ {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+{%- capture sizes -%}
+(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1 }}px,
+(min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
+{%- endcapture -%}
+
+{% assign alt = section.settings.mobile-image.alt  %}
+{{
+section.settings.mobile-image
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt,title: alt
+}}
+
+  
+
+
+
+</div>
+{% endif %}
+    <div class="container-type-section">
+    <h2>{{ section.settings.title }}</h2>
+    <h3>{{ section.settings.subtitle }}</h3>
+
+      <div class="main-fan-benefit-grid">
+          {%- for block in section.blocks -%}
+        {% if block.type == 'fan-benefits' %}
+          <div class="single-fan-benefits-column-custom">
+
+{% assign alt = block.settings.img1.alt  %}
+{{
+block.settings.img1
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt,title: alt
+}}
+
+
+            <div class="content_fan_benefits">
+            <h5>{{ block.settings.title }}</h5>
+              <span>{{ block.settings.description }}</span>
+            </div>
+          </div>
+        {% endif %}
+      {%- endfor -%}
+      </div>
+
+      <a href="{{ section.settings.url }}" class="btn-benefit-wrapper" {% if section.settings.pointer %} {% if localization.language.iso_code == 'es' or localization.language.iso_code == 'fr' or localization.language.iso_code == 'it' or localization.language.iso_code == 'nl' or localization.language.iso_code == 'pl' %}  style="pointer-events: none !important;" {% endif %} {% endif %} >
+        {{ section.settings.btntext }}
+             <span>
+                <img src="https://cdn.shopify.com/s/files/1/0613/3297/9961/files/Right_25.png" />
+                  </span>
+      </a>
+      
+    </div>
+
+</div>
+
+<!-- End fan-benefits-column  -->
+{% schema %}
+{
+  "name": "fan-benefits-column",
+  "class": "fan-benefits-part",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "fan-benefit-section-position",
+      "label": "Check this to change the location of container from left to right"
+    }, 
+
+      {
+      "type": "text",
+      "id": "class",
+      "label": "Custom class"
+      
+    },
+
+    
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Main Title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sub Title"
+    },
+    {
+      "type": "text",
+      "id": "btntext",
+      "label": "Button Text"
+    },
+    {
+      "type": "checkbox",
+      "id":"pointer",
+      "label":"pointer events Hide/Show",
+      "default":false
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "bgimgdesktop",
+      "label": "Background image"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "image_picker",
+      "id":"mobile-image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top Mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom Mobile",
+      "default": 36
+    }
+  ],
+  "blocks": [
+  {
+    "type": "fan-benefits",
+    "name": "Fan Benefits",
+    "settings": [
+       {
+          "type": "image_picker",
+          "id": "img1",
+          "label": "icon"
+        },
+       {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+       {
+          "type": "text",
+          "id": "description",
+          "label": "Description"
+        }
+    ]
+  }
+],
+  "presets": [
+    {
+      "name": "Fan Benefits"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,30 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "page.support-page.json",
+  "context": {
+    "market": "asia"
+  },
+  "sections": {
+    "custom_product_column_YYEj7X": {
+      "settings": {},
+      "blocks": {
+        "product_custom_eCf9CV": {
+          "disabled": true,
+          "settings": {}
+        },
+        "product_custom_Q9dUUj": {
+          "disabled": true,
+          "settings": {}
+        }
+      }
+    }
+  }
+}

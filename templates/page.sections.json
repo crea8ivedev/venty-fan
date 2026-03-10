@@ -1,0 +1,254 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "custom_banner_RBXkQk": {
+      "type": "Custom-Banner",
+      "settings": {
+        "allow_transparent_header": true,
+        "heightcstm": 73,
+        "bgimgdesktop": "shopify:\/\/shop_images\/Rectangle_377.png",
+        "heading": "Our Story",
+        "button_text_1": "Contact US",
+        "button_link_1": "shopify:\/\/pages\/contact",
+        "background": "",
+        "padding_top": 36,
+        "padding_bottom": 60,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "logo_slider_advanced_wFwHJC": {
+      "type": "Logo_Slider_Advanced",
+      "blocks": {
+        "imagesizing_XFdwCr": {
+          "type": "imagesizing",
+          "settings": {
+            "img1": "shopify:\/\/shop_images\/As_seen_On_4707d0a4-a7ec-4ec3-9875-6db0ab18e86b.png",
+            "imagesize": 40,
+            "imagesizemobile": 69
+          }
+        },
+        "imagesizing_8GbxP8": {
+          "type": "imagesizing",
+          "settings": {
+            "img1": "shopify:\/\/shop_images\/good_1_dfb43b2e-e4b4-4bef-bd6c-6ecf5f862eb3.png",
+            "imagesize": 60,
+            "imagesizemobile": 69
+          }
+        },
+        "imagesizing_dz6R6P": {
+          "type": "imagesizing",
+          "settings": {
+            "img1": "shopify:\/\/shop_images\/NBC_logo_1_23f32ada-7871-4dd2-bd68-3f9b2e7c52b3.png",
+            "imagesize": 19,
+            "imagesizemobile": 36
+          }
+        },
+        "imagesizing_jBk4d4": {
+          "type": "imagesizing",
+          "settings": {
+            "img1": "shopify:\/\/shop_images\/Kickstarter_logo_1_67b777d9-a38d-41d0-b9c9-7543de120bb0.png",
+            "imagesize": 62,
+            "imagesizemobile": 69
+          }
+        },
+        "imagesizing_mQWp8g": {
+          "type": "imagesizing",
+          "settings": {
+            "img1": "shopify:\/\/shop_images\/Gizmodo_1_5179fbe7-f3f6-4dc9-bb3b-603871a43bc1.png",
+            "imagesize": 62,
+            "imagesizemobile": 69
+          }
+        }
+      },
+      "block_order": [
+        "imagesizing_XFdwCr",
+        "imagesizing_8GbxP8",
+        "imagesizing_dz6R6P",
+        "imagesizing_jBk4d4",
+        "imagesizing_mQWp8g"
+      ],
+      "settings": {
+        "customheightenable": true,
+        "heightcstm": 10,
+        "cell_width": "20%",
+        "cell_width_mobile": "25%",
+        "wrap_around": "false",
+        "cell_align": "center",
+        "draggable": "false",
+        "autoplay_speed": "false",
+        "mr": 0,
+        "background": "#f1f2f4",
+        "padding_top": 16,
+        "padding_bottom": 16,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "counter_custom_yCgyiN": {
+      "type": "counter-custom",
+      "blocks": {
+        "counter_nwpYb6": {
+          "type": "Counter",
+          "settings": {
+            "heading": "500000+",
+            "paragraph": "Products Sold"
+          }
+        },
+        "counter_adiDYX": {
+          "type": "Counter",
+          "settings": {
+            "heading": "8000+",
+            "paragraph": "User Reviews"
+          }
+        },
+        "counter_WC3Yzm": {
+          "type": "Counter",
+          "settings": {
+            "heading": "4.8",
+            "paragraph": "Avg Rating"
+          }
+        },
+        "counter_ztCiYa": {
+          "type": "Counter",
+          "settings": {
+            "heading": "2020",
+            "paragraph": "Since"
+          }
+        }
+      },
+      "block_order": [
+        "counter_nwpYb6",
+        "counter_adiDYX",
+        "counter_WC3Yzm",
+        "counter_ztCiYa"
+      ],
+      "settings": {
+        "background": "",
+        "padding_top": 12,
+        "padding_bottom": 32,
+        "padding_top_mob": 20,
+        "padding_bottom_mob": 20
+      }
+    },
+    "custom_richtext_section_N6iTMj": {
+      "type": "custom-richtext-section",
+      "custom_css": [
+        ".rightrichtext p {margin-bottom: 20px;}"
+      ],
+      "settings": {
+        "richtext_1": "<p><em>Venty was born from a simple frustration: the market was flooded with cheaply made, uninspired products that break easily and lack real innovation. We saw a race to the bottom<\/em><\/p><p><em>where quality was sacrificed for price, and user experience was an afterthought. We knew there had to be a better way.<\/em><br\/><\/p><h6><strong>Matthew Slack, Venty CEO<\/strong><\/h6>",
+        "richtext_2": "<p>At Venty, we’re passionate about creating beautifully designed, intuitive products that enhance everyday life. We obsess over the details—from how something feels in your hand to how seamlessly it fits into your lifestyle. We invest heavily in research and development because we believe that great design starts with a deep understanding of real-world needs.<\/p><p>We don’t cut corners. We don’t chase trends. And we never release a product unless we’re genuinely proud of it.<\/p><p>Our goal is simple: to set a new standard for what portable comfort and cooling can be. Whether you're camping off-grid, working remotely, or just enjoying your backyard, we’re here to bring you smart, reliable products that deliver—again and again.<\/p><p>Welcome to Venty. Design-forward. Innovation-driven. Built to last.<\/p><p><strong>Venty<\/strong><br\/>6900 Westcliff Dr. Ste 503 <br\/>Las Vegas, NV 89145<\/p>",
+        "background": "",
+        "padding_top": 64,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "custom_2image_section_LUAUgV": {
+      "type": "custom-2image-section",
+      "settings": {
+        "heightcstmdesktop": 79,
+        "mobheightcstm": 79,
+        "image1": "shopify:\/\/shop_images\/11_73e4801f-cdc7-49a5-9f11-36e7662113ab.png",
+        "image2": "shopify:\/\/shop_images\/22.png",
+        "background": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "custom_ventyvision_section_7yXcFF": {
+      "type": "Custom-ventyvision-section",
+      "blocks": {
+        "heading_paragraph_VHt88Y": {
+          "type": "heading-paragraph",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/rocket-01.png",
+            "heading": "The Venty  Mission",
+            "paragraph": "Design & Develop high performing products that we use on a daily basis."
+          }
+        },
+        "heading_paragraph_3GedGm": {
+          "type": "heading-paragraph",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/idea-01.png",
+            "heading": "The Venty Vision",
+            "paragraph": "Our households should have intuitive products that look as amazing as their functionality."
+          }
+        }
+      },
+      "block_order": [
+        "heading_paragraph_VHt88Y",
+        "heading_paragraph_3GedGm"
+      ],
+      "settings": {
+        "heading": "We are based in the heart of Summerlin, Las Vegas.",
+        "background": "",
+        "padding_top": 44,
+        "padding_bottom": 0,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "172365058313300296": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_fkWEGV": {
+          "type": "shopify:\/\/apps\/instafeed\/blocks\/app-block\/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": "<h2 class=\"cstmh2slide\">INSTAGRAM FEED<\/h2>"
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_fkWEGV"
+      ],
+      "settings": {
+        "include_margins": false,
+        "class": "",
+        "id": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_banner_RBXkQk",
+    "logo_slider_advanced_wFwHJC",
+    "counter_custom_yCgyiN",
+    "custom_richtext_section_N6iTMj",
+    "custom_2image_section_LUAUgV",
+    "custom_ventyvision_section_7yXcFF",
+    "172365058313300296"
+  ]
+}

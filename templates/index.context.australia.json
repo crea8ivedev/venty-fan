@@ -1,0 +1,47 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "index.json",
+  "context": {
+    "market": "australia"
+  },
+  "sections": {
+    "relative_banner_image_eMbkng": {
+      "settings": {
+        "img": "shopify://shop_images/5_55e2e7ef-f062-45a4-a699-600f67fcf108.png",
+        "mobile-img": "shopify://shop_images/6_f1df250e-8da8-4bb3-9a86-29303ebfa7eb.png"
+      },
+      "blocks": {}
+    },
+    "product_column_custom_GmKaJN": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {
+        "product_custom_t9JYQ7": {
+          "settings": {
+            "text4": "NOT AVAILABLE IN AUS",
+            "linkproduct": ""
+          }
+        },
+        "product_custom_ty6Gz4": {
+          "settings": {
+            "text4": "COMING SOON"
+          }
+        }
+      }
+    },
+    "bundle_and_save_section_rAVpdw": {
+      "settings": {
+        "para": "Order 2+ Venty Fans And Get $15 Off + Free Shipping"
+      },
+      "blocks": {}
+    }
+  }
+}

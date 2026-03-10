@@ -1,0 +1,465 @@
+<!-- Start clip-fan-boxes  -->
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background }};
+  }
+
+  @media screen and (min-width:1025px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+
+    @media screen and (min-width:992px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+  
+  @media screen and (max-width:992px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+
+  
+ @media screen and (max-width:550px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob | times: 0.40 | round: 0  }}px;
+     
+    }
+
+   .right-content-clip-fan-boxes .img-single-boxes {
+    margin:0 0 20px 0;
+} 
+   
+  }
+
+  
+{%- endstyle -%}
+<style>
+.clip-fan-main-boxes .page-width {
+    gap: 20px;
+    display: flex;
+    /* height: 70vh; */
+}
+.clip-fan-main-boxes img {
+    width:40%;
+}
+.right-content-clip-fan-boxes, .left-content-clip-fan-boxes,.right-top-content-clip-fan-boxes .img-single-boxes {
+    width: 49%;
+}
+  .right-top-content-clip-fan-boxes {
+    display: flex;
+    gap: 20px;
+}
+  .img-single-boxes {
+    border-radius:20px;
+    background: rgba(241, 242, 244, 1);
+}
+
+.img-single-boxes {
+    position: relative;
+}
+.right-top-content-clip-fan-boxes .img-single-boxes:nth-child(2) img {
+    width: 44%;
+    position: absolute;
+    bottom: 0;
+}
+.right-top-content-clip-fan-boxes .img-single-boxes:nth-child(1) img {
+    width: 100%;
+}
+ 
+.right-content-clip-fan-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+      justify-content: space-between;
+}
+.img-single-boxes {
+    height: 100%;
+    overflow: hidden;
+  
+}
+.right-bottom-content-clip-fan-boxes img {
+    object-fit: cover;
+    margin-left: auto;
+    display: flex;
+    object-position: bottom;
+    height: 50%;
+}
+.right-top-content-clip-fan-boxes {
+    height: 65%;
+}
+  .right-bottom-content-clip-fan-boxes {
+    height: 35%;
+}
+.right-top-content-clip-fan-boxes .img-single-boxes {
+    height: 100%;
+}
+.left-content-clip-fan-boxes img {
+    width:64%;
+    object-fit: cover;
+}
+  
+  .clip-fan-main-boxes h2 {
+    color: rgba(13, 24, 47, 1);
+    font-size:28px;
+    font-weight: 600;
+    line-height: 45px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    margin:0 0 10px 0;
+}
+  .clip-fan-main-boxes p {
+    font-size:18px;
+    font-weight: 400;
+    line-height: 22.2px;
+    text-align: left;
+    margin:0;
+    color: rgba(77, 77, 77, 1);
+}
+  .left-content-clip-fan-boxes .content-boxes-title {
+    width: 38%;
+    position: absolute;
+    top: 18%;
+    left: 50%;
+}
+  .right-bottom-content-clip-fan-boxes .img-single-boxes {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.right-bottom-content-clip-fan-boxes .content-boxes-title {
+    padding: 22px;
+}
+.right-top-content-clip-fan-boxes .img-single-boxes:nth-child(1) .content-boxes-title {
+    position: absolute;
+    bottom: 10px;
+    padding: 13px 20px;
+}
+.right-top-content-clip-fan-boxes .img-single-boxes:nth-child(1) img {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+}
+.right-top-content-clip-fan-boxes .img-single-boxes {
+    height:100%;
+    overflow: hidden;
+}
+  .right-top-content-clip-fan-boxes .img-single-boxes:nth-child(2) .content-boxes-title {
+    padding: 10px 30px 10px 40px;
+}
+
+ @media only screen and (max-width:1025px) {
+
+   .clip-fan-main-boxes h2 { font-size:24px; }
+  .clip-fan-main-boxes p  { font-size:14px; }
+
+   .right-top-content-clip-fan-boxes .img-single-boxes:nth-child(2) .content-boxes-title {
+	padding: 10px 10px 10px 22px;
+}
+
+   .right-top-content-clip-fan-boxes .img-single-boxes {
+	height: 248px;
+	 
+}
+
+   .clip-fan-main-boxes .page-width { height: 440px; }
+   
+
+   
+ }
+
+
+  
+  
+  @media(max-width:768px){
+  .right-content-clip-fan-boxes, .left-content-clip-fan-boxes, .right-top-content-clip-fan-boxes .img-single-boxes {
+    width: 100%;
+}
+    .clip-fan-main-boxes .page-width {
+    height: auto;
+}
+     .right-top-content-clip-fan-boxes .img-single-boxes:nth-child(2) img,
+    .right-top-content-clip-fan-boxes .img-single-boxes:nth-child(1) img {
+    position: unset;
+}
+    .right-content-clip-fan-boxes .right-top-content-clip-fan-boxes .img-single-boxes:nth-child(2){
+         display: flex;
+        flex-direction: column-reverse;
+}
+.right-top-content-clip-fan-boxes .img-single-boxes {
+    height: 300px;
+}
+    
+}
+  @media(max-width:500px){
+  .right-top-content-clip-fan-boxes .img-single-boxes:nth-child(1) .content-boxes-title {
+    position: unset;
+    padding: 20px;
+        margin-top: -150px;
+}
+    .right-top-content-clip-fan-boxes .img-single-boxes:nth-child(2) .content-boxes-title,
+    .right-bottom-content-clip-fan-boxes .content-boxes-title{
+    padding: 18px;
+}
+.img-single-boxes {
+        height: auto !important;
+}
+    .clip-fan-main-boxes h2 {
+    font-size: 19px;
+    line-height: 36px;
+}
+.clip-fan-main-boxes p {
+    font-size: 15px;
+    line-height: 18.2px;
+}
+
+
+.left-content-clip-fan-boxes .content-boxes-title { width:50%; }
+
+.right-content-clip-fan-boxes{gap:0px; }
+
+    .clip-fan-main-boxes .page-width {
+    gap:20px;
+  }
+
+
+    
+}
+
+
+
+  
+</style>
+
+<div class="section-{{ section.id }}-padding clip-fan-main-boxes">
+<div class="page-width">
+
+<div class="left-content-clip-fan-boxes">
+    <div class="img-single-boxes">
+        {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+{%- capture sizes -%}
+(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 4 }}px,
+(min-width: 750px) calc((100vw - 130px) / 1), calc((100vw - 50px) / 1)
+{%- endcapture -%}
+
+     
+
+      {% if section.settings.img1 != blank %}
+        {% assign alt = section.settings.img1.alt %}
+        {{
+section.settings.img1
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt:alt
+
+}}
+  
+        {% endif %}
+    <div class="content-boxes-title">
+            <h2>{{ section.settings.title1 }}</h2>
+        <p>{{ section.settings.txt1 }}</p>
+  </div>
+      
+
+  </div>
+</div>
+
+<div class="right-content-clip-fan-boxes">
+<div class="right-top-content-clip-fan-boxes">
+  <div class="img-single-boxes">
+    {% if section.settings.img2 != blank %}
+
+      {% assign alt = section.settings.img2.alt %}
+       {{
+section.settings.img2
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths,alt:alt
+
+}}
+  
+      {% endif %}
+        <div class="content-boxes-title">
+           <h2>{{ section.settings.title2 }}</h2>
+        <p>{{ section.settings.txt2 }}</p>
+  </div>
+ 
+  </div>
+    <div class="img-single-boxes">
+      {% if section.settings.img3 != blank %}
+        {% assign alt = section.settings.img3.alt %}
+           {{
+section.settings.img3
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt:alt
+
+}} 
+ 
+        {% endif %}
+          <div class="content-boxes-title">
+              <h2>{{ section.settings.title3 }}</h2>
+        <p>{{ section.settings.txt3 }}</p>
+  </div>
+ 
+  </div>
+  
+</div>
+<div class="right-bottom-content-clip-fan-boxes">
+    <div class="img-single-boxes">
+      {% if section.settings.img4 != blank %}
+         {% assign alt = section.settings.img3.alt %}
+            {{
+section.settings.img4
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths,alt:alt
+
+}}
+      {% endif %}
+          <div class="content-boxes-title">
+                 <h2>{{ section.settings.title4 }}</h2>
+        <p>{{ section.settings.txt4 }}</p>
+  </div>
+
+  </div>
+</div>
+
+</div>
+
+  
+</div>
+</div>
+
+<!-- End clip-fan-boxes  -->
+{% schema %}
+{
+  "name": "Clip Fan Boxes",
+  "settings": [
+   
+      {
+      "type": "text",
+      "id": "title1",
+      "label": "Title 1"
+    },
+     {
+      "type": "text",
+      "id": "txt1",
+      "label": "Para 1"
+    },
+      {
+      "type": "image_picker",
+      "id": "img1",
+      "label": "image 1"
+    },
+
+       {
+      "type": "text",
+      "id": "title2",
+      "label": "Title 2"
+    },
+     {
+      "type": "text",
+      "id": "txt2",
+      "label": "Para 2"
+    },
+      {
+      "type": "image_picker",
+      "id": "img2",
+      "label": "image 2"
+    },
+
+       {
+      "type": "text",
+      "id": "title3",
+      "label": "Title 3"
+    },
+     {
+      "type": "text",
+      "id": "txt3",
+      "label": "Para 3"
+    },
+      {
+      "type": "image_picker",
+      "id": "img3",
+      "label": "image 3"
+    },
+
+         {
+      "type": "text",
+      "id": "title4",
+      "label": "Title 4"
+    },
+     {
+      "type": "text",
+      "id": "txt4",
+      "label": "Para 4"
+    },
+      {
+      "type": "image_picker",
+      "id": "img4",
+      "label": "image 4"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+   {
+  "type": "range",
+  "id": "padding_top",
+  "min": 0,
+  "max": 1000,
+  "step": 10,
+  "unit": "px",
+  "label": "Padding Top",
+  "default": 40
+},
+
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top Mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom Mobile",
+      "default": 36
+    }
+    
+  ],
+
+  "presets": [
+    {
+      "name": "Clip Fan Boxes",
+   
+    }
+  ]
+}
+{% endschema %}

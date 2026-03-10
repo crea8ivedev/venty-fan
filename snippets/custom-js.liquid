@@ -1,0 +1,327 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+// Add event listener for elements with class 'openburger'
+document.querySelectorAll('.openburger').forEach(function(element) {
+element.addEventListener('click', function() {
+document.body.classList.add('activatedmenu');
+});
+});
+
+// Add event listener for elements with class 'closeburger'
+document.querySelectorAll('.closeburger').forEach(function(element) {
+element.addEventListener('click', function() {
+document.body.classList.remove('activatedmenu');
+});
+});
+
+document.querySelectorAll('.full-close').forEach(function(element) {
+element.addEventListener('click', function() {
+document.body.classList.remove('activatedmenu');
+});
+});
+});
+
+ 
+document.addEventListener("DOMContentLoaded", function() {
+// Add event listener for elements with class 'openburger'
+document.querySelectorAll('.cstm-search-icon-open').forEach(function(element) {
+element.addEventListener('click', function() {
+document.body.classList.add('activatedsearch');
+});
+});
+
+// Add event listener for elements with class 'closeburger'
+document.querySelectorAll('.cstm-search-icon-close').forEach(function(element) {
+element.addEventListener('click', function() {
+document.body.classList.remove('activatedsearch');
+});
+});
+});
+
+
+
+ 
+document.addEventListener("DOMContentLoaded", function() {
+// Select all elements with the class 'li-menu-footer'
+var menuFooters = document.querySelectorAll('.li-menu-footer');
+
+// Iterate through each 'li-menu-footer' element
+menuFooters.forEach(function(menuFooter) {
+// Check if the current 'li-menu-footer' element contains a 'ul'
+if (menuFooter.querySelector('ul')) {
+// Add the class 'li-have-ul' to the 'li-menu-footer' element
+menuFooter.classList.add('li-have-ul');
+}
+});
+
+// Select all elements with the class 'li-have-ul'
+const elements = document.querySelectorAll('.li-have-ul');
+
+// Add a click event listener to each element
+elements.forEach(element => {
+element.addEventListener('click', () => {
+// Toggle the 'li-triggered' class on the clicked element
+element.classList.toggle('li-triggered');
+});
+});
+});
+ 
+document.addEventListener('DOMContentLoaded', (event) => {
+const accordionBtns = document.querySelectorAll(".accordion-cstm");
+accordionBtns.forEach((accordion) => {
+accordion.onclick = function () {
+this.classList.toggle("is-open");
+let content = this.nextElementSibling;
+content.classList.toggle("open"); // Add or remove 'open' class
+if (content.style.maxHeight) {
+// This is if the accordion is open
+content.style.maxHeight = null;
+} else {
+// If the accordion is currently closed
+content.style.maxHeight = content.scrollHeight + "px";
+}
+};
+});
+});
+
+ 
+
+<!-- tabs simple script  -->
+ 
+$('.tab-link').click(function () {
+
+var tabID = $(this).attr('data-tab');
+
+$(this).addClass('active').siblings().removeClass('active');
+
+$('#tab-' + tabID).addClass('active').siblings().removeClass('active');
+});
+</script>
+  
+<!-- tabs simple script  -->
+
+
+<!-- script for hot spots -->
+<script>
+// Get all the main-dot-and-content elements
+const dots = document.querySelectorAll('.main-dot-and-content');
+
+// Add a click event listener to each
+dots.forEach(dot => {
+dot.addEventListener('click', function(event) {
+// Prevent the document click event from firing
+event.stopPropagation();
+
+// Remove 'activetedcurrent' class from all dots
+dots.forEach(d => d.classList.remove('activetedcurrent'));
+
+// Add 'activetedcurrent' class to the clicked dot
+this.classList.add('activetedcurrent');
+});
+});
+
+// Add a click event listener to the document
+document.addEventListener('click', function() {
+// Remove 'activetedcurrent' class from all dots when clicking outside
+dots.forEach(d => d.classList.remove('activetedcurrent'));
+});
+</script>
+<!-- script for hot spots -->
+
+
+<!-- counter script -->
+<script>
+document.querySelectorAll('.counter-custom').forEach(counter => {
+const targetText = counter.getAttribute('data-target');
+const target = parseFloat(targetText.replace('+', ''));
+let count = 0;
+const step = target / 200; // Adjust the speed if needed
+const hasPlus = targetText.includes('+');
+
+const updateCount = () => {
+if (count < target) {
+count = Math.min(count + step, target);
+counter.innerText = count.toFixed(1).replace(/\.0$/, '') + (hasPlus ? '+' : ''); // Display with 1 decimal place and add + if needed
+} else {
+counter.innerText = target.toFixed(1).replace(/\.0$/, '') + (hasPlus ? '+' : ''); // Display with 1 decimal place and add + if needed
+clearInterval(interval);
+}
+};
+
+const interval = setInterval(updateCount, 10); // Update every 10ms
+});
+ 
+<!-- counter script -->
+
+<!-- script for open menu on hover  -->
+ 
+let items = document.querySelector(".header__inline-menu").querySelectorAll("details");
+console.log(items)
+items.forEach(item => {
+item.addEventListener("mouseover", () => {
+item.setAttribute("open", true);
+item.querySelector("ul").addEventListener("mouseleave", () => {
+item.removeAttribute("open");
+});
+item.addEventListener("mouseleave", () => {
+item.removeAttribute("open");
+});
+});
+
+});
+</script>
+<!-- script for open menu on hover  -->
+
+ 
+
+{% if template.name == 'login'  or template.name == 'register' %}
+
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+
+$("input").focus(function(){
+$(this).parent().addClass("lable-part");
+
+}).blur(function(){
+$val  = $(this).val();
+if(!$val){
+$(this).parent().removeClass("lable-part");
+}
+})
+
+});
+</script>
+{% endif %}
+
+
+<script defer="defer" type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=XVHUxq"></script>
+
+
+<script>
+window.addEventListener('load', function () {
+  var _learnq = window._learnq || [];
+  var klAjax = true;
+
+  function addedToCart() {
+    fetch(`${window.location.origin}/cart.js`)
+      .then(res =>
+        res.clone().json().then(data => {
+          var cart = {
+            total_price: data.total_price / 100,
+            $value: data.total_price / 100,
+            total_discount: data.total_discount,
+            original_total_price: data.original_total_price / 100,
+            items: data.items
+          };
+
+          // Track event if not already fired
+          if (klAjax) {
+            _learnq.push(['track', 'Added to Cart', cart]);
+            klAjax = false;
+          }
+        })
+      );
+  }
+
+  // Wrap fetch to detect cart/add.js calls
+  (function (ns, fetch) {
+    ns.fetch = function () {
+      const response = fetch.apply(this, arguments);
+      response.then(res => {
+        if (res.url.includes(`/cart/add.js`)) {
+          addedToCart();
+        }
+      });
+      return response;
+    };
+  })(window, window.fetch);
+
+  // Handle direct button clicks (in case fetch override misses something)
+  var atcButtons = document.querySelectorAll("form[action*='/cart/add'] button[type='submit']");
+  for (var i = 0; i < atcButtons.length; i++) {
+    atcButtons[i].addEventListener("click", function () {
+      if (klAjax) {
+        // Call fetch version instead of undefined item
+        addedToCart();
+      }
+    });
+  }
+});
+
+</script>
+
+ 
+
+{% if template == 'page.full-width' or template 'page.clip-fan' %}
+ 
+<script>
+  // Get the current page URL
+  var currentUrl = window.location.href;
+
+  // The URL you want to check
+  var targetUrl = "https://ventyfan.com/pages/cozypod?contact%5Btags%5D=COMING-SEPTEMBER%2C+cozypod&form_type=customer#contact_form";
+ var targetUrl = "https://ventyfan.com/pages/clip-fan?contact%5Btags%5D=COMING-SEPTEMBER+%2Cclip-fan&form_type=customer#contact_form";
+
+  // Check if the current URL matches the target URL
+  if (currentUrl === targetUrl) {
+    // Find the div with the class 'error__msg'
+    var errorMsgDiv = document.querySelector('.error__msg');
+    
+    // Check if the div exists
+    if (errorMsgDiv) {
+      // Add the message inside the div
+      errorMsgDiv.innerHTML = "<p>This email id already subscribed!</p>";
+    }
+  }
+</script>
+
+  
+  
+
+  
+
+{% endif %} 
+
+ 
+<script>
+
+  $(document).on("click", '.ChooseYourColor-1', function(e){
+  // Get the input ID from the label's "for" attribute
+  var inputId = $(this).attr('for');
+
+  // Get the input element and its value (color)
+  var inputElement = $('#' + inputId);
+  var clickedColor = inputElement.val();
+
+  console.log("You clicked:", clickedColor); // ✅ Shows the clicked color
+
+  // Select the target container
+  var $container = $('.product__info-container');
+
+  // Remove all previously added color classes
+  $container.removeClass('selected-black selected-white selected-red selected-blue selected-mint');
+
+  // Add class dynamically based on clicked color
+  $container.addClass('selected-' + clickedColor.toLowerCase());
+});
+
+
+</script>
+
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+

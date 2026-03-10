@@ -1,0 +1,513 @@
+<!-- Start portable-fan-section  -->
+
+<style>
+  .main-dot-and-content {
+    width: fit-content;
+    --hot-spot-dot-size: var(--spacing-8);
+    --hot-spot-dot-shadow-size: var(--spacing-2-5);
+    position: absolute !important;
+    top: var(--hot-spot-vertical-position-desktop);
+    left: var(--hot-spot-horizontal-position-desktop);
+  }
+
+  @media screen and (max-width: 1024px) {
+    .main-dot-and-content {
+      top: var(--hot-spot-vertical-position-tablet);
+      left: var(--hot-spot-horizontal-position-tablet);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .main-dot-and-content {
+      top: var(--hot-spot-vertical-position-mobile);
+      left: var(--hot-spot-horizontal-position-mobile);
+    }
+
+
+    
+  }
+</style>
+
+
+
+
+{%- style -%}
+     {%- for block in section.blocks -%}
+     {% if block.type == 'centerdotsdetails' %}
+  #block-{{ section.id }}-{{ block.id }} {
+    --hot-spot-horizontal-position-desktop: {{ block.settings.horizontal_position_desktop }}%;
+    --hot-spot-vertical-position-desktop: {{ block.settings.vertical_position_desktop }}%;
+    --hot-spot-horizontal-position-tablet: {{ block.settings.horizontal_position_tablet }}%;
+    --hot-spot-vertical-position-tablet: {{ block.settings.vertical_position_tablet }}%;
+    --hot-spot-horizontal-position-mobile: {{ block.settings.horizontal_position_mobile }}%;
+    --hot-spot-vertical-position-mobile: {{ block.settings.vertical_position_mobile }}%;
+  }
+   {% endif %}
+        {% endfor %}
+
+{%- endstyle -%}
+
+
+
+
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+
+{%- endstyle -%}
+<style>
+  .cozy-ultimate-left img {
+    width: 100%;
+}
+.cozy-ultimate-main .page-width {
+    display: flex;
+    justify-content: space-between;
+}
+.cozy-ultimate-left {
+    width: 30%;
+    max-height: 300px;
+}
+.cozy-ultimate-right {
+    width: 65%;
+    padding-top: 70px;
+}
+.inner-left-single-boxe-ultimate img {
+    width:30px;
+    height:30px;
+}
+  .single-boxe-ultimate {
+    display: flex;
+    align-items: flex-start;
+    gap: 0px;
+    width: 47%;
+}
+.main-boxes-ultimate {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 14px;
+    margin: 40px 0px;
+}
+.main-boxes-ultimate h3 {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    margin: 0;
+    color: rgba(13, 24, 47, 1);
+    text-transform: uppercase;     
+}
+.main-boxes-ultimate p {
+    margin: 0;
+    color: rgba(77, 77, 77, 1);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+   
+      line-height: 1.4;
+   
+}
+  .title-ultimate-cozy p {
+    margin: 0;
+    color: #031133;
+    font-size: 55px;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+    width: 60%;
+}
+  .title-ultimate-cozy p:empty {
+    display:none;
+}
+  @media(max-width:1250px){
+    .title-ultimate-cozy p {
+    width: 70%;
+          font-size: 48px;
+}
+.main-boxes-ultimate {
+    margin: 40px 0px;
+}
+
+    
+  }
+  @media(max-width:992px){
+    .title-ultimate-cozy p {
+        width: 100%;
+    }
+    .main-boxes-ultimate {
+        row-gap: 20px;
+    }
+
+  }
+  @media(max-width:769px){
+        .cozy-ultimate-main .page-width {
+    flex-direction: column;
+}
+    .cozy-ultimate-left {
+    width: 30%;
+    margin: auto;
+}
+    .cozy-ultimate-right {
+    width: 100%;
+    padding-top: 10px;
+}
+    .single-boxe-ultimate {
+    width: 100%;
+}
+  }
+  @media(max-width:500px){
+        .title-ultimate-cozy p {
+        font-size: 40px;
+    }
+  }
+  @media(max-width:390px){
+    
+  }
+  
+
+.Specs-command {
+    display: none;
+   
+}
+  
+@media(max-width:500px){
+
+.Specs-command {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;     padding: 15px 0; 
+}
+.Specs-command-part-left .Specs-command-items,  
+.Specs-command-part-center .Specs-command-items,
+.Specs-command-part-right .Specs-command-items{
+    text-align: center; border-radius: 8px;
+background: #F1F2F4;     padding: 6px 2px; margin: 10px 0;  min-height:135px;
+}  
+ .Specs-command-part-left h6,  
+.Specs-command-part-center h6,
+.Specs-command-part-right h6{
+  margin:0;
+}  
+ .Specs-command-part-left p,  
+.Specs-command-part-center p,
+.Specs-command-part-right p{
+  margin:0; font-size:8px;
+}   
+
+.Specs-command-items h6 {
+    font-size: 9.5px;
+    line-height: 1.4;
+}
+
+  
+.Specs-command-part-center .Specs-command-items:nth-child(2) {
+   
+    background-color: inherit;
+    min-height: 270px;  margin:0;
+}
+
+.Specs-command-items img {
+	max-width: 100%;
+	width: 60px;
+}
+      
+.Specs-command-part-center .Specs-command-items:nth-child(2) img {
+    max-width: 100%;
+    width: 106.66px;
+    height: 260px;
+    flex-shrink: 0;
+}
+
+  .cozy-ultimate-left {
+        width: 66%;
+  }
+
+  }
+    
+  
+</style>
+
+<div class="section-{{ section.id }}-padding cozy-ultimate-main">
+
+
+<div class="page-width top-clip-part">
+   {% if section.settings.heading != blank %}   <div class="title-ultimate-cozy ">{{ section.settings.heading }}</div>{% endif %}
+   {% if section.settings.content != blank %}{{ section.settings.content }}  {% endif %}
+
+   <a class="btn-benefit-wrapper" href="{{ section.settings.button_link_1 }}">
+        {{ section.settings.button_text_1 }}
+        <span>
+          <img src="https://cdn.shopify.com/s/files/1/0613/3297/9961/files/Right_25.png">
+        </span>
+      </a>
+ 
+</div>
+
+  
+  <div class="page-width">
+
+
+
+    <div class="cozy-ultimate-right">
+  
+
+      <div class="main-boxes-ultimate">
+           {%- for block in section.blocks -%}
+        {% if block.type == 'boxes' %}
+        <div class="single-boxe-ultimate">
+          <div class="inner-left-single-boxe-ultimate">
+{% assign alt = block.settings.icon.alt %}            
+{{
+block.settings.icon
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths ,alt:alt, loading: 'lazy', fetchpriority: 'low'
+}}
+   <h3>{{ block.settings.title }}</h3>
+          </div>
+          <div class="inner-right-single-boxe-ultimate">
+          
+            <p>{{ block.settings.para }}</p>
+          </div>
+        </div>
+        {% endif %}
+          {% endfor %}
+      </div>
+
+           
+   </div>
+   
+  <div class="center-data-hostpot cozy-ultimate-left">
+        <div class="hotspot-image-main">
+        
+
+{%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+{%- capture sizes -%}
+(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1 }}px,
+(min-width: 750px) calc((100vw - 130px) / 1), calc((100vw - 50px) / 1)
+{%- endcapture -%}
+
+{% assign img_alt = section.settings.imgmain.alt -%}      
+{{
+section.settings.imgmain
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: img_alt, loading: 'lazy', fetchpriority: 'low'
+
+}}
+
+
+          {%- for block in section.blocks -%}
+          {% if block.type == 'centerdotsdetails' %}
+          <div id="block-{{ section.id }}-{{ block.id }}" class="main-dot-and-content">
+            <div class="main-dot-hotspot">
+              <div class="hotspot__positioner--01">
+                <div class="hotspot__container">
+                  <div class="hotspot-dott hotspot--01"></div>
+                  <div class="hotspot-dott hotspot--02"></div>
+                  <div class="hotspot-dott hotspot--03"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="main-dot-and-content-only">
+              <h5>{{ block.settings.titledots }}</h5>
+              <span>{{ block.settings.descriptiondots }}</span>
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+          
+        </div>
+      </div>
+    
+  </div>
+</div>
+
+<!-- End portable-fan-section  -->
+{% schema %}
+{
+  "name": "Portable Fan Section",
+  "class": "protable-fan-section",
+  "settings": [
+      {
+      "type": "image_picker",
+      "id": "imgmain",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading"
+    }, 
+    {
+      "type": "richtext",
+      "id":"content",
+      "label":"Content"
+    },
+    {
+      "type": "text",
+      "id": "button_text_1",
+      "label": "Button Text 1"
+    },
+    {
+      "type": "url",
+      "id": "button_link_1",
+      "label": "Button Url 1"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+        "blocks": [
+    {
+      "type": "boxes",
+      "name": "Benefits",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "icon"
+        },
+       {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+       {
+          "type": "text",
+          "id": "para",
+          "label": "Description"
+        }
+      ]
+    },
+          {
+  "type": "centerdotsdetails",
+  "name": "Dots And Details",
+  "limit": 7,
+  "settings": [
+    {
+      "type": "text",
+      "id": "titledots",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "descriptiondots",
+      "label": "Description"
+    },
+    {
+      "type": "range",
+      "id": "horizontal_position_desktop",
+      "min": 5,
+      "max": 95,
+      "step": 1,
+      "unit": "%",
+      "label": "Horizontal position (Desktop)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "vertical_position_desktop",
+      "min": 5,
+      "max": 95,
+      "step": 1,
+      "unit": "%",
+      "label": "Vertical position (Desktop)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "horizontal_position_tablet",
+      "min": 5,
+      "max": 95,
+      "step": 1,
+      "unit": "%",
+      "label": "Horizontal position (Tablet)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "vertical_position_tablet",
+      "min": 5,
+      "max": 95,
+      "step": 1,
+      "unit": "%",
+      "label": "Vertical position (Tablet)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "horizontal_position_mobile",
+      "min": 5,
+      "max": 95,
+      "step": 1,
+      "unit": "%",
+      "label": "Horizontal position (Mobile)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "vertical_position_mobile",
+      "min": 5,
+      "max": 95,
+      "step": 1,
+      "unit": "%",
+      "label": "Vertical position (Mobile)",
+      "default": 30
+    }
+  ]
+
+    }
+      
+          
+          
+        ],
+  "presets": [
+    {
+      "name": "Portable Fan Section",
+          "blocks": [
+        {
+          "type": "boxes"
+        },
+         {
+          "type": "centerdotsdetails"
+        }   
+      ]
+    }
+  ]
+}
+{% endschema %}

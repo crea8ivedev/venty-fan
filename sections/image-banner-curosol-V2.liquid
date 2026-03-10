@@ -1,0 +1,577 @@
+{% comment %}
+  Image Banner Carousel (Dawn)
+  - Full width, background image cover
+  - 8 blocks (slides)
+  - Desktop + Mobile image per slide
+  - Richtext heading + richtext text
+  - Per-slide colors + sizes (desktop/mobile)
+  - Dots navigation bottom center
+  - Fully responsive (mobile -> iPad -> desktop -> large screens)
+{% endcomment %}
+
+{%- liquid
+  assign sid = section.id
+  assign slide_count = section.blocks.size
+  if slide_count < 1
+    assign slide_count = 1
+  endif
+-%}
+
+<style>
+  .ibc-{{ sid }}{
+    width:100%;
+  }
+
+  .ibc-{{ sid }} .ibc__wrap{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+    background: {{ section.settings.fallback_bg }};
+  }
+
+  .ibc-{{ sid }} .ibc__viewport{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+  }
+
+  .ibc-{{ sid }} .ibc__track{
+    display:flex;
+    width:100%;
+    transform: translateX(0%);
+    transition: transform 500ms ease;
+    will-change: transform;
+  }
+
+  .ibc-{{ sid }} .ibc__slide{
+    position:relative;
+    flex: 0 0 100%;
+    width:100%;
+    min-height: {{ section.settings.min_height_desktop }}px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .ibc-{{ sid }} .ibc__media{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    overflow:hidden;
+  }
+  .ibc-{{ sid }} .ibc__media img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    object-position: center;
+    display:block;
+  }
+
+  .ibc-{{ sid }} .ibc__overlay{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    background: rgba(0,0,0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});
+  }
+
+.ibc-{{ sid }} .ibc__content{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width: {{ section.settings.content_max_width }}px;
+  padding: 0 20px;
+  margin: 0;
+  pointer-events:none;
+}
+
+  /* vertical position */
+  .ibc-{{ sid }} .ibc__slide[data-vpos="center"]{ align-items:center; }
+  .ibc-{{ sid }} .ibc__slide[data-vpos="bottom"]{
+    align-items:flex-end;
+    padding-bottom: calc({{ section.settings.dots_offset_bottom }}px + 32px);
+  }
+
+/* alignment */
+.ibc-{{ sid }} .ibc__slide[data-align="left"]{
+  justify-content:flex-start;
+}
+.ibc-{{ sid }} .ibc__slide[data-align="center"]{
+  justify-content:center;
+}
+.ibc-{{ sid }} .ibc__slide[data-align="right"]{
+  justify-content:flex-end;
+}
+
+/* content positioning */
+.ibc-{{ sid }} .ibc__slide[data-align="left"] .ibc__content{
+  text-align:left;
+  margin-left: 5%;
+}
+.ibc-{{ sid }} .ibc__slide[data-align="center"] .ibc__content{
+  text-align:center;
+  margin: 0 auto;
+}
+.ibc-{{ sid }} .ibc__slide[data-align="right"] .ibc__content{
+  text-align:left; /* IMPORTANT: text is LEFT aligned like Figma */
+  margin-right: 5%;
+}
+
+  /* Dots */
+  .ibc-{{ sid }} .ibc__dots{
+    position:absolute;
+    left:50%;
+    transform: translateX(-50%);
+    bottom: {{ section.settings.dots_offset_bottom }}px;
+    z-index:3;
+    display:flex;
+    gap: 10px;
+    align-items:center;
+    justify-content:center;
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: rgba(0,0,0, {{ section.settings.dots_bg_opacity | divided_by: 100.0 }});
+  }
+
+  .ibc-{{ sid }} .ibc__dot{
+    appearance:none;
+    border: 0;
+    padding: 0;
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.35);
+    cursor:pointer;
+    transition: transform .2s ease, background .2s ease;
+  }
+  .ibc-{{ sid }} .ibc__dot[aria-current="true"]{
+    background: rgba(255,255,255,0.95);
+    transform: scale(1.15);
+  }
+
+  /* Mobile */
+  @media (max-width: 749px){
+    .ibc-{{ sid }} .ibc__slide{
+      min-height: {{ section.settings.min_height_mobile }}px;
+    }
+    .ibc-{{ sid }} .ibc__content{
+      padding: 0 16px;
+      max-width: 92%;
+    }
+    .ibc-{{ sid }} .ibc__slide[data-vpos="bottom"]{
+      padding-bottom: calc({{ section.settings.dots_offset_bottom_mobile }}px + 28px);
+    }
+    .ibc-{{ sid }} .ibc__dots{
+      bottom: {{ section.settings.dots_offset_bottom_mobile }}px;
+    }
+  }
+
+  /* Reduce motion */
+  @media (prefers-reduced-motion: reduce){
+    .ibc-{{ sid }} .ibc__track{
+      transition: none;
+    }
+    .ibc-{{ sid }} .ibc__dot{
+      transition: none;
+    }
+  }
+</style>
+
+<div class="ibc-{{ sid }}" data-ibc data-section-id="{{ sid }}">
+  <div class="ibc__wrap">
+    <div class="ibc__viewport" role="region" aria-label="Image banner carousel">
+      <div class="ibc__track" data-ibc-track>
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign desktop_img = block.settings.desktop_image
+            assign mobile_img = block.settings.mobile_image
+            assign heading_size_desktop = block.settings.heading_size_desktop
+            assign heading_size_mobile = block.settings.heading_size_mobile
+            assign text_size_desktop = block.settings.text_size_desktop
+            assign text_size_mobile = block.settings.text_size_mobile
+          -%}
+
+          <div
+            class="ibc__slide"
+            {{ block.shopify_attributes }}
+            data-ibc-slide
+            data-index="{{ forloop.index0 }}"
+            data-align="{{ section.settings.content_alignment }}"
+            data-vpos="{{ section.settings.content_vertical }}"
+            style="
+              --hcolor: {{ block.settings.heading_color }};
+              --tcolor: {{ block.settings.text_color }};
+              --hsd: {{ heading_size_desktop }}px;
+              --hsm: {{ heading_size_mobile }}px;
+              --tsd: {{ text_size_desktop }}px;
+              --tsm: {{ text_size_mobile }}px;
+            "
+          >
+            <div class="ibc__media">
+              {%- if desktop_img != blank -%}
+                {%- assign desktop_url = desktop_img | image_url: width: 2400 -%}
+                {%- assign mobile_url = '' -%}
+                {%- if mobile_img != blank -%}
+                  {%- assign mobile_url = mobile_img | image_url: width: 1200 -%}
+                {%- endif -%}
+
+                <picture>
+                  {%- if mobile_img != blank -%}
+                    <source media="(max-width: 749px)" srcset="{{ mobile_url }}">
+                  {%- endif -%}
+                  <img
+                    src="{{ desktop_url }}"
+                    alt="{{ desktop_img.alt | escape }}"
+                    loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                    width="{{ desktop_img.width }}"
+                    height="{{ desktop_img.height }}"
+                  >
+                </picture>
+              {%- else -%}
+                <div style="width:100%;height:100%;background:#ddd;"></div>
+              {%- endif -%}
+            </div>
+
+            <div class="ibc__overlay"></div>
+
+            <div class="ibc__content">
+              {%- if block.settings.heading != blank -%}
+                <div
+                  class="ibc__heading rte"
+                  style="color: var(--hcolor); font-size: var(--hsd);"
+                >
+                  {{ block.settings.heading }}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.text != blank -%}
+                <div
+                  class="ibc__text rte"
+                  style="color: var(--tcolor); font-size: var(--tsd);"
+                >
+                  {{ block.settings.text }}
+                </div>
+              {%- endif -%}
+
+              <style>
+                @media (max-width: 749px){
+                  .ibc-{{ sid }} .ibc__slide[data-index="{{ forloop.index0 }}"] .ibc__heading{ font-size: var(--hsm) !important; }
+                  .ibc-{{ sid }} .ibc__slide[data-index="{{ forloop.index0 }}"] .ibc__text{ font-size: var(--tsm) !important; }
+                }
+              </style>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.show_dots and section.blocks.size > 1 -%}
+        <div class="ibc__dots" data-ibc-dots aria-label="Carousel pagination">
+          {%- for block in section.blocks -%}
+            <button
+              type="button"
+              class="ibc__dot"
+              data-ibc-dot
+              aria-label="Go to slide {{ forloop.index }}"
+              aria-current="{% if forloop.first %}true{% else %}false{% endif %}"
+            ></button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var root = document.querySelector('[data-ibc][data-section-id="{{ sid }}"]');
+  if(!root) return;
+
+  var track = root.querySelector('[data-ibc-track]');
+  var slides = root.querySelectorAll('[data-ibc-slide]');
+  var dots = root.querySelectorAll('[data-ibc-dot]');
+  var index = 0;
+  var total = slides.length;
+
+  function setActive(i, userAction){
+    if(total <= 1) return;
+    index = (i + total) % total;
+    track.style.transform = 'translateX(' + (-100 * index) + '%)';
+
+    dots.forEach(function(d, di){
+      d.setAttribute('aria-current', di === index ? 'true' : 'false');
+    });
+
+    // reset autoplay on user action
+    if(userAction && autoplayTimer){
+      clearInterval(autoplayTimer);
+      autoplayTimer = startAutoplay();
+    }
+  }
+
+  dots.forEach(function(dot, i){
+    dot.addEventListener('click', function(){
+      setActive(i, true);
+    });
+  });
+
+  // swipe support (mobile/tablet)
+  var startX = 0;
+  var deltaX = 0;
+  var isDown = false;
+
+  function onDown(e){
+    isDown = true;
+    startX = (e.touches ? e.touches[0].clientX : e.clientX);
+    deltaX = 0;
+  }
+  function onMove(e){
+    if(!isDown) return;
+    var x = (e.touches ? e.touches[0].clientX : e.clientX);
+    deltaX = x - startX;
+  }
+  function onUp(){
+    if(!isDown) return;
+    isDown = false;
+    if(Math.abs(deltaX) > 40){
+      if(deltaX < 0) setActive(index + 1, true);
+      else setActive(index - 1, true);
+    }
+  }
+
+  root.addEventListener('mousedown', onDown);
+  root.addEventListener('mousemove', onMove);
+  window.addEventListener('mouseup', onUp);
+
+  root.addEventListener('touchstart', onDown, {passive:true});
+  root.addEventListener('touchmove', onMove, {passive:true});
+  root.addEventListener('touchend', onUp);
+
+  // autoplay (optional)
+  var autoplayEnabled = {{ section.settings.autoplay | json }};
+  var autoplaySpeed = {{ section.settings.autoplay_seconds | default: 5 | json }};
+  var autoplayTimer = null;
+
+  function startAutoplay(){
+    if(!autoplayEnabled || total <= 1) return null;
+    return setInterval(function(){
+      setActive(index + 1, false);
+    }, Math.max(2, autoplaySpeed) * 1000);
+  }
+
+  autoplayTimer = startAutoplay();
+
+  // expose for theme editor re-render safety
+  setActive(0, false);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Image banner carousel",
+  "settings": [
+    {
+      "type": "color",
+      "id": "fallback_bg",
+      "label": "Fallback background color",
+      "default": "#111111"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity (%)",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content horizontal alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "content_vertical",
+      "label": "Content vertical position",
+      "default": "bottom",
+      "options": [
+        { "value": "center", "label": "Center" },
+        { "value": "bottom", "label": "Bottom" }
+      ]
+    },
+{
+  "type": "range",
+  "id": "content_max_width",
+  "label": "Content max width (px)",
+  "min": 320,
+  "max": 1400,
+  "step": 20,
+  "default": 900
+},
+    {
+      "type": "range",
+      "id": "min_height_desktop",
+      "label": "Min height desktop (px)",
+      "min": 300,
+      "max": 900,
+      "step": 10,
+      "default": 520
+    },
+    {
+      "type": "range",
+      "id": "min_height_mobile",
+      "label": "Min height mobile (px)",
+      "min": 240,
+      "max": 800,
+      "step": 10,
+      "default": 420
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Show dots",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "dots_bg_opacity",
+      "label": "Dots background opacity (%)",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "dots_offset_bottom",
+      "label": "Dots bottom offset desktop (px)",
+      "min": 8,
+      "max": 80,
+      "step": 1,
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "dots_offset_bottom_mobile",
+      "label": "Dots bottom offset mobile (px)",
+      "min": 8,
+      "max": 80,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Autoplay"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_seconds",
+      "label": "Autoplay speed (seconds)",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Desktop background image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile background image"
+        },
+        {
+          "type": "richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "heading_size_desktop",
+          "label": "Heading size desktop (px)",
+          "min": 16,
+          "max": 80,
+          "step": 1,
+          "default": 48
+        },
+        {
+          "type": "range",
+          "id": "heading_size_mobile",
+          "label": "Heading size mobile (px)",
+          "min": 14,
+          "max": 60,
+          "step": 1,
+          "default": 34
+        },
+        {
+          "type": "range",
+          "id": "text_size_desktop",
+          "label": "Text size desktop (px)",
+          "min": 10,
+          "max": 30,
+          "step": 1,
+          "default": 14
+        },
+        {
+          "type": "range",
+          "id": "text_size_mobile",
+          "label": "Text size mobile (px)",
+          "min": 10,
+          "max": 26,
+          "step": 1,
+          "default": 13
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image banner carousel V2",
+      "blocks": [
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

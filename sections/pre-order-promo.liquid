@@ -1,0 +1,616 @@
+{% comment %}
+  Section: Pre-order-promo
+{% endcomment %}
+
+
+{% style %}
+.preorder-slider-section {
+padding-top: {{section.settings.padding-top}}px;
+padding-bottom: {{section.settings.padding-bottom}}px;
+}
+.preorder-slider-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.main-order-content {
+    margin: 0 auto;
+}
+
+.preorder-left {
+    display: block;
+    align-content: center;
+}
+
+.preorder-right {
+    background-color: #EDFFFE;
+}
+
+.preorder-left, .preorder-right {
+  flex: 1 1 50%;
+  min-width: 300px;
+  padding: 40px 20px;
+}
+.preorder-left h2 {
+    font-size:60px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.main-order-content h2 strong {
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1px;
+}
+.preorder-left p {
+    font-size:27px;
+    margin-bottom: 12px;
+    color: #fff;
+    margin-top: 0;
+}
+.countdown {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.countdown div span {
+    background:#e7f9f682;
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 8px;
+    color: #152B4F;
+    font-size: 27px;
+    display: block;
+}
+.countdown div {
+    text-align: center;
+}
+.countdown div small{
+    color:#fff;
+}
+
+.preorder-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background:#152B4F; /* dark navy */
+  color: #fff;
+  font-weight: 400;
+  font-size: 18px;
+  border-radius: 30px; /* pill shape */
+  text-decoration: none;
+  transition: 0.3s ease;     text-transform: uppercase;
+}
+
+.preorder-btn:hover {
+    color: #031133;
+    background: #fff;
+    box-shadow: 0 0 10px 10px #0000001f;
+}
+
+.preorder-btn .icon-for-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;   
+  height: 24px;
+  background: #1cb5a3; 
+  border-radius: 50%;
+}
+span.icon-for-btn img {
+    max-width: 13px;
+}
+
+
+/* SLIDER */
+.slider {
+  position: relative;
+  overflow: hidden;
+}
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.slide {
+  min-width: 100%;
+  position: relative;
+  text-align: center;
+}
+.slide img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+.discount-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #0d5c5b;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 50%;
+}
+.dots {
+    text-align: center;
+    margin-top: 15px;
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    bottom: 20px;
+    left: auto;
+    right: 20px;
+}
+.dots button {
+    height: 10px !important;
+    width: 10px !important;
+    min-height: 10px !important;
+    min-width: 10px !important;
+    margin: 0 4px;
+    background: #ccc;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block; padding:0;
+}
+.dots button.active {
+  background: #474747;
+}
+
+
+.preorder-right{
+  padding:0;
+}
+
+@media screen and (min-width:1024px) {
+.countdown div {
+    min-width: 80px;
+    text-align: center;
+}
+/* .preorder-right .slider{
+   margin: 0 auto;
+    max-width: 600px;
+    margin-left: 0;
+} */
+
+
+
+.main-order-content {
+    margin: 0 auto;
+    max-width: 600px;
+    margin-right: 0;
+}
+
+.preorder-right .slide {
+    min-width: 100%;
+    position: relative;
+    text-align: center;
+    padding-top:80%;
+}
+
+.preorder-right .slide img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: contain;
+    height: 100%;
+    object-position: bottom;
+    padding: 50px;
+    padding-bottom: 0;
+}
+
+}
+
+@media screen and (max-width:1400px) {
+  .preorder-left h2 {
+    font-size: 36px;
+     margin-top:0;
+}
+.preorder-left p {
+    font-size: 20px;
+}
+.countdown div span{
+  font-size: 20px;
+}
+}
+
+@media screen and (max-width:767px) {
+.rrr-original-venty-mint .tabs-data-custom-variant-fan img.classtabsactivated {
+    width: auto;
+    margin-top: 32px;
+}
+.rrr-original-venty-mint .fan-variants_custom {
+  margin-bottom: 20px;
+}
+}
+
+
+@media screen and (max-width:1024px) {
+ .rrr-original-venty-mint .preorder-right .slide img {
+    margin: auto;
+}
+.rrr-original-venty-mint .main-fan-variant-grid .single--fan-variant-grid:nth-child(2) img{
+  height: auto;
+}
+
+
+
+.promo-header h2 {
+    font-size: 26px;
+}
+
+.preorder-left p {
+    font-size: 18px;
+}
+
+.preorder-slider-container {
+    flex-direction: column-reverse;
+}
+
+.preorder-right{
+  padding:0;
+  padding-top:20px;
+}
+
+.preorder-right  img {
+  display:block;
+}
+
+.main-order-content { text-align:center; }
+
+.countdown {
+ 
+    justify-content: center;
+}
+
+}
+
+
+{% endstyle %}
+
+
+
+<section class="preorder-slider-section">
+  <div class="preorder-slider-container">
+    
+    <!-- LEFT CONTENT -->
+    <div class="preorder-left" style="background: {{ section.settings.content_bg }};">
+      <div class="main-order-content">
+        {% if section.settings.title !=blank %}
+      {{ section.settings.title }}
+        {% endif %}
+        {% if section.settings.subtitle !=blank %}
+      <p>{{ section.settings.subtitle }}</p>
+        {% endif %}
+      
+      <div id="countdown-{{ section.id }}" class="countdown">
+        <div><span id="days-{{ section.id }}">00</span><small>Days</small></div>
+        <div><span id="hours-{{ section.id }}">00</span><small>Hours</small></div>
+        <div><span id="minutes-{{ section.id }}">00</span><small>Minutes</small></div>
+        <div><span id="seconds-{{ section.id }}">00</span><small>Seconds</small></div>
+      </div>
+{% if section.settings.button_text != blank %}
+      <a href="{{ section.settings.button_link }}" class="preorder-btn" target="blank">
+        {{ section.settings.button_text }}<span class="icon-for-btn">
+          
+          <img src="https://cdn.shopify.com/s/files/1/0613/3297/9961/files/Right_25.png">
+        </span>
+      </a>
+    {% endif %}
+    </div>
+    </div>
+
+    <!-- RIGHT SLIDER -->
+    <div class="preorder-right">
+      <div class="slider" id="slider-{{ section.id }}">
+        <div class="slides">
+          {% for block in section.blocks %}
+            {% if block.settings.slide_img != blank %}
+              <div class="slide">
+                {% if block.settings.slide_img !=blank %}
+                <img src="{{ block.settings.slide_img | img_url: '600x' }}" alt="Slide Image">
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="dots" id="dots-{{ section.id }}"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+{% comment %} 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Countdown
+  var endDate = new Date("{{ section.settings.end_date }}").getTime();
+  var timer = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = endDate - now;
+
+    if (distance < 0) {
+      clearInterval(timer);
+      document.getElementById("countdown-{{ section.id }}").innerHTML = "EXPIRED";
+      return;
+    }
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days-{{ section.id }}").innerText = days < 10 ? "0" + days : days;
+    document.getElementById("hours-{{ section.id }}").innerText = hours < 10 ? "0" + hours : hours;
+    document.getElementById("minutes-{{ section.id }}").innerText = minutes < 10 ? "0" + minutes : minutes;
+    document.getElementById("seconds-{{ section.id }}").innerText = seconds < 10 ? "0" + seconds : seconds;
+  }, 1000);
+
+  // Slider
+  var slider = document.querySelector("#slider-{{ section.id }} .slides");
+  var slides = document.querySelectorAll("#slider-{{ section.id }} .slide");
+  var dotsContainer = document.getElementById("dots-{{ section.id }}");
+  var index = 0;
+
+  slides.forEach((_, i) => {
+    var dot = document.createElement("button");
+    dot.addEventListener("click", function() {
+      index = i;
+      updateSlider();
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  function updateSlider() {
+    slider.style.transform = "translateX(" + (-index * 100) + "%)";
+    dotsContainer.querySelectorAll("button").forEach((btn, i) => {
+      btn.classList.toggle("active", i === index);
+    });
+  }
+  updateSlider();
+});
+</script> {% endcomment %}
+
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // ------------------- COUNTDOWN -------------------
+  var endDate = new Date("{{ section.settings.end_date }}").getTime();
+  var timer = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = endDate - now;
+
+    if (distance < 0) {
+      clearInterval(timer);
+      document.getElementById("countdown-{{ section.id }}").innerHTML = "EXPIRED";
+      return;
+    }
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days-{{ section.id }}").innerText = days < 10 ? "0" + days : days;
+    document.getElementById("hours-{{ section.id }}").innerText = hours < 10 ? "0" + hours : hours;
+    document.getElementById("minutes-{{ section.id }}").innerText = minutes < 10 ? "0" + minutes : minutes;
+    document.getElementById("seconds-{{ section.id }}").innerText = seconds < 10 ? "0" + seconds : seconds;
+  }, 1000);
+
+
+  // ------------------- SLIDER -------------------
+  var slider = document.querySelector("#slider-{{ section.id }} .slides");
+  var slides = document.querySelectorAll("#slider-{{ section.id }} .slide");
+  var dotsContainer = document.getElementById("dots-{{ section.id }}");
+  var index = 0;
+  var autoSlideInterval;
+  var isDragging = false;
+  var startPos = 0;
+  var currentTranslate = 0;
+  var prevTranslate = 0;
+  var animationID;
+  var currentIndex = 0;
+
+  // Create dots dynamically
+  slides.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.addEventListener("click", function() {
+      index = i;
+      updateSlider();
+      resetAutoSlide();
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  function updateSlider() {
+    slider.style.transition = "transform 0.4s ease";
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dotsContainer.querySelectorAll("button").forEach((btn, i) => {
+      btn.classList.toggle("active", i === index);
+    });
+  }
+
+  function nextSlide() {
+    index = (index + 1) % slides.length;
+    updateSlider();
+  }
+
+  function prevSlide() {
+    index = (index - 1 + slides.length) % slides.length;
+    updateSlider();
+  }
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 4000);
+  }
+
+  function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+  }
+
+  // ------------------- DRAG / SWIPE -------------------
+  slides.forEach((slide, i) => {
+    const slideImage = slide.querySelector("img");
+    if (slideImage) {
+      slideImage.addEventListener("dragstart", (e) => e.preventDefault());
+    }
+
+    // Touch events
+    slide.addEventListener("touchstart", touchStart(i));
+    slide.addEventListener("touchend", touchEnd);
+    slide.addEventListener("touchmove", touchMove);
+
+    // Mouse events
+    slide.addEventListener("mousedown", touchStart(i));
+    slide.addEventListener("mouseup", touchEnd);
+    slide.addEventListener("mouseleave", touchEnd);
+    slide.addEventListener("mousemove", touchMove);
+  });
+
+  function touchStart(indexParam) {
+    return function(event) {
+      isDragging = true;
+      currentIndex = indexParam;
+      startPos = getPositionX(event);
+      slider.style.transition = "none";
+      cancelAnimationFrame(animationID);
+      animationID = requestAnimationFrame(animation);
+      resetAutoSlide();
+    };
+  }
+
+  function touchMove(event) {
+    if (isDragging) {
+      const currentPosition = getPositionX(event);
+      currentTranslate = prevTranslate + currentPosition - startPos;
+    }
+  }
+
+  function touchEnd() {
+    cancelAnimationFrame(animationID);
+    if (!isDragging) return;
+    isDragging = false;
+    const movedBy = currentTranslate - prevTranslate;
+
+    if (movedBy < -100) {
+      nextSlide();
+    } else if (movedBy > 100) {
+      prevSlide();
+    } else {
+      updateSlider();
+    }
+
+    currentTranslate = 0;
+    prevTranslate = -index * slider.offsetWidth;
+  }
+
+  function getPositionX(event) {
+    return event.type.includes("mouse")
+      ? event.pageX
+      : event.touches[0].clientX;
+  }
+
+  function animation() {
+    if (isDragging) {
+      slider.style.transform = `translateX(${currentTranslate}px)`;
+      requestAnimationFrame(animation);
+    }
+  }
+
+  // Initialize
+  updateSlider();
+  startAutoSlide();
+});
+</script>
+
+
+{% schema %}
+{
+  "name": "Pre-order Promo",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Heading",
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "for a limited time, take $20 off"
+    },
+    {
+      "type": "color",
+      "id": "content_bg",
+      "label": "Content Background Color",
+      "default": "#eafaf7"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Add to Calendar"
+    },
+    {
+      "type": "text",
+      "id": "end_date",
+      "label": "Countdown End Date (YYYY-MM-DDTHH:MM:SS)",
+      "default": "2025-10-10T23:59:59"
+    },
+    {
+      "type": "range",
+      "id": "padding-top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Slider Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slide_img",
+          "label": "Slide Image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "Pre-order Promo"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,293 @@
+{% style %}
+  .cozypod-popup {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.cozypod-popup.is-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cozypod-popup__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.cozypod-popup__box {
+  position: relative;
+  background: #fff;
+  max-width: 960px;
+  width: 92%;
+  border-radius: 16px;
+  padding: 40px;
+  z-index: 2;
+}
+button.cozypod-popup__close {
+    z-index: 9;
+}
+
+.cozypod-popup__close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.cozypod-popup__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.popup-old-price span {
+    line-height: 32px;
+}
+
+.cozypod-popup__content{
+  position: relative;
+  z-index: 2;
+  color: #000;
+}
+.cozypod-popup__content h2 {
+  font-size: 42px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  line-height: 16px;
+}
+
+.popup-subtitle {
+  font-size: 32px;
+  margin-bottom: 24px;
+  color: #000;
+}
+
+.popup-price {
+  margin-bottom: 22px;  
+}
+
+.popup-old-price span {
+  text-decoration: line-through;
+  font-size: 40px;
+  display: inline-block;
+  margin-top: 4px;
+ 
+}
+
+.popup-launch {
+  margin-top: 16px;
+  line-height: 23px;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.popup-new-price {
+  font-size: 40px;
+  font-weight: 700;
+  margin-top: 14px;
+}
+
+.popup-cta {
+  display: inline-block;
+  background: #e66a00;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  text-align: center;
+}
+
+.cozypod-popup__image {
+  position: absolute;
+  right: 0;
+}
+.cozypod-popup__image img {
+  width: 603px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .cozypod-popup__grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .cozypod-popup__box {
+    padding: 24px;
+    box-shadow: 1px 3px 13px #00000091;
+  }
+  .cozypod-popup__image{
+    display: none;
+  }
+   .popup-old-price {
+    font-size: 20px;
+    line-height: 30px;
+}
+}
+{% endstyle %}
+
+<div class="cozypod-popup" id="cozypodPopup">
+  <div class="cozypod-popup__overlay"></div>
+
+  <div class="cozypod-popup__box">
+    <button class="cozypod-popup__close">×</button>
+
+    <div class="cozypod-popup__grid">
+
+      <!-- LEFT CONTENT -->
+      <div class="cozypod-popup__content">
+        <h2>{{ section.settings.popup_heading }}</h2>
+
+        <p class="popup-subtitle">
+          {{ section.settings.popup_subtitle }}
+          <strong>{{ section.settings.popup_highlight }}</strong>
+          DAY
+        </p>
+
+        <div class="popup-price">
+          <div class="popup-old-price">
+            {{ section.settings.popup_original_label }}<br>
+            <span>{{ section.settings.popup_original_price }}</span>
+          </div>
+
+          <div class="popup-launch">
+            <strong>{{ section.settings.popup_launch_date }}</strong><br>
+            {{ section.settings.popup_launch_label }}
+            <div class="popup-new-price">
+              {{ section.settings.popup_launch_price }}
+            </div>
+          </div>
+        </div>
+
+        <a
+          href="{{ section.settings.popup_button_link }}"
+          target="_blank"
+          class="popup-cta"
+        >
+          {{ section.settings.popup_button_text }}
+        </a>
+      </div>
+
+
+      <!-- RIGHT IMAGE -->
+      <div class="cozypod-popup__image">
+        {% if section.settings.popup_image %}
+          <img
+            src="{{ section.settings.popup_image | image_url: width: 700 }}"
+            alt="Cozypod Product"
+            width="{{ section.settings.popup_image.width }}"
+            height="{{ section.settings.popup_image.height }}"
+            loading="lazy"
+          >
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</div> 
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const popup = document.getElementById('cozypodPopup');
+    if (!popup) return;
+
+    // Close logic
+    popup.addEventListener('click', function (e) {
+      if (
+        e.target.classList.contains('cozypod-popup__overlay') ||
+        e.target.classList.contains('cozypod-popup__close')
+      ) {
+        popup.classList.remove('is-open');
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+"name": "Cozypod Popup",
+"settings": [
+  {
+    "type": "header",
+    "content": "Popup Content"
+  },
+  {
+    "type": "text",
+    "id": "popup_heading",
+    "label": "Popup heading",
+    "default": "YOU'RE IN!"
+  },
+  {
+    "type": "text",
+    "id": "popup_subtitle",
+    "label": "Popup subtitle",
+    "default": "SEE YOU ON"
+  },
+  {
+    "type": "text",
+    "id": "popup_highlight",
+    "label": "Popup highlighted word",
+    "default": "LAUNCH"
+  },
+  {
+    "type": "text",
+    "id": "popup_original_label",
+    "label": "Original price label",
+    "default": "Original Price"
+  },
+  {
+    "type": "text",
+    "id": "popup_original_price",
+    "label": "Original price",
+    "default": "$99.99"
+  },
+  {
+    "type": "text",
+    "id": "popup_launch_date",
+    "label": "Launch date",
+    "default": "January 25th"
+  },
+  {
+    "type": "text",
+    "id": "popup_launch_label",
+    "label": "Launch price label",
+    "default": "Launch Day Price"
+  },
+  {
+    "type": "text",
+    "id": "popup_launch_price",
+    "label": "Launch price",
+    "default": "$79"
+  },
+  {
+    "type": "text",
+    "id": "popup_button_text",
+    "label": "Popup button text",
+    "default": "Click here. Stay Notified."
+  },
+  {
+    "type": "url",
+    "id": "popup_button_link",
+    "label": "Popup button link"
+  },
+  {
+    "type": "image_picker",
+    "id": "popup_image",
+    "label": "Popup product image"
+  }
+
+],
+"presets": [
+  { "name": "Cozypod Popup" }
+]
+}
+{% endschema %}

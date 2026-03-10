@@ -1,0 +1,312 @@
+<!--START portable-clip-fan-banner  -->
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+      background-color: {{ section.settings.background }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+   @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+{%- capture sizes -%}
+(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1 }}px,
+(min-width: 750px) calc((100vw - 130px) / 1), calc((100vw - 50px) / 1)
+{%- endcapture -%}
+
+
+<div class="portable-fan-banner section-{{ section.id }}-padding">
+<div class="page-width">
+<div class="portable-fan-content">
+
+<h2 class="rich-text__heading rte inline-richtext protable-h1 {{ section.settings.sub_heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">{{ section.settings.subheading }}</h2>
+<h2 class="rich-text__heading rte inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">{{ section.settings.heading }}</h2>
+ <div class="rich-text__text rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    >
+                {{ section.settings.text }}
+              </div>
+  
+  
+  
+
+</div>
+<div class="portable-fan-img">
+{% if section.settings.image != blank %}
+{% assign alt = section.settings.image.alt  %}
+{{
+section.settings.image
+| image_url: width: auto
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}}  
+{% endif %}
+  
+  <div class="rich-text__buttons{% if section.settings.button_label != blank and section.settings.button_label_2 != blank %} rich-text__buttons--multiple{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+  >
+      {%- if section.settings.button_label != blank -%}
+        <a
+          {% if section.settings.button_link == blank %}
+            role="link" aria-disabled="true"
+          {% else %}
+            href="{{ section.settings.button_link }}"
+          {% endif %}
+          class=" {% if section.settings.button_style_secondary %} btn-benefit-wrapper{% else %} button--primary{% endif %}"
+        >
+          {{- section.settings.button_label  -}}
+          <span>
+          <img src="https://cdn.shopify.com/s/files/1/0613/3297/9961/files/Right_25.png">
+        </span>
+        </a>
+      {%- endif -%}
+   
+    </div>
+</div>
+
+
+  
+
+  
+
+</div>
+
+
+<div class="portable-fan-bottom-images">
+
+
+{%- for block in section.blocks -%}
+<div class="loop">
+{% if block.settings.link != blank %}
+<a href="{{ block.settings.link }}" class="link">
+{% endif %}
+        
+{%- if block.settings.image != blank -%}
+{% assign alt = block.settings.image.alt  %}
+{{
+block.settings.image
+| image_url: width: auto
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}}  
+{% endif %}
+
+{%- if block.settings.text != blank -%}
+<div class="rte">{{ block.settings.text }}</div>
+{%- endif -%}
+{%- if block.settings.title != blank -%}
+<h3 class="inline-richtext h2">{{ block.settings.title }}</h3>
+{%- endif -%}
+
+{% if block.settings.link != blank %}
+</a>
+{% endif %}
+</div>
+
+{% endfor %}
+
+</div>
+
+
+
+</div>
+<!--END portable-clip-fan-banner  -->
+{% schema %}
+  {
+    "name": "Portable Clip Fan Banner",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Part Top"
+      },
+      {
+          "type": "inline_richtext",
+          "id": "subheading",
+          "default": "t:sections.rich-text.blocks.heading.settings.heading.default",
+          "label": "Sub Heading"
+        },
+        {
+          "type": "select",
+          "id": "sub_heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            },
+            {
+              "value": "hxxl",
+              "label": "t:sections.all.heading_size.options__5.label"
+            }
+          ],
+          "default": "h1",
+          "label": "Sub Heading Size"
+        },
+      {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "t:sections.rich-text.blocks.heading.settings.heading.default",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            },
+            {
+              "value": "hxxl",
+              "label": "t:sections.all.heading_size.options__5.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
+        },
+       {
+          "type": "richtext",
+          "id": "text",
+          "default": "t:sections.rich-text.blocks.text.settings.text.default",
+          "label": "t:sections.rich-text.blocks.text.settings.text.label"
+        },
+      {
+          "type": "inline_richtext",
+          "id": "button_label",
+          "default":"t:sections.rich-text.blocks.buttons.settings.button_label_1.default",
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_label_1.label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_link_1.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "default": false,
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_1.label"
+        },
+        {
+          "type": "text",
+          "id": "button_label_2",
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_label_2.label",
+          "info": "t:sections.rich-text.blocks.buttons.settings.button_label_2.info"
+        },
+        {
+          "type": "url",
+          "id": "button_link_2",
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_link_2.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary_2",
+          "default": false,
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_2.label"
+        },
+      {
+        "type": "header",
+        "content": "Part Center"
+      },
+      {
+        "type": "image_picker",
+        "id":"image",
+        "label":"Image"
+      },
+       
+      {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+    ],
+
+     "blocks": [
+    {
+      "type": "column",
+      "name": "t:sections.multicolumn.blocks.column.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.multicolumn.blocks.column.settings.image.label"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "default": "t:sections.multicolumn.blocks.column.settings.title.default",
+          "label": "t:sections.multicolumn.blocks.column.settings.title.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "t:sections.multicolumn.blocks.column.settings.text.default",
+          "label": "t:sections.multicolumn.blocks.column.settings.text.label"
+        },
+        
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.multicolumn.blocks.column.settings.link.label"
+        }
+      ]
+    }
+  ],
+    
+    "presets": [
+      {
+        "name": "Portable Clip Fan Banner"
+      }
+    ]
+  }
+{% endschema %}

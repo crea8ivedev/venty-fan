@@ -1,0 +1,233 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "cozypod-hero",
+      "settings": {
+        "hero_logo": "shopify://shop_images/logo_2_e0822d98-9417-42cb-a82e-bc3813d4f763.png",
+        "bg_image": "shopify://shop_images/Banner_image_5.png",
+        "bg_image_mobile": "shopify://shop_images/hero-mobile.png",
+        "word_plug": "PLUG",
+        "word_in_get": "IN. GET",
+        "word_cozy": "COZY.",
+        "subheading": "The most powerful plug-in heater ever made.",
+        "joinus": "Join us on our January launch for a special discounted price.",
+        "email_placeholder": "Email address",
+        "button_label": "Sign up to See Launch Day Pricing",
+        "show_signup_form": false,
+        "alt_button_text": "Get it Here",
+        "alt_button_link": "https://www.kickstarter.com/projects/teamvento/staycozy"
+      }
+    },
+    "launch": {
+      "type": "cozypod-launch",
+      "blocks": {
+        "thumbnail_ntDzT4": {
+          "type": "thumbnail",
+          "settings": {
+            "thumbnail_image": "shopify://shop_images/087857bdee8a8886224c3006a327cf8f52e3a433_1.png"
+          }
+        },
+        "thumbnail_ycp4Wj": {
+          "type": "thumbnail",
+          "settings": {
+            "thumbnail_image": "shopify://shop_images/Rectangle_74.png"
+          }
+        },
+        "thumbnail_yNxPx8": {
+          "type": "thumbnail",
+          "settings": {
+            "thumbnail_image": "shopify://shop_images/11_1_4e652b79-e428-412e-8b3d-5515b248b4c7.jpg"
+          }
+        },
+        "thumbnail_VeYUxk": {
+          "type": "thumbnail",
+          "settings": {
+            "thumbnail_image": "shopify://shop_images/20.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "thumbnail_ntDzT4",
+        "thumbnail_ycp4Wj",
+        "thumbnail_yNxPx8",
+        "thumbnail_VeYUxk"
+      ],
+      "settings": {
+        "background_text": "STAY",
+        "background_text1": "COZY",
+        "main_image_1": "shopify://shop_images/087857bdee8a8886224c3006a327cf8f52e3a433_2.png",
+        "main_image_2": "shopify://shop_images/bb39967e8526f52936bbee2d100f39f8404cdb84-removebg-preview_2b0f25d0-0ec0-4536-b619-157bb5d02eaa.png",
+        "main_image_3": "shopify://shop_images/11-removebg-preview_1.png",
+        "main_image_4": "shopify://shop_images/20-removebg-preview.png",
+        "heading": "LAUNCHING IN JANUARY",
+        "description": "With up to 1500 watts of power and whisper-quiet operation as low as 40 dB, CozyPod delivers serious heat in a compact, plug-in design. Warm enclosed spaces up to 200 square feet with three heat settings and a rechargeable remote for total control."
+      }
+    },
+    "gallery": {
+      "type": "cozypod-gallery",
+      "blocks": {
+        "image_H9i9ER": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_76.png"
+          }
+        },
+        "image_bwPmeN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_77.png"
+          }
+        },
+        "image_NmG4X3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_78.png"
+          }
+        },
+        "image_h6Ae3a": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_81.png"
+          }
+        },
+        "image_nXMJpD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_79.png"
+          }
+        },
+        "image_wa797k": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_80.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_H9i9ER",
+        "image_bwPmeN",
+        "image_NmG4X3",
+        "image_h6Ae3a",
+        "image_nXMJpD",
+        "image_wa797k"
+      ],
+      "settings": {}
+    },
+    "recharge": {
+      "type": "cozypod-recharge",
+      "blocks": {
+        "feature_rqqN8V": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_59.png",
+            "title": "800/1200/1500 Watts. 3 Powers."
+          }
+        },
+        "feature_VNBj4p": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/ECo.png",
+            "title": "Save $. Set Desired Room Temp."
+          }
+        },
+        "feature_zeWpz3": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_62.png",
+            "title": "USA Accredited Safety"
+          }
+        },
+        "feature_rYrHn8": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_60_1.png",
+            "title": "LED Nightlight"
+          }
+        },
+        "feature_VJiDYV": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_61.png",
+            "title": "12H Auto Shut Off Timer"
+          }
+        },
+        "feature_Wb7LLx": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_63.png",
+            "title": "Rechargeable Remote"
+          }
+        }
+      },
+      "block_order": [
+        "feature_rqqN8V",
+        "feature_VNBj4p",
+        "feature_zeWpz3",
+        "feature_rYrHn8",
+        "feature_VJiDYV",
+        "feature_Wb7LLx"
+      ],
+      "settings": {
+        "bg_text": "Features",
+        "bg_image": "shopify://shop_images/Mask_group_461460d9-c57e-4e53-b7a2-f70b8bae1cc4.png",
+        "heading": "RECHARGE & STAY COZY",
+        "text": "Charge it in the cozy dock and use it up to 2 days per charge"
+      }
+    },
+    "features": {
+      "type": "cozypod-features",
+      "settings": {
+        "image": "shopify://shop_images/Frame.png",
+        "line_one": "COZYPOD",
+        "line_two": "FEATURES",
+        "subtitle": "Re-engineered. Re-designed. 1500 Watts of Heating Power."
+      }
+    },
+    "cta": {
+      "type": "cozypod-email-cta",
+      "settings": {
+        "heading": "",
+        "placeholder": "Email address",
+        "button_text": "Sign up to See Launch Day Pricing",
+        "show_signup_form": false,
+        "alt_button_text": "Get it Here",
+        "alt_button_link": "https://www.kickstarter.com/projects/teamvento/staycozy"
+      }
+    },
+    "cozypod_popup_MjQ9pL": {
+      "type": "cozypod-popup",
+      "name": "Cozypod Popup",
+      "settings": {
+        "popup_heading": "YOU'RE IN!",
+        "popup_subtitle": "SEE YOU ON",
+        "popup_highlight": "LAUNCH",
+        "popup_original_label": "Original Price",
+        "popup_original_price": "$99.99",
+        "popup_launch_date": "January 25th",
+        "popup_launch_label": "Launch Day Price",
+        "popup_launch_price": "$79",
+        "popup_button_text": "Click here. Stay Notified.",
+        "popup_button_link": "https://www.kickstarter.com/projects/teamvento/staycozy",
+        "popup_image": "shopify://shop_images/image_57-removebg-preview.png"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "launch",
+    "gallery",
+    "recharge",
+    "features",
+    "cta",
+    "cozypod_popup_MjQ9pL"
+  ]
+}

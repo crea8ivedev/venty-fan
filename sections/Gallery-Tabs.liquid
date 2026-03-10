@@ -1,0 +1,550 @@
+<!-- Gallery-Tabs -->
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+      background-color: {{ section.settings.background }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+   @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+{%- capture sizes -%}
+(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+(min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
+{%- endcapture -%}
+
+<div class="main-tabs-gallery section-{{ section.id }}-padding">
+  <div class="page-width  {{ section.settings.class }}">
+
+    <div class="button-container">
+      <button class="arrow left-arrow">
+       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="40" viewBox="0 0 24 40" fill="none">
+<path d="M20 36L4 20L20 4" stroke="#142b4f" stroke-opacity="1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+      </button> <!-- Left Arrow -->
+
+    <div class="plan-controls">
+   
+ 
+      {%- for block in section.blocks -%}
+        {% if block.type == 'Tab1' %}
+          <button type="button" class="btn btn-control active tab-link active" id="btn1" data-tab="1">
+            {{ block.settings.title1 }}
+          </button>
+        {% endif %}
+      {% endfor %}
+
+      {%- for block in section.blocks -%}
+        {% if block.type == 'Tab2' %}
+          <button type="button" class="btn btn-control tab-link" id="btn2" data-tab="2">
+            {{ block.settings.title2_1 }}
+          </button>
+        {% endif %}
+      {% endfor %}
+
+      {%- for block in section.blocks -%}
+        {% if block.type == 'Tab3' %}
+          <button type="button" class="btn btn-control tab-link" id="btn3" data-tab="3">
+            {{ block.settings.title3_1 }}
+          </button>
+        {% endif %}
+      {% endfor %}
+
+      {%- for block in section.blocks -%}
+        {% if block.type == 'Tab4' %}
+          <button type="button" class="btn btn-control tab-link" id="btn4" data-tab="4">
+            {{ block.settings.title4_1 }}
+          </button>
+        {% endif %}
+      {% endfor %}
+
+      {%- for block in section.blocks -%}
+        {% if block.type == 'Tab5' %}
+          <button type="button" class="btn btn-control tab-link" id="btn5" data-tab="5">
+            {{ block.settings.title5_1 }}
+          </button>
+        {% endif %}
+      {% endfor %}
+      {%- for block in section.blocks -%}
+        {% if block.type == 'Tab6' %}
+          <button type="button" class="btn btn-control tab-link" id="btn6" data-tab="6">
+            {{ block.settings.title6_1 }}
+          </button>
+        {% endif %}
+      {% endfor %}
+    </div>
+  <button class="arrow right-arrow">
+    
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="40" viewBox="0 0 24 40" fill="none">
+<path d="M4 4L20 20L4 36" stroke="#142b4f" stroke-opacity="1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+  </button> <!-- Right Arrow -->
+    </div>
+    
+    {%- for block in section.blocks -%}
+      {% if block.type == 'Tab1' %}
+        <div class="table-main active" id="tab-1">
+          <div class="left-tab-img">
+           
+{% assign alt = block.settings.img1.alt  %}
+{{
+block.settings.img1
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}}
+            
+          </div>
+          <div class="right-tab-img">
+
+{% assign alt = block.settings.img2.alt  %}
+{{
+block.settings.img2
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}}
+                    
+{% assign alt = block.settings.img3.alt  %}
+{{
+block.settings.img3
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}}            
+         
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    {%- for block in section.blocks -%}
+      {% if block.type == 'Tab2' %}
+        <div class="table-main" id="tab-2">
+          <div class="left-tab-img">
+
+                    
+{% assign alt = block.settings.img2_1.alt  %}
+{{
+block.settings.img2_1
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}} 
+            
+        
+          </div>
+          <div class="right-tab-img">
+{% assign alt = block.settings.img2_2.alt  %}
+{{
+block.settings.img2_2
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}} 
+
+{% assign alt = block.settings.img2_3.alt  %}
+{{
+block.settings.img2_3
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}}             
+        </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    {%- for block in section.blocks -%}
+      {% if block.type == 'Tab3' %}
+        <div class="table-main" id="tab-3">
+             <div class="left-tab-img">
+{% assign alt = block.settings.img3_1.alt  %}
+{{
+block.settings.img3_1
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}} 
+               
+          </div>
+          <div class="right-tab-img">
+{% assign alt = block.settings.img3_2.alt  %}
+{{
+block.settings.img3_2
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}} 
+            
+{% assign alt = block.settings.img3_3.alt  %}
+{{
+block.settings.img3_3
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}} 
+        </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    {%- for block in section.blocks -%}
+      {% if block.type == 'Tab4' %}
+        <div class="table-main" id="tab-4">
+            <div class="left-tab-img">
+
+{% assign alt = block.settings.img4_1.alt  %}
+{{
+block.settings.img4_1
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}} 
+        
+          </div>
+          <div class="right-tab-img">
+{% assign alt = block.settings.img4_2.alt  %}
+{{
+block.settings.img4_2
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}} 
+            {% assign alt = block.settings.img4_3.alt  %}
+{{
+block.settings.img4_3
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}} 
+        
+        </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    {%- for block in section.blocks -%}
+      {% if block.type == 'Tab5' %}
+        <div class="table-main" id="tab-5">
+              <div class="left-tab-img">
+{% assign alt = block.settings.img5_1.alt  %}
+{{
+block.settings.img5_1
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}} 
+           
+          </div>
+          <div class="right-tab-img">
+{% assign alt = block.settings.img5_2.alt  %}
+{{
+block.settings.img5_2
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}} 
+
+{% assign alt = block.settings.img5_3.alt  %}
+{{
+block.settings.img5_3
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}}             
+            
+        </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+
+{%- for block in section.blocks -%}
+      {% if block.type == 'Tab6' %}
+        <div class="table-main" id="tab-6">
+              <div class="left-tab-img">
+{% assign alt = block.settings.img6_1.alt  %}
+{{
+block.settings.img6_1
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}} 
+           
+          </div>
+          <div class="right-tab-img">
+{% assign alt = block.settings.img6_2.alt  %}
+{{
+block.settings.img6_2
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}} 
+
+{% assign alt = block.settings.img6_3.alt  %}
+{{
+block.settings.img6_3
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: alt, loading: 'lazy', fetchpriority: 'low'
+}}             
+            
+        </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    
+    
+  </div>
+</div>
+
+ 
+  <script>
+
+    const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
+const planControls = document.querySelector('.plan-controls');
+
+// Scroll left
+leftArrow.addEventListener('click', () => {
+  planControls.scrollBy({ left: -200, behavior: 'smooth' }); // Adjust scroll distance as needed
+});
+
+// Scroll right
+rightArrow.addEventListener('click', () => {
+  planControls.scrollBy({ left: 200, behavior: 'smooth' }); // Adjust scroll distance as needed
+});
+
+    
+  </script>
+
+{% schema %}
+{
+  "name": "Gallery Tabs",
+  "settings": [
+    {
+      "type": "text",
+      "id":"class",
+      "label":"Custom Class"
+    },
+     {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+          {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding bottom",
+      "default": 36
+    },
+            {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding top mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding bottom mobile",
+      "default": 36
+    }
+  ],
+     "blocks": [
+    {
+      "type": "Tab1",
+      "name": "Tab 1",
+      "limit": 1,
+      "settings": [
+       {
+          "type": "text",
+          "id": "title1",
+          "label": "Title",
+          "default": "Tab 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img1",
+          "label": "image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img2",
+          "label": "image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img3",
+          "label": "image 3"
+        }
+      ]
+    },
+    {
+      "type": "Tab2",
+      "name": "Tab 2",
+      "limit": 1,
+      "settings": [
+       {
+          "type": "text",
+          "id": "title2_1",
+          "label": "Title",
+          "default": "Tab 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img2_1",
+          "label": "image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img2_2",
+          "label": "image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img2_3",
+          "label": "image 3"
+        }
+      ]
+    },
+    {
+      "type": "Tab3",
+      "name": "Tab 3",
+      "limit": 1,
+      "settings": [
+       {
+          "type": "text",
+          "id": "title3_1",
+          "label": "Title",
+          "default": "Tab 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "img3_1",
+          "label": "image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img3_2",
+          "label": "image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img3_3",
+          "label": "image 3"
+        }
+      ]
+    },
+    {
+      "type": "Tab4",
+      "name": "Tab 4",
+      "limit": 1,
+      "settings": [
+       {
+          "type": "text",
+          "id": "title4_1",
+          "label": "Title",
+          "default": "Tab 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "img4_1",
+          "label": "image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img4_2",
+          "label": "image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img4_3",
+          "label": "image 3"
+        }
+      ]
+    },
+    {
+      "type": "Tab5",
+      "name": "Tab 5",
+      "limit": 1,
+      "settings": [
+       {
+          "type": "text",
+          "id": "title5_1",
+          "label": "Title",
+          "default": "Tab 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "img5_1",
+          "label": "image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img5_2",
+          "label": "image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img5_3",
+          "label": "image 3"
+        }
+      ]
+    },
+    {
+      "type": "Tab6",
+      "name": "Tab 6",
+      "limit": 1,
+      "settings": [
+       {
+          "type": "text",
+          "id": "title6_1",
+          "label": "Title",
+          "default": "Tab 6"
+        },
+        {
+          "type": "image_picker",
+          "id": "img6_1",
+          "label": "image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img6_2",
+          "label": "image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img6_3",
+          "label": "image 3"
+        }
+      ]
+    }   
+     ],
+    "presets": [
+      {
+      "name":"Gallery Tabs"
+      }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,329 @@
+<!--Start banner-popup  -->
+
+<div class="popup-product pop-contents" id="popupProduct">
+    <div class="popup-items">
+        <span class="close-popup" onclick="closePopup()"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-close closeburger" fill="none" viewBox="0 0 18 17">
+  <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor">
+</path></svg></span>
+        {%- for block in section.blocks -%}     
+        <div class="popup-items-top tabcontent" id="tab{{ forloop.index }}">
+            {% if block.settings.heading != blank %} 
+            <h2 class="h1">{{ block.settings.heading }}</h2>
+            {% endif %}
+{% if block.settings.sub-heading != blank %}
+<h4>{{ block.settings.sub-heading }}</h4>
+ {% endif %}         
+            {% if block.settings.content != blank %}  
+            {{ block.settings.content }}
+            {% endif %}
+          <h6>{{ block.settings.title }}</h6>
+            <ul class="popup-product-ulpart">
+                {% if block.settings.benefits-img1 != blank or block.settings.benefits-txt1 != blank %}
+                <li>
+                    <span class="left-popup-image">
+                        <img src="{{ block.settings.benefits-img1 | img_url: '20x' }}" alt="">
+                    </span>
+                    <p>{{ block.settings.benefits-txt1 }}</p>
+                </li>
+                {% endif %}
+                {% if block.settings.benefits-img2 != blank or block.settings.benefits-txt2 != blank %}
+                <li>
+                    <span class="left-popup-image">
+                        <img src="{{ block.settings.benefits-img2 | img_url: '20x' }}" alt="">
+                    </span>
+                    <p>{{ block.settings.benefits-txt2 }}</p>
+                </li>
+                {% endif %}
+                {% if block.settings.benefits-img3 != blank or block.settings.benefits-txt3 != blank %}
+                <li>
+                    <span class="left-popup-image">
+                        <img src="{{ block.settings.benefits-img3 | img_url: '20x' }}" alt="">
+                    </span>
+                    <p>{{ block.settings.benefits-txt3 }}</p>
+                </li>
+                {% endif %}
+                {% if block.settings.benefits-img4 != blank or block.settings.benefits-txt4 != blank %}
+                <li>
+                    <span class="left-popup-image">
+                        <img src="{{ block.settings.benefits-img4 | img_url: '20x' }}" alt="">
+                    </span>
+                    <p>{{ block.settings.benefits-txt4 }}</p>
+                </li>
+                {% endif %}
+                {% if block.settings.benefits-img5 != blank or block.settings.benefits-txt5 != blank %}
+                <li>
+                    <span class="left-popup-image">
+                        <img src="{{ block.settings.benefits-img5 | img_url: '20x' }}" alt="">
+                    </span>
+                    <p>{{ block.settings.benefits-txt5 }}</p>
+                </li>
+                {% endif %}
+                {% if block.settings.benefits-img6 != blank or block.settings.benefits-txt6 != blank %}
+                <li>
+                    <span class="left-popup-image">
+                        <img src="{{ block.settings.benefits-img6 | img_url: '20x' }}" alt="">
+                    </span>
+                    <p>{{ block.settings.benefits-txt6 }}</p>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+        {% endfor %}
+        <div class="popup-items-image">
+{% if section.settings.image5 != blank or section.settings.sub-title1 != blank or section.settings.title1 != blank %}
+            <div class="image-popup tablinks active" onclick="openCity(event, 'tab1')">
+              {% assign alt1 = section.settings.image5.alt %}
+          <span>        <img src="{{ section.settings.image5 | img_url: '150x' }}" alt="{{ alt1 }}" ></span>
+              <p>{{ section.settings.sub-title1 }}</p>
+             <h5>{{ section.settings.title1 }}</h5>
+            </div>
+            {% endif %}
+
+          
+            {% if section.settings.image1 != blank or section.settings.sub-title2 != blank or section.settings.title2 != blank %}
+            <div class="image-popup tablinks active" onclick="openCity(event, 'tab2')">
+              {% assign alt2 = section.settings.image1.alt %}
+             <span>   <img src="{{ section.settings.image1 | img_url: '150x' }}" alt="{{ alt2 }}"></span>
+               <p>{{ section.settings.sub-title2 }}</p>
+             <h5>{{ section.settings.title2 }}</h5>
+            </div>
+            {% endif %}
+            {% if section.settings.image2 != blank or section.settings.sub-title3 != blank or section.settings.title3 != blank %}
+            <div class="image-popup tablinks" onclick="openCity(event, 'tab3')">
+               {% assign alt3 = section.settings.image2.alt %}
+            <span>    <img src="{{ section.settings.image2 | img_url: '150x' }}" alt="{{ alt3 }}"></span>
+               <p>{{ section.settings.sub-title3 }}</p>
+             <h5>{{ section.settings.title3 }}</h5>
+            </div>
+            {% endif %}
+            {% if section.settings.image3 != blank  or section.settings.sub-title4 != blank or section.settings.title4 != blank %}
+            <div class="image-popup tablinks" onclick="openCity(event, 'tab4')">
+               {% assign alt4 = section.settings.image3.alt %}
+             <span>   <img src="{{ section.settings.image3 | img_url: '150x' }}" alt="{{ alt4 }}"></span>
+               <p>{{ section.settings.sub-title4 }}</p>
+             <h5>{{ section.settings.title4 }}</h5>
+            </div>
+            {% endif %}
+            {% if section.settings.image4 != blank or section.settings.sub-title5 != blank or section.settings.title5 != blank %}
+            <div class="image-popup tablinks" onclick="openCity(event, 'tab5')">
+              {% assign alt5 = section.settings.image4.alt %}
+           <span>     <img src="{{ section.settings.image4 | img_url: '150x' }}" alt="{{ alt5 }}"> </span>
+               <p>{{ section.settings.sub-title5 }}</p>
+             <h5>{{ section.settings.title5 }}</h5>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+   <span class="close-popup shade-" onclick="closePopup()">   </span>
+
+
+  
+</div>
+
+
+{% style %}
+ .popup-product { display:none;
+   top:0px; left:0px; right:0px; bottom:0px;
+  
+    z-index: 1000;
+  
+} 
+
+  .shade-.close-popup {    right:0px;
+    background: rgba(0,0,0,0.5); width:100%; height:100%; }
+
+  .popup-product .popup-items { z-index: 1; }
+  
+/* .close-popup {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 26px;
+    font-weight: bold;
+}
+ */
+
+{% endstyle %}
+
+
+
+
+<!--End banner-popup  -->
+{% schema %}
+  {
+    "name": "Banner Popup",
+    "class": "banner-popup-main",
+    "settings": [
+      {
+          "type": "image_picker",
+          "id": "image5",
+          "label": "Image 1"
+        },
+      {
+          "type": "text",
+          "id": "sub-title1",
+          "label": "Sub Title"
+        },
+      {
+          "type": "text",
+          "id": "title1",
+          "label": "Title"
+        },
+       {
+          "type": "image_picker",
+          "id": "image1",
+          "label": "Image 2"
+        },
+      {
+          "type": "text",
+          "id": "sub-title2",
+          "label": "Sub Title"
+        },
+      {
+          "type": "text",
+          "id": "title2",
+          "label": "Title"
+        },
+       {
+          "type": "image_picker",
+          "id": "image2",
+          "label": "Image 3"
+        },
+      {
+          "type": "text",
+          "id": "sub-title3",
+          "label": "Sub Title"
+        },
+      {
+          "type": "text",
+          "id": "title3",
+          "label": "Title"
+        },
+       {
+          "type": "image_picker",
+          "id": "image3",
+          "label": "Image 4"
+        },
+      {
+          "type": "text",
+          "id": "sub-title4",
+          "label": "Sub Title"
+        },
+      {
+          "type": "text",
+          "id": "title4",
+          "label": "Title"
+        },
+       {
+          "type": "image_picker",
+          "id": "image4",
+          "label": "Image 5"
+        },
+      {
+          "type": "text",
+          "id": "sub-title5",
+          "label": "Sub Title"
+        },
+      {
+          "type": "text",
+          "id": "title5",
+          "label": "Title"
+        },
+    ],
+   "blocks": [
+     {
+      "type": "benefits",
+      "name": "Benefits",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "sub-heading",
+          "label": "Sub Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        },
+        {
+          "type": "text",
+          "id":"title",
+          "label":"Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "benefits-img1",
+          "label": "icon 1"
+        },
+        {
+          "type": "text",
+          "id": "benefits-txt1",
+          "label": "Text 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "benefits-img2",
+          "label": "icon 2"
+        },
+        {
+          "type": "text",
+          "id": "benefits-txt2",
+          "label": "Text 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "benefits-img3",
+          "label": "icon 3"
+        },
+        {
+          "type": "text",
+          "id": "benefits-txt3",
+          "label": "Text 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "benefits-img4",
+          "label": "icon 4"
+        },
+        {
+          "type": "text",
+          "id": "benefits-txt4",
+          "label": "Text 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "benefits-img5",
+          "label": "icon 5"
+        },
+        {
+          "type": "text",
+          "id": "benefits-txt5",
+          "label": "Text 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "benefits-img6",
+          "label": "icon 6"
+        },
+        {
+          "type": "text",
+          "id": "benefits-txt6",
+          "label": "Text 6"
+        }
+      ]
+    }
+   ],
+    "presets": [
+      {
+        "name":"Banner Popup"
+      }
+    ]
+  }
+{% endschema %}

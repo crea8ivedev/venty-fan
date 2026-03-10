@@ -1,0 +1,340 @@
+<!-- Start  hot-spots -->
+
+<style>
+  .main-dot-and-content {
+    width: fit-content;
+    --hot-spot-dot-size: var(--spacing-8);
+    --hot-spot-dot-shadow-size: var(--spacing-2-5);
+    position: absolute !important;
+    top: var(--hot-spot-vertical-position-desktop);
+    left: var(--hot-spot-horizontal-position-desktop);
+  }
+
+  @media screen and (max-width: 1024px) {
+    .main-dot-and-content {
+      top: var(--hot-spot-vertical-position-tablet);
+      left: var(--hot-spot-horizontal-position-tablet);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .main-dot-and-content {
+      top: var(--hot-spot-vertical-position-mobile);
+      left: var(--hot-spot-horizontal-position-mobile);
+    }
+
+
+    
+  }
+</style>
+
+
+
+
+{%- style -%}
+     {%- for block in section.blocks -%}
+     {% if block.type == 'centerdotsdetails' %}
+  #block-{{ section.id }}-{{ block.id }} {
+    --hot-spot-horizontal-position-desktop: {{ block.settings.horizontal_position_desktop }}%;
+    --hot-spot-vertical-position-desktop: {{ block.settings.vertical_position_desktop }}%;
+    --hot-spot-horizontal-position-tablet: {{ block.settings.horizontal_position_tablet }}%;
+    --hot-spot-vertical-position-tablet: {{ block.settings.vertical_position_tablet }}%;
+    --hot-spot-horizontal-position-mobile: {{ block.settings.horizontal_position_mobile }}%;
+    --hot-spot-vertical-position-mobile: {{ block.settings.vertical_position_mobile }}%;
+  }
+   {% endif %}
+        {% endfor %}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="main-hotspots-sec section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="top-content-hotspot">
+      <h2>{{ section.settings.titlemain }}</h2>
+      <h3>{{ section.settings.boldheading }}</h3>
+    </div>
+
+    <div class="inner-main-hotspots-and-titles">
+      <div class="left-data-hostpot">
+        {%- for block in section.blocks -%}
+          {% if block.type == 'detailsleft' %}
+            <div class="left-inner-single-data-hostpot">
+              <h2>{{ block.settings.title1 }}</h2>
+              <p>{{ block.settings.description1 }}</p>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="center-data-hostpot">
+        <div class="hotspot-image-main">
+        
+
+        {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+{%- capture sizes -%}
+(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1 }}px,
+(min-width: 750px) calc((100vw - 130px) / 1), calc((100vw - 50px) / 1)
+{%- endcapture -%}
+{% if section.settings.imgmain != blank %}
+{% assign img_alt = section.settings.imgmain.alt -%}      
+{{
+section.settings.imgmain
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: img_alt
+
+}}
+{% endif %}
+
+          {%- for block in section.blocks -%}
+          {% if block.type == 'centerdotsdetails' %}
+          <div id="block-{{ section.id }}-{{ block.id }}" class="main-dot-and-content">
+            <div class="main-dot-hotspot">
+              <div class="hotspot__positioner--01">
+                <div class="hotspot__container">
+                  <div class="hotspot-dott hotspot--01"></div>
+                  <div class="hotspot-dott hotspot--02"></div>
+                  <div class="hotspot-dott hotspot--03"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="main-dot-and-content-only">
+              <h5>{{ block.settings.titledots }}</h5>
+              <span>{{ block.settings.descriptiondots }}</span>
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+          
+        </div>
+      </div>
+
+      <div class="right-data-hostpot">
+        {%- for block in section.blocks -%}
+          {% if block.type == 'detailsright' %}
+            <div class="right-inner-data-hostpot">
+              <h2>{{ block.settings.title2 }}</h2>
+              <p>{{ block.settings.description2 }}</p>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<!--End  hot-spots -->
+{% schema %}
+{
+    "name": "Hot Spots",
+    "settings": [
+      {
+            "type": "text",
+            "id": "titlemain",
+            "label": "Title"
+        },
+      {
+        "type":"text",
+        "id":"boldheading",
+        "label":"Bold Sub Title"
+      },
+       {
+          "type": "image_picker",
+          "id": "imgmain",
+          "label": "Main Image"
+        },
+      {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "padding top",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "padding bottom",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_top_mob",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "padding top mobile",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_mob",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "padding bottom mobile",
+            "default": 36
+        }
+    ],
+       "blocks": [
+    {
+      "type": "detailsleft",
+      "name": "Details Left",
+      "limit": 3,
+      "settings": [
+       {
+          "type": "text",
+          "id": "title1",
+          "label": "Title"
+        },
+       {
+          "type": "text",
+          "id": "description1",
+          "label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "detailsright",
+      "name": "Details Right",
+      "limit": 3,
+      "settings": [
+       {
+          "type": "text",
+          "id": "title2",
+          "label": "Title"
+        },
+       {
+          "type": "text",
+          "id": "description2",
+          "label": "Description"
+        }
+      ]
+    },
+   {
+  "type": "centerdotsdetails",
+  "name": "Dots And Details",
+  "limit": 7,
+  "settings": [
+    {
+      "type": "text",
+      "id": "titledots",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "descriptiondots",
+      "label": "Description"
+    },
+    {
+      "type": "range",
+      "id": "horizontal_position_desktop",
+      "min": 5,
+      "max": 95,
+      "step": 1,
+      "unit": "%",
+      "label": "Horizontal position (Desktop)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "vertical_position_desktop",
+      "min": 5,
+      "max": 95,
+      "step": 1,
+      "unit": "%",
+      "label": "Vertical position (Desktop)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "horizontal_position_tablet",
+      "min": 5,
+      "max": 95,
+      "step": 1,
+      "unit": "%",
+      "label": "Horizontal position (Tablet)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "vertical_position_tablet",
+      "min": 5,
+      "max": 95,
+      "step": 1,
+      "unit": "%",
+      "label": "Vertical position (Tablet)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "horizontal_position_mobile",
+      "min": 5,
+      "max": 95,
+      "step": 1,
+      "unit": "%",
+      "label": "Horizontal position (Mobile)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "vertical_position_mobile",
+      "min": 5,
+      "max": 95,
+      "step": 1,
+      "unit": "%",
+      "label": "Vertical position (Mobile)",
+      "default": 30
+    }
+  ]
+
+    }
+     ],
+    "presets": [
+        {
+            "name": "Hot Spots",
+      "blocks": [
+        {
+          "type": "detailsleft"
+        },
+        {
+          "type": "detailsright"
+        },
+        {
+          "type": "centerdotsdetails"
+        }
+      ]
+        }
+    ]
+}
+{% endschema %}

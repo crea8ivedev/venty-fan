@@ -1,0 +1,189 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_UFEdxf": {
+      "type": "image-banner",
+      "settings": {
+        "videohere": false,
+        "customclassforstyling": "troubleshooting-header",
+        "allow_transparent_header": true,
+        "image": "shopify://shop_images/DSC06649.jpg",
+        "imagemobile": "shopify://shop_images/ventyfan-review.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "review_content_9jdBz3": {
+      "type": "review-content",
+      "blocks": {
+        "teb_39Xti3": {
+          "type": "teb",
+          "settings": {
+            "title": "All",
+            "heading": "All"
+          }
+        },
+        "teb_LyPEKQ": {
+          "type": "teb",
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/f1_d4963f74-fc71-4814-b199-237d9cf9d6b0.png",
+            "heading": "Original VENTY Fan"
+          }
+        },
+        "teb_Q3iVcb": {
+          "type": "teb",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/HITER_a47a9bc4-cc78-44e9-9dfd-01cf7b4b5567.png",
+            "heading": "CozyPod Heater"
+          }
+        },
+        "teb_bHfkmm": {
+          "type": "teb",
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/fan2_a2888ff3-320c-43fd-aab2-f0d89c921a5b.png",
+            "heading": "Venty Clip Fan"
+          }
+        }
+      },
+      "block_order": [
+        "teb_39Xti3",
+        "teb_LyPEKQ",
+        "teb_Q3iVcb",
+        "teb_bHfkmm"
+      ],
+      "settings": {
+        "review-icon": true,
+        "sub-heading": "THOUSANDS 4.6+ RATED REVIEWS",
+        "text-color1": "#f1f2f4",
+        "heading": "What Customers are Saying",
+        "text-color2": "#f8f8f8",
+        "color": "#001233",
+        "fitter-title": "Filter reviews"
+      }
+    },
+    "1733483092ee35249d": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_all_reviews_page_q3w7nq": {
+          "type": "shopify://apps/judge-me-reviews/blocks/all_reviews_page/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "max_width": 1200,
+            "review_source": "all",
+            "show_all_reviews_in_same_tab": false,
+            "show_first": "product",
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_all_reviews_page_q3w7nq"
+      ],
+      "settings": {
+        "include_margins": true,
+        "class": "tabcontent",
+        "id": "content1"
+      }
+    },
+    "17313172211e55db08": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_homepage_ej6RHp": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "product": "foldable-fan",
+            "review_data": "sample_data",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_homepage_ej6RHp"
+      ],
+      "settings": {
+        "include_margins": true,
+        "class": "tabcontent",
+        "id": "content2"
+      }
+    },
+    "apps_AxCcGq": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_homepage_MepUCy": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "product": "clip-fan",
+            "review_data": "sample_data",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_homepage_MepUCy"
+      ],
+      "settings": {
+        "include_margins": true,
+        "class": "tabcontent",
+        "id": "content3"
+      }
+    },
+    "17313177670ef01c19": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_homepage_eTWrWa": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "product": "cozypod",
+            "review_data": "sample_data",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_homepage_eTWrWa"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true,
+        "class": "tabcontent",
+        "id": "content4"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_UFEdxf",
+    "review_content_9jdBz3",
+    "1733483092ee35249d",
+    "17313172211e55db08",
+    "apps_AxCcGq",
+    "17313177670ef01c19"
+  ]
+}

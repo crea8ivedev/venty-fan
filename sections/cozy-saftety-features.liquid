@@ -1,0 +1,238 @@
+<!--Start cozy-saftety-features  -->
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+{%- endstyle -%}
+<style>
+.inner-left-single-cozy-saftety-features img {
+    width: 60px;
+}
+.inner-right-single-cozy-saftety-features h3 {
+    color: rgba(255, 255, 255, 1);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: normal;
+    margin: 3px 0 14px;
+}
+.inner-right-single-cozy-saftety-features p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    color: rgba(255, 255, 255, 1);
+    margin: 0;
+    line-height: 28px;
+  
+}
+.cozy-saftety-features-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    row-gap: 50px;
+}
+.cozy-saftety-features-title p {
+    font-size: 50px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: rgba(241, 242, 244, 1);
+      line-height: normal;
+    margin: 0;
+}
+  .single-boxe-cozy-saftety-features {
+    padding-right: 100px;
+}
+  .cozy-saftety-features-title, .single-boxe-cozy-saftety-features {
+    width: 27%;
+}
+  @media(max-width:1250px){
+    .single-boxe-cozy-saftety-features {
+    padding-right: 40px;
+}
+    .cozy-saftety-features-title p {
+    font-size: 39px;
+}
+  }
+  @media(max-width:1025px){
+.cozy-saftety-features-title, .single-boxe-cozy-saftety-features {
+    width: 30%;
+}
+  }
+  @media(max-width:769px){
+    .cozy-saftety-features-title, .single-boxe-cozy-saftety-features {
+        width: 48%;
+        padding: 0 !important;
+    }
+    .cozy-saftety-features-title {
+    width: 100%;
+}
+  }
+  @media(max-width:500px){
+     .cozy-saftety-features-title, .single-boxe-cozy-saftety-features {
+        width: 100%;
+        padding: 0 !important;
+    }
+        .cozy-saftety-features-title p {
+        font-size: 35px;
+    }
+ 
+  }
+  @media(max-width:390px){
+    
+  }
+  
+  
+  
+  
+  
+  
+  
+</style>
+
+<div class="section-{{ section.id }}-padding cozy-saftety-features">
+  <div class="page-width">
+ 
+    <div class="cozy-saftety-features-inner">
+      <div class="cozy-saftety-features-title">{{ section.settings.heading }}</div>
+
+      
+
+           {%- for block in section.blocks -%}
+        {% if block.type == 'boxes' %}
+        <div class="single-boxe-cozy-saftety-features">
+          <div class="inner-left-single-cozy-saftety-features">
+  {%- assign widths = '100, 165, 360, 535, 750, 1070, 1500' -%}
+{%- capture sizes -%}
+(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1 }}px,
+(min-width: 750px) calc((100vw - 130px) / 1), calc((100vw - 50px) / 1)
+{%- endcapture -%}
+
+{%- assign alt = block.settings.icon.alt -%}    
+{{
+block.settings.icon
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt:alt
+
+}}
+          </div>
+          <div class="inner-right-single-cozy-saftety-features">
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.para }}</p>
+          </div>
+        </div>
+        {% endif %}
+          {% endfor %}
+
+ 
+    </div>
+  </div>
+</div>
+<!--End cozy-saftety-features  -->
+{% schema %}
+{
+  "name": "Cozy Saftety Features",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Main Heading"
+    }, 
+  
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top Mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom Mobile",
+      "default": 36
+    }
+  ],
+        "blocks": [
+    {
+      "type": "boxes",
+      "name": "features",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "icon"
+        },
+       {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+       {
+          "type": "text",
+          "id": "para",
+          "label": "Description"
+        }
+      ]
+    },
+        ],
+  "presets": [
+    {
+      "name": "Cozy Saftety Features",
+          "blocks": [
+        {
+          "type": "boxes"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

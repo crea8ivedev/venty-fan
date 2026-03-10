@@ -1,0 +1,205 @@
+{%- style -%}
+
+.features-wrapper {
+background: #fff;
+height: 100vh;
+width: 100%;
+padding-top: 60px;
+}
+.features{
+    text-align: center;
+    padding-top: 60px;
+}
+
+.features h1 {
+font-family: "Montserrat", sans-serif;
+font-weight: 800;
+font-size: 90px;
+line-height: 90px;
+text-align: center;
+text-transform: uppercase;
+margin: 0;
+}
+
+.features h2 {
+  font-family: Lato;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+  margin: 0;
+}
+.features p {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    color: black;
+}
+.features-title {
+  line-height: 1.1;
+}
+
+.features-title .line-1 {
+    margin-right: 139px;
+}
+.artboard img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.artboard {
+    position: relative;
+    top: 9px;
+}
+
+/* .mobile-featured img{
+  display: none;
+} */
+@media (max-width: 768px) {
+  /* .features,.artboard{
+    display: none;
+  } */
+  .mobile-featured img{
+    display: block;
+    width: 100%;
+  }
+  .features h1{
+    font-size: 60px;
+    line-height: 60px;
+    padding-bottom: 10px;
+  }
+}
+@media (max-width: 640px) {
+   .features h1{
+      font-size: 48px;
+      line-height: 50px;
+  }
+  .features-title .line-1 {
+      margin-right: 0px;
+  }
+}
+{%- endstyle -%}
+
+<section class="cozypod-features">
+    <div class="features">
+      <h1 class="features-title">
+        <span class="line-1">{{ section.settings.line_one }}</span><br>
+        <span class="line-2">{{ section.settings.line_two }}</span>
+      </h1>
+      <p>
+        {{ section.settings.subtitle }}
+      </p>
+    </div>
+
+    <div class="artboard">
+      {% if section.settings.image %}
+        <img
+          class="product"
+          src="{{ section.settings.image | image_url: width: 1200 }}"
+          width="{{ section.settings.image.width }}"
+          height="{{ section.settings.image.height }}"
+          alt="{{ section.settings.heading }}"
+          loading="lazy"
+        >
+      {% endif %}
+    </div>
+
+    {% comment %} <div class="mobile-featured">
+       {% if section.settings.image_mobile %}
+        <img
+          class="product"
+          src="{{ section.settings.image_mobile | image_url: width: 1200 }}"
+          width="{{ section.settings.image_mobile.width }}"
+          height="{{ section.settings.image_mobile.height }}"
+          alt="{{ section.settings.heading }}"
+          loading="lazy"
+        >
+      {% endif %}
+    </div> {% endcomment %}
+</section>
+
+{% schema %}
+{
+  "name": "Cozypod Features",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Main image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Main image Mobile"
+    },
+    {
+      "type": "text",
+      "id": "line_one",
+      "label": "Title Line 1",
+      "default": "COZYPOD"
+    },
+  {
+      "type": "text",
+      "id": "line_two",
+      "label": "Title Line 2",
+      "default": "FEATURES"
+    },
+    {
+    "type": "text",
+    "id": "subtitle",
+    "label": "Subtitle",
+    "default": "Re-engineered. Re-designed. 1500 Watts of Heating Power."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature hotspot",
+      "settings": [
+        {
+          "type": "range",
+          "id": "top",
+          "label": "Top position (%)",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 40
+        },
+        {
+          "type": "range",
+          "id": "left",
+          "label": "Left position (%)",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 60
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature title",
+          "default": "1500 Watts"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Feature description",
+          "default": "The most powerful plug-in heater."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cozypod Features",
+      "blocks": [
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

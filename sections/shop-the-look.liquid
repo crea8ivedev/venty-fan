@@ -1,0 +1,503 @@
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+ 
+  <style>
+    a { outline: none; }
+   .stl-wrapper {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+    align-items: stretch;
+}
+   .stl-left--inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.stl-right--inner ul.slick-dots {
+    display: none !important;
+}
+.stl-right--inner .stl-img img {
+    width: 100%;
+    object-fit: cover;
+}
+   .stl-right--inner h4.title {
+    text-decoration: none;
+    color: black;
+    letter-spacing: 1px;
+    font-size: 17px;
+    padding: 15px;
+    margin: 0;
+     padding-bottom:10px;
+}
+    .stl-right--inner h5.price {
+    padding: 0 15px 15px 15px !important;
+    margin: 0 !important;
+    color: black;
+}
+   a.btncustomclass {
+    font-size: 14px;
+    background: black;
+    color: white !important;
+    text-transform: capitalize;
+    padding: 10px;
+    line-height: normal;
+    display: inline-block;
+    margin: 0 15px 0 !important;
+    letter-spacing: 1px;
+    width: fit-content !important;
+         margin-bottom: 15px !important;
+}
+    .stl-right--inner {
+    background: white;
+}
+    .stl-left--inner {
+    position: relative;
+    height: 100%;
+}
+    .stl-right a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    width: 100%;
+}
+    
+    .stl-left { width: 70%; transition: all .3s ease; }
+    .stl-right { width: 30%; position: relative; text-align: left; }
+    .stl-right--inner .stl-right--slider { position: static; display: none; }
+    .stl-right--inner .stl-right--slider.slick-initialized { display: block; }
+    .stl-item { display: flex; align-items: center; padding: 0; }
+    .stl-item .title, .stl-item .price { font-weight: normal; font-size: 15px; margin: 10px 0; }
+    .stl-btn { margin: 0 auto; margin-top: 20px; display: inline-block; }
+    .stl-btn:hover { color: #000; }
+    .stl-btn:hover::before { transform-origin: right center; transform: scale(0, 1); }
+    .stl-right--inner .slick-dots {
+      bottom: unset; top: calc(100% + 20px); left: 50%; transform: translateX(-50%);
+    }
+    .stl-right--inner .slick-dots span {
+      width: 10px; height: 10px; border: 2px solid #d9d9d9; display: inline-block; border-radius: 100%; cursor: pointer;
+    }
+    .stl-right--inner .slick-dots .slick-active span {
+      background: #000; border-color: #000;
+    }
+    .stl-left--inner { position: relative; }
+    .stl-left .stl-dot {
+      position: absolute; display: inline-block; width: 16px; height: 16px; margin: -8px 0 0 -8px; background: #ffffff;
+      border-radius: 100%; box-shadow: 0 1px 10px rgba(0,0,0,0.25); cursor: pointer; z-index: 1; transform: scale(1);
+      transition: transform 0.25s ease-in-out;
+    }
+    .stl-left .stl-dot.stl-dot--active,.stl-left .stl-dot:hover { transform: scale(1.5); }
+    .stl-left .stl-dot::after {
+      position: absolute; content: ''; width: 40px; height: 40px; left: -12px; top: -12px; border-radius: 100%;
+      background: rgba(255,255,255,0.4); animation: 1.4s shopTheLookDotKeyframe ease-in-out infinite;
+    }
+    .stl-img img { margin: auto; max-height: 350px; }
+    .stl-mobile-btns { display: none; }
+    .stl-right-header{ display: none; }
+    .no-scroll { overflow: hidden !important; }
+
+
+
+
+
+
+
+
+
+    
+    @media(max-width: 1350px) {
+      .stl-right--inner .stl-img img {
+    object-fit: unset;
+}
+      .stl-right-header, .stl-right--slider {
+    width: 50%;
+    margin: auto;
+}
+      
+      .stl-wrapper {
+        width: 100%;
+    display: inline-block;
+}
+      .stl-left--inner img {
+    object-fit: unset;
+    display: flex;
+}
+      .stl-mobile-btns {
+    display: none !important;
+}
+      
+      .stl-right--inner {
+        opacity: 0; visibility: hidden; z-index: -20; transition: opacity .3s ease; position: fixed; bottom: 0; left: 0;
+        width: 100%; background: #f8f8f8; transform: translateY(100%); padding-bottom: 30px;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .stl-wrapper.zoomed-in .stl-right--inner { opacity: 1; visibility: visible; z-index: 999; transform: translateY(0); }
+      .stl-wrapper.zoomed-in .stl-left { z-index: 999; }
+      .stl-left, .stl-right { width: 100%; }
+      .stl-left--inner { transition: transform .4s ease; }
+      .stl-mobile-btns { display: block; max-width: 300px; margin: 30px auto; }
+      .stl-wrapper { padding:0px; justify-content: center; }
+         .stl-right-header {
+        position: relative;
+        padding: 20px;
+        color: white;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        text-align: right;
+    }
+        .stl-right-header span svg {
+        width: 30px;
+        height: 30px;
+    }
+      .stl-right-header span {
+    display: flex;
+    align-items: center;
+            background: black;
+    padding: 7px;
+    justify-content: center;
+}
+      .stl-right-header .subtitle {
+        font-size: 16px; padding: 15px 0; font-weight: normal; margin: 0;
+      }
+      
+      .stl-item .stl-btn { display: none; }
+    .stl-right-header {
+        padding-right: 0;
+        margin-bottom: 0;
+    }
+      .stl-right--slider {
+    margin-top: 0;
+}
+    }
+    @media(max-width: 767px) {
+      .index--shop-the-look .subtitle { font-size: 35px; }
+      .stl-right-header .subtitle { font-size: 16px; }
+      .stl-img img { max-height: 200px; }
+         .stl-right-header, .stl-right--slider {
+    width: 60%;
+}
+    }
+    
+    @media(max-width: 450px) {
+     .stl-right-header, .stl-right--slider {
+    width: 70%;
+}
+}
+@media (max-width: 767px) {
+  .stl-dot {
+    position: absolute;
+    top: var(--top-mobile, 0%) !important;
+    left: var(--left-mobile, 0%) !important;
+  }
+}
+    
+    @keyframes shopTheLookDotKeyframe {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .slick-dots {
+      position: absolute; display: flex; justify-content: center; z-index: 9;
+    }
+    .slick-dots li { margin: 0 !important; }
+  </style>
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+   @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="page-width section-{{ section.id }}-padding">
+
+         {%- if section.settings.title != blank -%}
+        <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ section.settings.title }}
+        </h2>
+      {%- endif -%}
+
+        <div class="collection__description {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    {% if section.settings.subtitle != blank %}
+         {{ section.settings.subtitle -}}
+    {% endif %}
+        </div>
+
+          
+    <div class="stl-wrapper">
+      <div class="stl-left">
+        <div class="stl-left--inner">
+          {% if section.settings.image != blank %}
+            <img src="{{ section.settings.image | img_url: '1024x' }}">
+          {% endif %}
+          {% for block in section.blocks %}
+            {% if block.settings.product != blank %}
+              
+
+              <span class="stl-dot {% if forloop.first %}stl-dot--active{% endif %}" data-index="{{ forloop.index0 }}" style="top:{{ block.settings.top }}%; left:{{ block.settings.left }}%; --top-mobile: {{ block.settings.top_mobile }}%; --left-mobile: {{ block.settings.left_mobile }}%;"></span>
+
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="stl-right">
+        <div class="stl-right--inner">
+          <div class="stl-right-header">
+            <span>
+              <svg class="Icon Icon--close" role="presentation" viewBox="0 0 16 14">
+                <path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
+              </svg>
+            </span>
+          
+          </div>
+          <div class="stl-right--slider">
+            {% for block in section.blocks %}
+              {% if block.settings.product != blank %}
+                {% assign thisProduct = all_products[block.settings.product] %}
+                <div class="stl-item">
+                  <a href="{{ thisProduct.url }}">
+                    <div class="stl-img">
+                      <img src="{{ thisProduct | img_url: '300x' }}">
+                    </div>
+                    <h4 class="title">{{ thisProduct.title }}</h4>
+                    <h5 class="price">{{ thisProduct.price | money }}</h5>
+                  </a>
+                  <a href="{{ thisProduct.url }}" class="{% if section.settings.button-class %}{{ section.settings.button-class }}{% endif %}">{{ section.settings.cta_text }}</a>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="stl-mobile-btns">
+          <button class="Button" id="look-zoom-in">
+            {% if section.settings.button_text != blank %}
+              {{ section.settings.button_text }}
+            {% endif %}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.stl-right--slider').slick({
+        arrows: false,
+        dots: true,
+      });
+
+      function scrollToElement(scrollTo, time, verticalOffset) {
+        var offset = verticalOffset || 0;
+        $('html, body').animate({
+          scrollTop: $(scrollTo).offset().top + offset
+        }, time);
+      }
+
+      $('.stl-dot').on('click', function() {
+        var dataIndex = $(this).data('index');
+        var slickIndex = $('.stl-right--slider .stl-item:eq(' + dataIndex + ')').attr('data-slick-index');
+        $('.stl-wrapper').addClass('zoomed-in');
+        $('body').addClass('no-scroll');
+        $('.stl-right--slider').slick('slickGoTo', slickIndex);
+        scrollToElement('.index--shop-the-look', 400, -100);
+      });
+
+      $('.stl-right-header span').on('click', function(){
+        $('.stl-wrapper').removeClass('zoomed-in');
+        $('body').removeClass('no-scroll');
+      });
+
+      $('#look-zoom-in').on('click', function(){
+        $('.stl-wrapper').addClass('zoomed-in');
+        $('body').addClass('no-scroll');
+      });
+    });
+  </script>
+
+{% schema %}
+  {
+    "name": "Shop the Look",
+    "settings": [
+          {
+            "id": "title",
+            "type": "inline_richtext",
+            "label": "Title"
+          },
+          {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+          {
+            "id": "subtitle",
+            "type": "richtext",
+            "label": "description"
+          },
+		  {
+            "id": "cta_text",
+            "type": "text",
+            "label": "Button Text",
+			"default": "VIEW PRODUCT"
+          },
+		  {
+            "id": "cta_text_mobile",
+            "type": "text",
+            "label": "Mobile Button Text",
+			"default": "VIEW PRODUCTS"
+          },
+		  {
+            "id": "button-class",
+            "type": "textarea",
+            "label": "Button Class",
+			"info": "Seperate with spaces"
+          },
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Image"
+          },
+		    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+         {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding top mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding bottom mobile",
+      "default": 36
+    }
+	],
+	"blocks": [
+      {
+        "type": "product",
+        "name": "Prodct",
+        "settings": [
+          {
+            "id": "product",
+            "type": "product",
+            "label": "Product"
+          },
+          {
+            "type": "range",
+            "id": "top",
+            "label": "Position from Top",
+            "step": 1,
+            "min": 0,
+            "max": 100,
+            "unit": "%",
+            "default": 0
+          },
+          {
+            "type": "range",
+            "id": "left",
+            "label": "Position from Left",
+            "step": 1,
+            "min": 0,
+            "max": 100,
+            "unit": "%",
+            "default": 0
+          },
+          {
+  "type": "range",
+  "id": "top_mobile",
+  "label": "Position from Top (Mobile)",
+  "step": 1,
+  "min": 0,
+  "max": 100,
+  "unit": "%",
+  "default": 0
+},
+{
+  "type": "range",
+  "id": "left_mobile",
+  "label": "Position from Left (Mobile)",
+  "step": 1,
+  "min": 0,
+  "max": 100,
+  "unit": "%",
+  "default": 0
+}
+        ]
+      }
+    ],
+  "presets": [
+        {
+          "category": "Shop the Look",
+          "name": "Home"
+        }
+      ]
+  }
+{% endschema %}

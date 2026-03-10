@@ -1,0 +1,162 @@
+{% comment %}
+  Renders icon with text block
+  Accepts:
+  - block: {Object} passes in the block information.
+{% endcomment %}
+
+<style>
+  .icon-with-text__item img{
+    width: 150px !important;
+    height: auto;
+  }
+
+  .icon-with-text__heading.rte.h4{
+  font-size: 12px;}
+
+  
+
+  @media (max-width: 749px){
+  .icon-with-text__item img{
+    max-width: 60px;
+  }
+  .icon-with-text__heading.rte.h4{
+    font-size: 10px;
+  }
+}
+.icon-with-text{
+  display:flex;
+  justify-content:space-between;
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+  padding:0;
+  margin:0;
+}
+
+.icon-with-text__item{
+  position:relative;
+  flex:1 1 0;       /* allow shrink */
+  min-width:0;      /* IMPORTANT: prevents overflow */
+  text-align:center;
+  padding:0 10px;
+  box-sizing:border-box;
+}
+
+/* make images never exceed container */
+.icon-with-text__item img{
+  width:150px !important;
+  max-width:100%;
+  height:auto;
+  display:block;
+  margin:0 auto;
+}
+
+/* Vertical divider */
+.icon-with-text__item:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  right: -5px;
+  top:10%;
+  height:80%;       /* 100% can look like it’s overflowing */
+  width:1px;
+  background:#e5e5e5;
+}
+</style>
+
+{%- liquid
+  assign heading_1_text = block.settings.heading_1 | strip_html | strip
+  assign heading_2_text = block.settings.heading_2 | strip_html | strip
+  assign heading_3_text = block.settings.heading_3 | strip_html | strip
+
+  assign text_only_all_items = true
+
+  if heading_1_text != blank
+    if block.settings.icon_1 != 'none' or block.settings.image_1 != blank
+      assign text_only_all_items = false
+    endif
+  endif
+
+  if heading_2_text != blank
+    if block.settings.icon_2 != 'none' or block.settings.image_2 != blank
+      assign text_only_all_items = false
+    endif
+  endif
+
+  if heading_3_text != blank
+    if block.settings.icon_3 != 'none' or block.settings.image_3 != blank
+      assign text_only_all_items = false
+    endif
+  endif
+-%}
+
+
+<ul
+  class="icon-with-text icon-with-text--{{ block.settings.layout }} list-unstyled{% if text_only_all_items %} icon-with-text--text-only{% endif %}"
+  {{ block.shopify_attributes }}
+>
+  {%- unless heading_1_text == blank -%}
+    <li class="icon-with-text__item">
+      {%- if block.settings.image_1 == blank -%}
+        {%- render 'icon-accordion', icon: block.settings.icon_1 -%}
+      {%- else -%}
+        <img
+          src="{{ block.settings.image_1 | image_url }}"
+          {% if block.settings.image_1.alt != blank %}
+            alt="{{ block.settings.image_1.alt | escape }}"
+          {% else %}
+            role="presentation"
+          {% endif %}
+          loading="lazy"
+        >
+      {%- endif -%}
+
+      <div class="icon-with-text__heading rte h4">
+        {{ block.settings.heading_1 }}
+      </div>
+    </li>
+  {%- endunless -%}
+
+  {%- unless heading_2_text == blank -%}
+    <li class="icon-with-text__item">
+      {%- if block.settings.image_2 == blank -%}
+        {% render 'icon-accordion', icon: block.settings.icon_2 %}
+      {%- else -%}
+        <img
+          src="{{ block.settings.image_2 | image_url }}"
+          {% if block.settings.image_2.alt != blank %}
+            alt="{{ block.settings.image_2.alt | escape }}"
+          {% else %}
+            role="presentation"
+          {% endif %}
+          loading="lazy"
+        >
+      {%- endif -%}
+
+      <div class="icon-with-text__heading rte h4">
+        {{ block.settings.heading_2 }}
+      </div>
+    </li>
+  {%- endunless -%}
+
+  {%- unless heading_3_text == blank -%}
+    <li class="icon-with-text__item">
+      {%- if block.settings.image_3 == blank -%}
+        {% render 'icon-accordion', icon: block.settings.icon_3 %}
+      {%- else -%}
+        <img
+          src="{{ block.settings.image_3 | image_url }}"
+          {% if block.settings.image_3.alt != blank %}
+            alt="{{ block.settings.image_3.alt | escape }}"
+          {% else %}
+            role="presentation"
+          {% endif %}
+          loading="lazy"
+        >
+      {%- endif -%}
+
+      <div class="icon-with-text__heading rte h4">
+        {{ block.settings.heading_3 }}
+      </div>
+    </li>
+  {%- endunless -%}
+</ul>

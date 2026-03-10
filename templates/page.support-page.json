@@ -1,0 +1,378 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_fQPqR3": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_k3Emht": {
+          "type": "heading",
+          "settings": {
+            "heading": "Product Support",
+            "heading_size": "h1"
+          }
+        },
+        "text_pMkBGk": {
+          "type": "text",
+          "settings": {
+            "text": "We're here to help.",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_k3Emht",
+        "text_pMkBGk"
+      ],
+      "custom_css": [
+        ".banner__heading {font-weight: 600;}"
+      ],
+      "settings": {
+        "videohere": false,
+        "customclassforstyling": "troubleshooting-header",
+        "allow_transparent_header": true,
+        "image": "shopify://shop_images/Product-Support_166ef88f-1cb2-4c23-a86d-acaa966b6d32.jpg",
+        "imagemobile": "shopify://shop_images/Product-Support_5171d4b5-84f5-46ca-835d-a36e0b669fad.jpg",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "bottom-right",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "button_68zUMD": {
+      "type": "Button",
+      "settings": {
+        "button-img": "shopify://shop_images/fi_10544510.svg",
+        "button_Label": "Track Order",
+        "button_link": "/apps/tracktor/track",
+        "padding_top": 68,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "rich_text_ecnMMb": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_WfUfRt": {
+          "type": "heading",
+          "settings": {
+            "heading": "Policies & Support Info",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_WfUfRt"
+      ],
+      "custom_css": [
+        "h2 {font-weight: 500;}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-3a101b2e-80e1-4dcb-ba5b-8e268ef99b9f",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "button_pop_up_T6CLjW": {
+      "type": "button-pop-up",
+      "blocks": {
+        "tab_iJ8Qx3": {
+          "type": "tab",
+          "settings": {
+            "button_text_1": "Return Policy",
+            "button_content_1": "HOW DO I START A RETURN?",
+            "page": "return-policy",
+            "text": ""
+          }
+        },
+        "tab_dBqbGC": {
+          "type": "tab",
+          "settings": {
+            "button_text_1": "Warranty Info",
+            "button_content_1": "WHAT IS THE WARRANTY?",
+            "page": "warranty-1",
+            "text": ""
+          }
+        },
+        "tab_kJFKeU": {
+          "type": "tab",
+          "settings": {
+            "button_text_1": "Parts & Accessories",
+            "button_content_1": "WHAT IF I NEED A PART & ACCESSORY?",
+            "page": "part-accessory",
+            "text": ""
+          }
+        },
+        "tab_69McYy": {
+          "type": "tab",
+          "settings": {
+            "button_text_1": "Shipping Policy",
+            "button_content_1": "SHIPPING POLICY",
+            "page": "shipping-policy",
+            "text": ""
+          }
+        },
+        "tab_kgCGqJ": {
+          "type": "tab",
+          "settings": {
+            "button_text_1": "Venty Fan",
+            "button_content_1": " CAN I FLY WITH A VENTY FAN?",
+            "page": "venty-fan",
+            "text": ""
+          }
+        },
+        "tab_xdL4cP": {
+          "type": "tab",
+          "settings": {
+            "button_text_1": "Maintenance",
+            "button_content_1": "HOW TO PROPERLY CLEAN?",
+            "page": "properly-clean",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_iJ8Qx3",
+        "tab_dBqbGC",
+        "tab_kJFKeU",
+        "tab_69McYy",
+        "tab_kgCGqJ",
+        "tab_xdL4cP"
+      ],
+      "settings": {
+        "background": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "3_button_section_NwBdnQ": {
+      "type": "3-button-section",
+      "disabled": true,
+      "settings": {
+        "button_text_1": "Return Policy",
+        "button_content_1": "Short Description for Return policy",
+        "button_link_1": "#",
+        "button_text_2": "Purchase and Delivery",
+        "button_content_2": "Short Description for Return policy",
+        "button_link_2": "#",
+        "button_text_3": "Warranty Info",
+        "button_content_3": "Short Description for Return policy",
+        "button_link_3": "#",
+        "background": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "3_button_section_npUCwL": {
+      "type": "3-button-section",
+      "disabled": true,
+      "settings": {
+        "button_text_1": "How to track My order",
+        "button_content_1": "Short Description for Return policy",
+        "button_link_1": "#",
+        "button_text_2": "Purchase and Delivery",
+        "button_content_2": "Short Description for Return policy",
+        "button_link_2": "#",
+        "button_text_3": "Return Policy",
+        "button_content_3": "Short Description for Return policy",
+        "button_link_3": "#",
+        "background": "#ffffff",
+        "padding_top": 12,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "custom_product_column_YYEj7X": {
+      "type": "custom-product-column",
+      "blocks": {
+        "product_custom_CEQfGD": {
+          "type": "product-custom",
+          "settings": {
+            "img1": "shopify://shop_images/VENTY-FAN_ee5bc848-601f-4cca-868c-bdd3ae9435be.png",
+            "title": "VENTY FAN",
+            "linkproduct": "https://ventyfan.com/pages/support-for-product#product-tab-btn1"
+          }
+        },
+        "product_custom_eCf9CV": {
+          "type": "product-custom",
+          "disabled": true,
+          "settings": {
+            "img1": "shopify://shop_images/COZYPOD-HEATER-2_4d59c5ef-6c3b-4022-b47b-26746d6b31ec.png",
+            "title": "COZYPOD HEATER",
+            "linkproduct": "https://ventyfan.com/pages/support-for-product#product-tab-btn2"
+          }
+        },
+        "product_custom_Q9dUUj": {
+          "type": "product-custom",
+          "settings": {
+            "img1": "shopify://shop_images/Fan_37484829-8ba6-4d8d-be0f-2de4a7cc1f99.png",
+            "title": "VENTY CLIP FAN",
+            "linkproduct": "https://ventyfan.com/pages/support-for-product#product-tab-btn3"
+          }
+        }
+      },
+      "block_order": [
+        "product_custom_CEQfGD",
+        "product_custom_eCf9CV",
+        "product_custom_Q9dUUj"
+      ],
+      "settings": {
+        "title": "Product Troubleshooting",
+        "background": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 0
+      }
+    },
+    "3_collapsible_tabs_4MBXDz": {
+      "type": "3-collapsible-tabs",
+      "blocks": {
+        "tab_1_LNfjTP": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "Is this the same fan that I saw on Kickstarter?",
+            "tab1_content": "Yes it is - On Kickstarter we are listed as \"Vento\" but had to change our name for Trademark reasons to \"Venty\""
+          }
+        },
+        "tab_1_kG7BNG": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "Do you offer international shipping?",
+            "tab1_content": "Yes it is - On Kickstarter we are listed as \"Vento\" but had to change our name for Trademark reasons to \"Venty\""
+          }
+        },
+        "tab_2_J6xCRm": {
+          "type": "tab_2",
+          "settings": {
+            "tab2_heading": "Do you offer international shipping?",
+            "tab2_content": "content 2"
+          }
+        },
+        "tab_3_nhUkdT": {
+          "type": "tab_3",
+          "settings": {
+            "tab3_heading": "heading 3",
+            "tab3_content": "content 3"
+          }
+        },
+        "tab_1_DFMkXi": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "How long does shipping take?",
+            "tab1_content": "Yes it is - On Kickstarter we are listed as \"Vento\" but had to change our name for Trademark reasons to \"Venty\""
+          }
+        },
+        "tab_1_tjr9p7": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "What is the warranty on the fan?",
+            "tab1_content": "Yes it is - On Kickstarter we are listed as \"Vento\" but had to change our name for Trademark reasons to \"Venty\""
+          }
+        },
+        "tab_1_W89tf6": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "Does the battery really last 2 full days per charge?",
+            "tab1_content": "Yes it is - On Kickstarter we are listed as \"Vento\" but had to change our name for Trademark reasons to \"Venty\""
+          }
+        },
+        "tab_1_h8FDHX": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "Does the fan oscillate?",
+            "tab1_content": "Yes it is - On Kickstarter we are listed as \"Vento\" but had to change our name for Trademark reasons to \"Venty\""
+          }
+        },
+        "tab_1_dcmq4c": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "Who do I contact if I have an issue with my order?",
+            "tab1_content": "Yes it is - On Kickstarter we are listed as \"Vento\" but had to change our name for Trademark reasons to \"Venty\""
+          }
+        }
+      },
+      "block_order": [
+        "tab_1_LNfjTP",
+        "tab_1_kG7BNG",
+        "tab_2_J6xCRm",
+        "tab_3_nhUkdT",
+        "tab_1_DFMkXi",
+        "tab_1_tjr9p7",
+        "tab_1_W89tf6",
+        "tab_1_h8FDHX",
+        "tab_1_dcmq4c"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "<p>General <strong>FAQ</strong></p>",
+        "tab_1": "Venty Fan",
+        "tab_2": "Cozypod",
+        "tab_3": "Clip Fan",
+        "tab_4": "",
+        "background": "#f1f2f4",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "message_button_section_jj9Kdr": {
+      "type": "message-button-section",
+      "settings": {
+        "about_text_image_2": "shopify://shop_images/chatting-01.png",
+        "heading": "<p>Still Need <strong>Help?</strong></p>",
+        "paragraph": "We are here to answer questions and solve problems. Message Us.",
+        "button_text": "Message US",
+        "button_link": "shopify://pages/contact",
+        "background": "#ffffff",
+        "padding_top": 68,
+        "padding_bottom": 68,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_fQPqR3",
+    "button_68zUMD",
+    "rich_text_ecnMMb",
+    "button_pop_up_T6CLjW",
+    "3_button_section_NwBdnQ",
+    "3_button_section_npUCwL",
+    "custom_product_column_YYEj7X",
+    "3_collapsible_tabs_4MBXDz",
+    "message_button_section_jj9Kdr"
+  ]
+}

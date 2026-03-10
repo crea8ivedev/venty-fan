@@ -1,0 +1,194 @@
+{% comment %}
+  Renders a megamenu for the header.
+
+  Usage:
+  {% render 'header-mega-menu' %}
+{% endcomment %}
+
+<nav class="header__inline-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- for link in section.settings.menu.links -%}
+      <li class="menu-hover-class">
+        {%- if link.links != blank -%}
+          <header-menu>
+            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+              <summary
+                id="HeaderMenu-{{ link.handle }}"
+                class="header__menu-item list-menu__item link focus-inset"
+              >
+                <span   
+                 
+                >
+                  {{- link.title | escape -}}
+                </span>
+                {% render 'icon-caret' %}
+              </summary>
+              <div
+                id="MegaMenu-Content-{{ forloop.index }}"
+                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                tabindex="-1"
+              >
+                <ul
+                  class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                  role="list"
+                >
+                  {%- for childlink in link.links -%}
+                    <li class="main-li-of-child-menu {% if childlink.current %} mega-menu__link--active{% endif %}">
+
+
+          
+                      <a 
+                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                        href=" {% if request.host contains 'ventyfan.co.uk' %}
+{% if childlink.url == '/products/foldable-fan' %}
+/products/foldable-fan-uk 
+{% else %}
+{{ childlink.url }} 
+{% endif %}
+{% else %} {{ childlink.url }} {% endif %}"
+                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.type == 'collection_link' and childlink.object.featured_image %} have-image-coll{% endif %} 
+                        
+{% if request.host contains 'ventyfan.co.uk'  and childlink.title contains 'VENTY CLIP FAN' or childlink.title contains 'COZYPOD' %}
+no-URL
+{% endif %}
+
+{% if   shop.secure_url contains 'en-au'  and childlink.title contains 'VENTY CLIP FAN' %} no-URL {% endif %}
+{% if   shop.secure_url contains 'en-au'  and childlink.title contains 'COZYPOD' %} no-URL {% endif %}
+"               
+                         
+                        {%- if childlink.current -%}
+                          aria-current="page"
+                        {%- endif -%}
+                      >
+                   
+<span class="title-coll-nav">
+
+{% if request.host contains 'ventyfan.co.uk'  and childlink.title contains 'VENTY CLIP FAN' %}
+<span style="color: #35b339 !important; line-height:1; margin-bottom:0px; font-size:12px; text-transform: uppercase;"> NOT AVAILABLE IN UK </span>  
+{% endif %}
+
+{% if   shop.secure_url contains 'en-au'  and childlink.title contains 'VENTY CLIP FAN' %}
+<span style="color: #35b339 !important; line-height:1; margin-bottom:0px; font-size:12px; text-transform: uppercase;"> NOT AVAILABLE IN AUS </span>
+{% endif %}  
+
+
+  {% if request.host contains 'ventyfan.co.uk'  and childlink.title contains 'COZYPOD' %}
+<span style="color: #35b339 !important; line-height:1; margin-bottom:0px; font-size:12px; text-transform: uppercase;"> NOT AVAILABLE IN UK </span>
+{% endif %}
+
+{% if   shop.secure_url contains 'en-au'  and childlink.title contains 'COZYPOD' %}
+<span style="color: #35b339 !important; line-height:1; margin-bottom:0px; font-size:12px; text-transform: uppercase;"> NOT AVAILABLE IN Aus </span>   
+{% endif %}  
+ 
+{{ childlink.title | escape }}
+</span>
+  {%- if childlink.title == 'TOWER FAN'-%}
+                               <span style="color: #35b339 !important; line-height:1; margin-bottom:-10px; font-size:12px;">COMING SOON!</span>
+                              {%- endif -%}
+                           <div class="nav-product_image only-without-product">
+                           </div>
+
+                        {%- if childlink.type == 'collection_link' -%}
+                          {% assign linkCollection = childlink.object %}
+                          <div class="nav-collection_image">
+                            {%- if linkCollection.featured_image -%}
+                              <img
+                                crossorigin="anonymous"
+                                class="nav-child-link-image"
+                                src="{{ linkCollection.featured_image.src | img_url: '170x' }}"
+                                alt="{{ linkCollection.title }}"
+                              >
+                              <span class="nav-collection_title">
+                                {{ linkCollection.title | escape }}
+                              </span>
+                            {%- endif -%}
+                          </div>
+                        {%- endif -%}
+
+
+
+                          {%- if childlink.type == 'product_link' -%}
+                          {% assign linkedProduct = childlink.object %}
+                          {%- if linkedProduct.featured_image -%}
+                            <div class="nav-product_image">
+                              <img
+                                crossorigin="anonymous"
+                                class="nav-child-link-image"
+                                src="{{ linkedProduct.featured_image.src | img_url: '340x' }}"
+                                alt="{{ linkedProduct.title }}"
+                              >
+                              <!-- <span class="nav-product_title">
+                                {{ linkedProduct.title | escape }}
+                              </span> -->
+                            </div>
+                          {%- endif -%}
+                        {%- endif -%}
+
+                        {%- if childlink.type == 'page_link' -%}
+                            <div class="nav-product_image"></div>
+                        {%- endif -%}
+                        
+
+                        
+                      </a>
+                      
+
+                      {%- if childlink.links != blank -%}
+                        <ul class="list-unstyled" role="list">
+                          {%- for grandchildlink in childlink.links -%}
+                            <li>
+                              <a
+                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                href="{{ grandchildlink.url }}"
+                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                {%- if grandchildlink.current -%}
+                                  aria-current="page"
+                                {%- endif -%}
+                              >
+                                {{ grandchildlink.title | escape }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </details>
+          </header-menu>
+        {%- else -%}
+          <a
+            id="HeaderMenu-{{ link.handle }}"
+            href="
+             {% if request.host contains 'ventyfan.co.uk' %}  
+{% if link.url == '/products/foldable-fan' %}
+/products/foldable-fan-uk 
+{% else %}
+{{ link.url }} 
+{% endif %}
+{% else %} {{ link.url }} {% endif %}"
+            
+             "
+
+
+
+            
+            class="header__menu-item list-menu__item link link--text focus-inset"
+            {%- if link.current -%}
+              aria-current="page"
+            {%- endif -%}
+          >
+            <span
+              {% if link.current %}
+                class="header__active-menu-item"
+              {% endif %}
+            >
+              {{- link.title | escape -}}
+            </span>
+          </a>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>

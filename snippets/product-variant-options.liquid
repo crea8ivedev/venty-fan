@@ -1,0 +1,172 @@
+{% comment %}
+  Renders product variant options
+
+  Accepts:
+  - product: {Object} product object.
+  - option: {Object} current product_option object.
+  - block: {Object} block object.
+  - picker_type: {String} type of picker to dispay
+{% endcomment %}
+{%- liquid
+  assign product_form_id = 'product-form-' | append: section.id
+
+  # Current domain/country marker (adjust if needed)
+  assign domain_marker = localization.country.iso_code
+-%}
+
+{%- for value in option.values -%}
+  {%- liquid
+    assign swatch_focal_point = null
+    if value.swatch.image
+      assign image_url = value.swatch.image | image_url: width: 50
+      assign swatch_value = 'url(' | append: image_url | append: ')'
+      assign swatch_focal_point = value.swatch.image.presentation.focal_point
+    elsif value.swatch.color
+      assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')'
+    else
+      assign swatch_value = null
+    endif
+
+    assign option_disabled = true
+    if value.available
+      assign option_disabled = false
+    endif
+
+    # ======================================================
+    # NEW COUNTRY CHECK BASED ON VARIANT METAFIELD
+    # ======================================================
+    assign variant_id = value.variant.id
+    assign variant_obj = product.variants | where: 'id', variant_id | first
+
+    assign sell_countries = variant_obj.metafields.custom.sell_in_countries.value | join: ','
+    assign allowed_in_domain = false
+
+    if sell_countries and sell_countries.size > 0
+      # Handle UK/GB country code mismatch
+      if sell_countries contains 'UK' and domain_marker == 'GB'
+        assign allowed_in_domain = true
+      elsif sell_countries contains domain_marker
+        assign allowed_in_domain = true
+      endif
+    endif
+    # ======================================================
+  -%}
+
+  {%- capture input_id -%}
+    {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
+  {%- endcapture -%}
+
+  {%- capture input_name -%}{{ option.name }}-{{ option.position }}{%- endcapture -%}
+
+  {%- capture input_dataset -%}
+    data-product-url="{{ value.product_url }}"
+    data-option-value-id="{{ value.id }}"
+  {%- endcapture -%}
+
+  {%- capture label_unavailable -%}
+    <span class="visually-hidden label-unavailable">
+      {{- 'products.product.variant_sold_out_or_unavailable' | t -}}
+    </span>
+  {%- endcapture -%}
+
+  {%- if picker_type == 'swatch' and allowed_in_domain == true -%}
+    {%- capture help_text -%}
+      <span class="visually-hidden">{{ value | escape }}</span>
+      {{ label_unavailable }}
+    {%- endcapture -%}
+
+    {%
+      render 'swatch-input',
+      id: input_id,
+      name: input_name,
+      value: value | escape,
+      swatch: value.swatch,
+      product_form_id: product_form_id,
+      checked: value.selected,
+      visually_disabled: option_disabled,
+      shape: block.settings.swatch_shape,
+      help_text: help_text,
+      additional_props: input_dataset
+    %}
+
+  {%- elsif picker_type == 'button' and allowed_in_domain == true -%}
+    <input
+      type="radio"
+      id="{{ input_id }}"
+      class="dev-product-variant-option"
+      name="{{ input_name }}"
+      value="{{ value | escape }}"
+      form="{{ product_form_id }}"
+      {% if value.selected %}
+        checked
+      {% endif %}
+      {% if option_disabled %}
+        class="disabled"
+        disabled
+      {% endif %}
+      {{ input_dataset }}
+    >
+
+    <label class="variant-images-selectable {{ input_name | replace: ' ', '' }}" for="{{ input_id }}">
+      {% for variant in product.variants %}
+        {% if variant.title == value %}
+          <img name="{{ value }}" src="{{ variant.image | img_url: '90x' }}" />
+        {% endif %}
+      {% endfor %}
+
+      {% if product.handle == "cozypod" and value == "Without Case" %}
+        <img class="black" src="https://www.ventyfan.com/cdn/shop/files/venty-venty.png?v=1725522823&width=1445" />
+        <img class="white" src="https://www.ventyfan.com/cdn/shop/files/27-9-2023.37907_1.png?v=1728280483&width=1445" />
+      {% endif %}
+
+      {% if product.handle == "cozypod" and value == "With Case" %}
+        <img class="black" src="https://cdn.shopify.com/s/files/1/0613/3297/9961/files/WhatsApp_Image_2024-11-27_at_19.44.54_7bc5822a-33e5-4852-98a1-5380e5a0faa6.jpg?v=1732781943" />
+        <img class="white" src="https://cdn.shopify.com/s/files/1/0613/3297/9961/files/WhatsApp_Image_2024-11-27_at_17.06.24_c2655022-215a-4ef6-92da-7b64125593f1.jpg?v=1732781943" />
+
+        <style>
+          body .product-variant-options-wrapper fieldset:nth-child(1) label {
+            border: 1px solid #000 !important;
+            border-radius: 30px !important;
+            padding: 5px 20px !important;
+          }
+          body .product-variant-options-wrapper fieldset:nth-child(1) input[type="radio"]:checked + label {
+            background:#031133 !important;
+            color:#fff !important;
+          }
+          label.variant-images-selectable img { display:none; }
+          .selected-black label.variant-images-selectable img.black,
+          .selected-white label.variant-images-selectable img.white { display:block; }
+        </style>
+      {% endif %}
+
+      {{ value }}
+      {{ label_unavailable }}
+    </label>
+
+  {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' and allowed_in_domain == true -%}
+    <option
+      id="{{ input_id }}"
+      value="{{ value | escape }}"
+      {% if value.selected %}
+        selected="selected"
+      {% endif %}
+      {% if option_disabled %}
+        disabled
+      {% endif %}
+      {% if swatch_value and picker_type == 'swatch_dropdown' %}
+        data-option-swatch-value="{{ swatch_value }}"
+        {% if swatch_focal_point %}
+          data-option-swatch-focal-point="{{ swatch_focal_point }}"
+        {% endif %}
+      {% endif %}
+      {{ input_dataset }}
+    >
+      {% if option_disabled %}
+        {{ 'products.product.value_unavailable' | t: option_value: value }}
+      {% else %}
+        {{ value }}
+      {% endif %}
+    </option>
+  {%- endif -%}
+
+{%- endfor -%}

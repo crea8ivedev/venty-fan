@@ -1,0 +1,417 @@
+ 
+
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  
+  
+  {%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+   @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+
+.carousel__cell.benefits-car-cell img {
+    max-width: 100%;
+    width: 70px;
+}    
+
+.X-benefits h2,
+.X-benefits p{
+    text-align: left;
+}
+
+.benefits___slider .carousel__cell{
+    grid-template-columns: auto auto;
+    display: grid;
+    gap: 20px;
+    padding:28px; 
+}
+
+.benefits-car-cell h2{
+  color:#142B4F;
+font-family: "General Sans";
+font-size: 25px;
+font-style: normal;
+font-weight: 600;     line-height: 1.4;
+
+}
+.benefits-car-cell p{
+  color:#142B4F;
+font-family: "General Sans";
+font-size: 20px;
+font-style: normal;
+font-weight: 500;      line-height: 1.4;
+ 
+}
+
+      @media screen and (max-width:1400px) {
+    .benefits-car-cell h2 { font-size:22px; }
+    }
+  @media screen and (max-width:1199px) {
+.benefits-car-cell h2{
+ 
+font-size:18px;
+
+}
+.benefits-car-cell p{
+ 
+font-size:14px;
+
+}
+
+    
+     .section-{{ section.id }}-padding .carousel__cell { padding:15px; }
+    
+  }
+
+
+@media (max-width: 500px) {
+
+.section-{{ section.id }}-padding .carousel__cell.meet-our-fans-car-cell {
+width: 85% !important;
+}
+
+ 
+}
+    
+{%- endstyle -%}
+
+ 
+
+
+
+{% comment %}
+  * Make sure you have the Flickity plugin installed and the proper license for this to function on your store
+  * Plugin, licensing and documentation at https://flickity.metafizzy.co/
+{% endcomment %}
+
+{% assign cell_align = section.settings.cell_align %}
+{% assign wrap_around = section.settings.wrap_around %}
+{% assign img_width = section.settings.img_width | append: 'x' %}
+
+<div class="benefits_Slider flickity-section-{{ section.id }} flickity-index-slider color-{{ section.settings.color_scheme }} isolate gradient section-{{ section.id }}-padding">
+    <div class="page-width title-btn-and-description-benefits-slider">
+    <div class="title-description-benefits-slider">
+      {%- if section.settings.title != blank -%}
+        <h2 class="title-benefits-slider-h2 {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ section.settings.title }}
+        </h2>
+          {%- endif %}
+      
+          {%- if section.settings.description -%}
+            {{ section.settings.description -}}
+          {%- endif %}
+      
+    </div>
+     <div class="btn-benefits-slider">
+            {%- if section.settings.btn != blank -%}
+              <a href="{{ section.settings.urlbtn }}">{{ section.settings.btn -}}</a>
+          {%- endif %}
+    </div>
+    </div>
+
+ 
+  <div class="flickity-section__carousel carousel-{{section.id }} text-center"
+data-flickity='{
+"cellAlign": "{{ cell_align }}",
+"pageDots": true,
+"freeScroll": true,
+"contain": true,
+"wrapAround": {{ wrap_around }}
+}'>
+{% for product in collection_main.products limit: collection_limit %}
+<div class="carousel__cell" style="width:{{ section.settings.cell_width }};margin-right:{{ section.settings.mr }}px">
+</div>
+{% endfor %}
+      {%- for block in section.blocks -%}
+        <div
+          class="carousel__cell benefits-car-cell"
+          style="width:{{ section.settings.cell_width }};margin-right:{{ section.settings.mr }}px"
+        >
+{%- if block.settings.img1 -%}
+{%- assign widths = '100, 165, 360, 535, 750, 1070, 1500' -%}
+{%- capture sizes -%}
+(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 3 }}px,
+(min-width: 750px) calc((100vw - 130px) / 1), calc((100vw - 50px) / 1)
+{%- endcapture -%}
+
+     
+{% assign img_alt = block.settings.img1.alt -%}      
+{{
+block.settings.img1
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: img_alt
+
+}}
+          {%- endif %}
+          <div class="X-benefits">
+            {%- if block.settings.title1 -%}
+            <h2>{{ block.settings.title1 }}</h2>
+          {%- endif %}
+          
+            {%- if block.settings.para -%}
+          {{ block.settings.para }}
+          {%- endif %}
+</div>
+          
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+
+   
+
+{% schema %}
+{
+"name": "benefits_slider",
+  "class": "benefits___slider",
+"settings": [
+ {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+  {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+     {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+   {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.featured-collection.settings.description.label"
+    }, 
+  {
+      "type": "text",
+      "id": "btn",
+      "label": "btn text"
+    },
+  {
+      "type": "url",
+      "id": "urlbtn",
+      "label": "btn url"
+    },
+{
+  "type": "select",
+  "id": "image_ratio",
+  "options": [
+    {
+      "value": "adapt",
+      "label": "t:sections.collection-list.settings.image_ratio.options__1.label"
+    },
+    {
+      "value": "portrait",
+      "label": "t:sections.collection-list.settings.image_ratio.options__2.label"
+    },
+    {
+      "value": "square",
+      "label": "t:sections.collection-list.settings.image_ratio.options__3.label"
+    }
+  ],
+  "default": "square",
+  "label": "t:sections.collection-list.settings.image_ratio.label",
+  "info": "t:sections.collection-list.settings.image_ratio.info"
+},
+{
+"type": "select",
+"id": "cell_align",
+"label": "Slide Alignment",
+"options": [
+{
+"value": "center",
+"label": "Center"
+},
+{
+"value": "left",
+"label": "Left"
+}
+],
+"default": "center"
+},
+{
+"type": "range",
+"id": "title_mb",
+"min": 30,
+"max": 120,
+"step": 1,
+"unit": "px",
+"label": "Title Margin Bottom",
+"default": 48
+},
+{
+"type": "select",
+"id": "cell_width",
+"label": "Choose number of slides to show on start",
+"options": [
+{
+"value": "40%",
+"label": "Two"
+},
+  {
+"value": "30%",
+"label": "Three"
+},
+  
+{
+"value": "26.8%",
+"label": "Four"
+},
+{
+"value": "20%",
+"label": "Five"
+},
+{
+"value": "14%",
+"label": "Six"
+},
+{
+"value": "12.5%",
+"label": "Eight"
+}
+],
+"default": "26.8%"
+},
+{
+"type": "radio",
+"id": "wrap_around",
+"label": "Enable Wrap Around (endless scrolling)",
+"options": [
+{
+"value": "true",
+"label": "True"
+},
+{
+"value": "false",
+"label": "False"
+}
+],
+"default": "true"
+},
+{
+"type": "range",
+"id": "mr",
+"min": 0,
+"max": 48,
+"step": 1,
+"unit": "px",
+"label": "Cell Margin Right",
+"default": 16,
+"info": "Save page to see changes."
+},
+          {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding bottom",
+      "default": 36
+    },
+            {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding top mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding bottom mobile",
+      "default": 36
+    }
+],
+"blocks": [
+  {
+    "type": "slider",
+    "name": "Add A Slider",
+    "settings": [
+       {
+          "type": "image_picker",
+          "id": "img1",
+          "label": "img icon"
+        },
+      {
+          "type": "text",
+          "id": "title1",
+          "label": "Title",
+          "default": "Title"
+        },
+      {
+          "type": "richtext",
+          "id": "para",
+          "label": "Title",
+          "default": "<p>Description</p>"
+        },
+        
+    ]
+  }
+],
+"presets": [
+{
+"name": "benefits_slider",
+}
+]
+}
+{% endschema %}

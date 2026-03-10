@@ -1,0 +1,197 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_TUUAXe": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_UwAJ3U": {
+          "type": "heading",
+          "settings": {
+            "heading": "How can we help?",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_UwAJ3U"
+      ],
+      "settings": {
+        "videohere": false,
+        "customclassforstyling": "troubleshooting-header",
+        "allow_transparent_header": true,
+        "image": "shopify:\/\/shop_images\/Product-Support_c478a596-6a4d-4f26-bf20-26a435ab85e9.jpg",
+        "imagemobile": "shopify:\/\/shop_images\/Product-Support_3a52d997-9fc3-4601-afda-b12883d03501.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "3_collapsible_tabs_DfGkrc": {
+      "type": "3-collapsible-tabs",
+      "blocks": {
+        "tab_1_e6jc8L": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "What is the size, weight of the Venty fan?",
+            "tab1_content": "The Venty Fan is 8 inches in diameter, folds to 3 inches and extends over 3 feet. It weighs 2.5 lbs."
+          }
+        },
+        "tab_1_HVMYU7": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "Is this the same fan that I saw on Kickstarter?",
+            "tab1_content": "Yes it is! - We launched in 2020 on Kickstarter and in the last 4 years have become the top selling portable folding fan with sales in over 50 countries!"
+          }
+        },
+        "tab_2_UBDFRt": {
+          "type": "tab_2",
+          "settings": {
+            "tab2_heading": "Do you offer international shipping?",
+            "tab2_content": "Currently we ship within the US, UK, Australia, and Singapore."
+          }
+        },
+        "tab_3_wwp7Xj": {
+          "type": "tab_3",
+          "settings": {
+            "tab3_heading": "How long after ordering can I return my product?",
+            "tab3_content": "You have up to 30 days after receiving it to start a return. For more information check out return policy."
+          }
+        },
+        "tab_1_QHg97L": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "What is the warranty on the fan?",
+            "tab1_content": "1 Year Support & Replacements and Full Product Refund within 30 days."
+          }
+        },
+        "tab_1_znQbeL": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "Does the battery really last 2 full days per charge?",
+            "tab1_content": "Yes! Make sure you are charging it with a single port charging head. It will last over 48+ hours on the low setting fully charged."
+          }
+        },
+        "tab_1_kC96fA": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "Does the fan oscillate?",
+            "tab1_content": "Yes, the Venty Fan oscillates 120 degrees."
+          }
+        },
+        "tab_1_LjAqq9": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "Who do I contact if I have an issue with my order?",
+            "tab1_content": "Navigate to the support section of the top bar."
+          }
+        },
+        "tab_2_BcbdGd": {
+          "type": "tab_2",
+          "settings": {
+            "tab2_heading": "How long does delivery take?",
+            "tab2_content": "Within the US about 3 - 4 business days. In the UK, Australia and Singapore, up to about a week."
+          }
+        },
+        "tab_2_PzPpCp": {
+          "type": "tab_2",
+          "settings": {
+            "tab2_heading": "Can I track my order?",
+            "tab2_content": "Yes! You will receive a confirmation email upon ordering which can be tracked within 24 hours after ordering on the \"track my order\" tab from our dropdown menu."
+          }
+        },
+        "tab_3_cRBKhX": {
+          "type": "tab_3",
+          "settings": {
+            "tab3_heading": "I have a quality issue I need to discuss",
+            "tab3_content": "Check out our troubleshooting section. If that doesn't help, just contact us using the same form on the bottom of the troubleshooting page."
+          }
+        },
+        "tab_2_ifxTMG": {
+          "type": "tab_2",
+          "settings": {
+            "tab2_heading": "Where will my package ship from?",
+            "tab2_content": "If you are a US customer, your order ships locally within the US. We use 20 different warehouses throughout the US to get your order to you as quickly as possible."
+          }
+        },
+        "tab_3_yWyDre": {
+          "type": "tab_3",
+          "settings": {
+            "tab3_heading": "How long after my return will I be refunded?",
+            "tab3_content": "After receiving your return, we will check to ensure the item included all accessories and you will typically see the refund posted within a week after the return."
+          }
+        }
+      },
+      "block_order": [
+        "tab_1_e6jc8L",
+        "tab_1_HVMYU7",
+        "tab_2_UBDFRt",
+        "tab_3_wwp7Xj",
+        "tab_1_QHg97L",
+        "tab_1_znQbeL",
+        "tab_1_kC96fA",
+        "tab_1_LjAqq9",
+        "tab_2_BcbdGd",
+        "tab_2_PzPpCp",
+        "tab_3_cRBKhX",
+        "tab_2_ifxTMG",
+        "tab_3_yWyDre"
+      ],
+      "settings": {
+        "heading": "<p>General <strong>FAQ<\/strong><\/p>",
+        "tab_1": "Venty Fan",
+        "tab_2": "Shipping",
+        "tab_3": "Returns",
+        "tab_4": "",
+        "background": "#f1f2f4",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_top_mob": 40,
+        "padding_bottom_mob": 40
+      }
+    },
+    "message_button_section_NFRhbW": {
+      "type": "message-button-section",
+      "settings": {
+        "about_text_image_2": "shopify:\/\/shop_images\/chatting-01.png",
+        "heading": "<p>Still Need Help? <\/p>",
+        "paragraph": "We are here to answer questions and solve problems. Message Us.",
+        "button_text": "Message US",
+        "button_link": "shopify:\/\/pages\/contact",
+        "background": "#ffffff",
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_top_mob": 60,
+        "padding_bottom_mob": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_TUUAXe",
+    "3_collapsible_tabs_DfGkrc",
+    "message_button_section_NFRhbW"
+  ]
+}

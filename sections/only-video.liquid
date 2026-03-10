@@ -1,0 +1,180 @@
+{%- style -%}
+
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background }};
+  }
+  .video-width-only{
+    width:{{section.settings.widhtofimgdesktop}}%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    border-radius:30px;
+  }
+
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+
+    }
+      .video-width-only{
+    width:{{section.settings.widhtofimgmob}}%;
+  }
+  }
+
+      {% if section.settings.customheightenable %}
+  .section-{{ section.id }}-padding {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    height:{{section.settings.heightcstmdesktop}}vh;
+  }
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    height:{{section.settings.heightcstmmobile}}vh;
+
+    }
+    }
+  {% endif %}
+
+{%- endstyle -%}
+
+<style>
+  
+</style>
+<div
+  class="section-{{ section.id }}-padding custom-banner-content-main">
+  <div class="page-width">
+    <div class="only-video-main">
+          {% if section.settings.video %}
+        {{ section.settings.video | video_tag: playsinline: true, image_size: "1100x", muted: true, autoplay: true, loop: true, preload: 'metadata', class: 'video-width-only'}}
+        {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Only Video",
+  "settings": [
+ {
+      "type": "checkbox",
+      "id": "customheightenable",
+      "default": false,
+      "label": "Enable For Custom Height Padding Wont Work"
+    },
+    {
+      "type": "range",
+      "id": "heightcstmdesktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "vh",
+      "label": "Height Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "heightcstmmobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "vh",
+      "label": "Height Mobile",
+      "default": 36
+    },
+     {
+      "type": "range",
+      "id": "widhtofimgdesktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Width Desktop",
+      "default": 36
+    },
+     {
+      "type": "range",
+      "id": "widhtofimgmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Width Mobile",
+      "default": 36
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top Mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom Mobile",
+      "default": 36
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Only Video"
+    }
+  ]
+}
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

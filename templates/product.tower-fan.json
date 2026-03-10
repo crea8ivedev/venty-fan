@@ -1,0 +1,979 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_U6fbnA": {
+      "type": "image-banner",
+      "blocks": {
+        "descriptionbottom_L6Dik9": {
+          "type": "descriptionbottom",
+          "settings": {
+            "textbottom": "Introducing <strong>The Venty</strong>"
+          }
+        },
+        "heading_cFa3aE": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Tower</strong> Fan",
+            "heading_size": "h0"
+          }
+        },
+        "custom_liquid_LHFVGj": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<p> COMING TO <em><svg width=\"234\" height=\"25\" viewBox=\"0 0 234 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M21.9755 19.0843C21.9755 22.1019 19.4746 24.6303 16.3585 24.5896C14.6367 24.5896 12.8737 23.7741 11.8077 22.2244L10.6597 20.5933C10.1266 22.9586 8.07666 24.5896 5.45293 24.5896C2.41873 24.5896 0 22.1429 0 19.1251V5.46449C0 2.44688 2.37778 0 5.45293 0C8.11785 0 10.2087 1.75366 10.7006 4.15955L12.0127 2.36538C13.0787 0.897206 14.8007 0.0407486 16.5226 0.0407486C19.4747 0.0407486 21.9755 2.36538 21.9755 5.38299C21.9755 6.52468 21.6477 7.66638 20.9506 8.60434L18.3266 12.2337L20.9506 15.863C21.6477 16.8417 21.9755 17.9426 21.9755 19.0843ZM29.5247 0C32.8144 0 35.4459 2.69604 35.4047 5.88204V18.708C35.4047 21.8943 32.8144 24.5901 29.4835 24.5901C26.2351 24.5901 23.6035 21.935 23.6035 18.708V5.88204C23.6035 2.69604 26.2351 0 29.5247 0ZM58.1948 17.8319C58.1948 21.7811 54.9176 24.5901 49.6582 24.5901C42.6187 24.5901 37.44 19.3384 37.44 12.295C37.44 5.2519 42.6187 0 49.6582 0C54.9176 0 58.1948 2.8092 58.1948 6.75838C58.1948 9.40458 56.9003 11.1958 54.3109 12.295C56.9003 13.3945 58.1948 15.2265 58.1948 17.8319ZM82.2052 19.0843C82.2052 22.1019 79.6997 24.6303 76.6189 24.5896C74.8936 24.5896 73.1274 23.7741 72.0593 22.2244L70.9093 20.5933C70.3753 22.9586 68.3214 24.5896 65.6926 24.5896C62.653 24.5896 60.2296 22.1429 60.2296 19.1251V5.46449C60.2296 2.44688 62.6121 0 65.6926 0C68.3626 0 70.4576 1.75366 70.9505 4.15955L72.2239 2.36538C73.2917 0.897206 75.017 0.0407486 76.742 0.0407486C79.6997 0.0407486 82.2052 2.36538 82.2052 5.38299C82.2052 6.52468 81.8766 7.66638 81.1783 8.60434L78.5494 12.2337L81.1783 15.863C81.8766 16.8417 82.2052 17.9426 82.2052 19.0843ZM102.96 17.0231C102.96 21.9161 99.2082 25 92.8873 25C86.444 25 83.4261 22.7794 83.4261 19.1612C83.4261 16.6529 85.3427 15.0495 88.0749 15.0495H88.1159L86.6478 13.6925C84.8126 12.0066 83.5485 10.3207 83.5485 7.85368C83.5485 3.04289 87.0556 0 93.0503 0C99.1675 0 102.063 2.17931 102.063 5.83883C102.063 8.01815 100.595 9.49835 98.3926 9.82753L99.9014 11.1843C101.737 12.8289 102.96 14.5558 102.96 17.0231ZM119.554 19.4673C119.554 22.5001 116.986 25 113.683 25C110.503 25 107.934 22.5001 107.934 19.4673V10.9837C105.203 10.8197 102.96 8.56555 102.96 5.6967C102.96 2.70487 105.325 0.409941 108.22 0.409941H119.269C122.164 0.409941 124.529 2.74587 124.529 5.6967C124.529 8.56555 122.286 10.8607 119.554 10.9837V19.4673ZM133.856 20.3154C132.468 23.2058 130.508 24.5901 128.139 24.5901C123.851 24.5901 120.748 20.6411 122.667 16.2035L127.69 4.47842C128.956 1.58797 130.793 0 133.897 0C137.041 0 138.879 1.58797 140.104 4.47842L145.127 16.2035C147.005 20.6411 143.942 24.5901 139.614 24.5901C137.205 24.5901 135.244 23.2058 133.856 20.3154ZM147.318 6.51658C147.318 2.50015 149.451 0.409941 153.265 0.409941H160.36C164.666 0.409941 168.029 3.68873 168.029 7.90989C168.029 10.2051 167.085 12.0903 165.527 13.2786L167.66 16.6804C168.234 17.5818 168.48 18.5656 168.48 19.5903C168.48 22.6228 166.101 25 163.107 25C161.262 25 159.458 24.0574 158.432 22.3361L157.858 21.3115C157.161 23.4835 155.233 25 152.773 25C149.779 25 147.318 22.4591 147.318 19.3853V6.51658ZM185.491 19.4673C185.491 22.5001 182.968 25 179.59 25C176.416 25 173.852 22.5001 173.852 19.4673V10.9837C171.125 10.8197 168.887 8.56555 168.887 5.6967C168.887 2.70487 171.247 0.409941 174.137 0.409941H185.206C188.095 0.409941 190.456 2.74587 190.456 5.6967C190.456 8.56555 188.217 10.8607 185.491 10.9837V19.4673ZM211.21 20.2881C211.21 22.9331 209.108 25.0407 206.56 24.9993H198.068C194.186 24.9993 192.084 22.9331 192.084 18.883V6.5264C192.084 2.51758 194.186 0.409941 198.068 0.409941H206.56C209.108 0.409941 211.21 2.51758 211.21 5.16255C211.21 7.5596 209.755 9.29534 207.652 9.70848C208.622 10.3285 209.148 11.3615 209.148 12.7253C209.148 14.0892 208.582 15.1224 207.652 15.7422C209.714 16.1556 211.21 17.9326 211.21 20.2881ZM212.838 6.51658C212.838 2.50015 214.93 0.409941 218.785 0.409941H225.88C230.186 0.409941 233.549 3.68873 233.549 7.90989C233.549 10.2051 232.605 12.0903 231.047 13.2786L233.18 16.6804C233.754 17.5818 234 18.5656 234 19.5903C234 22.6228 231.621 25 228.628 25C226.782 25 224.977 24.0574 223.952 22.3361L223.378 21.3115C222.681 23.4835 220.753 25 218.293 25C215.299 25 212.838 22.4591 212.838 19.3853V6.51658Z\" fill=\"#05CE78\"/>\n</svg>\n</em> <strong>IN SPRING</strong></p>\n\n<div class=\"klaviyo-form-Wqqa5Y\"></div>"
+          }
+        },
+        "newsletter_C6zwE6": {
+          "type": "newsletter",
+          "disabled": true,
+          "settings": {
+            "btntext": "get NOTIFIED"
+          }
+        },
+        "text_rHJaXf": {
+          "type": "text",
+          "settings": {
+            "text": "Sign up and <strong> save BIG </strong> on launch day",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "descriptionbottom_L6Dik9",
+        "heading_cFa3aE",
+        "custom_liquid_LHFVGj",
+        "newsletter_C6zwE6",
+        "text_rHJaXf"
+      ],
+      "custom_css": [
+        ".hero-section-main {background: #ebecf0;}",
+        ".media {background: transparent;}"
+      ],
+      "settings": {
+        "videohere": false,
+        "customclassforstyling": "hero-section-main  tower-fan-main",
+        "allow_transparent_header": false,
+        "image": "shopify://shop_images/241211.2061_1.png",
+        "imagemobile": "shopify://shop_images/241211.2061_1.png",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-right",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": true
+      }
+    },
+    "tower_image_slider_jWe87A": {
+      "type": "tower-image-slider",
+      "blocks": {
+        "block_nWhBJf": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/11_eb99667b-e08c-441d-9f50-0b43f161f47e.png",
+            "heading": "<p><strong>Oscillating</strong> <br/>Base</p>",
+            "textcolor": ""
+          }
+        },
+        "block_V8JUX6": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/241211.2056.png",
+            "heading": "<p>Integrated <strong>Magnetic <br/>Remote</strong></p>",
+            "textcolor": ""
+          }
+        },
+        "block_DeW7p6": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Group_136.png",
+            "heading": "<p><strong>75% More Powerful </strong><br/>Than Venty Fan</p>",
+            "textcolor": ""
+          }
+        },
+        "block_GwU4fw": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/11_eb99667b-e08c-441d-9f50-0b43f161f47e.png",
+            "heading": "<p><strong>Oscillating</strong> <br/>Base</p>",
+            "textcolor": ""
+          }
+        },
+        "block_eXXDJn": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Group_144.png",
+            "heading": "<p><strong>Custom Colored</strong> <br/>LED Lights</p>",
+            "textcolor": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "block_nWhBJf",
+        "block_V8JUX6",
+        "block_DeW7p6",
+        "block_GwU4fw",
+        "block_eXXDJn"
+      ],
+      "custom_css": [
+        "@media only screen and (max-width: 667px) {.tower-image-slider-main {padding-bottom: 50px; }}"
+      ],
+      "settings": {
+        "heading": "Innovation in<strong> Every Detail</strong>",
+        "color": "#ffffff",
+        "background": "#031133",
+        "padding_top": 52,
+        "padding_bottom": 152
+      }
+    },
+    "custom_liquid_UyQmdQ": {
+      "type": "custom-liquid",
+      "custom_css": [
+        "{display: none;}",
+        "@media only screen and (max-width: 667px) {{display: block; background: #fff !important; }}"
+      ],
+      "settings": {
+        "custom_liquid": "<div class=\"mobile-tower-banner-v2\">\n<div class=\"banner__text rte subtitle\">\n              <p>The First</p>\n            </div><div class=\"banner__text rte \">\n              <p>Foldable &amp; Extendable</p>\n            </div>\n\n             \n<h2 class=\"banner__heading inline-richtext hxxl\">\n              <strong>Tower</strong> Fan\n            </h2> </div>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_banner_Ngh7VM": {
+      "type": "image-banner",
+      "blocks": {
+        "text_48RcGj": {
+          "type": "text",
+          "settings": {
+            "text": "The First",
+            "text_style": "subtitle"
+          }
+        },
+        "descriptionbottom_WyfGYU": {
+          "type": "descriptionbottom",
+          "settings": {
+            "textbottom": "Foldable & Extendable"
+          }
+        },
+        "heading_KtbwKm": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Tower</strong> Fan",
+            "heading_size": "hxxl"
+          }
+        },
+        "custom_liquid_343Jqw": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<p> COMING TO <em><svg width=\"234\" height=\"25\" viewBox=\"0 0 234 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M21.9755 19.0843C21.9755 22.1019 19.4746 24.6303 16.3585 24.5896C14.6367 24.5896 12.8737 23.7741 11.8077 22.2244L10.6597 20.5933C10.1266 22.9586 8.07666 24.5896 5.45293 24.5896C2.41873 24.5896 0 22.1429 0 19.1251V5.46449C0 2.44688 2.37778 0 5.45293 0C8.11785 0 10.2087 1.75366 10.7006 4.15955L12.0127 2.36538C13.0787 0.897206 14.8007 0.0407486 16.5226 0.0407486C19.4747 0.0407486 21.9755 2.36538 21.9755 5.38299C21.9755 6.52468 21.6477 7.66638 20.9506 8.60434L18.3266 12.2337L20.9506 15.863C21.6477 16.8417 21.9755 17.9426 21.9755 19.0843ZM29.5247 0C32.8144 0 35.4459 2.69604 35.4047 5.88204V18.708C35.4047 21.8943 32.8144 24.5901 29.4835 24.5901C26.2351 24.5901 23.6035 21.935 23.6035 18.708V5.88204C23.6035 2.69604 26.2351 0 29.5247 0ZM58.1948 17.8319C58.1948 21.7811 54.9176 24.5901 49.6582 24.5901C42.6187 24.5901 37.44 19.3384 37.44 12.295C37.44 5.2519 42.6187 0 49.6582 0C54.9176 0 58.1948 2.8092 58.1948 6.75838C58.1948 9.40458 56.9003 11.1958 54.3109 12.295C56.9003 13.3945 58.1948 15.2265 58.1948 17.8319ZM82.2052 19.0843C82.2052 22.1019 79.6997 24.6303 76.6189 24.5896C74.8936 24.5896 73.1274 23.7741 72.0593 22.2244L70.9093 20.5933C70.3753 22.9586 68.3214 24.5896 65.6926 24.5896C62.653 24.5896 60.2296 22.1429 60.2296 19.1251V5.46449C60.2296 2.44688 62.6121 0 65.6926 0C68.3626 0 70.4576 1.75366 70.9505 4.15955L72.2239 2.36538C73.2917 0.897206 75.017 0.0407486 76.742 0.0407486C79.6997 0.0407486 82.2052 2.36538 82.2052 5.38299C82.2052 6.52468 81.8766 7.66638 81.1783 8.60434L78.5494 12.2337L81.1783 15.863C81.8766 16.8417 82.2052 17.9426 82.2052 19.0843ZM102.96 17.0231C102.96 21.9161 99.2082 25 92.8873 25C86.444 25 83.4261 22.7794 83.4261 19.1612C83.4261 16.6529 85.3427 15.0495 88.0749 15.0495H88.1159L86.6478 13.6925C84.8126 12.0066 83.5485 10.3207 83.5485 7.85368C83.5485 3.04289 87.0556 0 93.0503 0C99.1675 0 102.063 2.17931 102.063 5.83883C102.063 8.01815 100.595 9.49835 98.3926 9.82753L99.9014 11.1843C101.737 12.8289 102.96 14.5558 102.96 17.0231ZM119.554 19.4673C119.554 22.5001 116.986 25 113.683 25C110.503 25 107.934 22.5001 107.934 19.4673V10.9837C105.203 10.8197 102.96 8.56555 102.96 5.6967C102.96 2.70487 105.325 0.409941 108.22 0.409941H119.269C122.164 0.409941 124.529 2.74587 124.529 5.6967C124.529 8.56555 122.286 10.8607 119.554 10.9837V19.4673ZM133.856 20.3154C132.468 23.2058 130.508 24.5901 128.139 24.5901C123.851 24.5901 120.748 20.6411 122.667 16.2035L127.69 4.47842C128.956 1.58797 130.793 0 133.897 0C137.041 0 138.879 1.58797 140.104 4.47842L145.127 16.2035C147.005 20.6411 143.942 24.5901 139.614 24.5901C137.205 24.5901 135.244 23.2058 133.856 20.3154ZM147.318 6.51658C147.318 2.50015 149.451 0.409941 153.265 0.409941H160.36C164.666 0.409941 168.029 3.68873 168.029 7.90989C168.029 10.2051 167.085 12.0903 165.527 13.2786L167.66 16.6804C168.234 17.5818 168.48 18.5656 168.48 19.5903C168.48 22.6228 166.101 25 163.107 25C161.262 25 159.458 24.0574 158.432 22.3361L157.858 21.3115C157.161 23.4835 155.233 25 152.773 25C149.779 25 147.318 22.4591 147.318 19.3853V6.51658ZM185.491 19.4673C185.491 22.5001 182.968 25 179.59 25C176.416 25 173.852 22.5001 173.852 19.4673V10.9837C171.125 10.8197 168.887 8.56555 168.887 5.6967C168.887 2.70487 171.247 0.409941 174.137 0.409941H185.206C188.095 0.409941 190.456 2.74587 190.456 5.6967C190.456 8.56555 188.217 10.8607 185.491 10.9837V19.4673ZM211.21 20.2881C211.21 22.9331 209.108 25.0407 206.56 24.9993H198.068C194.186 24.9993 192.084 22.9331 192.084 18.883V6.5264C192.084 2.51758 194.186 0.409941 198.068 0.409941H206.56C209.108 0.409941 211.21 2.51758 211.21 5.16255C211.21 7.5596 209.755 9.29534 207.652 9.70848C208.622 10.3285 209.148 11.3615 209.148 12.7253C209.148 14.0892 208.582 15.1224 207.652 15.7422C209.714 16.1556 211.21 17.9326 211.21 20.2881ZM212.838 6.51658C212.838 2.50015 214.93 0.409941 218.785 0.409941H225.88C230.186 0.409941 233.549 3.68873 233.549 7.90989C233.549 10.2051 232.605 12.0903 231.047 13.2786L233.18 16.6804C233.754 17.5818 234 18.5656 234 19.5903C234 22.6228 231.621 25 228.628 25C226.782 25 224.977 24.0574 223.952 22.3361L223.378 21.3115C222.681 23.4835 220.753 25 218.293 25C215.299 25 212.838 22.4591 212.838 19.3853V6.51658Z\" fill=\"#05CE78\"/>\n</svg>\n</em> <strong>IN  AUGUST</strong></p>\n\n<div class=\"klaviyo-form-Wqqa5Y\"></div>"
+          }
+        },
+        "newsletter_bBVTj3": {
+          "type": "newsletter",
+          "disabled": true,
+          "settings": {
+            "btntext": "get NOTIFIED"
+          }
+        },
+        "text_RPD9mw": {
+          "type": "text",
+          "settings": {
+            "text": "Sign up & <strong>save up to 20%</strong> on our launch",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "text_48RcGj",
+        "descriptionbottom_WyfGYU",
+        "heading_KtbwKm",
+        "custom_liquid_343Jqw",
+        "newsletter_bBVTj3",
+        "text_RPD9mw"
+      ],
+      "custom_css": [
+        ".hero-section-main {background: #fff;}",
+        ".media {display: none; background: transparent;}",
+        ".custom-part {padding-bottom: 60px;}"
+      ],
+      "settings": {
+        "videohere": false,
+        "customclassforstyling": "hero-section-main tower-banner-v2",
+        "allow_transparent_header": false,
+        "image": "shopify://shop_images/Second_image_eb3a985f-e697-410a-99f9-a3200177911f.png",
+        "imagemobile": "shopify://shop_images/Second_image_eb3a985f-e697-410a-99f9-a3200177911f.png",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "top-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": true
+      }
+    },
+    "image_banner_3UrYdk": {
+      "type": "image-banner",
+      "settings": {
+        "videohere": false,
+        "customclassforstyling": "",
+        "allow_transparent_header": false,
+        "image": "shopify://shop_images/241211.2079.png",
+        "imagemobile": "shopify://shop_images/241211.2079.png",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "slideshow_bR4xLq": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_K8V8gt": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/241211.2079.png",
+            "heading": "",
+            "heading_size": "h0",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "top-left",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-5",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_K8V8gt"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "dots",
+        "auto_rotate": false,
+        "change_slides_speed": 3,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "relative_banner_image_HG4iTA": {
+      "type": "relative-banner-image",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "image_link": "#cozpod-btn",
+        "img": "shopify://shop_images/Bnner_Fan.png",
+        "mobile-img": "shopify://shop_images/Website_Banner_fan_1.png"
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "rating_qnt8pf": {
+          "type": "rating",
+          "settings": {}
+        },
+        "title_n8JPq6": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_Eb933X": {
+          "type": "price",
+          "settings": {}
+        },
+        "benefits_kdEhCh": {
+          "type": "benefits",
+          "settings": {
+            "benefits-img1": "shopify://shop_images/checkmark-circle-primary_1.png",
+            "benefits-txt1": "Charges Phone",
+            "benefits-img2": "shopify://shop_images/checkmark-circle-primary_1_79a7bcfa-5fcc-4a57-afe7-66ea4fc8ae38.png",
+            "benefits-txt2": "Rechargeable",
+            "benefits-img3": "shopify://shop_images/checkmark-circle-primary_1_1e467ae5-db09-484f-a37a-26c886427734.png",
+            "benefits-txt3": "Extendable",
+            "benefits-img4": "shopify://shop_images/checkmark-circle-primary_1_3a2797e1-bbfe-4621-b030-eefb6f35969d.png",
+            "benefits-txt4": "Led Lamp Base",
+            "benefits-img5": "shopify://shop_images/checkmark-circle-primary_1_c5143096-9127-4ceb-9be5-40035f85ec74.png",
+            "benefits-txt5": "Carrying Case",
+            "benefits-img6": "shopify://shop_images/checkmark-circle-primary_1_08e51845-6bb4-49c1-a414-2ed0c84a53be.png",
+            "benefits-txt6": "48hr/Charge"
+          }
+        },
+        "variant_picker_dC4kGN": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_zKaCQU": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "iconwithtext_LkDqRd": {
+          "type": "iconwithtext",
+          "settings": {
+            "icon-shipping": "shopify://shop_images/ca22f309cab155faf701d001bf0137d9.png",
+            "textshipping0": "£20 OFF 2 OR MORE",
+            "textshipping1": "$20 OFF 2 OR MORE",
+            "textshipping2": "+ Free Shipping"
+          }
+        },
+        "buy_buttons_kqXwFR": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "iconwithtext2_GNCnaf": {
+          "type": "iconwithtext2",
+          "settings": {
+            "icon-shipping1": "shopify://shop_images/ca22f309cab155faf701d001bf0137d9.png",
+            "textshipping0": "£20 OFF 2 OR MORE",
+            "textshipping1": "$20 OFF 2 OR MORE",
+            "textshipping3": "+ Free Shipping"
+          }
+        }
+      },
+      "block_order": [
+        "rating_qnt8pf",
+        "title_n8JPq6",
+        "price_Eb933X",
+        "benefits_kdEhCh",
+        "variant_picker_dC4kGN",
+        "quantity_selector_zKaCQU",
+        "iconwithtext_LkDqRd",
+        "buy_buttons_kqXwFR",
+        "iconwithtext2_GNCnaf"
+      ],
+      "disabled": true,
+      "settings": {
+        "bundle_discount_text": "BUNDLE OFFER: () OFF + FREE SHIPPING",
+        "double_bundle_discount": 0,
+        "sticky_cart": false,
+        "enable_sticky_info": true,
+        "product_off": false,
+        "color_scheme": "scheme-3a101b2e-80e1-4dcb-ba5b-8e268ef99b9f",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "right",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 52,
+        "padding_bottom": 12,
+        "enable_group_media": true,
+        "media_grouping_option": "Choose Your Color"
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "<strong>You may also like</strong>",
+        "heading_size": "hxl",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-3",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "gallery_tabs_gQegFU": {
+      "type": "Gallery-Tabs",
+      "blocks": {
+        "tab1_TFHre8": {
+          "type": "Tab1",
+          "settings": {
+            "title1": "Office",
+            "img1": "shopify://shop_images/1_3x_0e2c9ae0-36c4-4469-9296-b7c6d8773cdc.png",
+            "img2": "shopify://shop_images/2_3x_3x_17c41b9b-2fc4-472a-af46-992f25cd4296.png",
+            "img3": "shopify://shop_images/2_3x_b7b3e8eb-f398-4934-b7c2-21d197994541.png"
+          }
+        },
+        "tab2_GpeWCL": {
+          "type": "Tab2",
+          "settings": {
+            "title2_1": "Home",
+            "img2_1": "shopify://shop_images/1_3x_94629d03-96d1-4772-a3f5-fd3e0d5a219d.png",
+            "img2_2": "shopify://shop_images/DSC02646_1_56b74612-2978-4c8d-a20f-84f70e35cc79.jpg",
+            "img2_3": "shopify://shop_images/Screenshot_2024-08-21_at_2.58.53_PM_97d0bf54-d3f1-4406-8b76-67a1520f631b.png"
+          }
+        },
+        "tab3_pU8q8Q": {
+          "type": "Tab3",
+          "settings": {
+            "title3_1": "Outdoor",
+            "img3_1": "shopify://shop_images/1_3x_7fc432cb-6f59-48d6-87b1-9a862f402c40.png",
+            "img3_2": "shopify://shop_images/2_3x_24f6b3b5-6666-428e-beb9-9251ddf61ba4.png",
+            "img3_3": "shopify://shop_images/3_3x_825fd4e4-32b7-48a6-a99e-150fc9eb44ee.png"
+          }
+        },
+        "tab4_Fmh4r7": {
+          "type": "Tab4",
+          "settings": {
+            "title4_1": "Bedroom",
+            "img4_1": "shopify://shop_images/1_3x_7af1b73a-fbd0-4992-9d78-51d427418ea4.png",
+            "img4_2": "shopify://shop_images/3_3x_5640a485-1acf-4147-8faf-877f3f3242d1.png",
+            "img4_3": "shopify://shop_images/2_3x_4b54b4ec-50b6-4e0d-bca0-65c0163482f0.png"
+          }
+        },
+        "tab5_UQhwfe": {
+          "type": "Tab5",
+          "settings": {
+            "title5_1": "Travel",
+            "img5_1": "shopify://shop_images/DSC06901_84bc43d6-bc8c-4398-b441-7867e58802cf.jpg",
+            "img5_2": "shopify://shop_images/DSC07361_cd16a434-4698-4a4b-a3e3-294990ccb4fd.jpg",
+            "img5_3": "shopify://shop_images/DSC07260_0f96249e-8f29-4f5c-8ae6-b53794c9bfa6.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "tab1_TFHre8",
+        "tab2_GpeWCL",
+        "tab3_pU8q8Q",
+        "tab4_Fmh4r7",
+        "tab5_UQhwfe"
+      ],
+      "disabled": true,
+      "settings": {
+        "class": "",
+        "background": "#031133",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mob": 48,
+        "padding_bottom_mob": 0
+      }
+    },
+    "benefits_slider_DbB6wi": {
+      "type": "benefits_slider",
+      "blocks": {
+        "slider_AGGjy8": {
+          "type": "slider",
+          "settings": {
+            "img1": "shopify://shop_images/fi_5744470_f3c9cfe8-be74-47ae-8026-0103dc53146f.png",
+            "title1": "Compact",
+            "para": "<p>Folds down to 3.5 inches</p>"
+          }
+        },
+        "slider_wqgMgt": {
+          "type": "slider",
+          "settings": {
+            "img1": "shopify://shop_images/fi_11847162_81b75a36-69e8-40b8-82ba-f8e79b081a39.png",
+            "title1": "Lightweight",
+            "para": "<p>Easy to carry & includes travel case</p>"
+          }
+        },
+        "slider_z7HWNy": {
+          "type": "slider",
+          "settings": {
+            "img1": "shopify://shop_images/Group_4_926be624-4be2-4649-b517-a2a72785d835.png",
+            "title1": "Power Bank",
+            "para": "<p>Doubles as a power bank for your phone </p>"
+          }
+        },
+        "slider_3f6Pci": {
+          "type": "slider",
+          "settings": {
+            "img1": "shopify://shop_images/Group_5_a1edae69-ccfc-403e-abf1-a43b0b44bc46.png",
+            "title1": "Multi-speed",
+            "para": "<p>Adjust 4 different speed settings </p>"
+          }
+        },
+        "slider_YDX34T": {
+          "type": "slider",
+          "settings": {
+            "img1": "shopify://shop_images/battery-charging-01_fa8f8dbb-33a1-46e7-95c7-d578fd8539a8.png",
+            "title1": "Strong Battery",
+            "para": "<p>16k MaH battery lasts up to 48 hours</p>"
+          }
+        },
+        "slider_AUPwyk": {
+          "type": "slider",
+          "settings": {
+            "img1": "shopify://shop_images/Remote_Control_1.png",
+            "title1": "Wireless Remote",
+            "para": "<p>Works up to 30 feet</p>"
+          }
+        },
+        "slider_9UiM7J": {
+          "type": "slider",
+          "settings": {
+            "img1": "shopify://shop_images/length_ee8954c5-5728-4110-ba4b-d255df17fabe.png",
+            "title1": "Dimensions",
+            "para": "<p>Extended: 3.5' max height</p>"
+          }
+        }
+      },
+      "block_order": [
+        "slider_AGGjy8",
+        "slider_wqgMgt",
+        "slider_z7HWNy",
+        "slider_3f6Pci",
+        "slider_YDX34T",
+        "slider_AUPwyk",
+        "slider_9UiM7J"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".carousel__cell {min-height: 150px; height: 100%;}"
+      ],
+      "settings": {
+        "color_scheme": "scheme-5",
+        "title": "Features & Tech Specs",
+        "heading_size": "hxl",
+        "description": "",
+        "btn": "",
+        "urlbtn": "#",
+        "image_ratio": "square",
+        "cell_align": "left",
+        "title_mb": 48,
+        "cell_width": "30%",
+        "wrap_around": "true",
+        "mr": 15,
+        "padding_top": 48,
+        "padding_bottom": 100,
+        "padding_top_mob": 48,
+        "padding_bottom_mob": 68
+      }
+    },
+    "only_image_XMfc3B": {
+      "type": "only-image",
+      "disabled": true,
+      "settings": {
+        "customheightenable": false,
+        "heightcstmdesktop": 36,
+        "heightcstmmobile": 36,
+        "widhtofimgdesktop": 85,
+        "widhtofimgmob": 100,
+        "img": "shopify://shop_images/4_folded_fans_ec943224-8d83-402f-893e-2d9db49dd85b.png",
+        "background": "#f4f8fb",
+        "padding_top": 92,
+        "padding_bottom": 0,
+        "padding_top_mob": 84,
+        "padding_bottom_mob": 76
+      }
+    },
+    "hot_spots_g8WkKA": {
+      "type": "hot-spots",
+      "blocks": {
+        "detailsleft_rRwUfz": {
+          "type": "detailsleft",
+          "settings": {
+            "title1": "Folds",
+            "description1": "Venty folds to 3 inches. Perfect for bringing on vacation."
+          }
+        },
+        "detailsleft_tBgA37": {
+          "type": "detailsleft",
+          "settings": {
+            "title1": "Extends",
+            "description1": "From 3 inches up to 3 feet. The perfect breeze at any height."
+          }
+        },
+        "detailsleft_CWELyJ": {
+          "type": "detailsleft",
+          "settings": {
+            "title1": "LED Light",
+            "description1": "3 tone warm ambient light setting. A dim night light or camping light."
+          }
+        },
+        "detailsright_JUjrjd": {
+          "type": "detailsright",
+          "settings": {
+            "title2": "Control",
+            "description2": "Wireless remote works up to 30 feet. Control light, speed, and oscillation."
+          }
+        },
+        "detailsright_ah4FKM": {
+          "type": "detailsright",
+          "settings": {
+            "title2": "Oscillates",
+            "description2": "120 degrees of cool breeze controlled from both the console and the remote."
+          }
+        },
+        "detailsright_GNTwCc": {
+          "type": "detailsright",
+          "settings": {
+            "title2": "Recharges",
+            "description2": "Super strong 48 hour battery life. Charge it up and use without cords."
+          }
+        },
+        "centerdotsdetails_Qm34K8": {
+          "type": "centerdotsdetails",
+          "settings": {
+            "titledots": "",
+            "descriptiondots": "<p>Oscillates 180 degrees </p>",
+            "horizontal_position_desktop": 74,
+            "vertical_position_desktop": 33,
+            "horizontal_position_tablet": 30,
+            "vertical_position_tablet": 30,
+            "horizontal_position_mobile": 61,
+            "vertical_position_mobile": 29
+          }
+        },
+        "centerdotsdetails_8jMJ7h": {
+          "type": "centerdotsdetails",
+          "settings": {
+            "titledots": "",
+            "descriptiondots": "<p>Folds to 3.5 inches </p>",
+            "horizontal_position_desktop": 64,
+            "vertical_position_desktop": 58,
+            "horizontal_position_tablet": 30,
+            "vertical_position_tablet": 57,
+            "horizontal_position_mobile": 52,
+            "vertical_position_mobile": 61
+          }
+        },
+        "centerdotsdetails_aAbXnw": {
+          "type": "centerdotsdetails",
+          "settings": {
+            "titledots": "",
+            "descriptiondots": "<p>Wireless remote up to 30 feet </p>",
+            "horizontal_position_desktop": 32,
+            "vertical_position_desktop": 82,
+            "horizontal_position_tablet": 30,
+            "vertical_position_tablet": 30,
+            "horizontal_position_mobile": 33,
+            "vertical_position_mobile": 81
+          }
+        },
+        "centerdotsdetails_Xqr4bX": {
+          "type": "centerdotsdetails",
+          "settings": {
+            "titledots": "",
+            "descriptiondots": "<p>Recharge for 48 hours battery life </p>",
+            "horizontal_position_desktop": 9,
+            "vertical_position_desktop": 86,
+            "horizontal_position_tablet": 30,
+            "vertical_position_tablet": 30,
+            "horizontal_position_mobile": 13,
+            "vertical_position_mobile": 85
+          }
+        },
+        "centerdotsdetails_YNALga": {
+          "type": "centerdotsdetails",
+          "settings": {
+            "titledots": "",
+            "descriptiondots": "<p>Warm ambient lighting</p>",
+            "horizontal_position_desktop": 86,
+            "vertical_position_desktop": 92,
+            "horizontal_position_tablet": 30,
+            "vertical_position_tablet": 95,
+            "horizontal_position_mobile": 88,
+            "vertical_position_mobile": 87
+          }
+        }
+      },
+      "block_order": [
+        "detailsleft_rRwUfz",
+        "detailsleft_tBgA37",
+        "detailsleft_CWELyJ",
+        "detailsright_JUjrjd",
+        "detailsright_ah4FKM",
+        "detailsright_GNTwCc",
+        "centerdotsdetails_Qm34K8",
+        "centerdotsdetails_8jMJ7h",
+        "centerdotsdetails_aAbXnw",
+        "centerdotsdetails_Xqr4bX",
+        "centerdotsdetails_YNALga"
+      ],
+      "disabled": true,
+      "settings": {
+        "titlemain": "The Fan",
+        "boldheading": "That Does It All",
+        "imgmain": "shopify://shop_images/Custom_dimensions_1024x1366_px_-_Custom_dimensions_-_Custom_dimensions_1_1_9ca0079a-3a81-4d94-b1bb-c0202c6f0ef5.png",
+        "background": "#f4f8fb",
+        "padding_top": 28,
+        "padding_bottom": 36,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 36
+      }
+    },
+    "meet_our_fans_KJNdTH": {
+      "type": "meet-our-fans",
+      "blocks": {
+        "slider_VUmg7V": {
+          "type": "slider",
+          "settings": {
+            "title1": "",
+            "video": "shopify://files/videos/Snaptik.app_7267275490476543275.mp4"
+          }
+        },
+        "slider_rUeciT": {
+          "type": "slider",
+          "settings": {
+            "title1": "",
+            "video": "shopify://files/videos/KellyUGC.mov"
+          }
+        },
+        "slider_798Qcj": {
+          "type": "slider",
+          "settings": {
+            "title1": "",
+            "video": "shopify://files/videos/Emerald_UGC.mp4"
+          }
+        },
+        "slider_HVAHQz": {
+          "type": "slider",
+          "settings": {
+            "title1": "",
+            "video": "shopify://files/videos/Anagha_UGC.mov"
+          }
+        },
+        "slider_UbUhAA": {
+          "type": "slider",
+          "settings": {
+            "title1": "",
+            "video": "shopify://files/videos/7reasons.MP4"
+          }
+        },
+        "slider_d6CY7m": {
+          "type": "slider",
+          "settings": {
+            "title1": "",
+            "video": "shopify://files/videos/Snaptik_7120282798103022891_ventyfan.mp4"
+          }
+        },
+        "slider_hMUm6x": {
+          "type": "slider",
+          "settings": {
+            "title1": "",
+            "video": "shopify://files/videos/2023-11-11-162620240.mp4"
+          }
+        },
+        "slider_ippcJf": {
+          "type": "slider",
+          "settings": {
+            "title1": "",
+            "video": "shopify://files/videos/JadeUGC- VENTY FAN.mp4"
+          }
+        },
+        "slider_ACKK83": {
+          "type": "slider",
+          "settings": {
+            "title1": "",
+            "video": "shopify://files/videos/Sal VENTY fan 2.MOV"
+          }
+        }
+      },
+      "block_order": [
+        "slider_VUmg7V",
+        "slider_rUeciT",
+        "slider_798Qcj",
+        "slider_HVAHQz",
+        "slider_UbUhAA",
+        "slider_d6CY7m",
+        "slider_hMUm6x",
+        "slider_ippcJf",
+        "slider_ACKK83"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-5",
+        "stars": "shopify://shop_images/stars_4_1c425253-3ce3-485a-88e9-7e0002bfe4a0.svg",
+        "description": "<p>Over 250,000 Venty Fans Worldwide</p>",
+        "title": "Meet Our Fans",
+        "heading_size": "h0",
+        "image_ratio": "square",
+        "cell_align": "center",
+        "title_mb": 48,
+        "cell_width": "20%",
+        "wrap_around": "true",
+        "mr": 0,
+        "padding_top": 60,
+        "padding_bottom": 84,
+        "padding_top_mob": 48,
+        "padding_bottom_mob": 72
+      }
+    },
+    "video_DWy8hQ": {
+      "type": "video",
+      "disabled": true,
+      "settings": {
+        "heading": "<strong>See </strong><em><strong>The Venty</strong></em><strong> In Action</strong>",
+        "para": "Since Venty's launch in 2020, we became the world's top selling portable folding fan. What began as a Kickstarter campaign, exploded into a household brand in 50 countries.",
+        "heading_size": "h0",
+        "enable_video_looping": true,
+        "video_url": "https://youtu.be/8Kw8aaof-Xk",
+        "cover_image": "shopify://shop_images/bd1ea5d1e223e30043b4cc3e50aac4c9.png",
+        "description": "video",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 64,
+        "padding_bottom": 80
+      }
+    },
+    "main_product_2_WgyFge": {
+      "type": "main-product-2",
+      "blocks": {
+        "rating_4Ue4LL": {
+          "type": "rating",
+          "settings": {}
+        },
+        "title_HNAHBc": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_GmQ3kE": {
+          "type": "price",
+          "settings": {}
+        },
+        "benefits_qhnHbW": {
+          "type": "benefits",
+          "settings": {
+            "benefits-img1": "shopify://shop_images/checkmark-circle-primary_1_08e51845-6bb4-49c1-a414-2ed0c84a53be.png",
+            "benefits-txt1": "Charges Phone",
+            "benefits-img2": "shopify://shop_images/checkmark-circle-primary_1_08e51845-6bb4-49c1-a414-2ed0c84a53be.png",
+            "benefits-txt2": "Rechargeable",
+            "benefits-img3": "shopify://shop_images/checkmark-circle-primary_1_08e51845-6bb4-49c1-a414-2ed0c84a53be.png",
+            "benefits-txt3": "Extendable",
+            "benefits-img4": "shopify://shop_images/checkmark-circle-primary_1_3a2797e1-bbfe-4621-b030-eefb6f35969d.png",
+            "benefits-txt4": "Led Lamp Base",
+            "benefits-img5": "shopify://shop_images/checkmark-circle-primary_1_08e51845-6bb4-49c1-a414-2ed0c84a53be.png",
+            "benefits-txt5": "Carrying Case",
+            "benefits-img6": "shopify://shop_images/checkmark-circle-primary_1.png",
+            "benefits-txt6": "48hr/Charge"
+          }
+        },
+        "variant_picker_Hm66nn": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_C7efgP": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "iconwithtext_cEiNGw": {
+          "type": "iconwithtext",
+          "settings": {
+            "icon-shipping": "shopify://shop_images/ca22f309cab155faf701d001bf0137d9.png",
+            "textshipping0": "",
+            "textshipping1": "FREE US SHIPPING OVER $100+",
+            "textshipping2": "Fast Ship ORDERS TODAY SHIP SAME DAY."
+          }
+        },
+        "buy_buttons_JPTcYz": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "iconwithtext2_zdrKJD": {
+          "type": "iconwithtext2",
+          "settings": {
+            "icon-shipping1": "shopify://shop_images/ca22f309cab155faf701d001bf0137d9.png",
+            "textshipping0": "",
+            "textshipping1": "",
+            "textshipping3": "Fast Ship ORDERS TODAY SHIP SAME DAY."
+          }
+        }
+      },
+      "block_order": [
+        "rating_4Ue4LL",
+        "title_HNAHBc",
+        "price_GmQ3kE",
+        "benefits_qhnHbW",
+        "variant_picker_Hm66nn",
+        "quantity_selector_C7efgP",
+        "iconwithtext_cEiNGw",
+        "buy_buttons_JPTcYz",
+        "iconwithtext2_zdrKJD"
+      ],
+      "disabled": true,
+      "settings": {
+        "product": "foldable-fan",
+        "sticky_cart": false,
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "right",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 16,
+        "padding_bottom": 60,
+        "enable_group_media": false,
+        "media_grouping_option": "Color"
+      }
+    },
+    "reviews_slider_widget_LNLYW8": {
+      "type": "reviews-slider-widget",
+      "disabled": true,
+      "settings": {
+        "stars": "shopify://shop_images/stars_4_1c425253-3ce3-485a-88e9-7e0002bfe4a0.svg",
+        "smallheading": "THOUSANDS 4.6+ RATED  REVIEWS",
+        "heading": "\"We take our Venty fan absolutely everywhere we go.\"",
+        "widgethtml": "{% assign jm_metafields = shop.metafields.judgeme %} <p class=\"dnone\">Let customers speak for us from {{ shop.metafields.judgeme.all_reviews_count }} reviews</p> {{ jm_metafields.featured_carousel }}",
+        "background": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_U6fbnA",
+    "tower_image_slider_jWe87A",
+    "custom_liquid_UyQmdQ",
+    "image_banner_Ngh7VM",
+    "image_banner_3UrYdk",
+    "slideshow_bR4xLq",
+    "relative_banner_image_HG4iTA",
+    "main",
+    "related-products",
+    "gallery_tabs_gQegFU",
+    "benefits_slider_DbB6wi",
+    "only_image_XMfc3B",
+    "hot_spots_g8WkKA",
+    "meet_our_fans_KJNdTH",
+    "video_DWy8hQ",
+    "main_product_2_WgyFge",
+    "reviews_slider_widget_LNLYW8"
+  ]
+}

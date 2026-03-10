@@ -1,0 +1,299 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background }};
+    height:{{section.settings.heightcstm}}vh;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+{%- endstyle -%}
+<style>
+  
+    #shopify-section-{{ section.id }} {
+      {%- if section.settings.full_width -%}
+        --section-outer-spacing-block: 0;
+      {%- endif -%}
+
+      {%- if section.settings.allow_transparent_header -%}
+        margin-block-start: calc(-1 * var(--header-height) * var(--section-is-first));
+      {%- endif -%}
+    }
+.custom-s-product-hero .page-width {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+      align-items: center;
+}
+.right-s-product-hero img {
+    width: 70%;
+}
+.right-s-product-hero {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.left--product-hero h2{
+font-size: 70px;
+    font-weight: 600;
+    line-height: 105.52px;
+    letter-spacing: -0.01em;
+      margin: 0;
+  
+    margin-left: -8px;
+}
+.left--product-hero h3 {
+    font-family: General Sans;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 43.32px;
+    color: rgba(0, 0, 0, 1);
+    margin: 0;
+}
+.s-product-hero-btns img {
+    width: 20px;
+}
+.s-product-hero-btns span {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+  .s-product-hero-btns {
+    display: flex;
+    gap: 40px;
+        margin-top: 30px;
+}
+.s-product-hero-btns a {
+    color: rgba(13, 24, 47, 1);
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 25.08px;
+}
+  span.breadcrumb-cstm {
+    color: rgba(0, 0, 0, 1);
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.78px;
+    text-align: left;
+    position: absolute;
+    bottom: 30px;
+}
+
+  @media(max-width:768px){
+    .custom-s-product-hero .page-width {
+    align-items: flex-start;
+    flex-direction: column;
+          justify-content: center;
+    gap: 20px;
+}
+    .left--product-hero h2 {
+    font-size: 50px;
+    margin-left: 0;    line-height: normal;
+}
+    .left--product-hero h3 {
+    font-size: 23px;
+}
+.s-product-hero-btns {
+    flex-direction: column;
+      gap: 10px;
+      margin-top: 5px;
+}
+.right-s-product-hero img {
+    width: 50%;
+}
+.right-s-product-hero {
+    height: auto;
+}
+}
+
+  
+</style>
+
+<div class="section-{{ section.id }}-padding custom-s-product-hero"
+  {% if section.settings.allow_transparent_header %}
+    allow-transparent-header
+  {% endif %}>
+  <div class="page-width">
+    <div class="left--product-hero">
+<h2>{{ section.settings.heading }}</h2>
+<h3>{{ section.settings.sub_heading }}</h3>
+      <div class="s-product-hero-btns">
+        <span class="btn-icon-1">
+  {% if section.settings.image1 != blank %}
+  {{ section.settings.image1 | img_url: 'master' | img_tag }}
+{% endif %}
+<a href="{{ section.settings.button_link_1 }}"> {{ section.settings.button_text_1 }}</a>
+</span>
+<span class="btn-icon-2">
+  {% if section.settings.image2 != blank %}
+  {{ section.settings.image2 | img_url: 'master' | img_tag }}
+{% endif %}
+<a href="{{ section.settings.button_link_2 }}"> {{ section.settings.button_text_2 }}</a>
+</span>
+    </div>
+<span class="breadcrumb-cstm"> {{ section.settings.breadcrumb }}</span>
+        
+    </div>
+    <div class="right-s-product-hero">
+{% if section.settings.image != blank %}
+  {{ section.settings.image | img_url: 'master' | img_tag }}
+{% endif %}
+    </div>
+      
+
+
+
+
+
+
+  </div>
+</div>
+    
+{% schema %}
+    {
+    "name": "Custom Sproduct Section",
+    "settings": [
+{
+      "type": "checkbox",
+      "id": "allow_transparent_header",
+      "label": "Allow transparent header",
+      "info": "This setting only applies when this section is the first one.",
+      "default": true
+    },
+       {
+      "type": "range",
+      "id": "heightcstm",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "vh",
+      "label": "Height",
+      "default": 36
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+         {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Sub Heading"
+    },
+             {
+   "type" :"image_picker",
+      "id" : "image",
+      "label" : "Image"
+
+},
+                 {
+   "type" :"image_picker",
+      "id" : "image1",
+      "label" : "button icon 1"
+
+},
+               {
+                  "type": "text",
+                    "id": "button_text_1",
+                  "label":"Button Text 1"
+                },
+                  {
+                "type": "url",
+                "id": "button_link_1",
+                "label": "Button Url 1"
+            },
+                  {
+   "type" :"image_picker",
+      "id" : "image2",
+      "label" : "button icon 2"
+
+},
+         {
+                  "type": "text",
+                    "id": "button_text_2",
+                  "label":"Button Text 2"
+                },
+                  {
+                "type": "url",
+                "id": "button_link_2",
+                "label": "Button Url 2"
+            },
+      {
+      "type": "text",
+      "id": "breadcrumb",
+      "label": "Breadcrumb"
+    },
+ {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top Mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom Mobile",
+      "default": 36
+    }
+
+    ],
+
+    "presets": [
+    {
+      "name": "Custom Sproduct Section"
+    }
+  ]
+  }
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

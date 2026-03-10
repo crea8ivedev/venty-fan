@@ -1,0 +1,100 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "£10 OFF + FREE SHIPPING ON ANY 2 OR MORE",
+            "text1": "$10 OFF + FREE SHIPPING ON ANY 2 OR MORE",
+            "text2": "$10 OFF + FREE SHIPPING ON ANY 2 OR MORE",
+            "link": "shopify://products/foldable-fan"
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0"
+      ],
+      "settings": {
+        "color_scheme": "scheme-b2cd6f05-ce2c-415a-9e65-e1ce163ec7ee",
+        "show_line_separator": false,
+        "show_social": false,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "disabled": true,
+      "settings": {
+        "logo_position": "top-left",
+        "menu": "",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "always",
+        "show_line_separator": true,
+        "color_scheme": "scheme-4",
+        "menu_color_scheme": "scheme-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "enable_customer_avatar": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "header_designed_C48Kx8": {
+      "type": "header-designed",
+      "settings": {
+        "first_menu_icon": "shopify://shop_images/VENTY-FAN_1c061da6-e89f-4768-8266-b926c83ffcce.png",
+        "second_menu_icon": "shopify://shop_images/product-3_031aee9e-c708-4b66-9951-51d6bf829cb9.png",
+        "third_menu_icon": "shopify://shop_images/cozypod.png",
+        "fourty_menu_icon": "shopify://shop_images/product-1_8f24ddec-7b1c-4bc9-9132-154ec3d1c5f8.png",
+        "menu": "main-menu",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "none",
+        "show_line_separator": false,
+        "color_scheme": "scheme-4",
+        "menu_color_scheme": "",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "enable_customer_avatar": true,
+        "image1": "shopify://shop_images/VENTY-FAN_1c061da6-e89f-4768-8266-b926c83ffcce.png",
+        "text1": "ORIGINAL VENTY FAN",
+        "link1": "shopify://products/foldable-fan",
+        "image2": "shopify://shop_images/087857bdee8a8886224c3006a327cf8f52e3a433_1.png",
+        "text2": "COZYPOD",
+        "link2": "shopify://pages/cozypod-landing",
+        "image3": "shopify://shop_images/product-3_031aee9e-c708-4b66-9951-51d6bf829cb9.png",
+        "text3": "VENTY CLIP FAN",
+        "link3": "shopify://products/clip-fan",
+        "image4": "shopify://shop_images/product-1_8f24ddec-7b1c-4bc9-9132-154ec3d1c5f8.png",
+        "text4": "TOWER FAN",
+        "link4": "shopify://products/tower-fan",
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header",
+    "header_designed_C48Kx8"
+  ]
+}

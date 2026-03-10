@@ -1,0 +1,621 @@
+{{ 'dev-pseudo-variantsV2.css' | asset_url | stylesheet_tag }}
+
+{%- assign variant = product.selected_or_first_available_variant -%}
+
+
+
+<div
+  data-product="{{ product | json | escape }}"
+  data-money-format="{{ shop.money_format | escape }}"
+  class="pseudo-variants"
+  data-section-id="{{ section.id }}"
+>
+  <div class="pv-pack-grid">
+
+    {%- comment -%} ===== 1 PACK ===== {%- endcomment -%}
+    <div class="pseudo-variant-single pv-pack-card" data-bundle="single" data-qty="1">
+      <div class="pseudo-variant-checkbox">
+        <label class="pseudo-variant-checkbox--wrapper">
+          <input checked type="checkbox" name="pseudo_variant_checkbox--single" value="single">
+        </label>
+      </div>
+
+      <div class="pseudo-variant-left">
+        <div class="pseudo-variant-left-image-wrapper pseudo-variant-left-image-wrapper-signle-first">
+          <div class="pseudo-variant-left-image {% if template.suffix == 'cozypod-v2' %}has_pod{% endif %}">
+            <img
+  data-pack-image="true"
+  src="{% if pack_image_1 != blank %}
+        {{ pack_image_1 | image_url: width: 300 }}
+      {% else %}
+        {{ variant.featured_image | image_url: width: 300 }}
+      {% endif %}"
+  width="66"
+  height="66"
+  alt=""
+>
+
+          </div>
+        </div>
+
+        <div class="pv-pack-name">CozyPod</div>
+        <div class="pv-pack-pack">1 PACK</div>
+      </div>
+
+      <div class="pseudo-variant-right">
+        <span class="pseudo-variant-price">{{ variant.price | money }}</span>
+        <span class="pseudo-variant-compare-price" style="display:none;"></span>
+      </div>
+    </div>
+
+    {%- comment -%} ===== 2 PACK ===== {%- endcomment -%}
+    <div class="pseudo-variant-double pv-pack-card" data-bundle="double" data-qty="2"
+>
+      <div class="pv-pack-badge">FREE SHIPPING</div>
+
+      <div class="pseudo-variant-checkbox">
+        <label class="pseudo-variant-checkbox--wrapper">
+          <input type="checkbox" name="pseudo_variant_checkbox--double" value="double">
+        </label>
+      </div>
+
+      <div class="pseudo-variant-left">
+        <div class="pseudo-variant-left-image-wrapper pseudo-variant-left-image-wrapper--dobule-first">
+          <div class="pseudo-variant-left-image {% if template.suffix == 'cozypod-v2' %}has_pod{% endif %}">
+           <img
+  data-pack-image="true"
+  src="{% if pack_image_2 != blank %}
+        {{ pack_image_2 | image_url: width: 300 }}
+      {% else %}
+        {{ variant.featured_image | image_url: width: 300 }}
+      {% endif %}"
+  width="66"
+  height="66"
+  alt=""
+>
+
+          </div>
+        </div>
+
+
+        <div class="pv-pack-name">CozyPod</div>
+        <div class="pv-pack-pack">2 PACK</div>
+      </div>
+
+      <div class="pseudo-variant-right">
+        <span class="pseudo-variant-price"></span>
+        <span class="pseudo-variant-compare-price" style="display:none;"></span>
+      </div>
+
+      {% if double_discount != 0 and double_discount != blank %}
+        {% assign converted_discount = double_discount | times: 100 | money_without_trailing_zeros %}
+        <div class="pseudo-variant-double-badge">
+          {{ bundle_discount_text | replace: '()', converted_discount }}
+        </div>
+      {% endif %}
+    </div>
+
+    {%- comment -%} ===== 4 PACK ===== {%- endcomment -%}
+    <div class="pseudo-variant-four pv-pack-card" data-bundle="four" data-qty="4">
+      <div class="pv-pack-badge">FREE SHIPPING + $20 OFF</div>
+
+      <div class="pseudo-variant-checkbox">
+        <label class="pseudo-variant-checkbox--wrapper">
+          <input type="checkbox" name="pseudo_variant_checkbox--four" value="four">
+        </label>
+      </div>
+
+      <div class="pseudo-variant-left">
+        <div class="pseudo-variant-left-image-wrapper pseudo-variant-left-image-wrapper--four-first">
+          <div class="pseudo-variant-left-image {% if template.suffix == 'cozypod-v2' %}has_pod{% endif %}">
+           <img
+  data-pack-image="true"
+  src="{% if pack_image_4 != blank %}
+        {{ pack_image_4 | image_url: width: 300 }}
+      {% else %}
+        {{ variant.featured_image | image_url: width: 300 }}
+      {% endif %}"
+  width="66"
+  height="66"
+  alt=""
+>
+
+          </div>
+        </div>
+
+
+        <div class="pv-pack-name">CozyPod</div>
+        <div class="pv-pack-pack">4 PACK</div>
+      </div>
+
+      <div class="pseudo-variant-right">
+        <span class="pseudo-variant-price"></span>
+        <span class="pseudo-variant-compare-price" style="display:none;"></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  
+  const pseudo = document.querySelector('.pseudo-variants');
+  if (!pseudo) return;
+
+  /* ---------- Money ---------- */
+  const moneyFormat = pseudo.dataset.moneyFormat || window.Shopify?.money_format;
+  const formatMoney = (cents) => Shopify.formatMoney(Number(cents || 0), moneyFormat);
+  const formatMoneyText = (cents) => {
+  const html = formatMoney(cents);
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;              // parse HTML from money_format
+  return (tmp.textContent || '').trim(); // return plain "$319.96"
+};
+
+  /* ---------- Product JSON ---------- */
+  let product = null;
+  try {
+    product = JSON.parse(pseudo.dataset.product);
+  } catch (e) {
+    console.error('[Pseudo] Failed to parse product JSON', e);
+    return;
+  }
+
+  const variantsById = product.variants.reduce((acc, v) => {
+    acc[String(v.id)] = v;
+    return acc;
+  }, {});
+
+  /* ---------- Helpers: find main product form + qty input ---------- */
+  const getMainForm = () => document.querySelector('form[action*="/cart/add"]');
+
+  const setMainQuantity = (qty) => {
+    const form = getMainForm();
+    if (!form) return;
+
+    const qtyInput =
+      form.querySelector('input[name="quantity"]') ||
+      document.querySelector('quantity-input input[name="quantity"]');
+
+    if (!qtyInput) return;
+
+    qtyInput.value = String(qty);
+    qtyInput.dispatchEvent(new Event('input', { bubbles: true }));
+    qtyInput.dispatchEvent(new Event('change', { bubbles: true }));
+  };
+
+  /* ---------- Hard sync qty into ALL /cart/add forms (prevents 4-pack becoming 1) ---------- */
+  const getSelectedBundleQty = () =>
+    pseudo.classList.contains('is-four') ? 4 :
+    (pseudo.classList.contains('is-double') ? 2 : 1);
+
+  const syncQuantityToAllCartForms = (qty) => {
+    const q = Number(qty || 1);
+
+    document.querySelectorAll('form[action*="/cart/add"]').forEach((form) => {
+      let qtyInput =
+        form.querySelector('input[name="quantity"]') ||
+        form.querySelector('quantity-input input[name="quantity"]') ||
+        form.querySelector('input.quantity__input');
+
+      if (!qtyInput) {
+        qtyInput = document.createElement('input');
+        qtyInput.type = 'hidden';
+        qtyInput.name = 'quantity';
+        form.appendChild(qtyInput);
+      }
+
+      qtyInput.value = String(q);
+      qtyInput.dispatchEvent(new Event('input', { bubbles: true }));
+      qtyInput.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+  };
+
+  /* ---------- Read current variant set by product-info ---------- */
+  const readVariant = () => {
+    try {
+      const raw = pseudo.getAttribute('data-selected-variant-id');
+      return raw ? JSON.parse(raw) : null;
+    } catch {
+      return null;
+    }
+  };
+
+  /* ---------- Seed initial variant from form/URL ---------- */
+  const seedInitialVariantFromFormOrUrl = () => {
+    if (pseudo.getAttribute('data-selected-variant-id')) return;
+
+    let vid = document.querySelector('form[action*="/cart/add"] [name="id"]')?.value?.trim() || '';
+    if (!vid) {
+      const urlVid = new URLSearchParams(window.location.search).get('variant');
+      if (urlVid) vid = urlVid.trim();
+    }
+
+    const v = vid ? variantsById[String(vid)] : null;
+    if (v) pseudo.setAttribute('data-selected-variant-id', JSON.stringify(v));
+  };
+
+  seedInitialVariantFromFormOrUrl();
+
+  /* ---------- Discount math (same as your original behavior) ---------- */
+  const calcDiscountedTotal = (totalBefore, discountValue) => {
+    const d = Number(discountValue) || 0;
+    if (d > 0) return Math.round(totalBefore - d * 100);
+    return totalBefore;
+  };
+
+  /* ---------- MAIN product price (near title) multiply by pack qty ---------- */
+  const getMainPriceRoot = () => {
+    const candidates = [
+      pseudo.closest('section')?.querySelector('.product__info-container .price'),
+      document.querySelector('.product__info-container .price'),
+      document.querySelector('product-info .price'),
+      document.querySelector('.product__info-wrapper .price'),
+      document.querySelector('.product__info-container'),
+      document.querySelector('product-info'),
+    ].filter(Boolean);
+
+    return candidates[0] || document;
+  };
+
+  const ensureMainPriceExtraUI = () => {
+  const root = getMainPriceRoot();
+  const priceEl =
+    root.querySelector('.price') ||
+    root.closest?.('.price') ||
+    document.querySelector('.price');
+
+  if (!priceEl) return null;
+
+  let extra = priceEl.querySelector('.pv-main-price-extra');
+  if (!extra) {
+    extra = document.createElement('div');
+    extra.className = 'pv-main-price-extra';
+extra.innerHTML = `
+  <div class="pv-main-compare" style="display:none;"></div>
+  <div class="pv-main-tag" style="display:none;"></div>
+`;
+    priceEl.appendChild(extra);
+  }
+
+  return extra;
+};
+
+const updateMainProductPrice = (variant, qty) => {
+  if (!variant) return;
+
+  const root = getMainPriceRoot();
+  const q = Number(qty || 1);
+
+  // Base total = price x qty (THIS is your strike-through amount for 4-pack)
+  const baseTotal = Number(variant.price || 0) * q;
+
+  // Final price shown
+  let totalPrice = baseTotal;
+
+  // ✅ Apply 20% OFF only for 4-pack
+// ✅ Apply $20 OFF only for 4-pack (price x4 - $20)
+const isFour = (q === 4);
+if (isFour) totalPrice = Math.max(0, baseTotal - 2000); // 2000 cents = $20
+
+  // Update visible/current price (robust for sale + non-sale themes)
+  const setHTMLAll = (selectors, html) => {
+    let hit = false;
+    selectors.forEach((sel) => {
+      root.querySelectorAll(sel).forEach((el) => {
+        el.innerHTML = html;
+        hit = true;
+      });
+    });
+    return hit;
+  };
+
+  // 1) SALE price nodes
+  const didSale = setHTMLAll(
+    [
+      '.price__sale .price-item--sale',
+      '.price-item--sale',
+      '.price__sale .price__last .price-item'
+    ],
+    formatMoney(totalPrice)
+  );
+
+  // 2) REGULAR (non-sale) visible nodes
+  const didRegular = setHTMLAll(
+    [
+      '.price__regular .price-item--regular',
+      '.price__regular .price-item',
+      '.price-item--regular:not(.price-item--compare):not([data-compare-price])'
+    ],
+    formatMoney(totalPrice)
+  );
+
+  // 3) Fallback: first .money inside .price
+  if (!didSale && !didRegular) {
+    const moneyEls = root.querySelectorAll('.price .money');
+    if (moneyEls.length) moneyEls[0].innerHTML = formatMoney(totalPrice);
+  }
+
+  // ✅ Custom STRIKE + TAG in the red-box area
+  const extra = ensureMainPriceExtraUI();
+  if (extra) {
+    const compareEl = extra.querySelector('.pv-main-compare');
+    const tagEl = extra.querySelector('.pv-main-tag');
+
+    if (isFour) {
+      if (compareEl) {
+        compareEl.textContent = formatMoneyText(baseTotal);// strike price = price x4
+        compareEl.style.display = '';
+      }
+      if (tagEl) {
+        tagEl.textContent = '$20 OFF';
+        tagEl.style.display = '';
+      }
+    } else {
+      if (compareEl) compareEl.style.display = 'none';
+      if (tagEl) tagEl.style.display = 'none';
+    }
+  }
+
+  return true;
+};
+
+  const getCurrentBundleQty = () =>
+    pseudo.classList.contains('is-four') ? 4 :
+    (pseudo.classList.contains('is-double') ? 2 : 1);
+
+  /* ---------- Update totals for bundle blocks ---------- */
+  const updateBundleTotal = (bundleKey, variant) => {
+    const block = pseudo.querySelector(`.pseudo-variant-${bundleKey}`);
+    if (!block || !variant) return;
+
+    const qty = Number(block.dataset.qty) || 1;
+    const discountAttr = bundleKey === 'double' ? 'doubleDiscount' : (bundleKey === 'four' ? 'fourDiscount' : null);
+    const discountValue = discountAttr ? Number(block.dataset[discountAttr]) || 0 : 0;
+
+const totalBefore = variant.price * qty;
+
+let totalAfter = totalBefore;
+
+// 👉 Apply 20% OFF only for 4-pack
+// 👉 Apply $20 OFF only for 4-pack (price x4 - $20)
+if (bundleKey === 'four') {
+  totalAfter = Math.max(0, totalBefore - 2000); // 2000 cents = $20
+} else {
+  totalAfter = calcDiscountedTotal(totalBefore, discountValue);
+}
+
+    const totalEl = block.querySelector('.pseudo-variant-price');
+    const compareEl = block.querySelector('.pseudo-variant-compare-price');
+
+    if (totalEl) totalEl.innerHTML = formatMoney(totalAfter);
+
+if (compareEl) {
+  const showCompare = (bundleKey === 'four') || (discountValue > 0);
+  if (showCompare) {
+    compareEl.innerHTML = formatMoney(totalBefore);
+    compareEl.style.display = '';
+  } else {
+    compareEl.style.display = 'none';
+  }
+}
+  };
+
+  /* ---------- Sticky cart integration ---------- */
+  let stickyCartObserver = null;
+  let updateTimeout = null;
+  let stickyCartReady = false;
+
+  const isKachingBundlePresent = () =>
+    document.querySelector('kaching-bundles-block, .kaching-bundles__bars, .kaching-bundles__bar');
+
+  const updateStickyCartPricing = (bundleType, variant) => {
+    if (isKachingBundlePresent()) return;
+
+    clearTimeout(updateTimeout);
+    updateTimeout = setTimeout(() => {
+      const stickyPriceElement = document.querySelector('.zrx-sticky-atc-product-price');
+      if (!stickyPriceElement || !variant) return;
+
+      const qty = bundleType === 'four' ? 4 : (bundleType === 'double' ? 2 : 1);
+
+      let discountValue = 0;
+      if (bundleType === 'double') {
+        discountValue = Number(pseudo.querySelector('.pseudo-variant-double')?.dataset.doubleDiscount) || 0;
+      } else if (bundleType === 'four') {
+        discountValue = Number(pseudo.querySelector('.pseudo-variant-four')?.dataset.fourDiscount) || 0;
+      }
+
+const totalBefore = variant.price * qty;
+
+let totalAfter = totalBefore;
+
+// 👉 Apply 20% OFF for 4-pack
+// 👉 Apply $20 OFF for 4-pack (price x4 - $20)
+if (bundleType === 'four') {
+  totalAfter = Math.max(0, totalBefore - 2000); // 2000 cents = $20
+} else {
+  totalAfter = calcDiscountedTotal(totalBefore, discountValue);
+}
+
+      if (discountValue > 0) {
+        stickyPriceElement.innerHTML =
+          `<span class="money" style="text-decoration: line-through; color: #848484 !important;">${formatMoney(totalBefore)}</span>` +
+          `<span class="money" style="margin-left: 8px; color: #d2401e; font-weight: bold;">${formatMoney(totalAfter)}</span>`;
+      } else {
+        stickyPriceElement.innerHTML = `<span class="money">${formatMoney(totalBefore)}</span>`;
+      }
+    }, 30);
+  };
+
+  const initializeStickyCartIntegration = () => {
+    if (isKachingBundlePresent()) return;
+
+    stickyCartObserver = new MutationObserver((mutations) => {
+      let shouldUpdate = false;
+      let stickyCartAdded = false;
+
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === 1) {
+            if (node.classList?.contains('zrx-sticky-atc-bar') || node.querySelector?.('.zrx-sticky-atc-product-price')) {
+              stickyCartAdded = true;
+              stickyCartReady = true;
+            }
+            if (node.classList?.contains('zrx-sticky-atc-product-price') || node.parentElement?.classList?.contains('zrx-sticky-atc-product-price')) {
+              shouldUpdate = true;
+            }
+          }
+        });
+
+        if (mutation.type === 'childList' && mutation.target.classList?.contains('zrx-sticky-atc-product-price')) {
+          shouldUpdate = true;
+        }
+      });
+
+      if (stickyCartAdded || shouldUpdate) {
+        setTimeout(() => {
+          const currentVariant = readVariant();
+          const currentBundleType =
+            pseudo.classList.contains('is-four') ? 'four' :
+            (pseudo.classList.contains('is-double') ? 'double' : 'single');
+          updateStickyCartPricing(currentBundleType, currentVariant);
+        }, stickyCartAdded ? 200 : 100);
+      }
+    });
+
+    stickyCartObserver.observe(document.body, { childList: true, subtree: true });
+  };
+
+  const checkAndUpdateStickyCart = (retryCount = 0) => {
+    if (isKachingBundlePresent()) return;
+
+    const currentVariant = readVariant();
+    const currentBundleType =
+      pseudo.classList.contains('is-four') ? 'four' :
+      (pseudo.classList.contains('is-double') ? 'double' : 'single');
+
+    if (document.querySelector('.zrx-sticky-atc-product-price')) {
+      stickyCartReady = true;
+      updateStickyCartPricing(currentBundleType, currentVariant);
+    } else if (!stickyCartReady && retryCount < 10) {
+      setTimeout(() => checkAndUpdateStickyCart(retryCount + 1), Math.min(1000, 100 * Math.pow(1.5, retryCount)));
+    }
+  };
+
+  initializeStickyCartIntegration();
+  checkAndUpdateStickyCart();
+
+  /* ---------- Ensure quantity correct at the moment of add-to-cart submit ---------- */
+  document.addEventListener('submit', (e) => {
+    const form = e.target;
+    if (!(form instanceof HTMLFormElement)) return;
+    if (!form.action || !form.action.includes('/cart/add')) return;
+
+    syncQuantityToAllCartForms(getSelectedBundleQty());
+  }, true);
+
+  /* ---------- Update UI when variant changes ---------- */
+  const applyVariant = (variant) => {
+    if (!variant) return;
+
+    const imgUrl =
+      variant.featured_image?.src ||
+      variant.featured_image?.url ||
+      variant.featured_media?.preview_image?.src ||
+      null;
+
+    if (imgUrl) {
+pseudo.querySelectorAll('.pseudo-variant-left-image img').forEach((img) => {
+  if (img.dataset.packImage === 'true') return; // keep custom pack images
+  img.src = imgUrl.startsWith('http') ? imgUrl : 'https:' + imgUrl;
+});
+
+    }
+
+    // BUY 1
+    pseudo.querySelectorAll('.pseudo-variant-single .pseudo-variant-price')
+      .forEach((el) => (el.innerHTML = formatMoney(variant.price)));
+
+    // BUY 2 + BUY 4
+    updateBundleTotal('double', variant);
+    updateBundleTotal('four', variant);
+
+    // MAIN product price (near title)
+    updateMainProductPrice(variant, getCurrentBundleQty());
+
+    // Also keep quantities in sync if the theme re-renders inputs on variant change
+    syncQuantityToAllCartForms(getCurrentBundleQty());
+
+    // sticky cart
+    const currentBundleKey =
+      pseudo.classList.contains('is-four') ? 'four' :
+      (pseudo.classList.contains('is-double') ? 'double' : 'single');
+    updateStickyCartPricing(currentBundleKey, variant);
+  };
+
+  /* ---------- Bundle selection (mutually exclusive) ---------- */
+  const singleCheckbox = pseudo.querySelector('input[name="pseudo_variant_checkbox--single"]');
+  const doubleCheckbox = pseudo.querySelector('input[name="pseudo_variant_checkbox--double"]');
+  const fourCheckbox   = pseudo.querySelector('input[name="pseudo_variant_checkbox--four"]');
+
+  const toggleBundle = (sel) => {
+    if (singleCheckbox) singleCheckbox.checked = false;
+    if (doubleCheckbox) doubleCheckbox.checked = false;
+    if (fourCheckbox)   fourCheckbox.checked   = false;
+
+    pseudo.classList.remove('is-single', 'is-double', 'is-four');
+
+    let qty = 1;
+    if (sel === 'single') {
+      qty = 1;
+      singleCheckbox.checked = true;
+      pseudo.classList.add('is-single');
+    } else if (sel === 'double') {
+      qty = 2;
+      doubleCheckbox.checked = true;
+      pseudo.classList.add('is-double');
+    } else {
+      qty = 4;
+      fourCheckbox.checked = true;
+      pseudo.classList.add('is-four');
+    }
+
+    // Keep original behavior (what worked before)
+    setMainQuantity(qty);
+
+    // Extra safety: ensure all forms carry the right qty (fixes 4-pack = 1)
+    syncQuantityToAllCartForms(qty);
+
+    const currentVariant = readVariant();
+
+    // Update MAIN product price immediately when pack changes
+    updateMainProductPrice(currentVariant, qty);
+
+    // sticky cart
+    updateStickyCartPricing(sel, currentVariant);
+  };
+
+  singleCheckbox?.addEventListener('change', () => toggleBundle('single'));
+  doubleCheckbox?.addEventListener('change', () => toggleBundle('double'));
+  fourCheckbox?.addEventListener('change', () => toggleBundle('four'));
+
+  /* ---------- Observe changes from product-info (variant changes) ---------- */
+  const observer = new MutationObserver((mutations) => {
+    for (const m of mutations) {
+      if (m.type === 'attributes' && m.attributeName === 'data-selected-variant-id') {
+        applyVariant(readVariant());
+      }
+    }
+  });
+  observer.observe(pseudo, { attributes: true, attributeFilter: ['data-selected-variant-id'] });
+
+  /* ---------- Initial render ---------- */
+  applyVariant(readVariant());
+  toggleBundle('single');
+});
+
+
+</script>
+

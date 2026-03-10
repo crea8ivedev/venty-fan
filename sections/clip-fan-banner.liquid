@@ -1,0 +1,615 @@
+ <!-- Start clip-fan-banner  -->
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+{%- endstyle -%}
+<style>
+  
+    #shopify-section-{{ section.id }} {
+
+      {%- if section.settings.allow_transparent_header -%}
+        margin-block-start: calc(-1 * var(--header-height) * var(--section-is-first));
+      {%- endif -%}
+    }
+
+  .clip-fan-main {
+     height:90vh;  max-height:880px;
+}
+.clip-fan-main .page-width {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+      height: 100%; position: relative;
+}
+
+.clip-fan-main .right-content-clip-fan img {
+    width: 100%;
+    height: 110%;
+    object-fit: contain;
+    position: absolute;
+    top:40px; right:0px;
+      object-position:right;
+   
+}
+.left-content-clip-fan {
+    width:60%;
+    padding-top: 80px;
+}
+.right-content-clip-fan {
+    width:40%;
+    height: 100%;
+    position: relative;
+}
+.inner-left-content-clip-fan p {
+    margin: 0;
+    color: #031133;
+    font-size:90px;
+    font-weight: 400;
+    line-height:1.1;
+    letter-spacing:0;
+    text-align: left;
+}
+
+  .inner-left-content-clip-fan p em { display:block; clear:both; font-style: normal; }
+ 
+  
+.form-main-clip-fan p {
+    color: #4D4D4D;
+    font-size:20px;
+    font-weight: 500;
+    line-height: 25px;
+    letter-spacing: 0.05em;
+    text-align: left;
+  margin: 0;
+      margin-bottom: 15px;
+  
+}
+.form-main-clip-fan p em {
+    color: rgba(5, 206, 120, 1);
+    font-style: normal;
+    font-size:20px; margin: 0 10px;
+    text-transform: uppercase;      vertical-align: top; 
+}
+
+ 
+  
+.form-main-clip-fan form#contact_form {
+    width: 100%;
+    max-width: 100%;
+}
+.form-main-clip-fan .field::after,
+  .form-main-clip-fan .field::before {
+    display: none;
+}
+.form-main-clip-fan input.field__input {
+    
+    max-width: 55% !important;
+    width: 55% !important;
+    border-radius: 50px;
+    border: 1px solid rgba(216, 218, 227, 1);
+    background: transparent;
+}
+
+  .field__input::placeholder {
+  color:#CACDDB;
+
+  opacity: 1; /* Firefox */
+} 
+
+.field__input::-ms-input-placeholder { /* Edge 12-18 */
+  color:#CACDDB;
+}
+
+  
+  .form-main-clip-fan .field,
+  .form-main-clip-fan .newsletter-form__field-wrapper{
+    width: 96% !important;
+    max-width: 100% !important;
+        gap: 20px;
+}
+  .form-main-clip-fan .btn-benefit-wrapper {
+    font-size:16px;
+    letter-spacing: 1px;
+    padding: 7px 15px 7px 30px;
+}
+.form-main-clip-fan {
+    margin-top:50px;
+}
+.left-content-clip-fan-boxes img {
+    width: 80%;
+    height: 100%;
+    object-fit: unset;
+}
+
+  .form-main-clip-fan strong { text-transform:uppercase; }
+
+  
+  @media(min-width:992px){
+.clip-fan-main .page-width {
+        /* padding-left: 26rem;
+    padding-right: 26rem; */
+  }
+  }
+
+
+@media(max-width:1500px){
+
+.form-main-clip-fan {
+margin-top: 50px;
+}
+
+  .inner-left-content-clip-fan p{     font-size: 90px; }
+
+
+
+}
+
+  @media (min-width:1200px) and (max-width:1500px) {  
+ .clip-fan-main .page-width {  max-width:120rem; } 
+
+     .clip-fan-main {
+ 
+    max-height: 830px;
+}
+
+  }
+
+  
+  
+  @media(max-width:1400px){
+    
+  .inner-left-content-clip-fan p { font-size: 90px;  }
+.form-main-clip-fan {
+	margin-top:39px;
+}
+  }
+    
+@media(max-width:1025px){
+
+    .clip-fan-main {
+     height:680px; 
+}
+
+  
+    .inner-left-content-clip-fan p {
+    font-size:80px;
+ 
+}
+
+  
+  .left-content-clip-fan {
+    width: 65%;
+    padding-right: 0;
+    padding-top: 90px;
+}
+}
+
+
+ @media only screen and (max-width:992px) {
+
+   .inner-left-content-clip-fan p { font-size:64px; }
+
+  .form-main-clip-fan p { font-size: 16px; }
+
+   .clip-fan-main {
+	height: 640px;
+}
+
+   .form-main-clip-fan {
+	margin-top: 30px;
+}
+
+   .right-content-clip-fan { height: 100%;  }
+
+
+  .clip-fan-main .right-content-clip-fan img { top: 90px; right:0px; }
+  .form-main-clip-fan .btn-benefit-wrapper {
+	 
+	letter-spacing:0px;
+	padding: 7px 15px 7px 15px;
+}
+
+  
+   
+  }
+
+  @media(max-width:767px){
+
+.inner-left-content-clip-fan p {
+	font-size: 44px;
+}
+    .form-main-clip-fan p {
+	font-size: 12px;
+}
+.form-main-clip-fan p em { font-size:12px;   margin: 0; }
+
+    .form-main-clip-fan p em svg { width:100px; height:10px; }
+    
+.newsletter-form__field-wrapper .field { width: 100% !important;
+  max-width: 100% !important;
+  gap: 5px; }
+
+    .newsletter-form__field-wrapper .field__input {
+	padding-right:10px;
+}
+
+ 
+.clip-fan-main {
+	height: 490px;
+}
+    
+  }
+
+ .clip-fan-mobile{ display:none !important;} 
+@media(max-width:550px){
+    .inner-left-content-clip-fan p {
+        font-size:20px;
+        line-height:1.2; text-align:center;
+    }
+
+  p.mobile-content span { display:inline;}
+
+   .inner-left-content-clip-fan p strong { font-size:40px; }
+
+     
+  .form-main-clip-fan {
+    margin-top: 20px;
+}
+  .clip-fan-main .page-width {
+    flex-direction:column-reverse;
+    align-items: flex-start;  gap:30px;
+}
+  .clip-fan-main {
+    height: auto;
+}
+      .left-content-clip-fan {
+        width: 100%;
+        padding-top:0px;
+    }
+  /* .right-content-clip-fan {
+    width:100px;
+    height: 100%;
+   position: absolute;
+    top: 0;
+    right: 0;
+} */
+
+.right-content-clip-fan {
+    width: 100%;
+  
+}
+  .form-main-clip-fan p {
+    display: none;
+}
+
+.right-content-clip-fan .clip-fan {
+    display: none !important;
+}
+.clip-fan-mobile{ display: block !important;}
+
+
+.clip-fan-main .right-content-clip-fan img {
+    width:70%;
+    height: 100%; 
+    object-fit: contain;
+    position: unset;
+    top: 70px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 45px;  
+}
+
+  .newsletter-form__field-wrapper button span {
+    display: none !important;
+}
+
+.right-top-content-clip-fan-boxes {
+    display: block!important;
+}
+
+
+
+
+.enable_new_design button#Subscribe {
+    width: 100%!important;
+    height: 48px;
+    font-size: 14px;
+    padding: 2px;
+    margin: 10px 0;
+}
+.enable_new_design input.field__input {
+    width: 100% !important;
+}
+.enable_new_design h2 {
+    font-size: 47px;
+}
+
+.clip-fan-main-boxes h2 {
+    font-size: 23px!important;
+   
+}
+  
+ .enable_new_design p {
+    font-size: 16px !important;
+} 
+  
+  .inner-left-content-clip-fan {width:260px; margin:auto;}
+  
+  .clip-fan-main .right-content-clip-fan img {
+    height: 100%;
+    object-fit: contain;
+    position: unset;
+    top: 70px;
+    display: flex;
+    justify-content: center;
+   
+}
+  .form-main-clip-fan .field {
+   
+    gap: 10px;
+}
+  .form-main-clip-fan input.field__input {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 50px;
+    line-height: 50px !important;
+}
+  .form-main-clip-fan .btn-benefit-wrapper {
+    height: 40px;
+    width:100% !important;
+    text-align: right;
+    display: flex;
+   justify-content:center;
+    overflow: hidden; position: inherit;
+    right:0px;
+    top: 8px;
+}
+ .form-main-clip-fan .btn-benefit-wrapper span { margin-left: 15px; }
+  
+.form-main-clip-fan input.field__input {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+  
+  .form-main-clip-fan form#contact_form { z-index: 1; }
+}
+
+ 
+  
+</style> 
+
+<div class="section-{{ section.id }}-padding clip-fan-main"
+  {% if section.settings.allow_transparent_header %}
+    allow-transparent-header
+  {% endif %}>
+<div class="page-width">
+<div class="left-content-clip-fan">
+<div class="inner-left-content-clip-fan">
+{% if section.settings.title1 != blank %}<p class="mobile-content">{{ section.settings.title1 }}</p>{% endif %}
+
+{% if section.settings.title != blank %}{{ section.settings.title }}{% endif %}
+
+  
+</div>
+
+          <div class="form-main-clip-fan">
+              {{ section.settings.para }}
+
+            <a class="btn-benefit-wrapper" target="_blank" href="https://www.kickstarter.com/projects/teamvento/the-venty-clip-fan?ref=1rfpyo&token=c5482ad3"> Buy it on Kickstarter </a>
+          
+            <!-- {% form 'customer', class: 'newsletter-form' %}
+                <input type="hidden" name="contact[tags]" value="COMING-SEPTEMBER ,clip-fan">
+                <div class="newsletter-form__field-wrapper">
+                  <div class="field">
+                    <input
+                      id="NewsletterForm--{{ section.id }}"
+                      type="email"
+                      name="contact[email]"
+                      class="field__input"
+                      value="{{ form.email }}"
+                      aria-required="true"
+                      autocorrect="off"
+                      autocapitalize="off"
+                      autocomplete="email"
+                      {% if form.errors %}
+                        autofocus
+                        aria-invalid="true"
+                        aria-describedby="Newsletter-error--{{ section.id }}"
+                      {% elsif form.posted_successfully? %}
+                        aria-describedby="Newsletter-success--{{ section.id }}"
+                      {% endif %}
+                      placeholder="Your Email Address"
+                      required
+                    >
+                   
+                    <button
+                      type="submit"
+                      class="btn-benefit-wrapper"
+                      name="commit"
+                      id="Subscribe"
+                      aria-label="{{ 'newsletter.button_label' | t }}"
+                    >
+                      
+                    {{ section.settings.btntext }}
+                      <span>
+            <img src="https://cdn.shopify.com/s/files/1/0613/3297/9961/files/Right_25.png">
+                      </span>
+                    </button>
+                  </div>
+                  {%- if form.errors -%}
+                    <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
+                      {%- render 'icon-error' -%}
+                      {{- form.errors.translated_fields.email | capitalize }}
+                      {{ form.errors.messages.email -}}
+                    </small>
+                  {%- endif -%}
+                </div>
+                {%- if form.posted_successfully? -%}
+                  <h3
+                    class="newsletter-form__message newsletter-form__message--success form__message"
+                    id="Newsletter-success--{{ section.id }}"
+                    tabindex="-1"
+                    autofocus
+                  >
+                    {% render 'icon-success' -%}
+                    {{- 'newsletter.success' | t }}
+                  </h3>
+                {%- endif -%}
+
+               
+
+
+                
+              {% endform %}  <div class="error__msg"> </div> -->
+
+            </div>
+</div>
+<div class="right-content-clip-fan">
+    {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+{%- capture sizes -%}
+(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1 }}px,
+(min-width: 750px) calc((100vw - 130px) / 1), calc((100vw - 50px) / 1)
+{%- endcapture -%}
+
+ {%- assign alt = section.settings.img1.alt -%}    
+{{
+section.settings.img1
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, class: 'clip-fan',alt:alt
+
+}}
+
+ {%- assign alt = section.settings.img2.alt -%}    
+  {{
+section.settings.img2
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, class: 'clip-fan-mobile',alt:alt
+
+}}
+
+</div>
+
+
+  
+</div>
+</div>
+
+  <!-- End clip-fan-banner  -->
+{% schema %}
+{
+  "name": "Clip Fan Banner",
+  "settings": [
+     {
+      "type": "checkbox",
+      "id": "allow_transparent_header",
+      "label": "Allow transparent header",
+      "info": "This setting only applies when this section is the first one.",
+      "default": true
+    },
+    {
+      "type": "html",
+      "id": "title1",
+      "label": "Sub Heading"
+    },
+      {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+      {
+      "type": "liquid",
+      "id": "para",
+      "label": "Content"
+    },
+      {
+      "type": "text",
+      "id": "btntext",
+      "label": "Button Text"
+    },
+       {
+      "type": "image_picker",
+      "id": "img1",
+      "label": " Desktop Image"
+    },
+     {
+      "type": "image_picker",
+      "id": "img2",
+      "label": " Mobile Image"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top Mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom Mobile",
+      "default": 36
+    }
+    
+  ],
+
+  "presets": [
+    {
+      "name": "Clip Fan Banner",
+   
+    }
+  ]
+}
+{% endschema %}

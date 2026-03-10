@@ -1,0 +1,213 @@
+
+ {%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+{%- endstyle -%}
+<style>
+.inner-flex-venty-vision {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(204, 205, 206, 1);
+}
+.mainn-venty-vis {
+    width: 44%;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+  .cont-right-venty-vis h3 {
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 26.04px;
+    text-align: left;
+    color: rgba(0, 0, 0, 1);
+    margin: 0;
+}
+.img-left-venty-vis img {
+    width: 30px;
+}
+.cont-right-venty-vis p {
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 31.46px;
+    text-align: left;
+    color: rgba(128, 129, 131, 1);
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+.page-width.flex-venty-vision h2 {
+    margin: 0;
+    font-size: 33px;
+    text-align: left;
+    color: rgba(13, 24, 47, 1);
+    font-weight: 500;
+  padding-left:30px;
+    margin-bottom: 70px;
+}
+  @media(max-width:1025px){
+.mainn-venty-vis {
+    width: 47%;
+}
+  .page-width.flex-venty-vision h2 {
+    margin-bottom: 50px;
+}
+}
+@media(max-width:768px){
+.inner-flex-venty-vision {
+    flex-direction: column;
+    row-gap: 30px;
+}
+  .mainn-venty-vis {
+    width: 100%;
+}
+.page-width.flex-venty-vision h2 {
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+}
+</style>
+
+<div class="section-{{ section.id }}-padding">
+  <div class="page-width flex-venty-vision">
+
+ 
+ <h2> {{ section.settings.heading }}</h2>
+
+
+  <div class="inner-flex-venty-vision">
+    
+ {% for block in section.blocks %}
+   <div class="mainn-venty-vis">
+   <div class="img-left-venty-vis">
+  {% if block.settings.icon != blank %}
+    {% assign alt = block.settings.icon.alt %}
+ <img src="{{ block.settings.icon | img_url: 'master' }}" alt="{{ alt }}">
+
+   {% endif %}
+   </div>
+   <div class="cont-right-venty-vis">
+   <h3> {{ block.settings.heading }}</h3>
+   <p> {{ block.settings.paragraph }}</p>
+  </div>
+  </div>
+    {% endfor %}
+    
+  </div>
+
+  </div>
+</div>
+    
+       
+{% schema %}
+    {
+    "name": "Custom venty vision",
+    "settings": [
+ {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+      {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top Mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom Mobile",
+      "default": 36
+    }
+      
+    ],
+    "blocks":[
+			 {
+
+               "type": "heading-paragraph",
+                "name": "heading-paragraph",
+                "settings": [
+ {
+   "type" :"image_picker",
+      "id" : "icon",
+      "label" : "Select Icon"
+
+},
+                 {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+         {
+      "type": "text",
+      "id": "paragraph",
+      "label": "Paragraph"
+    }
+     
+
+                ]
+             }
+    ],
+    "presets": [
+    {
+      "name": "Custom venty vision"
+    }
+  ]
+  }
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

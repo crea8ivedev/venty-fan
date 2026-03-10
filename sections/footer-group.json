@@ -1,0 +1,90 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "image_7qkJWy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/de401eec078f6988d44fb5d51e28f084_208e464a-9d07-4f7a-bb12-f94ea63ced05.png",
+            "image_width": 550,
+            "alignment": "",
+            "address_content": "<p><strong>In Poor Taste LLC<\/strong><br\/><strong>Address:<\/strong> 6900 Westcliff Dr. Ste 503 Las Vegas, NV 89145<\/p>"
+          }
+        },
+        "link_list_N4cQLD": {
+          "type": "link_list",
+          "disabled": true,
+          "settings": {
+            "heading": "Venty Fan",
+            "menu": "footer-menu"
+          }
+        },
+        "link_list_tCNgzf": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop All",
+            "menu": "main-menu"
+          }
+        },
+        "link_list_M84KtP": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Venty Fan",
+            "menu": "footer-menu"
+          }
+        },
+        "link_list_cx3w8i": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Company",
+            "menu": "footer-menu-1"
+          }
+        },
+        "newsletter_cgJkdQ": {
+          "type": "newsletter",
+          "settings": {
+            "heading": "Join 'The Fan' Club"
+          }
+        }
+      },
+      "block_order": [
+        "image_7qkJWy",
+        "link_list_N4cQLD",
+        "link_list_tCNgzf",
+        "link_list_M84KtP",
+        "link_list_cx3w8i",
+        "newsletter_cgJkdQ"
+      ],
+      "settings": {
+        "color_scheme": "scheme-5",
+        "policies-menu": "policies-menu",
+        "newsletter_enable": true,
+        "newsletter_heading": "Subscribe & be included in our Exclusive product launches and special discounts.",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": false,
+        "payment_enable": true,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

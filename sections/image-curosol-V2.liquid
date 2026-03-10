@@ -1,0 +1,690 @@
+{% comment %}
+  Cozy Image Cards Carousel (Dawn)
+  - Heading at top
+  - Carousel cards: 3-up desktop, 2-up tablet, 1-up mobile
+  - Drag/swipe (native scroll) - no autoplay, no arrows
+  - Dots bottom (clickable)
+  - 8 blocks: image + optional button (label + link)
+  - No image cut: object-fit: contain
+{% endcomment %}
+
+{%- liquid
+  assign sid = section.id
+  assign blocks_count = section.blocks.size
+  if blocks_count == 0
+    assign blocks_count = 1
+  endif
+-%}
+
+<style>
+  .cic-{{ sid }}{
+    width:100%;
+    background: {{ section.settings.section_bg }};
+  }
+
+  .cic-{{ sid }} .cic__inner{
+    max-width: {{ section.settings.container_width }}px;
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top }}px 0px {{ section.settings.padding_bottom }}px;
+  }
+
+  .cic-{{ sid }} .cic__heading{
+    margin: 0 0 {{ section.settings.heading_spacing }}px;
+    color: {{ section.settings.heading_color }};
+    text-align: {{ section.settings.heading_align }};
+    font-size: {{ section.settings.heading_size_desktop }}px;
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* Carousel viewport */
+  .cic-{{ sid }} .cic__viewport{
+    position: relative;
+  }
+
+.cic-{{ sid }} .cic__track{
+  /* 3 full + 2 half visible ≈ 4 cards worth of width */
+  --gap: {{ section.settings.card_gap }}px;
+  --cards-visible: 4;
+
+  --card-w: calc(
+    (100% - (var(--gap) * (var(--cards-visible) - 1)))
+    / var(--cards-visible)
+  );
+
+  display:flex;
+  gap: var(--gap);
+  overflow-x:auto;
+  overflow-y:hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  justify-content:flex-start;
+
+  scroll-snap-type: x mandatory;
+  padding: 0 0 10px;
+  margin: 0;
+
+  scrollbar-width:none;
+}
+.cic-{{ sid }} .cic__track::-webkit-scrollbar{ display:none; }
+
+.cic-{{ sid }} .cic__slide{
+  scroll-snap-align: start;
+  flex: 0 0 var(--card-w);
+  min-width: var(--card-w);
+}
+
+
+/* PEEK layout: center card + half left/right visible */
+
+
+  .cic-{{ sid }} .cic__card{
+    position: relative;
+    border-radius: {{ section.settings.card_radius }}px;
+    overflow: hidden;
+    background: {{ section.settings.card_bg }};
+    border: {{ section.settings.card_border_width }}px solid {{ section.settings.card_border_color }};
+  }
+
+  /* Aspect ratio box (prevents layout jumps, keeps cards consistent) */
+  .cic-{{ sid }} .cic__media{
+    width: 100%;
+    aspect-ratio: {{ section.settings.card_aspect_ratio }};
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: {{ section.settings.image_padding }}px;
+    box-sizing: border-box;
+  }
+
+  .cic-{{ sid }} .cic__media img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* IMPORTANT: no cutting */
+    object-position: center;
+    display:block;
+  }
+
+  /* Button on image (per block) */
+  .cic-{{ sid }} .cic__btn-wrap{
+    position:absolute;
+    left:50%;
+    transform: translateX(-50%);
+    bottom: {{ section.settings.button_bottom_offset }}px;
+    z-index: 2;
+    width: calc(100% - 32px);
+    display:flex;
+    justify-content:center;
+    pointer-events: none;
+  }
+
+  .cic-{{ sid }} .cic__btn{
+    pointer-events: auto;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding: {{ section.settings.button_padding_y }}px {{ section.settings.button_padding_x }}px;
+    background: {{ section.settings.button_bg }};
+    color: {{ section.settings.button_color }};
+    border-radius: {{ section.settings.button_radius }}px;
+    text-decoration:none;
+    font-size: {{ section.settings.button_font_size }}px;
+    font-weight: 700;
+    line-height: 1;
+    border: 1px solid rgba(0,0,0,0.08);
+    min-width: 140px;
+    max-width: 100%;
+    text-align:center;
+    white-space: nowrap;
+  }
+
+  .cic-{{ sid }} .cic__btn:hover{
+    opacity: .92;
+  }
+
+  /* Dots */
+  .cic-{{ sid }} .cic__dots{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 10px;
+    margin-top: {{ section.settings.dots_spacing_top }}px;
+  }
+
+  .cic-{{ sid }} .cic__dot{
+    appearance:none;
+    border:0;
+    padding:0;
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.20);
+    cursor:pointer;
+    transition: transform .2s ease, background .2s ease;
+  }
+
+  .cic-{{ sid }} .cic__dot[aria-current="true"]{
+    background: rgba(0,0,0,0.95);
+    transform: scale(1.1);
+  }
+
+  /* Tablet: 2 cards */
+@media (max-width: 989px){
+  .cic-{{ sid }} .cic__track{
+    /* tablet: 2 full + 2 half = 3 cards worth visible */
+    --cards-visible: 4;
+  }
+}
+
+  /* Mobile: 1 card */
+  @media (max-width: 749px){
+    
+    .cic-{{ sid }} .cic__inner{
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .cic-{{ sid }} .cic__heading{
+      font-size: {{ section.settings.heading_size_mobile }}px;
+      margin-bottom: {{ section.settings.heading_spacing | times: 0.85 | round }}px;
+    }
+
+.cic-{{ sid }} .cic__track{
+  --card-w: 100%;
+  --side-pad: 0px;
+
+  gap: {{ section.settings.card_gap_mobile }}px;
+  padding: 0 0 10px;
+  scroll-padding-left: 0px;
+  scroll-padding-right: 0px;
+}
+
+.cic-{{ sid }} .cic__slide{
+  scroll-snap-align: start;
+  flex: 0 0 100%;
+  min-width: 100%;
+}
+
+    .cic-{{ sid }} .cic__btn{
+      font-size: {{ section.settings.button_font_size_mobile }}px;
+      padding: {{ section.settings.button_padding_y_mobile }}px {{ section.settings.button_padding_x_mobile }}px;
+      min-width: 130px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .cic-{{ sid }} .cic__track{ scroll-behavior: auto; }
+    .cic-{{ sid }} .cic__dot{ transition:none; }
+  }
+</style>
+
+<section class="cic-{{ sid }}" data-cic data-section-id="{{ sid }}">
+  <div class="cic__inner">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="cic__heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    <div class="cic__viewport">
+      <div class="cic__track" data-cic-track aria-label="Image cards carousel">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign img = block.settings.image
+            assign btn_label = block.settings.button_label
+            assign btn_link = block.settings.button_link
+          -%}
+
+          <div class="cic__slide" data-cic-slide data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+            <div class="cic__card">
+              <div class="cic__media">
+                {%- if img != blank -%}
+                  <img
+                    src="{{ img | image_url: width: 1600 }}"
+                    alt="{{ img.alt | escape }}"
+                    loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                    width="{{ img.width }}"
+                    height="{{ img.height }}"
+                  >
+                {%- else -%}
+                  <div style="width:100%;height:100%;background:#e9e9e9;"></div>
+                {%- endif -%}
+              </div>
+
+              {%- if btn_label != blank and btn_link != blank -%}
+                <div class="cic__btn-wrap">
+                  <a class="cic__btn" href="{{ btn_link }}">{{ btn_label | escape }}</a>
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.show_dots and section.blocks.size > 1 -%}
+        <div class="cic__dots" data-cic-dots aria-label="Carousel pagination">
+          {%- for block in section.blocks -%}
+            <button
+              type="button"
+              class="cic__dot"
+              data-cic-dot
+              aria-label="Go to item {{ forloop.index }}"
+              aria-current="{% if forloop.first %}true{% else %}false{% endif %}"
+            ></button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var root = document.querySelector('[data-cic][data-section-id="{{ sid }}"]');
+  if(!root) return;
+
+  var track = root.querySelector('[data-cic-track]');
+  var slides = Array.prototype.slice.call(root.querySelectorAll('[data-cic-slide]'));
+  var dots = Array.prototype.slice.call(root.querySelectorAll('[data-cic-dot]'));
+
+  if(!track || slides.length < 2 || !dots.length) return;
+
+  function getGap(){
+    var cs = window.getComputedStyle(track);
+    var g = parseFloat(cs.columnGap || cs.gap || '0');
+    return isNaN(g) ? 0 : g;
+  }
+
+  function getStep(){
+    var w = slides[0].getBoundingClientRect().width;
+    return w + getGap();
+  }
+
+  function getMaxPage(){
+    var step = getStep();
+    if(!step) return 0;
+    var maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+    return Math.floor(maxScroll / step); // number of reachable "start" positions
+  }
+
+  function setActiveDot(page){
+    var maxPage = getMaxPage();
+
+    dots.forEach(function(d, i){
+      // show only page dots (0..maxPage). hide the rest
+      var show = i <= maxPage;
+      d.style.display = show ? '' : 'none';
+      d.setAttribute('aria-current', (show && i === page) ? 'true' : 'false');
+    });
+  }
+
+  function scrollToPage(page){
+    var step = getStep();
+    if(!step) return;
+
+    var maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+    var maxPage = Math.floor(maxScroll / step);
+
+    page = Math.max(0, Math.min(page, maxPage));
+
+    var target = page * step;
+    if(target > maxScroll) target = maxScroll;
+
+    track.scrollTo({ left: target, behavior: 'smooth' });
+    setActiveDot(page);
+  }
+
+  function currentPage(){
+    var step = getStep();
+    if(!step) return 0;
+
+    var maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+    var maxPage = Math.floor(maxScroll / step);
+
+    var page = Math.round(track.scrollLeft / step);
+    return Math.max(0, Math.min(page, maxPage));
+  }
+
+  // Dot click (pages)
+  dots.forEach(function(dot, i){
+    dot.addEventListener('click', function(){
+      scrollToPage(i);
+    });
+  });
+
+  // Scroll -> update active page dot
+  var ticking = false;
+  track.addEventListener('scroll', function(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){
+      setActiveDot(currentPage());
+      ticking = false;
+    });
+  });
+
+  window.addEventListener('resize', function(){
+    setActiveDot(currentPage());
+  });
+
+  // init
+  setActiveDot(currentPage());
+
+  // start at page 1 on desktop (so you see right peek)
+  if(window.matchMedia('(min-width: 750px)').matches){
+    requestAnimationFrame(function(){ scrollToPage(1); });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Cozy image cards carousel",
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Container max width (px)",
+      "min": 900,
+      "max": 2600,
+      "step": 20,
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top (px)",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40
+    },
+
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "PLUG IN. GET COZY."
+    },
+    {
+      "type": "select",
+      "id": "heading_align",
+      "label": "Heading alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#111111"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "label": "Heading size desktop (px)",
+      "min": 18,
+      "max": 80,
+      "step": 1,
+      "default": 46
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size mobile (px)",
+      "min": 16,
+      "max": 52,
+      "step": 1,
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "label": "Space under heading (px)",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "default": 24
+    },
+
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card corner radius (px)",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "card_border_width",
+      "label": "Card border width (px)",
+      "min": 0,
+      "max": 6,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card border color",
+      "default": "#E6E6E6"
+    },
+    {
+      "type": "text",
+      "id": "card_aspect_ratio",
+      "label": "Card aspect ratio (e.g. 4/5, 1/1, 3/4)",
+      "default": "4/5"
+    },
+    {
+      "type": "range",
+      "id": "image_padding",
+      "label": "Image inner padding (px)",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Gap between cards (desktop px)",
+      "min": 6,
+      "max": 40,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "card_gap_mobile",
+      "label": "Gap between cards (mobile px)",
+      "min": 6,
+      "max": 30,
+      "step": 1,
+      "default": 14
+    },
+
+    {
+      "type": "header",
+      "content": "Button (global style)"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button text color",
+      "default": "#D46B00"
+    },
+{
+  "type": "range",
+  "id": "button_radius",
+  "label": "Button radius (px)",
+  "min": 0,
+  "max": 1000,
+  "step": 10,
+  "default": 1000
+},
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "label": "Button font size desktop (px)",
+      "min": 10,
+      "max": 22,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "button_font_size_mobile",
+      "label": "Button font size mobile (px)",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "button_padding_x",
+      "label": "Button padding X desktop (px)",
+      "min": 12,
+      "max": 44,
+      "step": 2,
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "button_padding_y",
+      "label": "Button padding Y desktop (px)",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "button_padding_x_mobile",
+      "label": "Button padding X mobile (px)",
+      "min": 12,
+      "max": 40,
+      "step": 2,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "button_padding_y_mobile",
+      "label": "Button padding Y mobile (px)",
+      "min": 8,
+      "max": 22,
+      "step": 2,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "button_bottom_offset",
+      "label": "Button bottom offset (px)",
+      "min": 8,
+      "max": 80,
+      "step": 2,
+      "default": 36
+    },
+
+    {
+      "type": "header",
+      "content": "Dots"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Show dots",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "dots_spacing_top",
+      "label": "Space above dots (px)",
+      "min": 6,
+      "max": 50,
+      "step": 2,
+      "default": 18
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "SHOP NOW"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+"presets": [
+  {
+    "name": "Cozy image cards carousel",
+    "blocks": [
+      { "type": "card" },
+      { "type": "card" },
+      { "type": "card" },
+      { "type": "card" },
+      { "type": "card" },
+      { "type": "card" },
+      { "type": "card" },
+      { "type": "card" }
+    ]
+  }
+]
+}
+{% endschema %}

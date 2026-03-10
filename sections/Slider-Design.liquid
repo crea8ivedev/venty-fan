@@ -1,0 +1,497 @@
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+          padding-top: {{ section.settings.padding_top }}px;
+          padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+  }
+  @media screen and (max-width: 768px) {
+      .section-{{ section.id }}-padding {
+          padding-top: {{ section.settings.padding_top_mob }}px;
+          padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+      }
+  }
+{%- endstyle -%}
+
+<style>
+.new-slider-design .img-title-btn.img-title-btn-new-design h2 {
+    opacity: 1;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 36.48px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    margin-top: 10px;
+}
+.new-slider-design .img-title-btn.img-title-btn-new-design img {
+    border: 0;
+      display: flex;
+    border-radius: 24px;
+}
+.new-slider-design .img-title-btn.img-title-btn-new-design {
+    align-items: flex-start;
+}
+.new-slider-design .flickity-section__carousel {
+    margin-left: auto;
+    padding-left: 10rem;
+}
+.new-slider-design.img-main-new-slider-desing {
+    POSITION: RELATIVE;
+}
+.new-slider-design .title-description-slider-new h2 {
+    color: rgba(13, 24, 47, 1);
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 82.08px;
+    text-align: center;
+  margin: 0;
+    margin-bottom: 20px;
+}
+.new-slider-design button.flickity-button {
+    background: #f1f2f4;
+    left: unset;
+    right: 50px;
+    bottom: -80px;
+    top: unset;
+}
+.new-slider-design button.flickity-button.flickity-prev-next-button.previous {
+    right: 110px;
+}
+  .new-slider-design .img-main-new-slider-desing {
+    position:relative;
+    width: 100%;
+}
+  .new-slider-design .carousel__cell.meet-our-fans-car-cell {
+    cursor: pointer;
+}
+@media(max-width:1350px){
+  .new-slider-design .flickity-section__carousel {
+    padding-left: 5rem;
+}
+   .new-slider-design .carousel__cell.meet-our-fans-car-cell {
+        width: 30% !important;
+             margin-right: 30px !important;
+    }
+}
+@media(max-width:1025px){
+  .new-slider-design .title-description-slider-new h2 {
+    font-size: 40px;
+}
+.new-slider-design .img-title-btn img {
+    height: 280px;
+}
+}
+@media(max-width:768px){
+    .new-slider-design .carousel__cell.meet-our-fans-car-cell {
+        width: 46% !important;
+        margin-right: 20px !important;
+    }
+    }
+@media(max-width:500px){
+    .new-slider-design .carousel__cell.meet-our-fans-car-cell {
+        width: 80% !important;
+        margin-right: 20px !important;
+    }
+      .new-slider-design .title-description-slider-new h2 {
+        font-size: 35px;
+        line-height: normal;
+    }
+      .new-slider-design .flickity-section__carousel {
+        padding: 0 2rem;
+    }
+    }
+
+  @media(max-width:380px){
+    .new-slider-design .carousel__cell.meet-our-fans-car-cell {
+        width: 100% !important;
+        margin-right: 0px !important;
+    }
+    }
+
+  
+  </style>
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+  * Make sure you have the Flickity plugin installed and the proper license for this to function on your store
+  * Plugin, licensing and documentation at https://flickity.metafizzy.co/
+{% endcomment %}
+
+{% assign cell_align = section.settings.cell_align %}
+{% assign wrap_around = section.settings.wrap_around %}
+{% assign img_width = section.settings.img_width | append: 'x' %}
+{% assign autoplay_speed = section.settings.autoplay_speed | times: 1 %}
+{% assign draggableslider = section.settings.draggableslider %}
+
+<div class="new-slider-design flickity-section-{{ section.id }} flickity-index-slider section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="title-description-slider-new">
+      {%- if section.settings.title != blank -%}
+        <h2>{{ section.settings.title }}</h2>
+      {%- endif %}
+    </div>
+  </div>
+  <div
+    class="flickity-section__carousel carousel-{{section.id }} text-center"
+    data-flickity='
+      {
+          "cellAlign": "{{ cell_align }}",
+          "pageDots": true,
+         "autoPlay": {{ autoplay_speed }},
+          "freeScroll": false,
+          "contain": true,
+          "draggable": {{ draggableslider }},
+          "wrapAround": {{ wrap_around }}
+      }
+    '
+  >
+    {% for product in collection_main.products limit: collection_limit %}
+      <div
+        class="carousel__cell"
+        style="width:{{ section.settings.cell_width }};margin-right:{{ section.settings.mr }}px"
+      ></div>
+    {% endfor %}
+    {%- for block in section.blocks -%}
+      <div
+        class="carousel__cell meet-our-fans-car-cell"
+        style="width:{{ section.settings.cell_width }};margin-right:{{ section.settings.mr }}px"
+      >
+        <div class="img-title-btn img-title-btn-new-design">
+          <div class="img-main-new-slider-desing">
+            {%- if block.settings.img1 -%}
+              <img src="{{ block.settings.img1 | img_url: 'master' }}" alt="">
+            {%- endif %}
+          </div>
+          {%- if block.settings.title1 -%}
+            <h2>{{ block.settings.title1 }}</h2>
+          {%- endif %}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+  {%- for block in section.blocks -%}
+    <div class="video-wrapper-slider">
+      <div class="video-wrapper-slider-inner">
+        {% if block.settings.video %}
+          {{
+            block.settings.video
+            | video_tag:
+              playsinline: true,
+              muted: true,
+              autoplay: true,
+              loop: true,
+              preload: 'metadata',
+              class: 'ewrewrw'
+          }}
+        {% endif %}
+        <div class="video-class-removed">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            focusable="false"
+            class="icon icon-close closeburger"
+            fill="none"
+            viewBox="0 0 18 17"
+          >
+              <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor">
+            </path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  {%- endfor -%}
+</div>
+
+{% if section.settings.hidedots %}
+  <style>
+      .new-slider-design ol.flickity-page-dots {
+        display: none;
+    }
+  </style>
+{% endif %}
+
+{% if section.settings.hidearrows %}
+  <style>
+      .new-slider-design button.flickity-button.flickity-prev-next-button.previous,
+      .new-slider-design button.flickity-button.flickity-prev-next-button.next{
+        display: none;
+    }
+  </style>
+{% endif %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      const imgTitleBtns = document.querySelectorAll('.img-title-btn');
+      const videoWrappers = document.querySelectorAll('.video-wrapper-slider');
+      const videoClassRemoved = document.querySelectorAll('.video-class-removed');
+      const videos = document.querySelectorAll('.video-wrapper-slider video');
+      let isDragging = false;
+
+      // Initialize Flickity
+      const flkty = new Flickity('.flickity-section__carousel', {
+          // Flickity options
+          cellAlign: '{{ cell_align }}',
+          pageDots: true,
+          autoPlay: {{ autoplay_speed }},
+          freeScroll: false,
+          contain: true,
+          draggable: {{ draggableslider }},
+          wrapAround: {{ wrap_around }},
+          on: {
+              dragStart: function () {
+                  isDragging = true;
+              },
+              dragEnd: function () {
+                  isDragging = false;
+              }
+          }
+      });
+
+      imgTitleBtns.forEach((btn, index) => {
+          btn.addEventListener('click', () => {
+              if (isDragging) return; // Prevent click if dragging
+              videoWrappers[index].classList.add('activated_VIDEO');
+              document.body.classList.add('body-activated_VIDEO');
+
+              // Play video from the start
+              const video = videos[index];
+              if (video) {
+                  video.currentTime = 0; // Reset video to start
+                  video.play(); // Play the video
+              }
+          });
+      });
+
+      videoClassRemoved.forEach((btn, index) => {
+          btn.addEventListener('click', () => {
+              if (isDragging) return; // Prevent click if dragging
+              videoWrappers[index].classList.remove('activated_VIDEO');
+              document.body.classList.remove('body-activated_VIDEO');
+
+              // Pause the video
+              const video = videos[index];
+              if (video) {
+                  video.pause(); // Pause the video
+              }
+          });
+      });
+  });
+</script>
+
+
+{% schema %}
+{
+    "name": "Slider Design",
+    "settings": [
+
+        {
+            "type": "inline_richtext",
+            "id": "title",
+            "label": "t:sections.featured-collection.settings.title.label"
+        },
+
+
+        {
+            "type": "select",
+            "id": "cell_align",
+            "label": "Slide Alignment",
+            "options": [
+                {
+                    "value": "center",
+                    "label": "Center"
+                },
+                {
+                    "value": "left",
+                    "label": "Left"
+                }
+            ],
+            "default": "center"
+        },
+        {
+            "type": "select",
+            "id": "cell_width",
+            "label": "Choose number of slides to show on start",
+            "options": [
+                {
+                    "value": "40%",
+                    "label": "Two"
+                },
+                {
+                    "value": "30%",
+                    "label": "Three"
+                },
+                {
+                    "value": "26%",
+                    "label": "Four"
+                },
+                {
+                    "value": "20%",
+                    "label": "Five"
+                },
+                {
+                    "value": "16.6666667%",
+                    "label": "Six"
+                },
+                {
+                    "value": "12.5%",
+                    "label": "Eight"
+                }
+            ],
+            "default": "26%"
+        },
+      {
+      "type": "checkbox",
+      "id": "hidedots",
+      "default": false,
+      "label": "Check To Hide Dots Bar"
+    },
+      {
+      "type": "checkbox",
+      "id": "hidearrows",
+      "default": false,
+      "label": "Check To Hide Arrows"
+    },
+        {
+            "type": "radio",
+            "id": "wrap_around",
+            "label": "Enable Wrap Around (endless scrolling)",
+            "options": [
+                {
+                    "value": "true",
+                    "label": "True"
+                },
+                {
+                    "value": "false",
+                    "label": "False"
+                }
+            ],
+            "default": "true"
+        },
+       {
+            "type": "radio",
+            "id": "draggableslider",
+            "label": "Enable draggable",
+            "options": [
+                {
+                    "value": "true",
+                    "label": "True"
+                },
+                {
+                    "value": "false",
+                    "label": "False"
+                }
+            ],
+            "default": "true"
+        },
+       {
+      "type": "text",
+      "id": "autoplay_speed",
+      "label": "Autoplay Speed (ms)",
+      "default": "3000",
+      "info": "Enter autoplay speed in milliseconds."
+    },
+        {
+            "type": "range",
+            "id": "mr",
+            "min": 0,
+            "max": 48,
+            "step": 1,
+            "unit": "px",
+            "label": "Cell Margin Right",
+            "default": 16,
+            "info": "Save page to see changes."
+        },
+      {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "padding top",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "padding bottom",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_top_mob",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "padding top mobile",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_mob",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "padding bottom mobile",
+            "default": 36
+        }
+    ],
+    "blocks": [
+        {
+            "type": "slider",
+            "name": "Add A Slider",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "img1",
+                    "label": "Poster Image Must"
+                },
+                {
+                    "type": "text",
+                    "id": "title1",
+                    "label": "Title",
+                    "default": "Title"
+                },
+                {
+                    "type": "video",
+                    "id": "video",
+                    "label": "Video"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Slider Design"
+        }
+    ]
+}
+{% endschema %}

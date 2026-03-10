@@ -1,0 +1,87 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_UpAUFE": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_4M6nk3": {
+          "type": "heading",
+          "settings": {
+            "heading": "Parts &  Accesories",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4M6nk3"
+      ],
+      "custom_css": [
+        ".banner__heading {font-weight: 600;}"
+      ],
+      "settings": {
+        "videohere": false,
+        "customclassforstyling": "troubleshooting-header",
+        "allow_transparent_header": true,
+        "image": "shopify://shop_images/Product-Support_f34bf07e-d061-40c7-897e-3f793dc7860b.jpg",
+        "imagemobile": "shopify://shop_images/Product-Support.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "bottom-right",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "featured_product_tabs_cnFQx7": {
+      "type": "featured-product-tabs",
+      "custom_css": [
+        ".product-tab-gallery .quick-add {max-width: 100%;}",
+        ".product-tab-gallery .quick-add__submit {min-width: 100% !important;}",
+        "@media screen and (max-width: 667px) {.product-tab-flex {gap: 20px; }}"
+      ],
+      "settings": {
+        "mainheading": "Browse by product",
+        "tabsimg1": "shopify://shop_images/VENTY-FAN_994702f8-0263-4dc6-8017-35cd095b07f7.png",
+        "tab1title": "VENTY FAN",
+        "collection": "replacement",
+        "tab2title": "",
+        "collection2": "",
+        "tabsimg3": "shopify://shop_images/Fan_4f3944fc-827b-4fb7-8ca7-bb0f926ac08a.png",
+        "tab3title": "VENTY CLIP FAN",
+        "collection3": "venty-clip-fan",
+        "quick_add": "standard",
+        "decription": true,
+        "background": "#ffffff",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_UpAUFE",
+    "featured_product_tabs_cnFQx7"
+  ]
+}

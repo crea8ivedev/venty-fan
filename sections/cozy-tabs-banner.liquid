@@ -1,0 +1,372 @@
+<!-- Start cozy-tabs-banner  -->
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background }};
+    height:{{section.settings.heightcstm}}vh;
+   
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob  }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+        height:{{section.settings.heightcstm | times: 0.80 | round: 0 }}vh;
+    }
+  }
+{%- endstyle -%}
+
+<style>
+      .custom-table {
+      display: none;
+      width: 50%;
+        margin-top: auto;
+  }
+
+        .custom-table.is-active {
+            display: block;
+        }
+  .cozy-tabs-banner .page-width {
+      height: 100%;
+  }
+    .custom-tabs-banner {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+  }
+    button.custom-tab-button img {
+        width: 24px;
+        height: 24px;
+    }
+    button.custom-tab-button {
+        gap: 8px;
+        background: transparent;
+        font-size: 21px;
+        line-height: 28.07px;
+        letter-spacing: 0.03em;
+        border: none;
+        opacity: 63%;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 1);
+        outline: none;
+        width: 20%;
+        position: relative;
+        text-align: left;
+      cursor: pointer;
+    }
+    .custom-plan-controls {
+        display: flex;
+        gap: 60px;
+    }
+    button.custom-tab-button.is-active{
+        font-weight: 500;
+        opacity: 100%;
+    }
+    button.custom-tab-button::before {
+        width: 100%;
+        height: 1px;
+        content: "";
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 1);
+        display: inline-block;
+    }
+      button.custom-tab-button.is-active::before {
+        height: 2px;
+    }
+  .heading-content-tab {
+      font-size: 60px;
+      font-weight: 400;
+      line-height: 83.14px;
+      text-transform: capitalize;
+    color: rgba(255, 255, 255, 1);
+  }
+    .heading-content-tab p{
+      margin:0;
+  }
+  .heading-content-tab strong {
+      font-size: 40px;
+  }
+  .para-content-tab {
+      color: rgba(255, 255, 255, 1);
+      font-size: 21px;
+      font-weight: 400;
+      line-height: 32.34px;
+      letter-spacing: 0.05em;
+      text-align: left;
+  }
+  .para-content-tab p {
+      margin:5px 0 0 0;
+ 
+  }
+
+
+
+        @media(max-width:1250px){
+          .heading-content-tab {
+    font-size: 44px;
+    line-height: 50px;
+}
+.para-content-tab {
+    font-size: 18px;
+}
+      .custom-plan-controls {
+    gap: 40px;
+}    
+        }
+        @media(max-width:1025px){}
+        @media(max-width:768px){
+          .custom-table {
+    width: 70%;
+}
+        }
+@media(max-width:500px){
+.custom-table {
+width: 100%;
+}
+.heading-content-tab {
+font-size:35px; line-height:1.4;
+}
+.para-content-tab {
+font-size:16px;
+line-height:1.4;
+}
+
+button.custom-tab-button {
+min-width:31%;         flex-direction: column-reverse;
+display: flex;
+}
+button.custom-tab-button::before { height:0px; }
+.custom-tabs-banner {     flex-direction: column-reverse; }
+.custom-table {  margin-top:0px;   margin-bottom: auto; }
+.custom-plan-controls { gap:0px;  }
+
+button.custom-tab-button img { 
+vertical-align: middle;
+}
+
+  .custom-tabs-banner #custom-tab-2 { margin:auto; padding-top:100px; }
+
+}
+</style>
+
+<div
+  class="section-{{ section.id }}-padding cozy-tabs-banner"
+  {% if section.settings.allow_transparent_header %}
+    allow-transparent-header
+  {% endif %} style=" background-image:url('{{ section.settings.bgimgdesktop | img_url: 'master' }}') ; "
+>
+  <div class="page-width">
+    <div class="custom-tabs-banner">
+      <div class="custom-plan-controls">
+        {% for block in section.blocks %}
+          {% if block.type == 'tabs' %}
+            <button
+              type="button"
+              class="custom-tab-button {% if forloop.first %}is-active{% endif %}"
+              data-custom-tab="{{ forloop.index }}"
+            >
+              <div class="btn-data-tabs">
+                <img src="{{ block.settings.tabtitleicon | img_url: 'master' }}" alt="">
+                {{ block.settings.title }}
+              </div>
+            </button>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% for block in section.blocks %}
+        {% if block.type == 'tabs' %}
+          <div class="custom-table {% if forloop.first %}is-active{% endif %}" id="custom-tab-{{ forloop.index }}" data-id="{{ block.settings.image | img_url: 'master' }}">
+            <div class="heading-content-tab">{{ block.settings.heading }}</div>
+            <div class="para-content-tab">{{ block.settings.para }}</div>
+      
+            <a style="margin-top:10px;" class="btn-benefit-wrapper" href="{{ section.settings.btn_link}}">
+        {{ section.settings.btn }}
+        <span>
+          <img src="https://cdn.shopify.com/s/files/1/0613/3297/9961/files/Right_25.png">
+        </span>
+      </a>
+
+            
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- End cozy-tabs-banner  -->
+{% schema %}
+{
+  "name": "Cozy Tabs Banner",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "allow_transparent_header",
+      "label": "Allow transparent header",
+      "info": "This setting only applies when this section is the first one.",
+      "default": true
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "bgimgdesktop",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id":"btn",
+      "label": "Button Link"
+    },
+    {
+      "type": "url",
+      "id":"btn_link",
+      "label": "Button Label"
+    },
+    {
+      "type": "range",
+      "id": "heightcstm",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "vh",
+      "label": "Height",
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top Mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom Mobile",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tabs",
+      "name": "Tab",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id":"image",
+          "label":"Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "tabtitleicon",
+          "label": "Tab icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tab Title"
+        },
+        {
+          "type": "richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "para",
+          "label": "Paragraph"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cozy Tabs Banner",
+      "blocks": [
+        {
+          "type": "tabs"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+<!-- tabs simple script -->
+{% javascript %}
+
+  document.querySelectorAll('.custom-tab-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const tabID = button.getAttribute('data-custom-tab');
+
+        // Remove 'is-active' class from all buttons and add to the clicked one
+        document.querySelectorAll('.custom-tab-button').forEach(btn => btn.classList.remove('is-active'));
+        button.classList.add('is-active');
+
+        // Remove 'is-active' class from all tables and add to the selected one
+        document.querySelectorAll('.custom-table').forEach(tab => tab.classList.remove('is-active'));
+        const activeTab = document.getElementById('custom-tab-' + tabID);
+        activeTab.classList.add('is-active');
+
+        // Update the background image of 'cozy-tabs-banner' based on the active tab's data-id
+        const imageUrl = activeTab.getAttribute('data-id');
+        document.querySelector('.cozy-tabs-banner').style.backgroundImage = `url('${imageUrl}')`;
+    });
+});
+
+
+
+  
+{% endjavascript %}

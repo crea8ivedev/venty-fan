@@ -1,0 +1,738 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "cozy_pad_banner_gpTABH": {
+      "type": "CozyPad-Banner",
+      "settings": {
+        "allow_transparent_header": true,
+        "video": "shopify:\/\/files\/videos\/COZY.mp4",
+        "heightcstm": 100,
+        "subtopheading": "Introducing",
+        "heading": "COZYPOD",
+        "paragraph": "the portable Plugin heater",
+        "button_text_1": "get NOTIFIED",
+        "button_link_1": "#btn-signup",
+        "background": "",
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "main_product_2_yetaj3": {
+      "type": "main-product-2",
+      "blocks": {
+        "rating_wtemRj": {
+          "type": "rating",
+          "settings": {}
+        },
+        "title_mcDyn7": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_FEhfyH": {
+          "type": "price",
+          "settings": {}
+        },
+        "benefits_WCkBTP": {
+          "type": "benefits",
+          "settings": {
+            "benefits-img1": "shopify:\/\/shop_images\/checkmark-circle-primary_1_efad2d41-f0af-466a-8354-d5ebd84fc453.svg",
+            "benefits-txt1": "Fast Heating",
+            "benefits-img2": "shopify:\/\/shop_images\/checkmark-circle-primary_1_efad2d41-f0af-466a-8354-d5ebd84fc453.svg",
+            "benefits-txt2": "500 Watts",
+            "benefits-img3": "shopify:\/\/shop_images\/checkmark-circle-primary_1_efad2d41-f0af-466a-8354-d5ebd84fc453.svg",
+            "benefits-txt3": "Wireless Control",
+            "benefits-img4": "shopify:\/\/shop_images\/checkmark-circle-primary_1_efad2d41-f0af-466a-8354-d5ebd84fc453.svg",
+            "benefits-txt4": "Led Light",
+            "benefits-img5": "shopify:\/\/shop_images\/checkmark-circle-primary_1_efad2d41-f0af-466a-8354-d5ebd84fc453.svg",
+            "benefits-txt5": "Magnetic Remote",
+            "benefits-img6": "shopify:\/\/shop_images\/checkmark-circle-primary_1_efad2d41-f0af-466a-8354-d5ebd84fc453.svg",
+            "benefits-txt6": "Horizontal & Vertical Plug-in"
+          }
+        },
+        "variant_picker_6H3Uk8": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_9GF36b": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "iconwithtext_fChNbR": {
+          "type": "iconwithtext",
+          "settings": {
+            "icon-shipping": "shopify:\/\/shop_images\/free-delivery_1.svg",
+            "textshipping0": "FREE UK SHIPPING OVER £100+",
+            "textshipping1": "FREE US SHIPPING OVER $100+",
+            "textshipping2": "Fast Ship ORDERS TODAY SHIP SAME DAY."
+          }
+        },
+        "newsletter_fpmAag": {
+          "type": "newsletter",
+          "settings": {
+            "newsletter_heading": "<p>Sign up <strong>now<\/strong> <em>Available November 18th<\/em><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "rating_wtemRj",
+        "title_mcDyn7",
+        "price_FEhfyH",
+        "benefits_WCkBTP",
+        "variant_picker_6H3Uk8",
+        "quantity_selector_9GF36b",
+        "iconwithtext_fChNbR",
+        "newsletter_fpmAag"
+      ],
+      "custom_css": [
+        "@media (max-width: 500px) {product-info {padding: 0px; }}",
+        "label.variant-images-selectable img {display: none;}"
+      ],
+      "settings": {
+        "product": "cozypod",
+        "sticky_cart": false,
+        "enable_sticky_info": true,
+        "color_scheme": "",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "right",
+        "image_zoom": "hover",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "cozy_ultimate_section_iVrnp4": {
+      "type": "cozy-ultimate-section",
+      "blocks": {
+        "boxes_nWJnaB": {
+          "type": "boxes",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Quick_Mode_On_2.svg",
+            "title": "Self-charging Remote",
+            "para": "charges wirelessly in docking station"
+          }
+        },
+        "boxes_HMmy6q": {
+          "type": "boxes",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Temperature_1.svg",
+            "title": "Fast Heating",
+            "para": "Heats up in 2 seconds"
+          }
+        },
+        "boxes_iEqW8N": {
+          "type": "boxes",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Lightning_Bolt_1.svg",
+            "title": "Powerful",
+            "para": "500 Watts of heat"
+          }
+        },
+        "boxes_xyeE8f": {
+          "type": "boxes",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Remote_Control_1.svg",
+            "title": "Wireless Remote",
+            "para": "Control up to 30 feet"
+          }
+        },
+        "boxes_8Gnb3N": {
+          "type": "boxes",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Protect_1.svg",
+            "title": "Safety Tested",
+            "para": "Exceeds USA safety standards"
+          }
+        },
+        "boxes_rkLkLT": {
+          "type": "boxes",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/No_Audio_1.svg",
+            "title": "Whisper Quiet",
+            "para": "Under 40 decibels"
+          }
+        },
+        "left_mhTNza": {
+          "type": "left",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/Frame.svg",
+            "title1": "Performance",
+            "content1": "<p>Compact, Yet Powerful<\/p>"
+          }
+        },
+        "left_83rLGj": {
+          "type": "left",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/Group_5aa3d673-e58c-4492-98d8-9ee8a2feaf72.svg",
+            "title1": "Innovative Remote",
+            "content1": "<p>Smart Watch Inspired TFT Display<\/p>"
+          }
+        },
+        "left_GzpkHe": {
+          "type": "left",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/Frame_1.svg",
+            "title1": "Smart Engineering",
+            "content1": "<p>Latest Generation Ceramic Heating Tech<\/p>"
+          }
+        },
+        "left_ftAhiL": {
+          "type": "left",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/Frame_2.svg",
+            "title1": "\"Wow\" Factor",
+            "content1": "<p>Gorgeous Display And Ambient Lighting<\/p>"
+          }
+        },
+        "center_nRWNXD": {
+          "type": "center",
+          "settings": {
+            "image2": "shopify:\/\/shop_images\/Frame_3.svg",
+            "title2": "Elegant Design",
+            "content2": "<p>Clean, Modern Design That Elevates Any Space<\/p>"
+          }
+        },
+        "center_Ak3BJQ": {
+          "type": "center",
+          "settings": {
+            "image2": "shopify:\/\/shop_images\/Sketch_ed956ac3-9709-4b42-a211-fb89d3f4fce6.png",
+            "title2": "",
+            "content2": ""
+          }
+        },
+        "center_kRGjfQ": {
+          "type": "center",
+          "settings": {
+            "image2": "shopify:\/\/shop_images\/Frame_4.svg",
+            "title2": "Small But Mighty",
+            "content2": "<p>Small in Size But Delivers 500 Watts Of hHeat<\/p>"
+          }
+        },
+        "right_HBifBm": {
+          "type": "right",
+          "settings": {
+            "image3": "shopify:\/\/shop_images\/Frame_5.svg",
+            "title3": "Plug in & play",
+            "content3": "<p>Embrace Warmth in Just 2 Seconds<\/p>"
+          }
+        },
+        "right_B7h9Vd": {
+          "type": "right",
+          "settings": {
+            "image3": "shopify:\/\/shop_images\/Frame_6.svg",
+            "title3": "Safety First",
+            "content3": "<p>Fire Resistant Materials, Auto Shut Off Protection<\/p>"
+          }
+        },
+        "right_XgRTwH": {
+          "type": "right",
+          "settings": {
+            "image3": "shopify:\/\/shop_images\/Frame_7.svg",
+            "title3": "Cost Effective",
+            "content3": "<p>Keeps You Cozy While Saving On Central Heat<\/p>"
+          }
+        },
+        "right_8iwWY4": {
+          "type": "right",
+          "settings": {
+            "image3": "shopify:\/\/shop_images\/Frame_8.svg",
+            "title3": "Global Travel Companion",
+            "content3": "<p>110-240v Travel & Use Anywhere in The World<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "boxes_nWJnaB",
+        "boxes_HMmy6q",
+        "boxes_iEqW8N",
+        "boxes_xyeE8f",
+        "boxes_8Gnb3N",
+        "boxes_rkLkLT",
+        "left_mhTNza",
+        "left_83rLGj",
+        "left_GzpkHe",
+        "left_ftAhiL",
+        "center_nRWNXD",
+        "center_Ak3BJQ",
+        "center_kRGjfQ",
+        "right_HBifBm",
+        "right_B7h9Vd",
+        "right_XgRTwH",
+        "right_8iwWY4"
+      ],
+      "settings": {
+        "img": "shopify:\/\/shop_images\/27-9-2023.25033_1_1fb7f8dc-349d-4840-83bf-234958862b34.png",
+        "heading": "<p>the ultimate <strong>portable heater<\/strong>.<\/p>",
+        "button_text_1": "Order Now",
+        "button_link_1": "#",
+        "background": "",
+        "heading1": "<p>The <strong>Specs<\/strong><\/p>",
+        "padding_top": 0,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "cozy_commands_4rarnB": {
+      "type": "cozy-commands",
+      "blocks": {
+        "commands_WTkJTD": {
+          "type": "commands",
+          "settings": {
+            "commandimg": "shopify:\/\/shop_images\/smart-phone-03.svg",
+            "commandimg1": "shopify:\/\/shop_images\/WirelessCharging.gif",
+            "commandtitle": "Wireless Charging",
+            "commandpara": "Place the remote in the dock to charge it up. No batteries required."
+          }
+        },
+        "commands_c4eBHy": {
+          "type": "commands",
+          "settings": {
+            "commandimg": "shopify:\/\/shop_images\/settings-01.svg",
+            "commandimg1": "shopify:\/\/shop_images\/Light.gif",
+            "commandtitle": "Night Light",
+            "commandpara": "Adjust 4 different light settings to guide you at night."
+          }
+        },
+        "commands_7JtHaU": {
+          "type": "commands",
+          "settings": {
+            "commandimg": "shopify:\/\/shop_images\/location-user-01.svg",
+            "commandimg1": "shopify:\/\/shop_images\/Rotation.gif",
+            "commandtitle": "90 Degree Rotation",
+            "commandpara": "CozyPod works both horizontally or vertically in your socket."
+          }
+        },
+        "commands_xDJBPQ": {
+          "type": "commands",
+          "settings": {
+            "commandimg": "shopify:\/\/shop_images\/touchpad-03.svg",
+            "commandimg1": "shopify:\/\/shop_images\/image_22_1.png",
+            "commandtitle": "Magnetic safety lock",
+            "commandpara": "Ensures remotes secure connection while charging"
+          }
+        },
+        "commands_QNeNKx": {
+          "type": "commands",
+          "settings": {
+            "commandimg": "shopify:\/\/shop_images\/more-01.svg",
+            "commandimg1": "shopify:\/\/shop_images\/image_20.png",
+            "commandtitle": "Matte finish",
+            "commandpara": "Smooth and muted texture that complements your home's ambiance and feels great in your hand"
+          }
+        },
+        "centerdotsdetails_mCKDDG": {
+          "type": "centerdotsdetails",
+          "settings": {
+            "titledots": "",
+            "descriptiondots": "<p>Charges wirelessly when docked<\/p>",
+            "horizontal_position_desktop": 62,
+            "vertical_position_desktop": 13
+          }
+        },
+        "centerdotsdetails_tXbG8k": {
+          "type": "centerdotsdetails",
+          "settings": {
+            "titledots": "",
+            "descriptiondots": "<p>Set your desired room temperature<\/p>",
+            "horizontal_position_desktop": 30,
+            "vertical_position_desktop": 33
+          }
+        },
+        "centerdotsdetails_yz38Tp": {
+          "type": "centerdotsdetails",
+          "settings": {
+            "titledots": "",
+            "descriptiondots": "<p>Adjustable LED nightlight<\/p>",
+            "horizontal_position_desktop": 35,
+            "vertical_position_desktop": 45
+          }
+        },
+        "centerdotsdetails_HfYxr6": {
+          "type": "centerdotsdetails",
+          "settings": {
+            "titledots": "",
+            "descriptiondots": "<p>3 different heat blast modes<\/p>",
+            "horizontal_position_desktop": 54,
+            "vertical_position_desktop": 55
+          }
+        },
+        "centerdotsdetails_RPkkYe": {
+          "type": "centerdotsdetails",
+          "settings": {
+            "titledots": "",
+            "descriptiondots": "<p>TFT smart touch display<\/p>",
+            "horizontal_position_desktop": 84,
+            "vertical_position_desktop": 35
+          }
+        }
+      },
+      "block_order": [
+        "commands_WTkJTD",
+        "commands_c4eBHy",
+        "commands_7JtHaU",
+        "commands_xDJBPQ",
+        "commands_QNeNKx",
+        "centerdotsdetails_mCKDDG",
+        "centerdotsdetails_tXbG8k",
+        "centerdotsdetails_yz38Tp",
+        "centerdotsdetails_HfYxr6",
+        "centerdotsdetails_RPkkYe"
+      ],
+      "settings": {
+        "heading": "<p>the <strong>cozy<\/strong> Command Center<\/p>",
+        "subheading": "Coziness Controlled From Your Fingers",
+        "handimg": "shopify:\/\/shop_images\/hand_with_remote_b46aa81f-537a-4afd-ab1f-6ba1a3156e1b.png",
+        "handimg1": "shopify:\/\/shop_images\/Custom_dimensions_1024x1366_px_-_Custom_dimensions_-_Custom_dimensions_3_1_6f13225f-df73-4aba-8160-72d3932fd258.png",
+        "padding_top": 36,
+        "padding_bottom": 0,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 0
+      }
+    },
+    "only_video_YMncft": {
+      "type": "only-video",
+      "settings": {
+        "customheightenable": false,
+        "heightcstmdesktop": 36,
+        "heightcstmmobile": 36,
+        "widhtofimgdesktop": 100,
+        "widhtofimgmob": 100,
+        "video": "shopify:\/\/files\/videos\/heat up in 2 s.mp4",
+        "background": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "cozy_saftety_features_nnbzR4": {
+      "type": "cozy-saftety-features",
+      "blocks": {
+        "boxes_Q4YwYy": {
+          "type": "boxes",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Protect_1_1.svg",
+            "title": "Child Safety",
+            "para": "Remote control safety lock to prevent small hands"
+          }
+        },
+        "boxes_Vi6A3P": {
+          "type": "boxes",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Quick_Mode_On_2_1.svg",
+            "title": "Auto Shut Off",
+            "para": "Setting to auto shut off in twenty four hours"
+          }
+        },
+        "boxes_DaQDPG": {
+          "type": "boxes",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/g183.svg",
+            "title": "Three Prong",
+            "para": "Three prongs for maximum socket safety"
+          }
+        },
+        "boxes_tfVtbM": {
+          "type": "boxes",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Page-1.svg",
+            "title": "Cover Protection",
+            "para": "Auto Shut-off when anything covers the heater"
+          }
+        },
+        "boxes_LBtPyc": {
+          "type": "boxes",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Quick_Mode_On_2_2.svg",
+            "title": "VO Fire Retardant",
+            "para": "Setting to auto shut off in twenty four hours"
+          }
+        }
+      },
+      "block_order": [
+        "boxes_Q4YwYy",
+        "boxes_Vi6A3P",
+        "boxes_DaQDPG",
+        "boxes_tfVtbM",
+        "boxes_LBtPyc"
+      ],
+      "custom_css": [
+        "@media only screen and (max-width: 500px) {{display: none; }}"
+      ],
+      "settings": {
+        "heading": "<p>Robust Safety Features<\/p>",
+        "background": "#001233",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mob": 60,
+        "padding_bottom_mob": 60
+      }
+    },
+    "multicolumn_zjQm43": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_mQfLyV": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Protect_2.svg",
+            "title": "Child Safety",
+            "text": "<p>Remote control safety lock to prevent small hands<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_xPUkQr": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Quick_Mode_On_2_1.svg",
+            "title": "Auto Shut Off",
+            "text": "<p>Setting to auto shut off in twenty four hours<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_eEn6fi": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/g183.svg",
+            "title": "Three Prong",
+            "text": "<p>Three prongs for maximum socket safety<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_f6W6tE": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Page-1.svg",
+            "title": "Cover Protection",
+            "text": "<p>Auto Shut-off when anything covers the heater<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_w68kzT": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Quick_Mode_On_2_2.svg",
+            "title": "VO Fire Retardant",
+            "text": "<p>Setting to auto shut off in twenty four hours<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_mQfLyV",
+        "column_xPUkQr",
+        "column_eEn6fi",
+        "column_f6W6tE",
+        "column_w68kzT"
+      ],
+      "custom_css": [
+        "{display: none;}",
+        "@media only screen and (max-width: 500px) {{display: block; }}"
+      ],
+      "settings": {
+        "c-class": "robust-safety",
+        "title": "Robust Safety Features",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-5",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "cozy_tabs_banner_gXRWK7": {
+      "type": "cozy-tabs-banner",
+      "blocks": {
+        "tabs_cxV6bm": {
+          "type": "tabs",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/bg-2.jpg",
+            "tabtitleicon": "shopify:\/\/shop_images\/backpack-01.svg",
+            "title": "Travel",
+            "heading": "<p>Travel Comfortably with <strong>COZYPOD<\/strong><\/p>",
+            "para": "<p>Wherever your adventures take you, COZYPOD ensures you stay cozy and comfortable.<\/p>"
+          }
+        },
+        "tabs_mD9nAk": {
+          "type": "tabs",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/8-_1.jpg",
+            "tabtitleicon": "shopify:\/\/shop_images\/home-12.svg",
+            "title": "Office",
+            "heading": "<p>Warmth, At Your Fingertips<\/p>",
+            "para": "<p>The magnetic remote works up to 30 feet away. Place it back in the dock to recharge.<\/p>"
+          }
+        },
+        "tabs_cNRPpE": {
+          "type": "tabs",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Screenshot_2024-08-27_at_9.51.11_AM.png",
+            "tabtitleicon": "shopify:\/\/shop_images\/office-chair.svg",
+            "title": "Home",
+            "heading": "<p>Aesthetics<\/p>",
+            "para": "<p>The CozyPod will add to the ambiance of any room.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "tabs_cxV6bm",
+        "tabs_mD9nAk",
+        "tabs_cNRPpE"
+      ],
+      "settings": {
+        "allow_transparent_header": false,
+        "bgimgdesktop": "shopify:\/\/shop_images\/bg-2.jpg",
+        "btn": "GET NOTIFIED",
+        "btn_link": "#btn-signup",
+        "heightcstm": 90,
+        "background": "",
+        "padding_top": 44,
+        "padding_bottom": 76,
+        "padding_top_mob": 12,
+        "padding_bottom_mob": 12
+      }
+    },
+    "main_product_2_wqQjLQ": {
+      "type": "main-product-2",
+      "blocks": {
+        "rating_cNdUAg": {
+          "type": "rating",
+          "settings": {}
+        },
+        "title_9wge9J": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_NJLjw7": {
+          "type": "price",
+          "settings": {}
+        },
+        "benefits_9VgFcq": {
+          "type": "benefits",
+          "settings": {
+            "benefits-img1": "shopify:\/\/shop_images\/checkmark-circle-primary_1_efad2d41-f0af-466a-8354-d5ebd84fc453.svg",
+            "benefits-txt1": "Fast Heating",
+            "benefits-img2": "shopify:\/\/shop_images\/checkmark-circle-primary_1_efad2d41-f0af-466a-8354-d5ebd84fc453.svg",
+            "benefits-txt2": "500 Watts",
+            "benefits-img3": "shopify:\/\/shop_images\/checkmark-circle-primary_1_efad2d41-f0af-466a-8354-d5ebd84fc453.svg",
+            "benefits-txt3": "Wireless Control",
+            "benefits-img4": "shopify:\/\/shop_images\/checkmark-circle-primary_1_efad2d41-f0af-466a-8354-d5ebd84fc453.svg",
+            "benefits-txt4": "Led Light",
+            "benefits-img5": "shopify:\/\/shop_images\/checkmark-circle-primary_1_efad2d41-f0af-466a-8354-d5ebd84fc453.svg",
+            "benefits-txt5": "Magnetic Remote",
+            "benefits-img6": "shopify:\/\/shop_images\/checkmark-circle-primary_1_efad2d41-f0af-466a-8354-d5ebd84fc453.svg",
+            "benefits-txt6": "Horizontal & Vertical Plug-in"
+          }
+        },
+        "variant_picker_8Xi9bK": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_NMdtLE": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "iconwithtext_9PUhTc": {
+          "type": "iconwithtext",
+          "settings": {
+            "icon-shipping": "shopify:\/\/shop_images\/free-delivery_1.svg",
+            "textshipping0": "FREE UK SHIPPING OVER £100+",
+            "textshipping1": "FREE US SHIPPING OVER $100+",
+            "textshipping2": "Fast Ship ORDERS TODAY SHIP SAME DAY."
+          }
+        },
+        "newsletter_9NyP9b": {
+          "type": "newsletter",
+          "settings": {
+            "newsletter_heading": "<p>Sign up <strong>now<\/strong> <em>Available November 15th<\/em><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "rating_cNdUAg",
+        "title_9wge9J",
+        "price_NJLjw7",
+        "benefits_9VgFcq",
+        "variant_picker_8Xi9bK",
+        "quantity_selector_NMdtLE",
+        "iconwithtext_9PUhTc",
+        "newsletter_9NyP9b"
+      ],
+      "custom_css": [
+        "@media only screen and (max-width: 767px) {{display: none; }}",
+        "label.variant-images-selectable img {display: none;}"
+      ],
+      "settings": {
+        "product": "cozypod",
+        "sticky_cart": false,
+        "enable_sticky_info": true,
+        "color_scheme": "",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "right",
+        "image_zoom": "hover",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cozy_pad_banner_gpTABH",
+    "main_product_2_yetaj3",
+    "cozy_ultimate_section_iVrnp4",
+    "cozy_commands_4rarnB",
+    "only_video_YMncft",
+    "cozy_saftety_features_nnbzR4",
+    "multicolumn_zjQm43",
+    "cozy_tabs_banner_gXRWK7",
+    "main_product_2_wqQjLQ"
+  ]
+}

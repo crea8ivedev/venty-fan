@@ -1,0 +1,262 @@
+{% style %}
+
+p,h1{
+  margin:0;
+}
+.cozypod-recharge {
+  position: relative;
+  padding: 140px 0;
+  color: #fff;
+  overflow: hidden;
+}
+
+.cozypod-recharge__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.cozypod-recharge__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right;
+}
+
+.cozypod-recharge__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.95) 0%,
+    rgba(0,0,0,0.85) 35%,
+    rgba(0,0,0,0.45) 60%,
+    rgba(0,0,0,0.1) 80%,
+    rgba(0,0,0,0) 100%
+  );
+  z-index: 1;
+}
+
+.cozypod-recharge__content {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+}
+
+.cozypod-recharge__content h2 {
+  font-size: clamp(44px, 6vw, 90px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: #fff;
+  line-height:90px;
+}
+
+.cozypod-recharge__text {
+  font-size: 18px;
+  opacity: 0.85;
+  margin-bottom: 48px;
+  max-width: 345px;
+}
+
+p.cozypod-recharge__text {
+    font-family: 'Lato', sans-serif !important;
+}
+
+.cozypod-recharge__features {
+  display: grid;
+  grid-template-columns: repeat(3, 165px);
+  gap: 20px;
+}
+
+.feature-item {
+    background: rgba(217, 217, 217, 0.10);
+    /* backdrop-filter: blur(16px); */
+    border-radius: 20px;
+    padding: 22px 16px;
+    text-align: center;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    backdrop-filter: blur(16px);
+    align-items: center;
+}
+
+.feature-item img {
+  width: 32px;
+}
+
+.feature-item p {
+  font-size: 14px;
+  line-height: 1.4;
+  font-family: 'Lato', sans-serif !important;
+}
+.cozypod-features__image-wrap{
+  margin-bottom:-10px;
+}
+
+.feature-item__icon{
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  background-color: rgb(217 217 217 / 10%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 19px;
+}
+.cozypod-recharge .bg-text{
+  font-family: Montserrat;
+  font-weight: 800;
+  font-size: 250px;
+  line-height: 200px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.03);
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 900px) {
+  .cozypod-recharge {
+    padding: 50px 0;
+    text-align: center;
+  }
+
+  .cozypod-recharge__content {
+    margin: 0 auto;
+  }
+
+  .cozypod-recharge__features {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 30px;
+  }
+
+  .cozypod-recharge__bg img {
+    transform: translateX(0);
+    object-position: bottom;
+  }
+  .cozypod-recharge .bg-text{
+    top: -63px;
+    font-size: 88px;
+  }
+  .cozypod-recharge__content h2{
+    line-height: 53px;
+  }
+  .cozypod-recharge__text{
+    margin: 0 auto;
+  }
+}
+
+
+{% endstyle %}
+
+<section class="cozypod-recharge">
+  <div class="bg-text">
+  {{ section.settings.bg_text }}
+</div>
+  {% if section.settings.bg_image %}
+    <div class="cozypod-recharge__bg">
+      <img
+        src="{{ section.settings.bg_image | image_url: width: 2200 }}"
+        width="{{ section.settings.bg_image.width }}"
+        height="{{ section.settings.bg_image.height }}"
+        alt=""
+        loading="lazy"
+      >
+    </div>
+  {% endif %}
+
+  <div class="cozypod-recharge__overlay"></div>
+
+  <!-- CONTENT -->
+  <div class="page-width">
+    <div class="cozypod-recharge__content">
+
+      <h2>{{ section.settings.heading }}</h2>
+
+      <p class="cozypod-recharge__text">
+        {{ section.settings.text }}
+      </p>
+
+      <div class="cozypod-recharge__features">
+        {% for block in section.blocks %}
+          <div class="feature-item">
+            {% if block.settings.icon %}
+              <div class="feature-item__icon">
+              <img
+                src="{{ block.settings.icon | image_url: width: 64 }}"
+                width="{{ block.settings.icon.width }}"
+                height="{{ block.settings.icon.height }}"
+                alt=""
+                loading="lazy"
+              >
+              </div>
+            {% endif %}
+            <p style="font-family: 'Lato', sans-serif !important;">{{ block.settings.title }}</p>
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Cozypod Recharge",
+  "settings": [
+    {
+      "type": "text",
+      "id": "bg_text",
+      "label": "Background Text",
+      "default": "Features"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image (Figma style)"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "RECHARGE & STAY COZY"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "Charge it in the cozy dock and use it up to 2 days per charge"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cozypod Recharge – Figma Background"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,24 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "product.json",
+  "context": {
+    "market": "uk"
+  },
+  "sections": {
+    "relative_banner_image_HG4iTA": {
+      "settings": {
+        "img": "shopify://shop_images/5_2280a26d-4235-4231-aabb-782f2e17bbc9.png",
+        "mobile-img": "shopify://shop_images/6_3151bfc7-6fb7-40de-bb12-47565e7c4ae4.png"
+      },
+      "blocks": {}
+    }
+  }
+}

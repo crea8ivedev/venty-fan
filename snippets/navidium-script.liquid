@@ -1,0 +1,25 @@
+<script>
+window.addEventListener("pageshow", function (event) {
+  if (event.persisted) {
+    location.reload();
+  }
+});
+</script>
+
+
+
+<script>
+window.addEventListener('nvd_cart_changed', (e) => {
+  if (e.detail?.added?.length != 0 || e?.detail?.removed?.length != 0) {
+    console.log('Cart changed::', e.detail)
+    setTimeout(nvd_init,1500)
+  }
+})
+</script>
+
+
+<style> 
+  button#nvd-with-checkout-btn span span {
+    color: white !important;
+}
+</style>

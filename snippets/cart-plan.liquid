@@ -1,0 +1,285 @@
+ {% for item in cart.items %}
+{% if  item.product.handle == "cozypod" %}
+
+{% if settings.enable_cart_upsell3 %}
+  <div class="cart-upsell-toggle-container cart-upsell-toggle-container--{{ settings.cart_upsell_alignment }} {% if cart.item_count == 0 %}hidden{% endif %}">
+    <label class="cart-upsell-toggle-label">
+    
+      <input type="checkbox" id="cart-upsell-toggle-3" class="cart-upsell-toggle"  >
+      <span class="cart-upsell-toggle-slider"></span>
+<div> {{ settings.cart_upsell_toggle_text3 }}  
+<div class="part-tool">
+<a class="cart-tooltip" href="#" tip="">Read More</a>
+<div class="tooltip-content"> <p>   Test content  </p> </div>
+</div> 
+    </div>
+    
+    </label>
+
+
+$19.99
+      
+  </div>
+{% endif %}
+
+      {% break %}
+
+{% endif %}
+{% endfor %}      
+
+
+
+{% if settings.enable_cart_upsell %}
+    <div class="cart-upsell-toggle-container cart-upsell-toggle-container--{{ settings.cart_upsell_alignment }} {% if cart.item_count == 0 %}hidden{% endif %}">
+    <label class="cart-upsell-toggle-label">
+       
+      <input type="checkbox" id="cart-upsell-toggle" class="cart-upsell-toggle"  >
+      <span class="cart-upsell-toggle-slider"></span>
+     <div> {{ settings.cart_upsell_toggle_text }} 
+<div class="part-tool">
+
+   {% if localization.language.iso_code == 'es'  %}
+<a class="cart-tooltip" href="#" tip="">Leer más</a>
+<div class="tooltip-content"> <p>  
+¡La Protección de Envíos es una garantía completa de que tu paquete llegará a tu domicilio! En caso de pérdida, te enviaremos un reemplazo gratuito. Esto solo garantiza la llegada de los envíos con seguimiento y no cubre la piratería en el porche. </p> 
+</div>
+  
+{% elsif localization.language.iso_code == 'fr' %}
+
+<a class="cart-tooltip" href="#" tip=""> En savoir plus </a>
+<div class="tooltip-content"> <p>  
+Félicitations – vous bénéficiez de la livraison gratuite !La protection d'expédition est une assurance complète pour la livraison de votre colis à votre adresse ! En cas de perte, nous vous enverrons un colis de remplacement gratuit. Cette garantie vise uniquement à garantir la livraison des envois suivis et ne couvre pas le piratage. </p> 
+</div>
+
+{% elsif localization.language.iso_code == 'it' %}
+
+<a class="cart-tooltip" href="#" tip="">Per saperne di più</a>
+<div class="tooltip-content"> <p>  
+La Protezione Spedizione è un'assicurazione completa che il tuo pacco verrà consegnato al tuo indirizzo! In caso di smarrimento del pacco, ne invieremo uno sostitutivo gratuito. Questo serve solo a garantire la consegna delle spedizioni tracciate e non copre la pirateria informatica. </p> 
+</div>
+
+{% elsif localization.language.iso_code == 'pl' %}
+
+<a class="cart-tooltip" href="#" tip="">Przeczytaj więcej</a>
+<div class="tooltip-content"> <p>  
+Ochrona wysyłki to kompletne ubezpieczenie, które zapewnia dostarczenie paczki na Twój adres! W przypadku zgubienia paczki wyślemy bezpłatną przesyłkę zastępczą. Ma to na celu jedynie zapewnienie dotarcia przesyłek śledzonych i nie obejmuje piractwa gankowego.</p> 
+</div>
+
+{% elsif localization.language.iso_code == 'nl' %}
+
+<a class="cart-tooltip" href="#" tip="">Lees meer</a>
+<div class="tooltip-content"> <p>  
+Als u een nieuw adres wilt toevoegen, kunt u een nieuw adres opvragen! W przypadku zgubienia paczki wyślemy bezpłatną przesyłkę zastępczą. Je kunt een cel met een slechte gezondheid en geen slechte piraterij gebruiken.</p> 
+</div>
+  
+{% elsif localization.language.iso_code == 'be' %}
+
+<a class="cart-tooltip" href="#" tip="">Lees meer</a>
+<div class="tooltip-content"> <p>  
+Als u een nieuw adres wilt toevoegen, kunt u een nieuw adres opvragen! W przypadku zgubienia paczki wyślemy bezpłatną przesyłkę zastępczą. Je kunt een cel met een slechte gezondheid en geen slechte piraterij gebruiken.</p> 
+</div>
+
+  
+{% else %}
+
+<a class="cart-tooltip" href="#" tip="">Read More</a>
+<div class="tooltip-content"> <p>  
+Shipping Protection is complete insurance that your package delivers to your address! In the event of a lost package, we will send a free replacement. This is only to ensure tracked shipments arrive and does not cover porch piracy. </p> 
+</div>
+
+    
+    {% endif %}
+
+
+
+
+  
+
+  
+</div> 
+    </div>
+    </label>
+
+
+{% assign warranty_product = all_products['1-year-warranty'] %}
+
+{% if warranty_product %}
+    {{ warranty_product.price | money }} 
+ 
+{% endif %}
+
+      
+  </div>
+  
+  
+<style>        
+
+  .cart-upsell-toggle-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:5px;
+margin:0px;
+ 
+  }
+
+  .cart-upsell-toggle-container .part-tool { display:inline-block; }
+
+  .cart-upsell-toggle-container  p { margin:0px; }
+
+  .cart-upsell-toggle-container.hidden {
+    display: none;
+  }
+
+   .cart-upsell-toggle-container  a { color:#000; font-weight:normal; font-size:10px; }
+
+  .cart-upsell-toggle:checked + .cart-upsell-toggle-slider +  div { font-weight:bold; } 
+    
+  .cart-upsell-toggle-label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer; font-size:12px;
+  }
+  
+  .cart-upsell-toggle {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+  
+  .cart-upsell-toggle-slider {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 12px;
+    background-color: #ccc;
+    border-radius: 20px;
+    margin-right: 10px;
+    transition: background-color 0.1s ease; z-index: 1;
+  }
+  
+  .cart-upsell-toggle-slider::before {
+    content: "";
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    left:2px; right:2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%; 
+    transition: transform 0.1s ease;     z-index: 1;
+  }
+  
+  .cart-upsell-toggle:checked + .cart-upsell-toggle-slider {
+    background-color: {{ settings.cart_upsell_toggle_color }};
+  }
+  
+  .cart-upsell-toggle:checked + .cart-upsell-toggle-slider::before {
+    transform: translateX(17px);
+  }
+
+  #Details-CartDrawer {
+    margin-top: 0;
+  }
+
+.tooltip-content {
+    position: absolute;
+    top: auto;
+    bottom: 170px;
+    left: 10%;
+    width: 90%;
+    margin: 0 auto;
+    height: 120px;
+    font-size:12px;
+    background-color: #000;
+    padding: 15px;
+    font-weight: normal;
+    color: #fff;
+    border-radius: 15px;
+    display: none;     z-index: 99;
+    transform: translate(-5%, -5%);
+}
+
+
+.part-tool:hover .tooltip-content {
+    display: block;
+} 
+</style>
+
+  
+{% endif %}
+
+{% if settings.enable_cart_upsell1 %}
+  <div class="cart-upsell-toggle-container cart-upsell-toggle-container--{{ settings.cart_upsell_alignment }} {% if cart.item_count == 0 %}hidden{% endif %}">
+    <label class="cart-upsell-toggle-label">
+    
+      <input type="checkbox" id="cart-upsell-toggle-2" class="cart-upsell-toggle"  >
+      <span class="cart-upsell-toggle-slider"></span>
+<div> {{ settings.cart_upsell_toggle_text1 }}  
+<div class="part-tool">
+
+{% if localization.language.iso_code == 'es'  %}
+<a class="cart-tooltip" href="#" tip="">Leer más</a>
+<div class="tooltip-content"> <p> Todos los productos tienen una garantía de 30 días. Protege tu Venty hasta por 1 año con esta garantía extendida que protege el puerto de carga, el cuello, los componentes eléctricos, el emparejamiento remoto y el estuche. Si alguno de estos productos presenta un problema que nuestro equipo técnico no pueda resolver, se enviarán reemplazos gratuitos dentro de un año.  </p> </div>
+
+
+{% elsif localization.language.iso_code == 'fr' %}
+<a class="cart-tooltip" href="#" tip="">En savoir plus</a>
+<div class="tooltip-content"> <p> Tous les produits bénéficient d'une garantie de 30 jours. Protégez votre Venty jusqu'à 1 an grâce à cette extension de garantie qui couvre le port de charge, le tour de cou, les composants électriques, la télécommande et l'étui. Des remplacements gratuits sont envoyés sous un an si l'un de ces produits présente un problème que notre équipe technique ne peut résoudre.  </p> </div>
+
+
+{% elsif localization.language.iso_code == 'it' %}
+<a class="cart-tooltip" href="#" tip="">Per saperne di più</a>
+<div class="tooltip-content"> <p>  Tutti i prodotti sono coperti da una garanzia di 30 giorni. Proteggi il tuo Venty fino a 1 anno con questa garanzia estesa che include la porta di ricarica, il supporto, i componenti elettrici, il telecomando e la custodia. Se il nostro team tecnico non riesce a risolvere un problema, ti invieremo gratuitamente un sostituto entro un anno.  </p> </div>
+
+
+{% elsif localization.language.iso_code == 'pl' %}
+<a class="cart-tooltip" href="#" tip="">Przeczytaj więcej</a>
+<div class="tooltip-content"> <p>  Wszystkie produkty mają 30-dniową gwarancję. Chroń swoje Venty do 1 roku dzięki tej rozszerzonej gwarancji, która chroni port ładowania, szyję, elementy elektryczne, parowanie pilota i obudowę. Bezpłatne wymiany są wysyłane w ciągu roku, jeśli którykolwiek z nich ma problem, którego nasz zespół techniczny nie może rozwiązać.  </p> </div>
+
+
+{% elsif localization.language.iso_code == 'nl' %}
+<a class="cart-tooltip" href="#" tip="">Lees meer</a>
+<div class="tooltip-content"> <p>  Alle producten hebben 30 dagen garantie. Bescherm je Venty tot 1 jaar met deze uitgebreide garantie. Deze beschermt de oplaadpoort, de hals, de elektrische componenten, de afstandsbediening en de behuizing. Gratis vervangingen worden binnen een jaar verzonden als een van deze producten een probleem heeft dat ons technische team niet kan oplossen. </p> </div>
+
+  
+ {% elsif localization.language.iso_code == 'be' %} 
+<a class="cart-tooltip" href="#" tip="">Lees meer</a>
+<div class="tooltip-content"> <p>  Alle producten hebben 30 dagen garantie. Bescherm je Venty tot 1 jaar met deze uitgebreide garantie. Deze beschermt de oplaadpoort, de hals, de elektrische componenten, de afstandsbediening en de behuizing. Gratis vervangingen worden binnen een jaar verzonden als een van deze producten een probleem heeft dat ons technische team niet kan oplossen. </p> </div>
+
+
+{% else %}
+
+<a class="cart-tooltip" href="#" tip="">Read More</a>
+<div class="tooltip-content"> <p>  All products have a 30 day included warranty. Protect your Venty up to 1 year with this extended warranty which protects the charging port, neck, electrical components, remote pairing, and case. Free replacements are sent within a year if any of these have an issue that our tech team cannot solve.  </p> </div>
+
+  
+{% endif %}
+
+
+
+
+  
+</div> 
+    </div>
+    
+    </label>
+
+
+
+{% assign warranty_product = all_products['extended-warranty'] %}
+
+{% if warranty_product %}
+    {{ warranty_product.price | money }} 
+ 
+{% endif %}
+      
+  </div>
+   
+
+  
+{% endif %}
+
+
+

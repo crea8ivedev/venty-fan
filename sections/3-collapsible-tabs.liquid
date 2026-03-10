@@ -1,0 +1,483 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+{%- endstyle -%}
+
+<style>
+  .tabs-container {
+    width: 100%;
+  }
+
+  .tabs {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+      gap: 70px;
+      border-bottom: 1px solid rgba(212, 215, 220, 1);
+  }
+
+  .tabs .tab-btn:last-child {
+    margin-right: 0;
+  }
+
+  .tabs .tab-btn.active {
+    font-weight:600;
+    color:rgba(13, 24, 47, 1);
+      border-bottom: 3px solid  rgba(21, 43, 79, 1);
+
+  }
+
+  .collapsible-columns {
+    display: none;
+  }
+
+  .collapsible {
+    margin-bottom: 20px;
+  }
+
+  .collapsible .collapsible-btn {
+      background: transparent;
+      display: block;
+      border: 0;
+      width: 100%;
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 25.08px;
+      text-align: left;
+      color: rgba(13, 24, 47, 1);
+      margin: 0 !important;
+      padding: 0;
+  }
+
+  .collapsible .content {
+    display: none;
+  background: transparent;
+      border: none;
+      margin-top: 5px;
+  }
+  .collapsible {
+      background: rgba(255, 255, 255, 1);
+      border-radius: 12px;
+      padding: 20px;
+  }
+  #tab-content-1 {
+    display: block; /* Show Tab 1 content by default */
+  }
+  .page-width.FLEX-TABS-MAIN {
+      display: flex;
+  }
+  .page-width.FLEX-TABS-MAIN h1 {
+      width: 30%;
+      font-family: General Sans;
+      font-size: 40px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    margin: 0;
+      color: rgba(13, 24, 47, 1);
+  }
+  .page-width.FLEX-TABS-MAIN h1 p {
+    margin: 0;
+    padding: 0;
+}
+    .tabs .tab-btn {
+      font-family: General Sans;
+      font-size: 16.91px;
+      font-weight: 500;
+      line-height: 26.88px;
+      text-align: left;
+      color: rgba(128, 129, 131, 1);
+      padding: 14px 0px;
+    background: transparent;
+    cursor: pointer;
+    border:none;
+  }
+  .collapsible .content p {
+      margin: 0 !important;
+      color: rgba(77, 77, 77, 1);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 32.58px;
+      text-align: left;
+      padding: 8px;
+      padding-right: 100px;
+  }
+  .collapsible span img {
+      transform: scale(-1);
+      width: 15px;
+  }
+  .collapsible span {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+  }
+  .collapsible.activated-class-accordian span img {
+      transform: scale(1);
+  }
+  .collapsible {
+      padding: 0;
+      padding-right: 20px;
+  }
+  .collapsible.activated-class-accordian {
+      padding: 20px;
+  }
+  .collapsible button.collapsible-btn {
+      padding: 20px;
+    }
+    .collapsible.activated-class-accordian button.collapsible-btn {
+      padding: 0;
+    }
+  @media(max-width:768px){
+.page-width.FLEX-TABS-MAIN {
+    flex-direction: column;
+}
+.page-width.FLEX-TABS-MAIN h1 {
+    width: 100%;
+    font-size: 30px;
+    line-height: normal;
+    margin: 0;
+}
+    .collapsible .content p {
+    padding-right: 8px;
+}
+    .tabs { margin:20px 0;
+    gap: 27px; border-bottom:none;
+}
+
+ 
+    }
+
+
+
+  
+</style>
+
+<div class="section-{{ section.id }}-padding">
+  <div class="page-width FLEX-TABS-MAIN">
+    <h1>{{ section.settings.heading }}</h1>
+
+    <div class="tabs-container">
+      <!-- Main Tabs -->
+
+      {% if section.settings.tab_1 != blank or section.settings.tab_2 != blank or section.settings.tab_3 != blank %}
+      <div class="tabs">
+        {% if section.settings.tab_1 != blank %}
+          <button class="tab-btn active" data-tab="1">{{ section.settings.tab_1 }}</button>
+        {%- endif %}
+        {% if section.settings.tab_2 != blank -%}
+          <button class="tab-btn" data-tab="2">{{ section.settings.tab_2 }}</button>
+        {%- endif %}
+        {% if section.settings.tab_3 != blank -%}
+          <button class="tab-btn" data-tab="3">{{ section.settings.tab_3 }}</button>
+        {%- endif %}
+        {% if section.settings.tab_4 != blank -%}
+          <button class="tab-btn" data-tab="3">{{ section.settings.tab_4 }}</button>
+        {%- endif %}
+      </div>
+        {%- endif %}
+
+      <!-- Collapsible Columns for Tab 1 -->
+      <div class="collapsible-columns" id="tab-content-1">
+        {% for block in section.blocks %}
+          {% if block.type == 'tab_1' %}
+            <div class="collapsible">
+              <span>
+                <button class="collapsible-btn">{{ block.settings.tab1_heading }}</button>
+                <img src="https://cdn.shopify.com/s/files/1/0613/3297/9961/files/Vector.png?v=1723666670" alt="arrow">
+              </span>
+              <div class="content">
+                <p>{{ block.settings.tab1_content }}</p>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- Collapsible Columns for Tab 2 -->
+      <div class="collapsible-columns" id="tab-content-2" style="display:none;">
+        {% for block in section.blocks %}
+          {% if block.type == 'tab_2' %}
+            <div class="collapsible">
+                    <span>
+              <button class="collapsible-btn">{{ block.settings.tab2_heading }}</button>
+               <img src="https://cdn.shopify.com/s/files/1/0613/3297/9961/files/Vector.png?v=1723666670" alt="arrow">
+              </span>
+              <div class="content">
+                <p>{{ block.settings.tab2_content }}</p>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- Collapsible Columns for Tab 3 -->
+      <div class="collapsible-columns" id="tab-content-3" style="display:none;">
+        {% for block in section.blocks %}
+          {% if block.type == 'tab_3' %}
+            <div class="collapsible">
+                    <span>
+              <button class="collapsible-btn">{{ block.settings.tab3_heading }}</button>
+               <img src="https://cdn.shopify.com/s/files/1/0613/3297/9961/files/Vector.png?v=1723666670" alt="arrow">
+               </span>
+              <div class="content">
+                <p>{{ block.settings.tab3_content }}</p>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+ <!-- Collapsible Columns for Tab 4 -->
+      <div class="collapsible-columns" id="tab-content-4" style="display:none;">
+        {% for block in section.blocks %}
+          {% if block.type == 'tab_4' %}
+            <div class="collapsible">
+                    <span>
+              <button class="collapsible-btn">{{ block.settings.tab4_heading }}</button>
+               <img src="https://cdn.shopify.com/s/files/1/0613/3297/9961/files/Vector.png?v=1723666670" alt="arrow">
+               </span>
+              <div class="content">
+                <p>{{ block.settings.tab4_content }}</p>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+
+      
+    </div>
+  </div>
+</div>
+
+{% schema %}
+    {
+    "name": "Custom 3 collapsible tabs",
+    "settings": [
+
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+       {
+      "type": "text",
+      "id": "tab_1",
+      "label": "Tab 1"
+    },
+        {
+      "type": "text",
+      "id": "tab_2",
+      "label": "Tab 2"
+    },
+    {
+      "type": "text",
+      "id": "tab_3",
+      "label": "Tab 3"
+    },
+    {
+      "type": "text",
+      "id": "tab_4",
+      "label": "Tab 4"
+    },
+       {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top Mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom Mobile",
+      "default": 36
+    }
+
+    ],
+    "blocks":[
+			 {
+
+               "type": "tab_1",
+                "name": "tab 1",
+                "settings": [
+                  {
+                  "type": "text",
+                    "id": "tab1_heading",
+                  "label":"Tab 1 heading"
+                },
+                   {
+                  "type": "text",
+                    "id": "tab1_content",
+                  "label":"Tab 1 Content"
+                },
+
+                ]
+             },
+
+{
+
+               "type": "tab_2",
+                "name": "tab 2",
+                "settings": [
+                  {
+                  "type": "text",
+                    "id": "tab2_heading",
+                  "label":"Tab 2 heading"
+                },
+                   {
+                  "type": "text",
+                    "id": "tab2_content",
+                  "label":"Tab 2 Content"
+                },
+
+
+
+                ]
+             },
+      {
+
+               "type": "tab_3",
+                "name": "tab 3",
+                "settings": [
+                  {
+                  "type": "text",
+                    "id": "tab3_heading",
+                  "label":"Tab 3 heading"
+                },
+                   {
+                  "type": "text",
+                    "id": "tab3_content",
+                  "label":"Tab 3 Content"
+                },
+
+
+
+                ]
+             },
+           {
+
+               "type": "tab_4",
+                "name": "tab 4",
+                "settings": [
+                  {
+                  "type": "text",
+                    "id": "tab4_heading",
+                  "label":"Tab 4 heading"
+                },
+                   {
+                  "type": "text",
+                    "id": "tab4_content",
+                  "label":"Tab 4 Content"
+                },
+
+                ]
+             }
+    ],
+
+
+
+
+
+    "presets": [
+    {
+      "name": "Custom 3 collapsible tabs"
+    }
+  ]
+  }
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const tabs = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.collapsible-columns');
+  const collapsibles = document.querySelectorAll('.collapsible-btn');
+
+  // Handle Tab Clicks
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function () {
+      const tabNumber = this.getAttribute('data-tab');
+
+      // Remove active class from all tabs
+      tabs.forEach(t => t.classList.remove('active'));
+
+      // Add active class to the clicked tab
+      this.classList.add('active');
+
+      // Hide all tab contents
+      tabContents.forEach(content => content.style.display = 'none');
+
+      // Show the selected tab content
+      document.getElementById(`tab-content-${tabNumber}`).style.display = 'block';
+    });
+  });
+
+  // Handle Collapsible Clicks
+  collapsibles.forEach(btn => {
+    btn.addEventListener('click', function () {
+      const collapsible = this.closest('.collapsible'); // Get the closest parent collapsible div
+      const content = collapsible.querySelector('.content'); // Get the content div within the collapsible
+
+      // Toggle the content display
+      if (content.style.display === 'block') {
+        content.style.display = 'none';
+        collapsible.classList.remove('activated-class-accordian'); // Remove class when collapsing
+      } else {
+        content.style.display = 'block';
+        collapsible.classList.add('activated-class-accordian'); // Add class when expanding
+      }
+    });
+  });
+});
+{% endjavascript %}

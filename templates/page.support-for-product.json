@@ -1,0 +1,280 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_i3PUc3": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_rW3RcX": {
+          "type": "heading",
+          "settings": {
+            "heading": "Troubleshooting",
+            "heading_size": "h1"
+          }
+        },
+        "text_QEAxVX": {
+          "type": "text",
+          "settings": {
+            "text": "Support & Guide",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_rW3RcX",
+        "text_QEAxVX"
+      ],
+      "custom_css": [
+        ".banner__heading {font-weight: 600;}"
+      ],
+      "settings": {
+        "videohere": false,
+        "customclassforstyling": "troubleshooting-header",
+        "allow_transparent_header": true,
+        "image": "shopify://shop_images/Rectangle_385_1_5c7dd2ca-4c18-42e4-bd5f-51de43c20557.jpg",
+        "imagemobile": "shopify://shop_images/Rectangle_385_1_b087931f-1da6-4a66-95ae-130cd3b68aff.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "bottom-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-5",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "slider_design_9xzxgD": {
+      "type": "Slider-Design",
+      "blocks": {
+        "slider_nL46hb": {
+          "type": "slider",
+          "settings": {
+            "img1": "shopify://shop_images/a3e3309ffcdde5c025fdaedff762ecbf.png",
+            "title1": "Pairing  remote",
+            "video": "shopify://files/videos/Portable Folding Fan - Wireless Fan For Camping - VENTY – V E N T Y.mp4"
+          }
+        },
+        "slider_Wnxpc3": {
+          "type": "slider",
+          "settings": {
+            "img1": "shopify://shop_images/2_f03269e6-fd3a-48db-a329-708a36c3b5f1.png",
+            "title1": "Changing remote battery",
+            "video": "shopify://files/videos/tolstoy_0f326844-899e-4761-8b62-59568fe1be0c.webm"
+          }
+        },
+        "slider_zAFweE": {
+          "type": "slider",
+          "settings": {
+            "img1": "shopify://shop_images/3_89532ba7-6b59-4d82-ae38-0626f47a8db8.png",
+            "title1": "Opening  faceplate",
+            "video": "shopify://files/videos/tolstoy_3bca419d-c644-406e-ba98-db01e6cf3bdc.webm"
+          }
+        },
+        "slider_YdPbNB": {
+          "type": "slider",
+          "settings": {
+            "img1": "shopify://shop_images/a3e3309ffcdde5c025fdaedff762ecbf.png",
+            "title1": "Pairing  remote",
+            "video": "shopify://files/videos/Portable Folding Fan - Wireless Fan For Camping - VENTY – V E N T Y.mp4"
+          }
+        },
+        "slider_Vby7FU": {
+          "type": "slider",
+          "settings": {
+            "img1": "shopify://shop_images/2_f03269e6-fd3a-48db-a329-708a36c3b5f1.png",
+            "title1": "Changing remote battery",
+            "video": "shopify://files/videos/tolstoy_0f326844-899e-4761-8b62-59568fe1be0c.webm"
+          }
+        },
+        "slider_UMVbAx": {
+          "type": "slider",
+          "settings": {
+            "img1": "shopify://shop_images/3_89532ba7-6b59-4d82-ae38-0626f47a8db8.png",
+            "title1": "Opening  faceplate",
+            "video": "shopify://files/videos/tolstoy_3bca419d-c644-406e-ba98-db01e6cf3bdc.webm"
+          }
+        }
+      },
+      "block_order": [
+        "slider_nL46hb",
+        "slider_Wnxpc3",
+        "slider_zAFweE",
+        "slider_YdPbNB",
+        "slider_Vby7FU",
+        "slider_UMVbAx"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Troubleshooting <strong>Venty</strong>",
+        "cell_align": "left",
+        "cell_width": "26%",
+        "hidedots": true,
+        "hidearrows": false,
+        "wrap_around": "true",
+        "draggableslider": "false",
+        "autoplay_speed": "8000",
+        "mr": 48,
+        "background": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 100,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 92
+      }
+    },
+    "troubleshooting_tabs_video_ebnknr": {
+      "type": "troubleshooting-tabs-video",
+      "blocks": {
+        "tabs1_R4pAfC": {
+          "type": "tabs1",
+          "settings": {
+            "self_hosted_video": "shopify://files/videos/Opening The Venty Faceplate - Troubleshooting.mp4",
+            "producttitle": "Opening The Faceplate"
+          }
+        },
+        "tabs1_CBdRy9": {
+          "type": "tabs1",
+          "settings": {
+            "self_hosted_video": "shopify://files/videos/Charging Your Venty - Troubleshooting.mp4",
+            "producttitle": "Charging Your Venty Fan"
+          }
+        },
+        "tabs1_RCkxTr": {
+          "type": "tabs1",
+          "settings": {
+            "self_hosted_video": "shopify://files/videos/Pairing Your Venty Remote - Troubleshooting.mp4",
+            "producttitle": "Pairing Your Remote"
+          }
+        },
+        "tabs1_M6eHzp": {
+          "type": "tabs1",
+          "settings": {
+            "self_hosted_video": "shopify://files/videos/Changing Your Venty Battery Remote - Troubleshooting.mp4",
+            "producttitle": "Changing Remote Battery"
+          }
+        },
+        "tabs2_G9n76d": {
+          "type": "tabs2",
+          "disabled": true,
+          "settings": {
+            "self_hosted_video": "shopify://files/videos/CozyPod Tutorial.mp4",
+            "producttitle": "Two Minute Rundown"
+          }
+        },
+        "tabs2_CBnUWn": {
+          "type": "tabs2",
+          "disabled": true,
+          "settings": {
+            "self_hosted_video": "shopify://files/videos/Charging Head Connection.mp4",
+            "producttitle": "Charging Head Connection"
+          }
+        },
+        "tabs2_arRR6E": {
+          "type": "tabs2",
+          "disabled": true,
+          "settings": {
+            "self_hosted_video": "shopify://files/videos/Pairing CozyPod Remote.mp4",
+            "producttitle": "Pairing Your Remote"
+          }
+        }
+      },
+      "block_order": [
+        "tabs1_R4pAfC",
+        "tabs1_CBdRy9",
+        "tabs1_RCkxTr",
+        "tabs1_M6eHzp",
+        "tabs2_G9n76d",
+        "tabs2_CBnUWn",
+        "tabs2_arRR6E"
+      ],
+      "settings": {
+        "mainheading": "",
+        "tabsimg1": "shopify://shop_images/table_black_3_584f2ddc-6b69-4b52-aa89-710dc5befe0e.png",
+        "tab1title": "VENTY FAN",
+        "button-img1": "shopify://shop_images/document-attachment.svg",
+        "button_Label1": "Owner Manual",
+        "button_link1": "https://cdn.shopify.com/s/files/1/0613/3297/9961/files/Venty_instruction_2024_Print_240531.pdf?v=1724739026",
+        "tab2title": "",
+        "button-img2": "shopify://shop_images/document-attachment.svg",
+        "button_Label2": "Owner Manual",
+        "button_link2": "https://cdn.shopify.com/s/files/1/0613/3297/9961/files/CozyPod_Instructions_Manual_Print.pdf?v=1724739022",
+        "tabsimg3": "shopify://shop_images/Fan_2dbc3a34-d1a2-4c1f-b58b-e982e909f615.png",
+        "tab3title": "VENTY CLIP FAN",
+        "button_Label3": "",
+        "button_link3": "",
+        "background": "",
+        "autoplay": false,
+        "controller": true,
+        "padding_top": 72,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "contact_from_new_FeAhje": {
+      "type": "contact-from-new",
+      "disabled": true,
+      "settings": {
+        "titleheading": "<p>Still Having Trouble?</p>",
+        "background": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "custom_liquid_6E8WMg": {
+      "type": "custom-liquid",
+      "custom_css": [
+        "{padding: 0 15px;}"
+      ],
+      "settings": {
+        "custom_liquid": "<div style=\"margin:0 auto;\" class=\"pxFormGenerator\" id=\"UdgtMOAw8EUL9efoBUs26A\"></div>",
+        "color_scheme": "scheme-3a101b2e-80e1-4dcb-ba5b-8e268ef99b9f",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "message_button_section_4nQeze": {
+      "type": "message-button-section",
+      "disabled": true,
+      "settings": {
+        "about_text_image_2": "shopify://shop_images/chatting-01.png",
+        "heading": "<p>Still Need Help? </p>",
+        "paragraph": "We can help answer questions and solve problems. Message Us",
+        "button_text": "Message US",
+        "button_link": "#",
+        "background": "",
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_top_mob": 60,
+        "padding_bottom_mob": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_i3PUc3",
+    "slider_design_9xzxgD",
+    "troubleshooting_tabs_video_ebnknr",
+    "contact_from_new_FeAhje",
+    "custom_liquid_6E8WMg",
+    "message_button_section_4nQeze"
+  ]
+}

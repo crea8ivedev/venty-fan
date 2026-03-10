@@ -1,0 +1,49 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "product.json",
+  "context": {
+    "market": "australia"
+  },
+  "sections": {
+    "main": {
+      "settings": {
+        "double_bundle_discount": 15
+      },
+      "blocks": {
+        "iconwithtext_LkDqRd": {
+          "settings": {
+            "textshipping0": "£15 Off & FREE SHIPPING ON ANY 2 OR MORE",
+            "textshipping1": "$15 Off & FREE SHIPPING ON ANY 2 OR MORE"
+          }
+        },
+        "buy_buttons_kqXwFR": {
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "iconwithtext2_GNCnaf": {
+          "settings": {
+            "textshipping0": "£15 Off & FREE SHIPPING ON ANY 2 OR MORE",
+            "textshipping1": "$15 Off & FREE SHIPPING ON ANY 2 OR MORE"
+          }
+        }
+      }
+    },
+    "relative_banner_image_HG4iTA": {
+      "settings": {
+        "img": "shopify://shop_images/5_55e2e7ef-f062-45a4-a699-600f67fcf108.png",
+        "mobile-img": "shopify://shop_images/6_f1df250e-8da8-4bb3-9a86-29303ebfa7eb.png"
+      },
+      "blocks": {}
+    }
+  }
+}

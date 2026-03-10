@@ -1,0 +1,197 @@
+{%- style -%}
+  .cozypod-email-unlock {
+  background: radial-gradient(
+    ellipse at center,
+    #2a2a2a 0%,
+    #000 70%
+  );
+  padding: 36px 0 20px;
+  color: #fff;
+}
+
+.cozypod-email-unlock__inner {
+  display: grid;
+  {% if section.settings.heading != blank %}
+    grid-template-columns: 1fr 1fr;
+  {% else %}
+    grid-template-columns: 1fr;
+  {% endif %}
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 75px;
+}
+
+.cozypod-email-unlock__text {
+  font-size: 30px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.cozypod-email-unlock__text strong {
+  font-weight: 600;
+}
+
+.cozypod-email-unlock__form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.cozypod-email-unlock__form input {
+  max-width: 422px;
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 999px;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  background-color: #363636
+}
+
+.cozypod-email-unlock__form button, .cozypod-email-unlock__form a {
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: none;
+  background: #ff7a00;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cozypod-email-unlock__footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.6;
+}
+.line-spacer{
+  height:1px;
+  max-width:1093px;
+  margin:0 auto;
+  opacity:20%;
+  background:#FFFFFF;
+  display:block !important;
+}
+@media (max-width: 992px) {
+  .cozypod-email-unlock__text {
+    font-size: 24px;  
+  }
+}
+@media (max-width: 768px) {
+   .cozypod-email-unlock__form {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .cozypod-email-unlock__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .cozypod-email-unlock__form {
+        justify-content: center;
+  }
+
+  .cozypod-email-unlock__form input {
+    width: 100%;
+  }
+  .cozypod-email-unlock__text{
+    font-size: 17px;
+  }
+}
+
+
+{%- endstyle -%}
+
+<section class="cozypod-email-unlock">
+  <div class="page-width cozypod-email-unlock__inner">
+    {% if section.settings.heading != blank %}
+      <div class="cozypod-email-unlock__text">
+        {{ section.settings.heading }}
+      </div>
+    {% endif %}
+    {% if section.settings.show_signup_form %}
+      <form method="POST" action="//manage.kmail-lists.com/subscriptions/subscribe" id="custom-klaviyo-form-footer" class="cozypod-email-unlock__form"> 
+        <input type="hidden" name="g" value="XS4Mrc">
+        <input type="email" name="email" id="emailUnlockInput" placeholder="{{ section.settings.placeholder }}" required>
+        <button type="submit">  {{ section.settings.button_text }}</button>
+      </form>
+      <script type="text/javascript" src="https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>   
+      <script type="text/javascript">
+        KlaviyoSubscribe.attachToForms('#custom-klaviyo-form-footer', {
+          hide_form_on_success: true,
+          success_message: "Thanks for subscribing!",
+          success: function($form) {
+            setTimeout(() => {
+              const popup = document.getElementById('cozypodPopup'); // Global ID
+              if (popup) popup.classList.add('is-open'); 
+            }, 500);
+            return false;  
+          }
+        });
+      </script>
+    {% else %}
+      <div class="cozypod-email-unlock__form">
+        <a href="{{ section.settings.alt_button_link }}" style="text-decoration: none; width:250px; text-align: center;" >
+          {{ section.settings.alt_button_text }}
+        </a>
+      </div>
+    {% endif %}
+    </div>
+    <div class="line-spacer"></div>
+
+    <div class="cozypod-email-unlock__footer">
+      © {{ 'now' | date: '%Y' }} {{ shop.name }}
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Email Unlock Bar",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>ENTER YOUR EMAIL TO <strong>UNLOCK</strong><br>LAUNCH DAY PRICING AT <strong>20% OFF</strong></p>"
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Email placeholder",
+      "default": "Email address"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Sign up to See Launch Day Pricing"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_signup_form",
+      "label": "Show sign up form",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "alt_button_text",
+      "label": "Alternative button text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "alt_button_link",
+      "label": "Alternative button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Email Unlock Bar"
+    }
+  ]
+}
+{% endschema %}

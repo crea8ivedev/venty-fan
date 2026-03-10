@@ -1,0 +1,391 @@
+  <!--Start meet-our-fans  -->
+
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+{%- style -%}
+.section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+}
+
+@media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top_mob }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+}
+{%- endstyle -%}
+
+{% comment %}
+* Make sure you have the Flickity plugin installed and the proper license for this to function on your store
+* Plugin, licensing and documentation at https://flickity.metafizzy.co/
+{% endcomment %}
+
+{% assign cell_align = section.settings.cell_align %}
+{% assign wrap_around = section.settings.wrap_around %}
+{% assign img_width = section.settings.img_width | append: 'x' %}
+
+<div class="meet-our-fans flickity-section-{{ section.id }} flickity-index-slider color-{{ section.settings.color_scheme }} isolate gradient section-{{ section.id }}-padding">
+    <div class="page-width title-btn-and-description-meet-our-fans">
+        <div class="title-description-meet-our-fans">
+        {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+{%- capture sizes -%}
+(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1 }}px,
+(min-width: 750px) calc((100vw - 130px) / 1), calc((100vw - 50px) / 1)
+{%- endcapture -%}
+
+
+            {%- if section.settings.stars -%}
+{% assign img_alt = section.settings.stars.alt -%}      
+{{
+section.settings.stars
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: img_alt
+
+}}
+            {%- endif %}
+
+            {%- if section.settings.description -%}
+                {{ section.settings.description -}}
+            {%- endif %}
+
+            {%- if section.settings.title != blank -%}
+                <h2 class="title-meet-our-fans-h2 {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                    {{ section.settings.title }}
+                </h2>
+            {%- endif %}
+        </div>
+    </div>
+    <div class="flickity-section__carousel carousel-{{section.id }} text-center"
+        data-flickity='{
+        "cellAlign": "{{ cell_align }}",
+        "pageDots": true,
+        "autoPlay": 2000,
+        "freeScroll": false,
+        "contain": true,
+          "draggable": true,
+        "wrapAround": {{ wrap_around }}
+    }'>
+        {% for product in collection_main.products limit: collection_limit %}
+            <div class="carousel__cell" style="width:{{ section.settings.cell_width }};margin-right:{{ section.settings.mr }}px"></div>
+        {% endfor %}
+        {%- for block in section.blocks -%}
+            <div class="carousel__cell meet-our-fans-car-cell" style="width:{{ section.settings.cell_width }};margin-right:{{ section.settings.mr }}px">
+                <div class="img-title-btn">
+                    <div class="img-main-meet-our-fans">
+             
+
+{%- if block.settings.img1 -%}
+<img src="{{ block.settings.img1 | img_url: 'master' }}" alt="">
+{%- elsif block.settings.video -%}
+{{ block.settings.video | video_tag: playsinline: true, muted: true, autoplay: true, loop: true, preload: 'metadata', class: 'videoplaying',  image_size: '600x' }}
+{%- endif %}
+
+                      
+                    </div>
+                    {%- if block.settings.title1 -%}
+                        <h2>{{ block.settings.title1 }}</h2>
+                    {%- endif %}
+                </div>
+             
+            </div>
+        {%- endfor -%}
+    </div>
+    {%- for block in section.blocks -%}
+     <div class="video-wrapper-slider">
+                <div class="video-wrapper-slider-inner">
+                    {% if block.settings.video %}
+                        {{ block.settings.video | video_tag: controls:true, playsinline: true, muted: false, autoplay: false, loop: true, preload: 'metadata', class: 'ewrewrw'}}
+                    {% endif %}
+                  <div class="video-class-removed">
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-close closeburger" fill="none" viewBox="0 0 18 17">
+  <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor">
+</path></svg>
+                  </div>
+                </div>
+                </div>
+        {%- endfor -%}
+
+  
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const imgTitleBtns = document.querySelectorAll('.img-title-btn');
+        const videoWrappers = document.querySelectorAll('.video-wrapper-slider');
+        const videoClassRemoved = document.querySelectorAll('.video-class-removed');
+        const videos = document.querySelectorAll('.video-wrapper-slider video');
+
+        imgTitleBtns.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                videoWrappers[index].classList.add('activated_VIDEO');
+                document.body.classList.add('body-activated_VIDEO');
+
+                // Play video from the start
+                const video = videos[index];
+                if (video) {
+                    video.currentTime = 0; // Reset video to start
+                    video.play(); // Play the video
+                }
+            });
+        });
+
+        videoClassRemoved.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                videoWrappers[index].classList.remove('activated_VIDEO');
+                document.body.classList.remove('body-activated_VIDEO');
+
+                // Pause the video
+                const video = videos[index];
+                if (video) {
+                    video.pause(); // Pause the video
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
+<!--End meet-our-fans  -->
+{% schema %}
+{
+    "name": "meet-our-fans",
+    "settings": [
+        {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "t:sections.all.colors.label",
+            "info": "t:sections.all.colors.has_cards_info",
+            "default": "scheme-1"
+        },
+        {
+            "type": "image_picker",
+            "id": "stars",
+            "label": "stars"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "t:sections.featured-collection.settings.description.label"
+        }, 
+        {
+            "type": "inline_richtext",
+            "id": "title",
+            "label": "t:sections.featured-collection.settings.title.label"
+        },
+        {
+            "type": "select",
+            "id": "heading_size",
+            "options": [
+                {
+                    "value": "h2",
+                    "label": "t:sections.all.heading_size.options__1.label"
+                },
+                {
+                    "value": "h1",
+                    "label": "t:sections.all.heading_size.options__2.label"
+                },
+                {
+                    "value": "h0",
+                    "label": "t:sections.all.heading_size.options__3.label"
+                },
+                {
+                    "value": "hxl",
+                    "label": "t:sections.all.heading_size.options__4.label"
+                },
+                {
+                    "value": "hxxl",
+                    "label": "t:sections.all.heading_size.options__5.label"
+                }
+            ],
+            "default": "h1",
+            "label": "t:sections.all.heading_size.label"
+        },
+        {
+            "type": "select",
+            "id": "image_ratio",
+            "options": [
+                {
+                    "value": "adapt",
+                    "label": "t:sections.collection-list.settings.image_ratio.options__1.label"
+                },
+                {
+                    "value": "portrait",
+                    "label": "t:sections.collection-list.settings.image_ratio.options__2.label"
+                },
+                {
+                    "value": "square",
+                    "label": "t:sections.collection-list.settings.image_ratio.options__3.label"
+                }
+            ],
+            "default": "square",
+            "label": "t:sections.collection-list.settings.image_ratio.label",
+            "info": "t:sections.collection-list.settings.image_ratio.info"
+        },
+        {
+            "type": "select",
+            "id": "cell_align",
+            "label": "Slide Alignment",
+            "options": [
+                {
+                    "value": "center",
+                    "label": "Center"
+                },
+                {
+                    "value": "left",
+                    "label": "Left"
+                }
+            ],
+            "default": "center"
+        },
+        {
+            "type": "range",
+            "id": "title_mb",
+            "min": 30,
+            "max": 120,
+            "step": 1,
+            "unit": "px",
+            "label": "Title Margin Bottom",
+            "default": 48
+        },
+        {
+            "type": "select",
+            "id": "cell_width",
+            "label": "Choose number of slides to show on start",
+            "options": [
+                {
+                    "value": "40%",
+                    "label": "Two"
+                },
+                {
+                    "value": "30%",
+                    "label": "Three"
+                },
+                {
+                    "value": "26%",
+                    "label": "Four"
+                },
+                {
+                    "value": "20%",
+                    "label": "Five"
+                },
+                {
+                    "value": "16.6666667%",
+                    "label": "Six"
+                },
+                {
+                    "value": "12.5%",
+                    "label": "Eight"
+                }
+            ],
+            "default": "26%"
+        },
+        {
+            "type": "radio",
+            "id": "wrap_around",
+            "label": "Enable Wrap Around (endless scrolling)",
+            "options": [
+                {
+                    "value": "true",
+                    "label": "True"
+                },
+                {
+                    "value": "false",
+                    "label": "False"
+                }
+            ],
+            "default": "true"
+        },
+        {
+            "type": "range",
+            "id": "mr",
+            "min": 0,
+            "max": 48,
+            "step": 1,
+            "unit": "px",
+            "label": "Cell Margin Right",
+            "default": 16,
+            "info": "Save page to see changes."
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "padding top",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "padding bottom",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_top_mob",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "padding top mobile",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_mob",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "padding bottom mobile",
+            "default": 36
+        }
+    ],
+    "blocks": [
+        {
+            "type": "slider",
+            "name": "Add A Slider",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "img1",
+                    "label": "Poster Image Must"
+                },
+                {
+                    "type": "text",
+                    "id": "title1",
+                    "label": "Title",
+                    "default": "Title"
+                },
+                {
+                    "type": "video",
+                    "id": "video",
+                    "label": "Video"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "meet-our-fans"
+        }
+    ]
+}
+{% endschema %}

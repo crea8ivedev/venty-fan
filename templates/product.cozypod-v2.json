@@ -1,0 +1,998 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product-cozypodV2",
+      "blocks": {
+        "rating_qnt8pf": {
+          "type": "rating",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_b3rmTB": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "title_n8JPq6": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_Eb933X": {
+          "type": "price",
+          "settings": {}
+        },
+        "text_Lp4tTn": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Big Heat. Zero Floor Space.<br/>The world’s first 1500W plug-in heater designed for modern homes — powerful, safe, and beautifully minimal.</p>",
+            "text_style": "body"
+          }
+        },
+        "benefits_kdEhCh": {
+          "type": "benefits",
+          "disabled": true,
+          "settings": {
+            "benefits-img1": "shopify://shop_images/checkmark-circle-primary_1.png",
+            "benefits-txt1": "Charges Phone",
+            "benefits-img2": "shopify://shop_images/checkmark-circle-primary_1_79a7bcfa-5fcc-4a57-afe7-66ea4fc8ae38.png",
+            "benefits-txt2": "Rechargeable",
+            "benefits-img3": "shopify://shop_images/checkmark-circle-primary_1_1e467ae5-db09-484f-a37a-26c886427734.png",
+            "benefits-txt3": "Extendable",
+            "benefits-img4": "shopify://shop_images/checkmark-circle-primary_1_3a2797e1-bbfe-4621-b030-eefb6f35969d.png",
+            "benefits-txt4": "Led Lamp Base",
+            "benefits-img5": "shopify://shop_images/checkmark-circle-primary_1_c5143096-9127-4ceb-9be5-40035f85ec74.png",
+            "benefits-txt5": "Carrying Case",
+            "benefits-img6": "shopify://shop_images/checkmark-circle-primary_1_08e51845-6bb4-49c1-a414-2ed0c84a53be.png",
+            "benefits-txt6": "48hr/Charge"
+          }
+        },
+        "variant_picker_dC4kGN": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_zKaCQU": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "bundle_images_MY8QhB": {
+          "type": "bundle_images",
+          "settings": {
+            "pack_image_1": "{{ product.metafields.custom.venty_cozypod_bundle_image_1_pack.value }}",
+            "pack_image_2": "{{ product.metafields.custom.venty_cozypod_bundle_image_2_pack.value }}",
+            "pack_image_4": "{{ product.metafields.custom.venty_cozypod_bundle_image_4_pack.value }}"
+          }
+        },
+        "iconwithtext_LkDqRd": {
+          "type": "iconwithtext",
+          "disabled": true,
+          "settings": {
+            "icon-shipping": "shopify://shop_images/ca22f309cab155faf701d001bf0137d9.png",
+            "textshipping0": "£10 OFF + FREE SHIPPING ON ANY 2 OR MORE",
+            "textshipping1": "$10 OFF + FREE SHIPPING ON ANY 2 OR MORE",
+            "textshipping2": ""
+          }
+        },
+        "complementary_dTH6Ht": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "ADD-ONS",
+            "collection": "bundle",
+            "use_manual_products": true,
+            "manual_products": "{{ product.metafields[\"shopify--discovery--product_recommendation\"].complementary_products.value }}",
+            "addon_popup_image": "shopify://shop_images/Group_105.png",
+            "addon_popup_heading": "",
+            "addon_popup_text": "<p>Protect your <strong>COZYPOD</strong> with our <strong>premium hard case</strong>, reverse pull zippers, and plush interior</p>",
+            "addon_popup_bg": "#000000",
+            "addon_popup_image_width": 390,
+            "addon_popup_heading_size": 48,
+            "addon_popup_text_size": 24,
+            "addon_popup_heading_color": "#ed7e22",
+            "addon_popup_text_color": "#ffffff"
+          }
+        },
+        "buy_buttons_kqXwFR": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "icon_with_text_cFJjBg": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "heart",
+            "image_1": "shopify://shop_images/Screenshot_6.png",
+            "heading_1": "<p><strong>1500 WATTS</strong> HEATS<br/><strong>200-300 SQ FT</strong></p>",
+            "icon_2": "return",
+            "image_2": "shopify://shop_images/Screenshot_7.png",
+            "heading_2": "<p><strong>NO SETUP. </strong>PLUG<br/>IN FOR <strong>INSTANT HEAT</strong></p>",
+            "icon_3": "truck",
+            "image_3": "shopify://shop_images/Screenshot_8.png",
+            "heading_3": "<p><strong>COZINESS</strong> AT YOUR<br/><strong>FINGER TIPS</strong></p>"
+          }
+        },
+        "iconwithtext2_GNCnaf": {
+          "type": "iconwithtext2",
+          "disabled": true,
+          "settings": {
+            "icon-shipping1": "shopify://shop_images/ca22f309cab155faf701d001bf0137d9.png",
+            "textshipping0": "£10 Off & Free Shipping",
+            "textshipping1": "$10 Off & Free Shipping",
+            "textshipping3": "On 2+ Original Venty Fans"
+          }
+        },
+        "collapsible_tab_YdNQfV": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "DESCRIPTION",
+            "icon": "none",
+            "content": "<p>CozyPod™ — Small Space Heat. Engineered to Perform.</p><p>Meet CozyPod, the world’s most powerful plug-in heater designed for compact spaces up to 300 sq ft. Whether you’re warming a bedroom, RV, office, or workspace, CozyPod delivers fast, efficient heat exactly where you need it.</p><p><br/>At its core is a 1500W PTC ceramic heating system that reaches full warmth in just 2 seconds, providing powerful, consistent heat without exposed elements. The integrated remote control stores in the base and self-charges — no batteries ever required, so control is always within reach.</p><p><br/>Eco Mode lets you maintain your ideal room temperature efficiently, while the built-in timer allows you to set exactly how long CozyPod runs — delivering comfort with intelligent energy control.</p><p><br/>Built for safety and reliability, CozyPod features a fire-retardant shell, is safety tested for the U.S. market. Important: CozyPod is designed for use with standard U.S. 3-prong outlets (120V) and is intended for U.S. homes only.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_M7w3tC": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "SPECS",
+            "icon": "none",
+            "content": "<p><strong>Heating Coverage: </strong>Up to 300 Sq Feet</p><p><strong>Dimensions:</strong> 7.5in x 5.2in x 4.5in</p><p><strong>Watts</strong>: 800/1200/1500</p><p><strong>Amps: </strong>15</p><p><strong>Decibels: </strong>40</p><p><strong>Motor: </strong>3600 RPM</p><p><strong>Temp Range: </strong>60-90F</p><p><strong>Material: </strong>Flame Retardant PC</p><p><strong>Safety Standard:</strong> UL1278</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_ncARP4": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "SHIPPING",
+            "icon": "none",
+            "content": "<p>COZYPOD currently only ships to the United States.</p><p>$9.99 for the first unit or free for 2 or more. </p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "rating_qnt8pf",
+        "judge_me_reviews_preview_badge_b3rmTB",
+        "title_n8JPq6",
+        "price_Eb933X",
+        "text_Lp4tTn",
+        "benefits_kdEhCh",
+        "variant_picker_dC4kGN",
+        "quantity_selector_zKaCQU",
+        "bundle_images_MY8QhB",
+        "iconwithtext_LkDqRd",
+        "complementary_dTH6Ht",
+        "buy_buttons_kqXwFR",
+        "icon_with_text_cFJjBg",
+        "iconwithtext2_GNCnaf",
+        "collapsible_tab_YdNQfV",
+        "collapsible_tab_M7w3tC",
+        "collapsible_tab_ncARP4"
+      ],
+      "custom_css": [],
+      "settings": {
+        "bundle_discount_text": "BUNDLE OFFER: () OFF + FREE SHIPPING",
+        "double_bundle_discount": 10,
+        "sticky_cart": false,
+        "enable_sticky_info": true,
+        "product_off": false,
+        "color_scheme": "scheme-9c76e5be-8e05-4ddc-93dd-4091bcb535fc",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 0,
+        "padding_bottom": 32,
+        "enable_group_media": true,
+        "media_grouping_option": "Choose Your Color"
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "<strong>You may also like</strong>",
+        "heading_size": "hxl",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-3",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "video_full_width_JB44mC": {
+      "type": "video-full-width",
+      "name": "Video Full Width",
+      "settings": {
+        "heading": "<p><strong>HEAT </strong>YOUR ROOM <br/>NOT THE <strong>ENTIRE HOUSE</strong></p>",
+        "text": "",
+        "text_alignment": "center",
+        "heading_size_mobile": 24,
+        "heading_size_desktop": 42,
+        "video_width_desktop": 65,
+        "video_width_mobile": 100,
+        "heading_color": "#000000",
+        "text_size_mobile": 14,
+        "text_size_desktop": 21,
+        "text_color": "#d9d9d9",
+        "heading_on_video": false,
+        "heading_on_video_color": "#ffffff",
+        "heading_on_video_top_mobile": 16,
+        "heading_on_video_top_desktop": 24,
+        "shopify_video": "shopify://files/videos/FinalChildSafe.mov",
+        "video_url_youtube": "",
+        "video_url_vimeo": "",
+        "video_url_mp4": "",
+        "thumbnail_image": "shopify://shop_images/video-capture-t0000.00seg-3482.png",
+        "loop_video": false,
+        "play_button_color": "#e06600",
+        "play_icon_color": "#ffffff",
+        "pause_button_color": "#e06600",
+        "pause_icon_color": "#ffffff",
+        "background_color": "#ffffff",
+        "padding_top": 40,
+        "padding_bottom": 60
+      }
+    },
+    "custom_image_with_text_v2_jRpDhc": {
+      "type": "custom-image-with-textV2",
+      "blocks": {
+        "heading_dQAJ7n": {
+          "type": "heading",
+          "settings": {
+            "heading": "The First Ever <strong>1500W Plug In</strong> Heater",
+            "heading_size": "h1"
+          }
+        },
+        "text_3X6PBB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>No assembly. No cords across the floor. No wasted space. Open the box. Plug in. Set your temperature with CozyControl™. That’s it.<br/><br/><strong>Heat</strong> — simplified. The Venty way.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_yFFGaT": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_dQAJ7n",
+        "text_3X6PBB",
+        "button_yFFGaT"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.image-with-text__heading {font-size: 52px; }}",
+        ".image-with-text__heading.inline-richtext.h1 {line-height: 1;}",
+        "@media screen and (max-width: 749px) {.image-with-text__heading.inline-richtext.h1 {line-height: 35px; }}"
+      ],
+      "name": "Custom Image With Text V2",
+      "settings": {
+        "image": "shopify://shop_images/Group_175_1.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-ac4220c1-a056-4579-97a6-7acf82266df3",
+        "color_scheme": "scheme-ac4220c1-a056-4579-97a6-7acf82266df3",
+        "text_box_bg": "#ffffff",
+        "text_box_radius": 12,
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "custom_image_with_text_v2_jjDT4Y": {
+      "type": "custom-image-with-textV2",
+      "blocks": {
+        "heading_q9KxPL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Control Your <strong>Coziness</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_X7fRNB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>CozyPod’s rechargeable remote is your control center. Choose between 800, 1200, or 1500 watts — or set your exact temperature and let precision heat take over using the ECO mode.<br/><br/>Comfort, dialed in. From your fingertips.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_WYDDRm": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_q9KxPL",
+        "text_X7fRNB",
+        "button_WYDDRm"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.image-with-text__heading {font-size: 52px; }}",
+        ".image-with-text__heading.inline-richtext.h1 {line-height: 1;}",
+        "@media screen and (max-width: 749px) {.image-with-text__heading.inline-richtext.h1 {line-height: 35px; }}"
+      ],
+      "name": "Custom Image With Text V2",
+      "settings": {
+        "image": "shopify://shop_images/image_148_64ac0f4c-693a-499c-86de-7f90d916992c.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-ac4220c1-a056-4579-97a6-7acf82266df3",
+        "color_scheme": "scheme-ac4220c1-a056-4579-97a6-7acf82266df3",
+        "text_box_bg": "#ffffff",
+        "text_box_radius": 12,
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "custom_image_with_text_v2_37wfii": {
+      "type": "custom-image-with-textV2",
+      "blocks": {
+        "heading_HTqKQb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Engineered for <strong>American</strong> Homes",
+            "heading_size": "h1"
+          }
+        },
+        "text_kA4nbx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>UL-Certified. Independently Tested. <br/>Built for Safe, Reliable Heat.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_qM4FxG": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_HTqKQb",
+        "text_kA4nbx",
+        "button_qM4FxG"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.image-with-text__heading {font-size: 52px; }}",
+        ".image-with-text__heading.inline-richtext.h1 {line-height: 1;}",
+        "@media screen and (max-width: 749px) {.image-with-text__heading.inline-richtext.h1 {line-height: 35px; }}"
+      ],
+      "name": "Custom Image With Text V2",
+      "settings": {
+        "image": "shopify://shop_images/image_143.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-ac4220c1-a056-4579-97a6-7acf82266df3",
+        "color_scheme": "scheme-ac4220c1-a056-4579-97a6-7acf82266df3",
+        "text_box_bg": "#ffffff",
+        "text_box_radius": 12,
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_CNpVdk": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_kf6TcG": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_79iDzh": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "button_dcyJig": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "shopify://collections",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_kf6TcG",
+        "text_79iDzh",
+        "button_dcyJig"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-d661dd29-4690-4d64-92f3-b5f42ba05cde",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_curosol_v2_R83Ar9": {
+      "type": "image-banner-curosol-V2",
+      "blocks": {
+        "slide_PeJcDz": {
+          "type": "slide",
+          "settings": {
+            "desktop_image": "shopify://shop_images/1_502.png",
+            "mobile_image": "shopify://shop_images/1_502.png",
+            "heading": "<p>WHISPER<strong>-QUIET <br/>WARMTH </strong></p>",
+            "text": "<p>Engineered to operate at just 40 decibels, Cozypod blends into the background of your space. A soft ambient glow. A steady hush. A gentle, powerful heat that carries you effortlessly into sleep — and keeps you there.</p>",
+            "heading_color": "#ffffff",
+            "text_color": "#ffffff",
+            "heading_size_desktop": 70,
+            "heading_size_mobile": 34,
+            "text_size_desktop": 18,
+            "text_size_mobile": 13
+          }
+        },
+        "slide_MUyLQK": {
+          "type": "slide",
+          "settings": {
+            "desktop_image": "shopify://shop_images/ChatGPT_Image_Jan_15_2026_12_38_10_PM_2.png",
+            "heading": "<p>WHISPER<strong>-QUIET <br/>WARMTH </strong></p>",
+            "text": "<p>Engineered to operate at just 40 decibels, Cozypod blends into the background of your space. A soft ambient glow. A steady hush. A gentle, powerful heat that carries you effortlessly into sleep — and keeps you there.</p>",
+            "heading_color": "#ffffff",
+            "text_color": "#ffffff",
+            "heading_size_desktop": 70,
+            "heading_size_mobile": 34,
+            "text_size_desktop": 18,
+            "text_size_mobile": 13
+          }
+        }
+      },
+      "block_order": [
+        "slide_PeJcDz",
+        "slide_MUyLQK"
+      ],
+      "custom_css": [
+        ".ibc__heading.rte {line-height: 1.3;}",
+        ".ibc__viewport {height: 80vh;}"
+      ],
+      "name": "Image banner carousel V2",
+      "settings": {
+        "fallback_bg": "#ffffff",
+        "overlay_opacity": 20,
+        "content_alignment": "right",
+        "content_vertical": "center",
+        "content_max_width": 740,
+        "min_height_desktop": 710,
+        "min_height_mobile": 420,
+        "show_dots": true,
+        "dots_bg_opacity": 0,
+        "dots_offset_bottom": 22,
+        "dots_offset_bottom_mobile": 18,
+        "autoplay": true,
+        "autoplay_seconds": 5
+      }
+    },
+    "image_banner_cards_v2_RMcFgw": {
+      "type": "image-banner-cardsV2",
+      "blocks": {
+        "feature_KPjjVE": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_64.png",
+            "text": "<p>800/1200/1500 Watts. 3 Powers.</p>"
+          }
+        },
+        "feature_7yp96i": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/ECo_e1a629b6-8632-4235-9041-69b6b93c7629.png",
+            "text": "<p>Save $. Set Desired Room Temp.</p>"
+          }
+        },
+        "feature_A3Ha9a": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_65.png",
+            "text": "<p>USA Accredited Safety</p>"
+          }
+        },
+        "feature_KMLBfV": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_66.png",
+            "text": "<p>LED Nightlight</p>"
+          }
+        },
+        "feature_mFpYg7": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_68.png",
+            "text": "<p>12H Auto Shut Off Timer</p>"
+          }
+        },
+        "feature_FFaFiX": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_67.png",
+            "text": "<p>Rechargeable Remote</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_KPjjVE",
+        "feature_7yp96i",
+        "feature_A3Ha9a",
+        "feature_KMLBfV",
+        "feature_mFpYg7",
+        "feature_FFaFiX"
+      ],
+      "custom_css": [
+        ".rsc__card {padding-left: 14px; padding-right: 14px;}",
+        "@media (max-width: 1150px) {.rsc__card {padding-left: 10px; padding-right: 10px; } .rsc__cardText {font-size: 12px; }}"
+      ],
+      "name": "Image Banner Cards V2",
+      "settings": {
+        "section_bg": "#f2f2f2",
+        "mobile_fallback_bg": "#ffffff",
+        "left_image": "shopify://shop_images/Untitled.png",
+        "mobile_bg": "shopify://shop_images/Untitled.png",
+        "mobile_bg_overlay": 40,
+        "container_width": 2400,
+        "padding_top": 60,
+        "padding_bottom": 0,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 56,
+        "desktop_gap": 48,
+        "media_radius": 0,
+        "heading": "<p>RECHARGE<br/>& <strong>STAY COZY</strong></p>",
+        "text": "<p>Charge the remote in the cozy dock and use it up to 2 days per charge. No batteries needed.</p>",
+        "heading_color": "#000000",
+        "text_color": "#000000",
+        "mobile_heading_color": "#ffffff",
+        "mobile_text_color": "#ffffff",
+        "heading_size_desktop": 70,
+        "heading_size_mobile": 34,
+        "text_size_desktop": 24,
+        "text_size_mobile": 14,
+        "heading_spacing": 12,
+        "text_spacing": 22,
+        "text_max_width": 520,
+        "card_bg": "#ffffff",
+        "card_border_color": "#eeeeee",
+        "card_border_width": 0,
+        "card_radius": 20,
+        "card_padding": 34,
+        "card_gap": 14,
+        "icon_bg": "#d9d9d9",
+        "icon_size": 54,
+        "card_text_color": "#000000",
+        "card_text_size_desktop": 14,
+        "mobile_card_bg": "#ffffffeb",
+        "mobile_card_border_color": "#ffffff59",
+        "mobile_card_text_color": "#111111",
+        "card_text_size_mobile": 12,
+        "mobile_cards_top_space": 18,
+        "show_dots": true,
+        "mobile_dots_space": 16,
+        "autoplay_seconds": 4
+      }
+    },
+    "image_banner_cards2_v2_PhqPbd": {
+      "type": "image-banner-cards2V2",
+      "blocks": {
+        "slide_E8J3iC": {
+          "type": "slide",
+          "settings": {
+            "bg_desktop": "shopify://shop_images/16_3.png",
+            "icon_1": "shopify://shop_images/image_144.png",
+            "card_heading_1": "<p><strong>OVERHEAT PROTECTION</strong></p>",
+            "card_text_1": "<p>Safely shuts down if  safe temperature is exceeded</p>",
+            "icon_2": "shopify://shop_images/image_145.png",
+            "card_heading_2": "<p><strong>SHORT CIRCUIT PROTECTION</strong></p>",
+            "card_text_2": "<p>Safely shuts down if circuit is compromised</p>",
+            "icon_3": "shopify://shop_images/image_146.png",
+            "card_heading_3": "<p><strong>INTERNAL TEMP CONTROL</strong></p>",
+            "card_text_3": "<p>Regulates internal temp</p>"
+          }
+        },
+        "slide_KN8wKE": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "card_heading_1": "",
+            "card_text_1": "",
+            "card_heading_2": "",
+            "card_text_2": "",
+            "card_heading_3": "",
+            "card_text_3": ""
+          }
+        },
+        "slide_8Krhjh": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "card_heading_1": "",
+            "card_text_1": "",
+            "card_heading_2": "",
+            "card_text_2": "",
+            "card_heading_3": "",
+            "card_text_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_E8J3iC",
+        "slide_KN8wKE",
+        "slide_8Krhjh"
+      ],
+      "name": "Image Banner Card 2 V2",
+      "settings": {
+        "fallback_bg": "#ffffff",
+        "container_width": 1800,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 44,
+        "padding_bottom_mobile": 56,
+        "min_height_desktop": 820,
+        "min_height_mobile": 720,
+        "overlay_opacity": 80,
+        "heading": "<p><strong>SAFETY</strong><br/><strong>FEATURES</strong></p>",
+        "text": "<p>Charge it in the cozy dock and use it up to 2 days per charge</p>",
+        "heading_transform": "uppercase",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffff",
+        "heading_size_desktop": 70,
+        "heading_size_mobile": 40,
+        "text_size_desktop": 24,
+        "text_size_mobile": 16,
+        "heading_gap": 10,
+        "text_gap": 22,
+        "text_max_width": 420,
+        "card_gap": 14,
+        "card_gap_mobile": 12,
+        "card_radius": 14,
+        "card_padding": 16,
+        "card_bg_opacity": 10,
+        "card_border_opacity": 0,
+        "blur_amount": 7,
+        "icon_size": 54,
+        "icon_bg_opacity": 18,
+        "card_title_color": "#ffffff",
+        "card_text_color": "#ffffffd9",
+        "card_title_size": 16,
+        "card_text_size": 14,
+        "show_dots": true,
+        "dots_bg_opacity": 0,
+        "dots_bottom": 18,
+        "dots_bottom_mobile": 12,
+        "autoplay_seconds": 2
+      }
+    },
+    "image_curosol_v2_MYyb4c": {
+      "type": "image-curosol-V2",
+      "blocks": {
+        "card_T8rcLD": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/image_71.png",
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections"
+          }
+        },
+        "card_Eh3QwN": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/image_71.png",
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections"
+          }
+        },
+        "card_b8tYJt": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/image_71.png",
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections"
+          }
+        },
+        "card_NAWwkM": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/image_71.png",
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections"
+          }
+        },
+        "card_tRXgGN": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/image_71.png",
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections"
+          }
+        },
+        "card_GVKcQt": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/image_71.png",
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections"
+          }
+        },
+        "card_QrqXhm": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/image_71.png",
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections"
+          }
+        }
+      },
+      "block_order": [
+        "card_T8rcLD",
+        "card_Eh3QwN",
+        "card_b8tYJt",
+        "card_NAWwkM",
+        "card_tRXgGN",
+        "card_GVKcQt",
+        "card_QrqXhm"
+      ],
+      "name": "Image Cursol V2",
+      "settings": {
+        "section_bg": "#ffffff",
+        "container_width": 2200,
+        "padding_top": 50,
+        "padding_bottom": 40,
+        "heading": "PLUG IN. GET COZY.",
+        "heading_align": "center",
+        "heading_color": "#111111",
+        "heading_size_desktop": 46,
+        "heading_size_mobile": 30,
+        "heading_spacing": 24,
+        "card_bg": "#ffffff",
+        "card_radius": 0,
+        "card_border_width": 0,
+        "card_border_color": "#e6e6e6",
+        "card_aspect_ratio": "4/5",
+        "image_padding": 0,
+        "card_gap": 18,
+        "card_gap_mobile": 14,
+        "button_bg": "#ffffff",
+        "button_color": "#d46b00",
+        "button_radius": 1000,
+        "button_font_size": 12,
+        "button_font_size_mobile": 12,
+        "button_padding_x": 44,
+        "button_padding_y": 18,
+        "button_padding_x_mobile": 24,
+        "button_padding_y_mobile": 12,
+        "button_bottom_offset": 66,
+        "show_dots": true,
+        "dots_spacing_top": 18
+      }
+    },
+    "image_banner_curosol_v2_Jjd6WM": {
+      "type": "image-banner-curosol-V2",
+      "blocks": {
+        "slide_qqWABk": {
+          "type": "slide",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Group_1597883822.png",
+            "mobile_image": "shopify://shop_images/Group_1597883822.png",
+            "heading": "<p><strong>COZY CASE<br/>ADD-ON</strong></p>",
+            "text": "<p>Protect your COZYPOD with our premium hard case, reverse pull zippers, and plush interior</p>",
+            "heading_color": "#000000",
+            "text_color": "#000000",
+            "heading_size_desktop": 54,
+            "heading_size_mobile": 34,
+            "text_size_desktop": 18,
+            "text_size_mobile": 16
+          }
+        }
+      },
+      "block_order": [
+        "slide_qqWABk"
+      ],
+      "custom_css": [
+        ".ibc__heading.rte {line-height: 1.3;}",
+        ".ibc__content {margin-left: 2%;}"
+      ],
+      "name": "Image banner carousel V2",
+      "settings": {
+        "fallback_bg": "#ffffff",
+        "overlay_opacity": 80,
+        "content_alignment": "left",
+        "content_vertical": "center",
+        "content_max_width": 480,
+        "min_height_desktop": 900,
+        "min_height_mobile": 420,
+        "show_dots": true,
+        "dots_bg_opacity": 0,
+        "dots_offset_bottom": 22,
+        "dots_offset_bottom_mobile": 18,
+        "autoplay": true,
+        "autoplay_seconds": 5
+      }
+    },
+    "17721154894a3051a7": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_gJR7Qq": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_gJR7Qq"
+      ],
+      "settings": {
+        "include_margins": true,
+        "class": "",
+        "id": ""
+      }
+    },
+    "image_banner_4_blocks_v2_MgWnym": {
+      "type": "image-banner-4-blocksV2",
+      "blocks": {
+        "feature_f3WHPA": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_133.png",
+            "text": "<p>Built to endure. For life.</p>"
+          }
+        },
+        "feature_7PfrTN": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_134.png",
+            "text": "<p>Lifetime Warranty.</p>"
+          }
+        },
+        "feature_n9GEUN": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_135.png",
+            "text": "<p>Fast & Free Shipping</p>"
+          }
+        },
+        "feature_RYe3J8": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_136.png",
+            "text": "<p>Risk-free 99 Day Trial</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_f3WHPA",
+        "feature_7PfrTN",
+        "feature_n9GEUN",
+        "feature_RYe3J8"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "name": "Image Banner 4 Blocks V2",
+      "settings": {
+        "section_bg": "#d9d9d9",
+        "container_width": 1920,
+        "padding_top": 60,
+        "padding_bottom": 80,
+        "heading": "<p><strong>DESIGNED FOR<br/>EVERYDAY</strong></p>",
+        "text": "<p>With up to 1500 watts of power and whisper-quiet operation as low as 40 dB, CozyPod delivers serious heat in a compact, plug-in design. Warm enclosed spaces up to 200 square feet with three heat settings and a rechargeable remote for total control.</p>",
+        "heading_color": "#000000",
+        "text_color": "#000000",
+        "heading_size_desktop": 70,
+        "heading_size_tablet": 44,
+        "heading_size_mobile": 36,
+        "text_size_desktop": 18,
+        "text_size_tablet": 13,
+        "text_size_mobile": 13,
+        "space_under_heading": 12,
+        "space_under_heading_mobile": 10,
+        "text_max_width": 760,
+        "card_bg": "#ffffff",
+        "card_radius": 20,
+        "card_border_width": 0,
+        "card_border_color": "#e6e6e6",
+        "card_text_color": "#000000",
+        "card_text_size_desktop": 18,
+        "card_text_size_tablet": 12,
+        "card_text_size_mobile": 12,
+        "card_padding_x": 18,
+        "card_padding_y": 18,
+        "card_min_height": 120,
+        "card_min_height_mobile": 120,
+        "space_above_cards": 34,
+        "space_above_cards_mobile": 26,
+        "card_gap": 18,
+        "card_gap_tablet": 16,
+        "card_gap_mobile": 14,
+        "icon_bg": "#ed7e22",
+        "icon_size": 52,
+        "space_under_icon": 10,
+        "autoplay_speed": 9000,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "enable_mobile_carousel": true,
+        "mobile_autoplay": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "video_full_width_JB44mC",
+    "custom_image_with_text_v2_jRpDhc",
+    "custom_image_with_text_v2_jjDT4Y",
+    "custom_image_with_text_v2_37wfii",
+    "rich_text_CNpVdk",
+    "image_banner_curosol_v2_R83Ar9",
+    "image_banner_cards_v2_RMcFgw",
+    "image_banner_cards2_v2_PhqPbd",
+    "image_curosol_v2_MYyb4c",
+    "image_banner_curosol_v2_Jjd6WM",
+    "17721154894a3051a7",
+    "image_banner_4_blocks_v2_MgWnym"
+  ]
+}

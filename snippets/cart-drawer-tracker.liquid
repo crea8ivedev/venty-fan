@@ -1,0 +1,203 @@
+{% assign progress_bar_color = settings.shipping_bar_color %}
+<div class="upsell-container">
+  {% assign cart_total = 0 %} <!-- Initialize cart total -->
+  
+
+  {%- assign cozypodfree = true -%}
+
+{%- for item in cart.items -%}
+
+   
+  {% if item.product.id == 8639165366521 or  item.product.id   == 7458865938681 or item.product.id  == 8704706838777  or item.product.id  == 8777456976121 %}
+    {% assign cozypodfree = flase %}
+  {% endif %}
+{%- endfor -%}
+
+ {% assign items_in_cart_ids = cart.items | map: 'product_id' %} 
+
+ 
+ 
+ 
+ 
+  {% if localization.country.iso_code == 'AU' %}
+    {% assign shipping_value = settings.minimum_free_shipping2 | times: 100 %}
+    {% elsif product.handle == 'clip-fan' or product.handle == 'venty-clip-fan-black' or items_in_cart_ids contains 8639165366521 or  items_in_cart_ids contains 8704706838777  %}
+     {% assign shipping_value = settings.only_clip_fan | times: 100 %}
+  {% elsif localization.country.iso_code == 'GB' %}
+ 
+  
+    {% assign shipping_value = settings.minimum_free_shipping3 | times: 100 %}
+    {% elsif product.handle == 'clip-fan' or product.handle == 'venty-clip-fan-black' or items_in_cart_ids contains 8639165366521 or  items_in_cart_ids contains 8704706838777  %}
+     {% assign shipping_value = settings.only_clip_fan | times: 100 %}
+  {% else %}
+
+  
+    {% assign shipping_value = settings.minimum_free_shipping | times: 100 %}
+  {% endif %}
+
+  <!-- Calculate cart total excluding specific items  {{ items_in_cart_ids }} -->
+  {% for item in cart.items %}
+    {% unless item.product.handle == "extended-warranty" or item.product.handle == "1-year-warranty" or item.product.handle == "cozypod-bag" %}
+      {% assign cart_total = cart_total | plus: item.final_line_price %}
+    {% endunless %}
+  {% endfor %}
+
+  <!-- Calculate shipping metrics -->
+  {% assign shipping_value_left = shipping_value | minus: cart_total %}
+  {% assign shipping_percentage_fraction = cart_total | times: 100 | divided_by: shipping_value %}
+
+ 
+
+  <!-- Display message --> 
+ <p class="shipping-message">
+    {% if cart_total >= shipping_value or cozypodfree == true %}
+    {% if localization.language.iso_code == 'es'  %}
+<span>Felicidades - ¡Tienes envío gratis!</span>
+
+{% elsif localization.language.iso_code == 'fr' %}
+<span>Félicitations – vous bénéficiez de la livraison gratuite !</span>
+
+{% elsif localization.language.iso_code == 'it' %}
+<span>Congratulazioni! La spedizione è gratuita!</span>
+
+{% elsif localization.language.iso_code == 'pl' %}
+<span>Gratulacje – masz darmową wysyłkę!</span>
+
+{% elsif localization.language.iso_code == 'nl' %}
+<span>Gefeliciteerd, je krijgt gratis verzending!</span>
+
+{% elsif localization.language.iso_code == 'be' %}
+<span>Gefeliciteerd, je krijgt gratis verzending!</span>
+    
+    
+{% else %}
+
+     <span>Congrats - You’ve got free shipping!</span>
+    
+    {% endif %}
+
+   
+    {% else %}
+      <span class="free_shipping_notice">
+    {% if localization.language.iso_code == 'es'  %}
+¡Estás a {{ shipping_value_left | money }} de obtener envío gratis!
+
+{% elsif localization.language.iso_code == 'fr' %}
+Vous êtes à {{ shipping_value_left | money }} de la livraison gratuite !
+
+{% elsif localization.language.iso_code == 'it' %}
+ Ti mancano {{ shipping_value_left | money }} per avere la spedizione gratuita!
+
+{% elsif localization.language.iso_code == 'pl' %}
+Jesteś {{ shipping_value_left | money }} daleko od darmowej wysyłki!
+        
+{% elsif localization.language.iso_code == 'nl' %}
+Je bent nog {{ shipping_value_left | money }} niet in aanmerking voor gratis verzending!
+
+{% elsif localization.language.iso_code == 'be' %}
+Je bent nog {{ shipping_value_left | money }} niet in aanmerking voor gratis verzending!
+        
+        
+{% else %}
+
+     You are {{ shipping_value_left | money }} away from free shipping!
+    
+    {% endif %}
+
+        
+       
+      </span>
+    {% endif %}
+  </p>
+
+  <!-- Progress bar -->
+  <div class="progress-bar">
+    <div 
+      class="progress-bar-done"  {% if cozypodfree == true %}
+      style="width:100%; background-color: {{ progress_bar_color }};"
+        {% else %}
+        style="width: {{ shipping_percentage_fraction | round: 0 }}%; background-color: {{ progress_bar_color }};"
+        {% endif %}
+    >
+      <span></span>
+    </div>
+    <div class="free-shipping-icon {% if shipping_value_left <= 0 %}iconicion{% endif %}">
+      <!-- SVG Icon -->
+      <svg fill="#000000" width="30px" height="30px" viewBox="0 -64 640 640" xmlns="http://www.w3.org/2000/svg">
+        <path d="M624 352h-16V243.9c0-12.7-5.1-24.9-14.1-33.9L494 110.1c-9-9-21.2-14.1-33.9-14.1H416V48c0-26.5-21.5-48-48-48H112C85.5 0 64 21.5 64 48v48H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h272c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H40c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h208c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h208c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H64v128c0 53 43 96 96 96s96-43 96-96h128c0 53 43 96 96 96s96-43 96-96h48c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zM160 464c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm320 0c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm80-208H416V144h44.1l99.9 99.9V256z"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+
+
+ 
+<style>
+  .upsell-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  .progress-bar{
+    background-color: #E2E4E3;
+    display: flex;
+    height: 1em;
+    width: 100%;
+    border-radius: 0.75em;
+    padding: 3px;
+    position: relative;
+    align-items: center;
+  }
+  
+  .progress-bar-done{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: {{ progress_bar_color }};
+    background-image: repeating-linear-gradient(
+      to left,
+      {{ progress_bar_color }},
+      {{ progress_bar_color | color_lighten: 10 }},
+      {{ progress_bar_color | color_lighten: 20 }}
+    );
+
+    box-shadow: 0 5px 5px -6px {{ progress_bar_color }};
+
+    border-radius: 0.75em;
+    height: 100%;
+    transition: 1s ease 0.3s;
+    max-width: 100%;
+    width: {{ shipping_percentage_fraction }}%;
+  }
+  
+  .free-shipping-icon{
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #E2E4E3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .progress-bar::before{
+    content: ' ';
+  }
+
+  .iconicion{
+    box-shadow: 0 0 10px rgba(62, 101, 207, 0.5);
+    border: 1px solid black;
+    transition: 1s ease 0.7s;
+  }
+
+</style>
+
+
+
+        

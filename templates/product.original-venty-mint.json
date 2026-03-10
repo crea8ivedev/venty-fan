@@ -1,0 +1,180 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "disabled": true,
+      "settings": {
+        "sticky_cart": false,
+        "enable_sticky_info": true,
+        "product_off": false,
+        "color_scheme": "scheme-3a101b2e-80e1-4dcb-ba5b-8e268ef99b9f",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "right",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 0,
+        "padding_bottom": 80,
+        "enable_group_media": true,
+        "media_grouping_option": "Choose Your Color"
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "<strong>You may also like<\/strong>",
+        "heading_size": "hxl",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-3",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "pre_order_promo_czWXM3": {
+      "type": "pre-order-promo",
+      "blocks": {
+        "image_UkBzfb": {
+          "type": "image",
+          "settings": {
+            "slide_img": "shopify:\/\/shop_images\/V1_hi_res_b-removebg-preview.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_UkBzfb"
+      ],
+      "custom_css": [
+        ".dots {display: none;}"
+      ],
+      "name": "Pre Order Promo",
+      "settings": {
+        "title": "<h2>Pre-order the<br\/><strong>Mint<\/strong> <strong>Original Venty<\/strong><\/h2>",
+        "subtitle": "for a limited time, take $20 off",
+        "content_bg": "#24c5ae",
+        "button_link": "https:\/\/calendar.google.com\/calendar\/event?action=TEMPLATE&tmeid=MnJlaXFkczlscHZmY2c1aGxrN3IzbnFjMmwgbGFsaXQ4MjMzOTNzYWluaUBt&tmsrc=lalit823393saini%40gmail.com",
+        "button_text": "Add to Calendar",
+        "end_date": "2025-10-20T23:59:59",
+        "padding-top": 0,
+        "padding-bottom": 0
+      }
+    },
+    "limited_drop_hj9DQF": {
+      "type": "limited-drop",
+      "name": "Limited Drop Promo",
+      "settings": {
+        "top_text": "STAY COOL—CLAIM YOURS BEFORE THEY’RE GONE.",
+        "main_heading": "<p>This Drop is <br\/><strong>Limited to 500<\/strong><\/p>",
+        "sub_text": "<p>Original Venty fans, only for <strong>Venty Insiders.<\/strong><\/p>",
+        "preorder_date": "<p>Pre orders go live <br\/><strong>October 20th<\/strong><\/p>",
+        "shipping_date": "<p>Fans ship on <br\/><strong>Black Friday<\/strong><\/p>",
+        "price": "<p>Pre-order price: <strong><br\/>$99.99<\/strong><\/p>",
+        "after_price_text": "After the first 500 are gone, price goes up to $99.99.",
+        "product_image_1": "shopify:\/\/shop_images\/8_1_09457cd6-71e2-47ab-b156-527751593688.png",
+        "color_scheme": "",
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "multi_images_gallery_D8t8jd": {
+      "type": "multi-images-gallery",
+      "blocks": {
+        "promo_image_pAVxgJ": {
+          "type": "promo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4_3.jpg"
+          }
+        },
+        "promo_image_tgyAi7": {
+          "type": "promo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_4.jpg"
+          }
+        },
+        "promo_image_hfF69h": {
+          "type": "promo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5_1.jpg"
+          }
+        },
+        "promo_image_JHPxiw": {
+          "type": "promo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6_2.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "promo_image_pAVxgJ",
+        "promo_image_tgyAi7",
+        "promo_image_hfF69h",
+        "promo_image_JHPxiw"
+      ],
+      "name": "Multi images gallery",
+      "settings": {
+        "headline": "Pre-Orders Open",
+        "highlight_text": "October 20th",
+        "button_text": "Mark Your Calendar",
+        "button_link": "https:\/\/calendar.google.com\/calendar\/render?action=TEMPLATE&text=Venty+Mint+Launch&dates=20251020T090000Z\/20251020T100000Z&details=Remember+to+purchase+the+Venty+Mint+on+launch+day%21&location=Online+Store",
+        "first_image": "shopify:\/\/shop_images\/02.jpg",
+        "main-bg-color": "",
+        "padding-top": 40,
+        "padding-bottom": 40
+      }
+    },
+    "fans_variants_yJMceM": {
+      "type": "fans-variants",
+      "custom_css": [
+        ".main-fan-variant-grid .single--fan-variant-grid:nth-child(3) img {margin-bottom: 0;}",
+        "@media (min-width: 992px) and (max-width: 1600px) {.main-fan-variant-grid .single--fan-variant-grid:nth-child(2) img {height: 450px; object-fit: cover; margin-bottom: -10px; }}"
+      ],
+      "name": "Fans Variants",
+      "settings": {
+        "title": "Simple, functional",
+        "subtitle": "Design.",
+        "btntext": "add to calendar",
+        "target": true,
+        "url": "https:\/\/calendar.google.com\/calendar\/render?action=TEMPLATE&text=Venty+Mint+Launch&dates=20251020T090000Z\/20251020T100000Z&details=Remember+to+purchase+the+Venty+Mint+on+launch+day%21&location=Online+Store",
+        "img1": "shopify:\/\/shop_images\/original-venty-mint-1.png",
+        "img2": "shopify:\/\/shop_images\/blue-vanty-full.png",
+        "img3": "shopify:\/\/shop_images\/Untitled-5_94638932-8c09-4836-b620-585974fcd5a0.png",
+        "tab1name": "",
+        "tab2name": "",
+        "tab3name": "",
+        "background": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "pre_order_promo_czWXM3",
+    "limited_drop_hj9DQF",
+    "multi_images_gallery_D8t8jd",
+    "fans_variants_yJMceM"
+  ]
+}

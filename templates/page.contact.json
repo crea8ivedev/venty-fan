@@ -1,0 +1,260 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "search_image_banner_c77YKp": {
+      "type": "search-image-banner",
+      "settings": {
+        "enable_new_design": false,
+        "allow_transparent_header": true,
+        "titlesearch": "",
+        "bgimg": "shopify:\/\/shop_images\/Rectangle_385.png",
+        "heightcstm": 70,
+        "background": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "button_4XpKKT": {
+      "type": "Button",
+      "settings": {
+        "button-img": "shopify:\/\/shop_images\/fi_10544510.svg",
+        "button_Label": "Track Order",
+        "button_link": "shopify:\/\/pages\/track-my-order",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "titleheading": "<p>Get In touch With our <strong>Experts<\/strong><\/p>",
+        "imgicon1": "shopify:\/\/shop_images\/location-04.png",
+        "location1": "<p>VENTY Inc.\u2028<\/p><p>6900 Westcliff<\/p><p>Dr. Ste 503<\/p><p>Las Vegas, NV 89145<\/p>",
+        "imgicon2": "shopify:\/\/shop_images\/mail-02.png",
+        "location2": "<p>support@ventyfan.com<\/p>",
+        "location2link": "mailto:support@ventyfan.com",
+        "imgicon3": "shopify:\/\/shop_images\/call-02.png",
+        "location3": "<p>888-339-5115<\/p>",
+        "location3extra": "( For support Pls Use Email )",
+        "location3link": "tel:888-339-5115",
+        "show_social": true,
+        "background": "",
+        "padding_top": 92,
+        "padding_bottom": 88,
+        "padding_top_mob": 4,
+        "padding_bottom_mob": 48
+      }
+    },
+    "3_collapsible_tabs_84jHTW": {
+      "type": "3-collapsible-tabs",
+      "blocks": {
+        "tab_1_rwRnMe": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "What is the size, weight of the Venty fan?",
+            "tab1_content": "The Venty Fan is 8 inches in diameter, folds to 3 inches and extends over 3 feet. It weighs 2.5 lbs."
+          }
+        },
+        "tab_1_e8GCzc": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "Is this the same fan that I saw on Kickstarter?",
+            "tab1_content": "Yes it is! - We launched in 2020 on Kickstarter and in the last 4 years have become the top selling portable folding fan with sales in over 50 countries!"
+          }
+        },
+        "tab_1_knw8FW": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "What is the warranty on the fan?",
+            "tab1_content": "1 Year Support & Replacements and Full Product Refund within 30 days."
+          }
+        },
+        "tab_1_KUTkHA": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "Does the battery really last 2 full days per charge?",
+            "tab1_content": "Yes! Make sure you are charging it with a single port charging head. It will last over 48+ hours on the low setting fully charged."
+          }
+        },
+        "tab_1_8P6xHL": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "Does the fan oscillate?",
+            "tab1_content": "Yes, the Venty Fan oscillates 120 degrees."
+          }
+        },
+        "tab_1_TK8n87": {
+          "type": "tab_1",
+          "settings": {
+            "tab1_heading": "Who do I contact if I have an issue with my order?",
+            "tab1_content": "Navigate to the support section of the top bar."
+          }
+        },
+        "tab_2_rB8YnD": {
+          "type": "tab_2",
+          "settings": {
+            "tab2_heading": "Do you offer international shipping?",
+            "tab2_content": "Currently we ship within the US, UK, Australia, and Singapore."
+          }
+        },
+        "tab_2_aAQjHr": {
+          "type": "tab_2",
+          "settings": {
+            "tab2_heading": "How long does delivery take?",
+            "tab2_content": "Within the US about 3 - 4 business days. In the UK, Australia and Singapore, up to about a week."
+          }
+        },
+        "tab_2_p9iQHB": {
+          "type": "tab_2",
+          "settings": {
+            "tab2_heading": "Can I track my order?",
+            "tab2_content": "Yes! You will receive a confirmation email upon ordering which can be tracked within 24 hours after ordering on the \"track my order\" tab from our dropdown menu."
+          }
+        },
+        "tab_2_qH93wf": {
+          "type": "tab_2",
+          "settings": {
+            "tab2_heading": "Where will my package ship from?",
+            "tab2_content": "If you are a US customer, your order ships locally within the US. We use 20 different warehouses throughout the US to get your order to you as quickly as possible."
+          }
+        },
+        "tab_3_b8aTFN": {
+          "type": "tab_3",
+          "settings": {
+            "tab3_heading": "How long after ordering can I return my product?",
+            "tab3_content": "You have up to 30 days after receiving it to start a return. For more information check out return policy."
+          }
+        },
+        "tab_3_PNr6dU": {
+          "type": "tab_3",
+          "settings": {
+            "tab3_heading": "I have a quality issue I need to discuss",
+            "tab3_content": "Check out our Troublehshooting section. If that doesn't help, just contact us using the same form on the bottom of the troubleshooting page."
+          }
+        },
+        "tab_3_wGx8AX": {
+          "type": "tab_3",
+          "settings": {
+            "tab3_heading": "How long after my return will I be refunded?",
+            "tab3_content": "After receiving your return, we will check to ensure the item included all accessories and you will typically see the refund posted within a week after the return."
+          }
+        }
+      },
+      "block_order": [
+        "tab_1_rwRnMe",
+        "tab_1_e8GCzc",
+        "tab_1_knw8FW",
+        "tab_1_KUTkHA",
+        "tab_1_8P6xHL",
+        "tab_1_TK8n87",
+        "tab_2_rB8YnD",
+        "tab_2_aAQjHr",
+        "tab_2_p9iQHB",
+        "tab_2_qH93wf",
+        "tab_3_b8aTFN",
+        "tab_3_PNr6dU",
+        "tab_3_wGx8AX"
+      ],
+      "settings": {
+        "heading": "<p>General <strong>FAQ<\/strong><\/p>",
+        "tab_1": "Venty Fan",
+        "tab_2": "Shipping",
+        "tab_3": "Returns",
+        "tab_4": "",
+        "background": "#f1f2f4",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "multicolumn_ic93DV": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_MEQHzF": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Guarantee_1.png",
+            "title": "1 Year warranty",
+            "text": "<p>We stand behind our VENTY and will make sure you are covered from any manufacture defect.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_PU3eFW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Protect_2_1.png",
+            "title": "30 Day Money Back Guarantee",
+            "text": "<p>We stand behind our VENTY and will make sure you are covered from any manufacture defect.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_VhLxKQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Human_Resources_1.png",
+            "title": "Excellent Support",
+            "text": "<p>Contact our live chat during business hours or contact us at support@ventyfan.com.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_MEQHzF",
+        "column_PU3eFW",
+        "column_VhLxKQ"
+      ],
+      "disabled": true,
+      "settings": {
+        "c-class": "",
+        "title": "We've got your back",
+        "heading_size": "h0",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-5",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    }
+  },
+  "order": [
+    "search_image_banner_c77YKp",
+    "main",
+    "button_4XpKKT",
+    "form",
+    "3_collapsible_tabs_84jHTW",
+    "multicolumn_ic93DV"
+  ]
+}

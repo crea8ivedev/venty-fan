@@ -1,0 +1,176 @@
+{% style %}
+/* *{
+font-family: 'Montserrat', sans-serif !important;
+}  */
+p,h1{
+margin:0;
+}
+
+.masonry {
+  display: flex;
+  column-gap: 16px;
+  /* max-width: 1200px;
+  margin: auto; */
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.masonry-column-2{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.masonry-column-3{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.masonry-item {
+  break-inside: avoid;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  width: 100%;
+}
+
+.masonry-one {
+  width: 230px !important;
+  height: 232px;
+  object-fit: cover;
+}
+.masonry-two {
+width: 400px !important;
+height: 355px;
+}
+.masonry-three { 
+height: 728px;
+}
+.masonry-item img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  object-position:top;
+}
+
+@media (max-width: 992px) {
+  .masonry {
+    column-count: 2;
+  }
+  .masonry-item img{
+    width: 100% !important;
+    /* height: auto; */
+  }
+  /* .cozypod-gallery{
+    display: none;
+  } */
+}
+@media (max-width: 768px) {
+  .masonry {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .masonry-one{
+    width: 100% !important;
+    height: auto;
+  }
+  .masonry-item img{
+    width: 100% !important;
+    height: auto;
+  }
+  .masonry-column-2 {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 500px) {
+  .masonry {
+    column-count: 1;
+  }
+}
+{% endstyle %}
+
+
+<section class="cozypod-gallery">
+<div class="masonry">
+  <!-- COLUMN 1 -->
+
+    {% if section.blocks[0].settings.image %}
+      <div class="masonry-item">
+        <img
+          src="{{ section.blocks[0].settings.image | image_url: width: 800 }}"
+          width="{{ section.blocks[0].settings.image.width }}"
+          height="{{ section.blocks[0].settings.image.height }}"
+          alt=""
+          loading="lazy" class="masonry-three"
+        >
+      </div>
+    {% endif %}
+
+
+  <!-- COLUMN 2 -->
+
+  <div class="masonry-column-2">
+    {% for block in section.blocks offset:1 limit:3 %}
+      {% if block.settings.image %}
+        <div class="masonry-item">
+          <img
+            src="{{ block.settings.image | image_url: width: 800 }}"
+            width="{{ block.settings.image.width }}"
+            height="{{ block.settings.image.height }}"
+            alt=""
+            loading="lazy" class="masonry-one"
+          >
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!-- COLUMN 3 -->
+  <div class="masonry-column-3">
+    {% for block in section.blocks offset:4 limit:2 %}
+      {% if block.settings.image %}
+        <div class="masonry-item">
+          <img
+              src="{{ block.settings.image | image_url: width: 800 }}"
+              width="{{ block.settings.image.width }}"
+              height="{{ block.settings.image.height }}"
+              alt=""
+              loading="lazy" 
+              class="masonry-two"
+              >
+
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+</section>
+
+
+{% schema %}
+{
+"name": "Cozypod Masonry Gallery",
+"settings": [],
+"blocks": [
+  {
+    "type": "image",
+    "name": "Gallery image",
+    "limit": 6,
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+    ]
+  }
+],
+"presets": [
+  {
+    "name": "Cozypod Masonry Gallery"
+  }
+]
+}
+{% endschema %}
+

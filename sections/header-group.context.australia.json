@@ -1,0 +1,35 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "header-group.json",
+  "context": {
+    "market": "australia"
+  },
+  "sections": {
+    "announcement-bar": {
+      "settings": {},
+      "blocks": {
+        "announcement-bar-0": {
+          "settings": {
+            "text": "$15 Off & Free Shipping On 2+ Original Venty Fans",
+            "text1": "$15 Off & Free Shipping On 2+ Original Venty Fans",
+            "text2": "$15 Off & Free Shipping On 2+ Original Venty Fans"
+          }
+        }
+      }
+    },
+    "header_designed_C48Kx8": {
+      "settings": {
+        "menu": "header-menu-fr"
+      },
+      "blocks": {}
+    }
+  }
+}

@@ -1,0 +1,301 @@
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+   @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+{%- endstyle -%}
+
+
+
+
+
+
+{% comment %}
+* Make sure you have the Flickity plugin installed and the proper license for this to function on your store
+* Plugin, licensing and documentation at https://flickity.metafizzy.co/
+{% endcomment %}
+
+{% assign cell_align = section.settings.cell_align %}
+{% assign wrap_around = section.settings.wrap_around %}
+{% assign img_width = section.settings.img_width | append: 'x' %}
+
+<div class="cstm-collection-list flickity-section-{{ section.id }} flickity-index-slider collection color-{{ section.settings.color_scheme }} isolate gradient section-{{ section.id }}-padding">
+<div class="page-width">
+    <div class="collection__title title-wrapper title-wrapper--no-top-margin {% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">
+      {%- if section.settings.title != blank -%}
+        <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ section.settings.title }}
+        </h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank
+        or section.settings.show_description
+        and section.settings.collection.description != empty
+      -%}
+        <div class="collection__description {{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {%- if section.settings.show_description -%}
+            {{ section.settings.collection.description }}
+          {%- else -%}
+            {{ section.settings.description -}}
+          {%- endif %}
+        </div>
+      {%- endif -%}
+    </div>
+<div class="flickity-section__carousel carousel-{{section.id }} text-center"
+data-flickity='{
+"cellAlign": "{{ cell_align }}",
+"pageDots": false,
+"freeScroll": true,
+"contain": true,
+"wrapAround": {{ wrap_around }}
+}'>
+
+{% for product in collection_main.products limit: collection_limit %}
+<div class="carousel__cell" style="width:{{ section.settings.cell_width }};margin-right:{{ section.settings.mr }}px">
+
+</div>
+{% endfor %}
+{%- for block in section.blocks -%}
+  <div class="carousel__cell" style="width:{{ section.settings.cell_width }};margin-right:{{ section.settings.mr }}px">
+    {% render 'card-collection', card_collection: block.settings.collection , media_aspect_ratio: section.settings.image_ratio, columns: 1 %}
+  </div>
+{%- endfor -%}
+</div>
+</div>
+</div>
+
+{% schema %}
+{
+"name": "Collection Slider",
+"settings": [
+ {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+  {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "t:sections.featured-collection.settings.title.default",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+     {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+   {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.featured-collection.settings.description.label"
+    },
+{
+  "type": "select",
+  "id": "image_ratio",
+  "options": [
+    {
+      "value": "adapt",
+      "label": "t:sections.collection-list.settings.image_ratio.options__1.label"
+    },
+    {
+      "value": "portrait",
+      "label": "t:sections.collection-list.settings.image_ratio.options__2.label"
+    },
+    {
+      "value": "square",
+      "label": "t:sections.collection-list.settings.image_ratio.options__3.label"
+    }
+  ],
+  "default": "square",
+  "label": "t:sections.collection-list.settings.image_ratio.label",
+  "info": "t:sections.collection-list.settings.image_ratio.info"
+},
+{
+"type": "select",
+"id": "cell_align",
+"label": "Slide Alignment",
+"options": [
+{
+"value": "center",
+"label": "Center"
+},
+{
+"value": "left",
+"label": "Left"
+}
+],
+"default": "center"
+},
+{
+"type": "range",
+"id": "title_mb",
+"min": 30,
+"max": 120,
+"step": 1,
+"unit": "px",
+"label": "Title Margin Bottom",
+"default": 48
+},
+{
+"type": "select",
+"id": "cell_width",
+"label": "Choose number of slides to show on start",
+"options": [
+{
+"value": "40%",
+"label": "Two"
+},
+  {
+"value": "30%",
+"label": "Three"
+},
+{
+"value": "25%",
+"label": "Four"
+},
+{
+"value": "20%",
+"label": "Five"
+},
+{
+"value": "16.6666667%",
+"label": "Six"
+},
+{
+"value": "12.5%",
+"label": "Eight"
+}
+],
+"default": "25%"
+},
+{
+"type": "radio",
+"id": "wrap_around",
+"label": "Enable Wrap Around (endless scrolling)",
+"options": [
+{
+"value": "true",
+"label": "True"
+},
+{
+"value": "false",
+"label": "False"
+}
+],
+"default": "true"
+},
+{
+"type": "range",
+"id": "mr",
+"min": 0,
+"max": 48,
+"step": 1,
+"unit": "px",
+"label": "Cell Margin Right",
+"default": 16,
+"info": "Save page to see changes."
+},
+          {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding bottom",
+      "default": 36
+    },
+            {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding top mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding bottom mobile",
+      "default": 36
+    }
+],
+"blocks": [
+  {
+    "type": "collection",
+    "name": "Collection",
+    "settings": [
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Select collection"
+      }
+    ]
+  }
+],
+"presets": [
+{
+"name": "Collection Slider",
+"category": "Slider"
+}
+]
+}
+{% endschema %}

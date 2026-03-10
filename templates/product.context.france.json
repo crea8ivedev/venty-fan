@@ -1,0 +1,31 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "product.json",
+  "context": {
+    "market": "france"
+  },
+  "sections": {
+    "main": {
+      "settings": {
+        "bundle_discount_text": "BUNDLE OFFER: () OFF + FREE SHIPPING"
+      },
+      "blocks": {}
+    },
+    "relative_banner_image_HG4iTA": {
+      "disabled": false,
+      "settings": {
+        "img": "shopify://shop_images/5_4df3242a-2f7d-41cd-8681-146bd1740dd2.png",
+        "mobile-img": "shopify://shop_images/6_d46fde2a-24f0-4fdc-a031-6c93f060f251.png"
+      },
+      "blocks": {}
+    }
+  }
+}

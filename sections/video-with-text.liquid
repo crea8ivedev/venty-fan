@@ -1,0 +1,92 @@
+<div class="waitlist-sec">
+  <div class="waitlistmain page-width">
+  <div class="vedio-sec">
+     {{
+        section.settings.video1
+        | video_tag:
+          controls: true,
+          autoplay: true,
+          loop: true,
+          unmuted: true, 
+          image_size: '600x',
+          width: '100%'
+      }}      
+  </div>    
+    <div class="waitlist-left">
+      <h2>{{ section.settings.title }}</h2>
+      <div class="waitlist-text">
+        <p>{{ section.settings.desc }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .waitlistmain {
+	display: flex;
+	align-items: center;
+	gap: 10px; 
+    padding-top:100px; 
+    padding-bottom:10px;
+}
+.waitlist-left{width:50%;padding:0 25px;  }
+.vedio-sec{width:50%;}
+  .vedio-sec video {
+	max-width: 100%;
+	border-radius: 10px;
+	width: 100%;
+}
+.main-container {background-color: #f4f2f2; padding-top: 20px;}
+   
+.waitlist-btn{margin:30px 0px;}
+
+.waitlistmain h2 {
+	color: rgba(13, 24, 47, 1);
+	font-size: 28px;
+	font-weight: 600;
+	line-height: 45px;
+	letter-spacing: -0.01em;
+	text-align: left;
+	margin: 0 0 10px 0;
+	text-transform: uppercase;
+}
+
+@media screen and (max-width: 750px) {
+  .waitlistmain{display:block; padding:0 1rem;}
+  .waitlist-left{width:100%; padding:15px 0; text-align:center;}
+  .waitlist-left h2{text-align:center;}
+  .vedio-sec{width:100%;}
+}
+
+  
+</style>
+
+
+{% schema %}
+  {
+    "name": "Video With Text",
+    "settings": [
+          {
+            "type": "textarea",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "desc",
+            "label": "Description"
+          },      
+          {
+            "type": "video",
+            "id": "video1",
+            "label": "video"
+          },    
+    ],
+    "presets": [
+      {
+        "name":"Video With Text"
+      }
+    ]
+  }
+{% endschema %}

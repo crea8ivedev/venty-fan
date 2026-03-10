@@ -1,0 +1,511 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "descriptionbottom_hBiC7m": {
+          "type": "descriptionbottom",
+          "settings": {
+            "textbottom": "Design that moves with you."
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://products/foldable-fan",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "descriptionbottom_hBiC7m",
+        "button"
+      ],
+      "custom_css": [],
+      "settings": {
+        "videohere": true,
+        "customclassforstyling": "home-cstm-hero",
+        "allow_transparent_header": false,
+        "videob": "shopify://files/videos/Portable Folding Fan - Wireless Fan For Camping - VENTY – V E N T Y.mp4",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "bottom-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "custom_liquid_Ljdgba": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "custom_css": [
+        "img {max-width: 100%;}"
+      ],
+      "settings": {
+        "custom_liquid": "<a href=\"https://www.ventyfan.com/products/foldable-fan\">\n<img src=\"https://cdn.shopify.com/s/files/1/0613/3297/9961/files/design_1_3x_ee9e0afd-2506-4d4c-98c4-b7a6dbf55fe2.png?v=1731386747\" /></a>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "relative_banner_image_eMbkng": {
+      "type": "relative-banner-image",
+      "settings": {
+        "image_link": "shopify://products/foldable-fan",
+        "img": "shopify://shop_images/5.png",
+        "mobile-img": "shopify://shop_images/6.png"
+      }
+    },
+    "logo_slider_advanced_3X7Kjh": {
+      "type": "Logo_Slider_Advanced",
+      "blocks": {
+        "imagesizing_8M9Jmk": {
+          "type": "imagesizing",
+          "settings": {
+            "img1": "shopify://shop_images/As_seen_On_41a61e46-bb82-4520-9bbf-57113ba8218a.png",
+            "imagesize": 36,
+            "imagesizemobile": 36
+          }
+        },
+        "imagesizing_LrrKAj": {
+          "type": "imagesizing",
+          "settings": {
+            "img1": "shopify://shop_images/good_1_212099e7-fdb0-4017-927f-4007339b0320.png",
+            "imagesize": 60,
+            "imagesizemobile": 69
+          }
+        },
+        "imagesizing_BfQbxC": {
+          "type": "imagesizing",
+          "settings": {
+            "img1": "shopify://shop_images/NBC_logo_1_1cd88308-cef7-4777-a5e9-920e93478066.png",
+            "imagesize": 19,
+            "imagesizemobile": 36
+          }
+        },
+        "imagesizing_DrUkqp": {
+          "type": "imagesizing",
+          "settings": {
+            "img1": "shopify://shop_images/Kickstarter_logo_1_c53b9191-4efb-4168-9617-4039359eda65.png",
+            "imagesize": 62,
+            "imagesizemobile": 69
+          }
+        },
+        "imagesizing_9pnhTB": {
+          "type": "imagesizing",
+          "settings": {
+            "img1": "shopify://shop_images/Gizmodo_1_f91defc3-db49-420a-94f1-1ca17e31d33c.png",
+            "imagesize": 62,
+            "imagesizemobile": 69
+          }
+        }
+      },
+      "block_order": [
+        "imagesizing_8M9Jmk",
+        "imagesizing_LrrKAj",
+        "imagesizing_BfQbxC",
+        "imagesizing_DrUkqp",
+        "imagesizing_9pnhTB"
+      ],
+      "settings": {
+        "customheightenable": true,
+        "heightcstm": 10,
+        "cell_width": "20%",
+        "cell_width_mobile": "25%",
+        "wrap_around": "false",
+        "cell_align": "center",
+        "draggable": "false",
+        "autoplay_speed": "false",
+        "mr": 0,
+        "background": "#f1f2f4",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 0
+      }
+    },
+    "product_column_custom_GmKaJN": {
+      "type": "product-column-custom",
+      "blocks": {
+        "product_custom_k8HzUC": {
+          "type": "product-custom",
+          "settings": {
+            "img1": "shopify://shop_images/VENTY-FAN_1c061da6-e89f-4768-8266-b926c83ffcce.png",
+            "text4": "",
+            "title": "VENTY  FAN",
+            "linkproduct": "shopify://products/foldable-fan",
+            "linkproductvariantid": ""
+          }
+        },
+        "product_custom_t9JYQ7": {
+          "type": "product-custom",
+          "settings": {
+            "img1": "shopify://shop_images/Fan_d3ce608c-b31e-4642-8cf9-eff7874dbcd3.png",
+            "text4": "",
+            "title": "VENTY CLIP <br> FAN",
+            "linkproduct": "shopify://products/clip-fan",
+            "linkproductvariantid": ""
+          }
+        },
+        "product_custom_ty6Gz4": {
+          "type": "product-custom",
+          "settings": {
+            "img1": "shopify://shop_images/cozypod.png",
+            "text4": "",
+            "title": "COZYPOD",
+            "linkproduct": "shopify://products/venty-cozypod-1",
+            "linkproductvariantid": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_custom_k8HzUC",
+        "product_custom_t9JYQ7",
+        "product_custom_ty6Gz4"
+      ],
+      "custom_css": [
+        "span {display: block; height: 0px; margin-bottom: 4px !important; margin-top: -7px !important;}"
+      ],
+      "settings": {
+        "section_id": "default_product_column_custom",
+        "title": "Shop By Category",
+        "background": "#ffffff",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "product_column_custom_J3zcDi": {
+      "type": "product-column-custom",
+      "blocks": {
+        "product_custom_QQXra4": {
+          "type": "product-custom",
+          "settings": {
+            "img1": "shopify://shop_images/2_d66742e2-637c-4df6-9909-d105a098d451.png",
+            "text4": "",
+            "title": "Original VENTY Fan White",
+            "linkproduct": "shopify://products/foldable-fan",
+            "linkproductvariantid": "42782748803321"
+          }
+        },
+        "product_custom_CxDgjA": {
+          "type": "product-custom",
+          "settings": {
+            "img1": "shopify://shop_images/Fan_d3ce608c-b31e-4642-8cf9-eff7874dbcd3.png",
+            "text4": "",
+            "title": "Original VENTY Fan Black",
+            "linkproduct": "/products/foldable-fan",
+            "linkproductvariantid": "42782748836089"
+          }
+        },
+        "product_custom_GwKE4f": {
+          "type": "product-custom",
+          "disabled": true,
+          "settings": {
+            "img1": "shopify://shop_images/COZYPOD-HEATER-2_4d59c5ef-6c3b-4022-b47b-26746d6b31ec.png",
+            "text4": "",
+            "title": "COZYPOD",
+            "linkproduct": "shopify://products/cozypod",
+            "linkproductvariantid": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_custom_QQXra4",
+        "product_custom_CxDgjA",
+        "product_custom_GwKE4f"
+      ],
+      "settings": {
+        "section_id": "it_product_column_custom",
+        "title": "Shop By Category",
+        "background": "#ffffff",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "fans_variants_A9dn3p": {
+      "type": "fans-variants",
+      "settings": {
+        "title": "Simple, functional",
+        "subtitle": "design.",
+        "btntext": "Order Now",
+        "target": false,
+        "url": "shopify://products/foldable-fan",
+        "img1": "shopify://shop_images/1_8091268f-bf9f-4a0d-b0b7-ee98d534274a.png",
+        "img2": "shopify://shop_images/2_dc5f66fe-d148-4346-89fb-ddc7e8f76b50.png",
+        "img3": "shopify://shop_images/3_891253f4-e4fd-44e1-859f-73361f839283.png",
+        "tab1name": "Folded",
+        "tab2name": "Table Top",
+        "tab3name": "Extended",
+        "background": "#f8f9fa",
+        "padding_top": 100,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "reviews_slider_widget_qAgmCz": {
+      "type": "reviews-slider-widget",
+      "settings": {
+        "stars": "shopify://shop_images/stars_4.svg",
+        "smallheading": "THOUSANDS 4.6+ RATED  REVIEWS",
+        "heading": "\"We take our Venty fan absolutely everywhere we go.\"",
+        "widgethtml": "{% assign jm_metafields = shop.metafields.judgeme %} <p class=\"dnone\">Let customers speak for us from {{ shop.metafields.judgeme.all_reviews_count }} reviews</p> {{ jm_metafields.featured_carousel }}",
+        "background": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "fan_benefits_EEdypp": {
+      "type": "fan-benefits",
+      "blocks": {
+        "fan_benefits_bfzfkN": {
+          "type": "fan-benefits",
+          "settings": {
+            "img1": "shopify://shop_images/fi_5744470.svg",
+            "title": "Compact",
+            "description": "Folds down to 3 inches"
+          }
+        },
+        "fan_benefits_REQQkP": {
+          "type": "fan-benefits",
+          "settings": {
+            "img1": "shopify://shop_images/fi_11847162.svg",
+            "title": "Lightweight",
+            "description": "Easy to carry & includes travel case"
+          }
+        },
+        "fan_benefits_mgQXj4": {
+          "type": "fan-benefits",
+          "settings": {
+            "img1": "shopify://shop_images/battery-charging-01.svg",
+            "title": "Rechargeable",
+            "description": "Lasts up to 48 hours per charge"
+          }
+        },
+        "fan_benefits_mwANPw": {
+          "type": "fan-benefits",
+          "settings": {
+            "img1": "shopify://shop_images/Group_49.svg",
+            "title": "Led light",
+            "description": "Illuminate your space with 3 ambient settings"
+          }
+        },
+        "fan_benefits_UBVnrk": {
+          "type": "fan-benefits",
+          "settings": {
+            "img1": "shopify://shop_images/Group.svg",
+            "title": "Multi-speed",
+            "description": "Adjust up to 4 desired wind speeds"
+          }
+        },
+        "fan_benefits_pALKc9": {
+          "type": "fan-benefits",
+          "settings": {
+            "img1": "shopify://shop_images/Group_1.svg",
+            "title": "Power bank",
+            "description": "Doubles as a power bank"
+          }
+        }
+      },
+      "block_order": [
+        "fan_benefits_bfzfkN",
+        "fan_benefits_REQQkP",
+        "fan_benefits_mgQXj4",
+        "fan_benefits_mwANPw",
+        "fan_benefits_UBVnrk",
+        "fan_benefits_pALKc9"
+      ],
+      "custom_css": [
+        "@media only screen and (max-width: 500px) {.fan_benefits_custom {background: none; }}"
+      ],
+      "settings": {
+        "fan-benefit-section-position": false,
+        "class": "",
+        "title": "Venty Fan",
+        "subtitle": "The ultimate portable fan",
+        "btntext": "Order Now",
+        "pointer": false,
+        "url": "shopify://products/foldable-fan",
+        "bgimgdesktop": "shopify://shop_images/DSC07355_1.png",
+        "background": "",
+        "mobile-image": "shopify://shop_images/Mask_group_1_8b7b98a5-e26c-4d71-8598-4ace01c8856b.png",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 16
+      }
+    },
+    "fan_benefits_7dqUiR": {
+      "type": "fan-benefits",
+      "blocks": {
+        "fan_benefits_NbFjeh": {
+          "type": "fan-benefits",
+          "settings": {
+            "img1": "shopify://shop_images/Clip_4x_af0b9572-c73c-4e0e-bbab-830166c147ba.png",
+            "title": "Aromatherapy Tabs",
+            "description": "Refresh your space instantly."
+          }
+        },
+        "fan_benefits_AdKqGP": {
+          "type": "fan-benefits",
+          "settings": {
+            "img1": "shopify://shop_images/Clip_4x_4.png",
+            "title": "Smart Touch Display",
+            "description": "Simple, sleek & easy to use."
+          }
+        },
+        "fan_benefits_KmbH9E": {
+          "type": "fan-benefits",
+          "settings": {
+            "img1": "shopify://shop_images/Clip_4x_1.png",
+            "title": "Secure 2.7” Clip",
+            "description": "Easily attaches to desks, beds, & more!"
+          }
+        },
+        "fan_benefits_pxa3UC": {
+          "type": "fan-benefits",
+          "settings": {
+            "img1": "shopify://shop_images/battery-charging-01_4x_ce4c0901-49d4-44d7-9614-421fbb5558dc.png",
+            "title": "10-Hour Wireless Battery",
+            "description": "Stay cool throughout the day."
+          }
+        },
+        "fan_benefits_Ykc4WA": {
+          "type": "fan-benefits",
+          "settings": {
+            "img1": "shopify://shop_images/Clip_4x_2.png",
+            "title": "360  Rotation",
+            "description": "The perfect breeze—at your fingertips."
+          }
+        },
+        "fan_benefits_KPjzyG": {
+          "type": "fan-benefits",
+          "settings": {
+            "img1": "shopify://shop_images/Clip_4x_3.png",
+            "title": "Adjustable LED Light",
+            "description": "Create a cozy, well-lit space anywhere."
+          }
+        }
+      },
+      "block_order": [
+        "fan_benefits_NbFjeh",
+        "fan_benefits_AdKqGP",
+        "fan_benefits_KmbH9E",
+        "fan_benefits_pxa3UC",
+        "fan_benefits_Ykc4WA",
+        "fan_benefits_KPjzyG"
+      ],
+      "custom_css": [
+        "@media only screen and (max-width: 500px) {.fan_benefits_custom {background: none; }}"
+      ],
+      "settings": {
+        "fan-benefit-section-position": true,
+        "class": "fan-benefits-column-right",
+        "title": "NEW Venty Clip Fan",
+        "subtitle": "The Oscillating Clip Fan That Does It All",
+        "btntext": "Order Now",
+        "pointer": false,
+        "url": "shopify://products/clip-fan",
+        "bgimgdesktop": "shopify://shop_images/banner_fan.png",
+        "background": "",
+        "mobile-image": "shopify://shop_images/banner_fan_28602d29-5de8-4cec-8b9a-8776504bcde6.png",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 16
+      }
+    },
+    "bundle_and_save_section_rAVpdw": {
+      "type": "bundle-and-save-section",
+      "settings": {
+        "img1": "shopify://shop_images/Group_76_4bf41a6a-5586-4319-9669-957f53f93ad4.png",
+        "title": "Bundle And Save",
+        "para": "Order 2+ Venty Fans And Get $10 Off + Free Shipping",
+        "btntext": "Order Now",
+        "url": "shopify://products/foldable-fan",
+        "bgimgdesktop": "radial-gradient(rgba(23, 66, 129, 1), rgba(3, 22, 55, 1) 100%)",
+        "background": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "1723489166214d0883": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_knaGCT": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "Follow Us on instagram",
+            "title_color": "#001233",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "#ffffff",
+            "feed_id": "",
+            "html_area": "<h2 class=\"cstmh2slide\">INSTAGRAM FEED</h2>"
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_knaGCT"
+      ],
+      "settings": {
+        "include_margins": true,
+        "class": "",
+        "id": ""
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "custom_liquid_Ljdgba",
+    "relative_banner_image_eMbkng",
+    "logo_slider_advanced_3X7Kjh",
+    "product_column_custom_GmKaJN",
+    "product_column_custom_J3zcDi",
+    "fans_variants_A9dn3p",
+    "reviews_slider_widget_qAgmCz",
+    "fan_benefits_EEdypp",
+    "fan_benefits_7dqUiR",
+    "bundle_and_save_section_rAVpdw",
+    "1723489166214d0883"
+  ]
+}

@@ -1,0 +1,196 @@
+{%- style -%}
+
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background }};
+  }
+  .img-width-only{
+    width:{{section.settings.widhtofimgdesktop}}%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+
+    }
+      .img-width-only{
+    width:{{section.settings.widhtofimgmob}}%;
+  }
+  }
+
+      {% if section.settings.customheightenable %}
+  .section-{{ section.id }}-padding {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    height:{{section.settings.heightcstmdesktop}}vh;
+  }
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    height:{{section.settings.heightcstmmobile}}vh;
+
+    }
+    }
+  {% endif %}
+
+{%- endstyle -%}
+
+<style>
+  
+</style>
+<div
+  class="section-{{ section.id }}-padding custom-banner-content-main">
+  <div class="page-width">
+    <div class="only-img-main">
+
+{%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+{%- capture sizes -%}
+(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1 }}px,
+(min-width: 750px) calc((100vw - 130px) / 1), calc((100vw - 50px) / 1)
+{%- endcapture -%}
+
+
+      
+{% assign img_alt = section.settings.img.alt -%}      
+{{
+section.settings.img
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, class: 'header__heading-logo motion-reduce', alt: img_alt
+
+}}
+
+       
+
+      
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Only Image",
+  "settings": [
+ {
+      "type": "checkbox",
+      "id": "customheightenable",
+      "default": false,
+      "label": "Enable For Custom Height Padding Wont Work"
+    },
+    {
+      "type": "range",
+      "id": "heightcstmdesktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "vh",
+      "label": "Height Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "heightcstmmobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "vh",
+      "label": "Height Mobile",
+      "default": 36
+    },
+     {
+      "type": "range",
+      "id": "widhtofimgdesktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Width Desktop",
+      "default": 36
+    },
+     {
+      "type": "range",
+      "id": "widhtofimgmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Width Mobile",
+      "default": 36
+    },
+    {
+      "type": "image_picker",
+      "id": "img",
+      "label": "Image"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top Mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom Mobile",
+      "default": 36
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Only Image"
+    }
+  ]
+}
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

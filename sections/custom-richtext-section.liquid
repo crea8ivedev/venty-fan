@@ -1,0 +1,180 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+{%- endstyle -%}
+<style>
+  .page-width.cstm-flex-rich {
+    display: flex;
+}
+.rightrichtext, .leftrichtext {
+    width: 50%;
+}
+.leftrichtext {
+    padding-right: 200px;
+}
+.leftrichtext p em {
+    color: rgba(13, 24, 47, 1);
+    font-size: 23px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 43.79px;
+    margin: 0;
+    margin-bottom: 50px;
+  
+}
+  .leftrichtext h6 {
+    font-size: 16px;
+    line-height: 34.8px;
+    text-align: left;
+    font-weight: 500;
+}
+  .rightrichtext p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 36.8px;
+    margin: 0;
+    text-align: left;
+    color: rgba(77, 77, 77, 1);
+}
+  .leftrichtext p{
+    margin: 0;    
+  }
+  @media(max-width:1025px){
+.leftrichtext {
+    padding-right: 100px;
+}
+.leftrichtext p em {
+    font-size: 20px;
+    line-height: 37px;
+}
+.rightrichtext p {
+    font-size: 17px;
+    line-height: 31px;
+}
+}
+@media(max-width:768px){
+.leftrichtext {
+    padding-right: 0;
+}
+.rightrichtext, .leftrichtext {
+    width: 100%;
+}
+.page-width.cstm-flex-rich {
+    flex-direction: column;
+    row-gap: 40px;
+}
+.leftrichtext h6 {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+}
+
+</style>
+
+<div class="section-{{ section.id }}-padding">
+  <div class="page-width cstm-flex-rich">
+ <div class="leftrichtext">
+ {{ section.settings.richtext_1 }}
+ </div>
+ <div class="rightrichtext">
+ {{ section.settings.richtext_2 }}
+ </div>
+      </div>
+</div>
+
+
+
+{% schema %}
+    {
+    "name": "Custom Richtext Section",
+    "settings": [
+
+               {
+      "type": "richtext",
+      "id": "richtext_1",
+      "label": "Text 1",
+      "default": "<p>Add your own custom content to give more information.</p>"
+    },
+              {
+      "type": "richtext",
+      "id": "richtext_2",
+      "label": "Text 2",
+      "default": "<p>Add your own custom content to give more information.</p>"
+    },
+      {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top Mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom Mobile",
+      "default": 36
+    }
+      
+    ],
+    
+    "presets": [
+    {
+      "name": "Custom Richtext Section"
+    }
+  ]
+  }
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

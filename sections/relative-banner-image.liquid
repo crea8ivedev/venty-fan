@@ -1,0 +1,85 @@
+<!--Start relative-banner-image  -->
+<div class="relative-banner-image-main">
+<div class="page-width">
+
+
+<a href="{{ section.settings.image_link }}">
+{%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+{%- capture sizes -%}
+(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1 }}px,
+(min-width: 750px) calc((100vw - 130px) / 1), calc((100vw - 50px) / 1)
+{%- endcapture -%}
+
+
+{% if section.settings.img != blank %}      
+{% assign img_alt = section.settings.img.alt -%} 
+  <div class="relative-image-desktop">
+{{
+section.settings.img
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: img_alt
+
+}}
+  </div>
+{% endif %}
+  
+{% if section.settings.mobile-img != blank %}      
+{% assign img_alt = section.settings.mobile-img.alt -%}   
+  <div class="relative-image-mobile">
+{{
+section.settings.mobile-img
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt: img_alt
+
+}}
+  </div>
+{% endif %}
+
+</a>
+
+
+
+
+
+
+  
+  
+</div>
+</div>
+<!--End relative-banner-image  -->
+{% schema %}
+  {
+    "name": "Relative Banner Image",
+    "class": "reltive-image-part",
+    "settings": [
+      {
+        "type": "url",
+        "id":"image_link",
+        "label": "Image Link"
+      },
+      {
+        "type": "header",
+        "content": "Desktop Image"
+      },
+      {
+       "type": "image_picker",
+       "id": "img",
+       "label": "Image"
+      },
+      {
+        "type": "header",
+        "content": "Mobile Image"
+      },
+      {
+       "type": "image_picker",
+       "id": "mobile-img",
+       "label": "Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Relative Banner Image"
+      }
+    ]
+  }
+{% endschema %}

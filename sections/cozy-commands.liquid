@@ -1,0 +1,488 @@
+<!-- Start cozy-commands  -->
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+
+       {%- for block in section.blocks -%}
+     {% if block.type == 'centerdotsdetails' %}
+  #block-{{ section.id }}-{{ block.id }} {
+    --hot-spot-horizontal-position-desktop: {{ block.settings.horizontal_position_desktop }}%;
+    --hot-spot-vertical-position-desktop: {{ block.settings.vertical_position_desktop }}%;
+    --hot-spot-horizontal-position-tablet: {{ block.settings.horizontal_position_tablet }}%;
+    --hot-spot-vertical-position-tablet: {{ block.settings.vertical_position_tablet }}%;
+    --hot-spot-horizontal-position-mobile: {{ block.settings.horizontal_position_mobile }}%;
+    --hot-spot-vertical-position-mobile: {{ block.settings.vertical_position_mobile }}%;
+  }
+   {% endif %}
+        {% endfor %}
+
+  
+{%- endstyle -%}
+<style>
+    .left-hand-command img {
+      width: 76%; display:block;
+      margin:auto;
+  }
+.left-hand-command {
+    width: 60%;
+    text-align:right;
+}
+  .main-heading-comman *,
+  .sub-heading-comman *{
+    margin: 0;
+}
+  .main-heading-comman {
+    
+    font-size: 70px;
+    font-weight: 400;
+    line-height: 83.42px;
+    width: 50%;
+    text-transform: capitalize;
+    color:rgba(13, 24, 47, 1);
+}
+  .sub-heading-comman {
+    color: rgba(77, 77, 77, 1);
+    
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 39px;
+    letter-spacing: 0.04em;
+    margin-top: 10px;
+}
+    .right-hand-command {
+      width: 40%;
+  }
+    .right-hand-command {
+      width: 40%;
+  }
+  .title-and-img-command img {
+      width: 30px;
+      height: 30px;
+  }
+.flex-command-main {
+    display: flex;
+    gap: 140px;
+    align-items: center;
+  
+}
+.title-and-img-command {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  margin-bottom:10px;
+  
+}
+.commandtitle {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 35.1px;
+    letter-spacing: 0.03em;
+    color: rgba(13, 24, 47, 1);
+}
+.commandpara {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25.2px;
+    letter-spacing: 0.03em;
+    color: rgba(77, 77, 77, 1); padding:0 10px;
+}
+.inner-commands-loop {
+    width: 60%;
+}
+.right-hand-command {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+.right-hand-command .inner-commands-loop:nth-child(1), .right-hand-command .inner-commands-loop:nth-child(5) {
+    margin-left: -80px;
+}
+.right-hand-command .inner-commands-loop:nth-child(2), .right-hand-command .inner-commands-loop:nth-child(4) {
+    margin-left: -55px;
+}
+.top-content-heading-command.page-width {
+    margin-bottom: 40px;
+}
+
+.inner-commands-loop img.show-mobile {
+    display: none;
+}
+
+  
+@media (max-width:1600px) {
+  .right-hand-command { gap:30px;         padding-bottom: 30px; }
+ 
+}
+
+
+  
+@media (max-width: 1450px) {
+  .right-hand-command { gap:20px;  }
+ 
+}
+
+
+    @media(max-width:1270px){
+      .main-heading-comman {
+    width: 70%;
+}
+.inner-commands-loop {
+    width: 90%;
+}
+
+      
+    }
+    @media(max-width:1025px){
+      .right-hand-command {
+    gap: 50px;
+}
+      .inner-commands-loop {
+    width: 100%;
+}
+      .right-hand-command {
+    padding-bottom: 50px;
+}
+
+    }
+ @media(max-width:768px){
+.main-heading-comman {
+    font-size: 41px;
+    line-height: 49px;
+    width: 100%;
+}
+.sub-heading-comman {
+    font-size: 17px;
+    margin-top: 0;
+}
+.left-hand-command {
+    width: 100%;
+}
+.right-hand-command {
+    width: 100%;
+           padding: 0 20px;
+        gap: 20px;
+  
+}
+.right-hand-command .inner-commands-loop:nth-child(1), .right-hand-command .inner-commands-loop:nth-child(5) {
+    margin-left: 0;
+}
+.right-hand-command .inner-commands-loop:nth-child(2), .right-hand-command .inner-commands-loop:nth-child(4) {
+    margin-left: 0;
+}
+.flex-command-main {
+    flex-wrap: wrap;
+  flex-direction: row-reverse;
+      gap: 0;
+}
+.inner-commands-loop img.show-desktop {
+    display: none;
+}
+
+.inner-commands-loop img.show-mobile {
+    display: block; margin-top:-20px;
+}
+
+.title-and-img-command {
+    flex-direction: column;
+}
+.inner-commands-loop {
+    text-align: center;
+}
+.title-and-img-command img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.inner-commands-loop {
+    background: rgba(241, 242, 246, 1);
+    border-radius: 20px;
+    padding-bottom: 15px;     overflow: hidden;
+}
+
+.cozypadcommands .right-hand-command{    background: #fff!important; padding-top:20px;}
+
+.page-full-width .title-wrapper-with-link.title-wrapper--self-padded-mobile.title-wrapper--no-top-margin.multicolumn__title h2 {
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 42px;
+}
+
+.left-hand-command img { width:100%; }
+
+   .center-data-hostpot { margin:0px; }
+
+   .right-hand-command .inner-commands-loop:nth-child(5), .right-hand-command .inner-commands-loop:nth-child(4) { display:none; }
+      
+        }
+</style>
+<div
+  class="section-{{ section.id }}-padding cozypadcommands"
+  style="background: linear-gradient(180deg, #E3E2DC 0%, #F1EDE9 100%);"
+>
+  
+    <div class="top-content-heading-command page-width">
+      <div class="main-heading-comman">{{ section.settings.heading }}</div>
+      <div class="sub-heading-comman">{{ section.settings.subheading }}</div>
+    </div>
+
+  
+    <div class="flex-command-main">
+      <div class="left-hand-command">
+       {% if section.settings.handimg != blank %}
+
+      {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+{%- capture sizes -%}
+(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1 }}px,
+(min-width: 750px) calc((100vw - 130px) / 1), calc((100vw - 50px) / 1)
+{%- endcapture -%}
+
+{%- assign alt = section.settings.handimg.alt -%}      
+{{
+section.settings.handimg
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, class: 'left-hand-desktop', alt:alt
+
+}}
+{% endif %}
+
+<div class="left-hand-mobile">
+        <div class="center-data-hostpot">
+        <div class="hotspot-image-main">
+          
+  {% if section.settings.handimg1 != blank %} 
+  {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+{%- capture sizes -%}
+(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1 }}px,
+(min-width: 750px) calc((100vw - 130px) / 1), calc((100vw - 50px) / 1)
+{%- endcapture -%}
+
+{%- assign alt = section.settings.handimg1.alt -%}    
+{{
+section.settings.handimg1
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt:alt
+
+}}
+    
+{% endif %}
+          {%- for block in section.blocks -%}
+          {% if block.type == 'centerdotsdetails' %}
+          <div id="block-{{ section.id }}-{{ block.id }}" class="main-dot-and-content">
+            <div class="main-dot-hotspot">
+              <div class="hotspot__positioner--01">
+                <div class="hotspot__container">
+                  <div class="hotspot-dott hotspot--01"></div>
+                  <div class="hotspot-dott hotspot--02"></div>
+                  <div class="hotspot-dott hotspot--03"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="main-dot-and-content-only">
+              <h5>{{ block.settings.titledots }}</h5>
+              <span>{{ block.settings.descriptiondots }}</span>
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+          
+        </div>
+      </div></div>
+      
+        
+      </div>
+      <div class="right-hand-command">
+        {% for block in section.blocks %}
+          {% if block.type == 'commands' %}
+            <div class="inner-commands-loop">
+              <div class="title-and-img-command">
+                {% if block.settings.commandimg != blank %} <img src="{{ block.settings.commandimg | img_url: 'master' }}" class="show-desktop" alt="">{% endif %}
+
+                
+                 {% if block.settings.commandimg1 != blank %}<img src="{{ block.settings.commandimg1 | img_url: 'master' }}" class="show-mobile" alt="">{% endif %}
+
+            
+                
+                <div class="commandtitle">{{ block.settings.commandtitle }}</div>
+              </div>
+              <div class="commandpara">{{ block.settings.commandpara }}</div>
+            </div>
+          {% endif %}
+        {% endfor %}
+
+        
+      </div>
+    </div>
+</div>
+
+<!-- End cozy-commands  -->
+{% schema %}
+{
+  "name": "CozyPad Commands",
+  "settings": [
+
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading"
+    }, {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sub Heading"
+    },
+{
+      "type": "image_picker",
+      "id": "handimg",
+      "label": "Desktop image"
+    },
+{
+      "type": "image_picker",
+      "id": "handimg1",
+      "label": "Mobile image"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top Mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom Mobile",
+      "default": 36
+    }
+  ],
+    "blocks": [
+     {
+      "type": "commands",
+      "name": "Add Data",
+       "limit": 5,
+      "settings": [
+      {
+          "type": "image_picker",
+          "id": "commandimg",
+          "label": "Icon Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "commandimg1",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "text",
+          "id": "commandtitle",
+          "label": "Command Title"
+        },
+        {
+          "type": "text",
+          "id": "commandpara",
+          "label": "Command Para"
+        }
+      ]
+    },
+      {
+        
+  "type": "centerdotsdetails",
+  "name": "Dots And Details",
+  "limit": 7,
+  "settings": [
+    {
+      "type": "text",
+      "id": "titledots",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "descriptiondots",
+      "label": "Description"
+    },
+    {
+      "type": "range",
+      "id": "horizontal_position_desktop",
+      "min": 5,
+      "max": 95,
+      "step": 1,
+      "unit": "%",
+      "label": "Horizontal position  ",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "vertical_position_desktop",
+      "min": 5,
+      "max": 95,
+      "step": 1,
+      "unit": "%",
+      "label": "Vertical position ",
+      "default": 30
+    }
+  
+  ]
+
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "CozyPad Commands",
+      "blocks": [
+        {
+          "type": "commands"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,1597 @@
+{% doc %}
+  ABboost A/B Testing - Zero-Delay URL Redirect
+  
+  This snippet is automatically injected into theme.liquid to enable instant A/B testing
+  with zero network delay. All test data is embedded from Shopify metafields.
+  
+  ⚠️ AUTO-GENERATED - Do not edit manually
+  This file is managed by ABboost and will be regenerated when tests are updated.
+  
+  Features:
+  - Metafield embedding for instant test data access
+  - Pre-render hiding to prevent FOUC
+  - Instant redirects with window.location.replace()
+  - Visitor tracking and assignment management
+  - localStorage caching
+  
+  No parameters required - automatically renders with shop context.
+  
+  @example
+  {%- comment -%}
+    This snippet is automatically included in theme.liquid:
+    <head>
+      {% render 'abboost-redirect' %}
+      ...
+    </head>
+  {%- endcomment -%}
+{% enddoc %}
+
+{% comment %}
+  ABboost A/B Testing - Redirect Script
+  Version: 2.9.7
+  Auto-generated - Do not edit manually
+  This snippet loads instantly with the theme for zero-delay redirects
+  
+  ⚡ AUTO-UPDATE: This snippet is automatically updated on every app installation/reinstall
+  to ensure you always have the latest optimizations and bug fixes!
+{% endcomment %}
+
+<!-- 🚀 STEP 0: Pre-render hiding to prevent FOUC -->
+<style id="abboost-prerender-hide">
+  html { visibility: hidden; opacity: 0; }
+</style>
+<script>
+  // Auto-show after max 200ms (safety timeout)
+  setTimeout(function() {
+    var hideStyle = document.getElementById('abboost-prerender-hide');
+    if (hideStyle) {
+      hideStyle.remove();
+      document.documentElement.style.visibility = 'visible';
+      document.documentElement.style.opacity = '1';
+    }
+  }, 200);
+</script>
+
+<!-- 🔥 STEP 1: Embed test data from Shopify Metafield (INSTANT - 0ms!) -->
+<script>
+  {% assign abboost_metafield = shop.metafields.abboost.active_tests %}
+  {% if abboost_metafield %}
+    window.__ABBOOST_EMBEDDED_TESTS__ = {{ abboost_metafield }};
+  {% else %}
+    window.__ABBOOST_EMBEDDED_TESTS__ = null;
+  {% endif %}
+
+  // Configuration
+  window.BoostABConfig = {
+    apiUrl: 'https://ab.cartsparks.com',
+    shopDomain: '{{ shop.permanent_domain }}',
+    {% if template contains 'product' and product %}
+    productId: '{{ product.id }}',
+    productHandle: '{{ product.handle }}',
+    {% endif %}
+    shopId: '{{ shop.id }}',
+    // 🎨 CRITICAL: Current theme ID for Theme A/B Tests
+    currentThemeId: '{{ theme.id }}',
+    currentPage: {
+      type: '{% if product %}product{% elsif collection %}collection{% elsif page %}page{% else %}other{% endif %}',
+      path: '{{ request.path }}',
+      productId: {% if product %}'{{ product.id }}'{% else %}null{% endif %}
+    }
+  };
+</script>
+
+<!-- 🚀 CRITICAL REDIRECT LOGIC - INLINE () -->
+<script>
+(function() {
+  'use strict';
+  
+  const API_URL = window.BoostABConfig?.apiUrl || 'https://ab.cartsparks.com';
+  const CACHE_DURATION = 5 * 60 * 1000;
+  
+  // 🤖 Bot Detection - Skip tracking for search engines and crawlers
+  function isBot() {
+    const ua = navigator.userAgent.toLowerCase();
+    const botPatterns = [
+      'googlebot', 'bingbot', 'slurp', 'duckduckbot', 'baiduspider',
+      'yandexbot', 'sogou', 'exabot', 'facebot', 'facebookexternalhit',
+      'ia_archiver', 'mj12bot', 'semrushbot', 'ahrefsbot', 'dotbot',
+      'rogerbot', 'seznambot', 'petalbot', 'uptimerobot', 'pingdom',
+      'bot', 'spider', 'crawler', 'scraper', 'headless', 'phantom',
+      'selenium', 'puppeteer', 'playwright', 'lighthouse', 'pagespeed',
+      'gtmetrix', 'webpagetest', 'chrome-lighthouse'
+    ];
+    return botPatterns.some(pattern => ua.includes(pattern));
+  }
+  
+  // 🚫 Skip everything for bots
+  if (isBot()) {
+    return;
+  }
+  
+  function getSessionId() {
+    try {
+      let sessionId = sessionStorage.getItem('boost_ab_session');
+      if (!sessionId) {
+        sessionId = 'sess_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        sessionStorage.setItem('boost_ab_session', sessionId);
+      }
+      return sessionId;
+    } catch (e) {
+      return 'sess_temp_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    }
+  }
+  
+  // 🎯 Hash-based assignment for consistent A/B testing
+  // Same user (sessionId) always gets the same variant
+  function hashString(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash; // Convert to 32bit integer
+    }
+    return Math.abs(hash);
+  }
+  
+  function getConsistentAssignment(sessionId, testId, trafficSplit) {
+    // Combine sessionId + testId for unique hash per test
+    const combined = sessionId + '_' + testId;
+    const hash = hashString(combined);
+    
+    // Normalize to 0-99 range
+    const bucket = hash % 100;
+    
+    // trafficSplit% go to 'original', rest go to 'test'
+    return bucket < trafficSplit ? 'original' : 'test';
+  }
+
+  function getShopDomain() {
+    if (window.BoostABConfig?.shopDomain) return window.BoostABConfig.shopDomain;
+    if (window.Shopify?.shop) return window.Shopify.shop;
+    return '{{ shop.permanent_domain }}';
+  }
+
+  function getProductId() {
+    // 🎯 PRIORITY 1: Get from Liquid context (most reliable!)
+    if (window.BoostABConfig && window.BoostABConfig.productId) {
+      return window.BoostABConfig.productId;
+    }
+    
+    // 🎯 PRIORITY 2: Get from ShopifyAnalytics (available after page load)
+    if (window.ShopifyAnalytics && window.ShopifyAnalytics.meta && window.ShopifyAnalytics.meta.product) {
+      return window.ShopifyAnalytics.meta.product.id.toString();
+    }
+    
+    // 🎯 PRIORITY 3: Try to get product ID from Shopify meta tag
+    const productMeta = document.querySelector('meta[property="product:retailer_item_id"], meta[property="og:product:retailer_item_id"]');
+    if (productMeta) return productMeta.getAttribute('content');
+    
+    // 🎯 PRIORITY 4: Try to get from meta.product JSON (Shopify theme standard)
+    const metaProduct = document.querySelector('[data-section-type="product"], [data-product-id]');
+    if (metaProduct) {
+      const productId = metaProduct.getAttribute('data-product-id');
+      if (productId) return productId;
+    }
+    
+    return null;
+  }
+  
+  function normalizeProductId(productId) {
+    if (!productId) return null;
+    // Convert GID format to numeric ID: "gid://shopify/Product/123" → "123"
+    if (typeof productId === 'string' && productId.includes('gid://shopify/Product/')) {
+      return productId.replace('gid://shopify/Product/', '');
+    }
+    return String(productId);
+  }
+  
+  function checkTriggerConditions(test, currentPath, currentProductId) {
+    // Normalize product IDs for comparison (handle both "123" and "gid://shopify/Product/123")
+    const normalizedCurrentId = normalizeProductId(currentProductId);
+    const normalizedOriginalId = normalizeProductId(test.originalProductId);
+    const normalizedDuplicatedId = normalizeProductId(test.duplicatedProductId);
+    
+    // 🎯 PRIORITY 1: Check if we're on the test product (track but DON'T redirect!)
+    if (normalizedCurrentId && normalizedDuplicatedId) {
+      if (normalizedCurrentId === normalizedDuplicatedId) {
+        return { shouldTrack: true, shouldRedirect: false, variant: 'test' };
+      }
+    }
+    
+    // 🎯 PRIORITY 2: Match by Product ID (should redirect!)
+    if (normalizedCurrentId && normalizedOriginalId) {
+      if (normalizedCurrentId === normalizedOriginalId) {
+        return { shouldTrack: true, shouldRedirect: true };
+      }
+    }
+    
+    // 🎯 PRIORITY 3: Check triggerConditions (for URL Redirect tests)
+    if (test.triggerConditions && test.triggerConditions.length > 0) {
+      const conditions = typeof test.triggerConditions === 'string' ? JSON.parse(test.triggerConditions) : test.triggerConditions;
+      for (const condition of conditions) {
+        if (condition.field === 'url') {
+          const value = condition.value;
+          let matched = false;
+          switch (condition.operator) {
+            case 'matches_exactly': matched = currentPath === value; break;
+            case 'ends_with': matched = currentPath.endsWith(value); break;
+            case 'starts_with': matched = currentPath.startsWith(value); break;
+            case 'contains': matched = currentPath.includes(value); break;
+          }
+          if (matched) return { shouldTrack: true, shouldRedirect: true };
+        }
+      }
+    }
+    
+    // ❌ NO MATCH: Test does not apply to this page/product
+    return { shouldTrack: false, shouldRedirect: false };
+  }
+
+  async function getCachedTests(shop) {
+    try {
+      if (window.__ABBOOST_EMBEDDED_TESTS__) {
+        const embeddedData = window.__ABBOOST_EMBEDDED_TESTS__;
+        
+        // 🔧 FIX: Always use tests if they exist - NEVER ignore active tests!
+        if (embeddedData.tests && embeddedData.tests.length > 0) {
+          const cacheKey = 'abboost_redirect_tests_' + shop;
+          localStorage.setItem(cacheKey, JSON.stringify({ tests: embeddedData.tests || [], timestamp: embeddedData.updated_at || Date.now() }));
+          
+          // 📡 If expired, trigger background sync (but still use existing data!)
+          if (embeddedData.expires_at && Date.now() >= embeddedData.expires_at) {
+            // Fire and forget - don't wait for response
+            fetch(API_URL + '/api/metafield/sync-auto?shop=' + encodeURIComponent(shop), {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' }
+            }).catch(function() { /* ignore errors */ });
+          }
+          
+          return embeddedData.tests || [];
+        }
+      }
+      const cacheKey = 'abboost_redirect_tests_' + shop;
+      const cached = localStorage.getItem(cacheKey);
+      if (cached) {
+        const data = JSON.parse(cached);
+        if (Date.now() - data.timestamp < CACHE_DURATION) return data.tests;
+      }
+      return null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function showPage() {
+    const hideStyle = document.getElementById('abboost-prerender-hide');
+    if (hideStyle) {
+      hideStyle.remove();
+      document.documentElement.style.visibility = 'visible';
+      document.documentElement.style.opacity = '1';
+    }
+  }
+
+  // 🎨 Theme Test Handler - redirects to different theme using preview_theme_id
+  function handleThemeTest(test, currentPath) {
+    // 🔥 FIX: Check if we're already on the test theme using {{ theme.id }}
+    // This is MORE RELIABLE than checking URL because preview_theme_id can be stripped
+    const currentThemeId = window.BoostABConfig?.currentThemeId;
+    const testThemeId = String(test.testThemeId);
+    const originalThemeId = String(test.originalThemeId);
+    
+    // If current theme IS the test theme - we're already on it!
+    if (currentThemeId && currentThemeId === testThemeId) {
+      
+      // Remove Shopify preview bar if configured
+      if (test.removePreviewBar) {
+        removePreviewBar();
+      }
+      
+      const sessionId = getSessionId();
+      
+      // 🔧 FIX v2.9.2: Track pageview for EACH page, not just the first
+      // Use page-specific key to allow tracking multiple pages in same session
+      const pageTrackKey = 'abboost_theme_pageview_' + test.id + '_' + currentPath;
+      const alreadyTrackedThisPage = sessionStorage.getItem(pageTrackKey);
+      
+      if (!alreadyTrackedThisPage) {
+        // Track pageview for this specific page
+        trackThemeTestEvent(test.id, 'test', 'pageview', currentPath, sessionId);
+        sessionStorage.setItem(pageTrackKey, '1');
+      }
+      
+      // 🛒 Set cart attributes and setup Add to Cart tracking
+      setThemeTestCartAttributes(test.id, 'test', test.name);
+      setupThemeTestAddToCartTracking(test.id, 'test', sessionId);
+      setupThemeTestEngagementTracking(test.id, 'test', sessionId);
+      
+      showPage();
+      return;
+    }
+    
+    // Also check URL param as fallback - but ONLY if it's the TEST theme!
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentPreviewTheme = urlParams.get('preview_theme_id');
+    
+    if (currentPreviewTheme && currentPreviewTheme === testThemeId) {
+      console.log('🎨 ABboost: Already on TEST theme (via URL preview_theme_id):', currentPreviewTheme);
+      
+      if (test.removePreviewBar) {
+        removePreviewBar();
+      }
+      
+      const sessionId = getSessionId();
+      
+      // 🔧 FIX v2.9.2: Track pageview for EACH page, not just the first
+      const pageTrackKey = 'abboost_theme_pageview_' + test.id + '_' + currentPath;
+      const alreadyTrackedThisPage = sessionStorage.getItem(pageTrackKey);
+      
+      if (!alreadyTrackedThisPage) {
+        trackThemeTestEvent(test.id, 'test', 'pageview', currentPath, sessionId);
+        sessionStorage.setItem(pageTrackKey, '1');
+      } else {
+        console.log('✅ ABboost: Theme test - Page already tracked this session');
+      }
+      
+      // 🛒 Set cart attributes and setup Add to Cart tracking
+      setThemeTestCartAttributes(test.id, 'test', test.name);
+      setupThemeTestAddToCartTracking(test.id, 'test', sessionId);
+      setupThemeTestEngagementTracking(test.id, 'test', sessionId);
+      
+      showPage();
+      return;
+    }
+    
+    // 🔥 FIX: If we're on the ORIGINAL theme, track as original and don't redirect!
+    if (currentThemeId && currentThemeId === originalThemeId && !currentPreviewTheme) {
+      console.log('🎨 ABboost: On ORIGINAL theme (detected via theme.id)');
+      // Continue to assignment logic - user might need to be redirected to test
+    }
+    
+    // Check new/returning visitor targeting
+    const isReturningVisitor = localStorage.getItem('abboost_returning_visitor') === 'true';
+    
+    // If only targeting new visitors and this is a returning visitor - skip
+    if (test.targetNewVisitors === true && test.targetReturning === false && isReturningVisitor) {
+      console.log('⚠️ ABboost: Theme test targets NEW visitors only, but this is a returning visitor');
+      showPage();
+      return;
+    }
+    
+    // If only targeting returning visitors and this is a new visitor - skip
+    if (test.targetNewVisitors === false && test.targetReturning === true && !isReturningVisitor) {
+      console.log('⚠️ ABboost: Theme test targets RETURNING visitors only, but this is a new visitor');
+      showPage();
+      return;
+    }
+    
+    // Check advanced audience targeting (JSON array)
+    if (test.audienceTargeting) {
+      try {
+        const targeting = JSON.parse(test.audienceTargeting);
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isDesktop = !isMobile;
+        const isLoggedIn = window.Shopify && window.Shopify.customer;
+        
+        const matchesMobile = targeting.includes('mobile') && isMobile;
+        const matchesDesktop = targeting.includes('desktop') && isDesktop;
+        const matchesLoggedIn = targeting.includes('logged_in') && isLoggedIn;
+        const matchesNewVisitors = targeting.includes('new_visitors') && !isReturningVisitor;
+        const matchesReturning = targeting.includes('returning') && isReturningVisitor;
+        
+        const shouldTarget = matchesMobile || matchesDesktop || matchesLoggedIn || matchesNewVisitors || matchesReturning;
+        
+        if (!shouldTarget) {
+          console.log('⚠️ ABboost: User does not match theme test audience targeting');
+          showPage();
+          return;
+        }
+      } catch (error) {
+        console.error('❌ ABboost: Error parsing audience targeting:', error);
+      }
+    }
+    
+    // Mark as returning visitor
+    if (localStorage.getItem('abboost_returning_visitor') !== 'true') {
+      localStorage.setItem('abboost_returning_visitor', 'true');
+    }
+    
+    // Get session ID for consistent assignment
+    const sessionId = getSessionId();
+    
+    // Check for existing assignment (theme tests are session-persistent)
+    const storageKey = 'abboost_theme_test_' + test.id;
+    let assignment = localStorage.getItem(storageKey);
+    
+    if (!assignment) {
+      // New user - assign variant using hash-based consistent assignment
+      console.log('🎨 ABboost: Calculating assignment - trafficSplit:', test.trafficSplit, '% for original');
+      assignment = getConsistentAssignment(sessionId, test.id, test.trafficSplit);
+      localStorage.setItem(storageKey, assignment);
+      console.log('🎨 ABboost: NEW assignment:', assignment);
+    } else {
+      console.log('🎨 ABboost: EXISTING assignment from localStorage:', assignment);
+    }
+    
+    if (assignment === 'test') {
+      // User assigned to test variant - redirect to test theme
+      console.log('🎨 ABboost: Redirecting to test theme:', test.testThemeId);
+      
+      const redirectUrl = new URL(window.location.href);
+      redirectUrl.searchParams.set('preview_theme_id', test.testThemeId);
+      
+      // 🔧 FIX v2.9.2: Track pageview BEFORE redirect using page-specific key
+      // This allows tracking subsequent pages after redirect
+      const pageTrackKey = 'abboost_theme_pageview_' + test.id + '_' + currentPath;
+      const alreadyTrackedThisPage = sessionStorage.getItem(pageTrackKey);
+      
+      if (!alreadyTrackedThisPage) {
+        // Track pageview before redirect - this counts the visitor
+        trackThemeTestEvent(test.id, 'test', 'pageview', currentPath, sessionId);
+        sessionStorage.setItem(pageTrackKey, '1');
+      }
+      
+      window.location.replace(redirectUrl.toString());
+      return; // Stop execution - we're redirecting
+    } else {
+      // User assigned to original variant - stay on current theme
+      console.log('🎨 ABboost: Staying on original theme');
+      
+      // 🔧 FIX v2.9.2: Track pageview for EACH page with deduplication
+      const pageTrackKey = 'abboost_theme_pageview_' + test.id + '_' + currentPath;
+      const alreadyTrackedThisPage = sessionStorage.getItem(pageTrackKey);
+      
+      if (!alreadyTrackedThisPage) {
+        trackThemeTestEvent(test.id, 'original', 'pageview', currentPath, sessionId);
+        sessionStorage.setItem(pageTrackKey, '1');
+      }
+      
+      // 🛒 Set cart attributes and setup Add to Cart tracking for original variant too
+      setThemeTestCartAttributes(test.id, 'original', test.name);
+      setupThemeTestAddToCartTracking(test.id, 'original', sessionId);
+      setupThemeTestEngagementTracking(test.id, 'original', sessionId);
+      
+      showPage();
+      return;
+    }
+  }
+  
+  // Remove Shopify preview bar (for theme test visitors)
+  function removePreviewBar() {
+    const PREVIEW_BAR_IDS = ['preview-bar-iframe', 'PBarNextFrameWrapper'];
+    
+    function removeElements() {
+      PREVIEW_BAR_IDS.forEach(function(id) {
+        const el = document.getElementById(id);
+        if (el) {
+          el.remove();
+          console.log('🎨 ABboost: Removed preview bar:', id);
+        }
+      });
+    }
+    
+    // Try immediately
+    removeElements();
+    
+    // Also after DOM ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        removeElements();
+        
+        // Observe for late-added preview bars
+        var observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            mutation.addedNodes.forEach(function(node) {
+              if (node.nodeType === 1 && PREVIEW_BAR_IDS.includes(node.id)) {
+                node.remove();
+                console.log('🎨 ABboost: Removed late-added preview bar:', node.id);
+              }
+            });
+          });
+        });
+        
+        if (document.body) {
+          observer.observe(document.body, { childList: true, subtree: true });
+        }
+      });
+    }
+  }
+  
+  // Track theme test events
+  function trackThemeTestEvent(testId, variant, eventType, pageUrl, sessionId) {
+    try {
+      var data = {
+        testId: testId,
+        variant: variant,
+        eventType: eventType,
+        pageUrl: pageUrl,
+        sessionId: sessionId,
+        deviceType: /Android|webOS|iPhone|iPad|iPod/i.test(navigator.userAgent) ? 'mobile' : 'desktop',
+        userAgent: navigator.userAgent.substring(0, 200)
+      };
+      
+      console.log('📊 ABboost: Tracking theme test event:', eventType, variant);
+      
+      // Use sendBeacon with Blob for proper Content-Type (like other tests!)
+      if (navigator.sendBeacon) {
+        var blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+        navigator.sendBeacon(API_URL + '/api/theme-test/track', blob);
+      } else {
+        fetch(API_URL + '/api/theme-test/track', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+          keepalive: true
+        }).catch(function() {});
+      }
+    } catch (e) {
+      console.error('❌ ABboost: Theme test tracking error:', e);
+    }
+  }
+
+  // 🛒 Set cart attributes for theme test tracking (enables purchase tracking via webhooks)
+  function setThemeTestCartAttributes(testId, variant, testName) {
+    try {
+      var attributes = {
+        abboost_theme_test_id: testId,
+        abboost_theme_variant: variant,
+        abboost_theme_test_name: testName
+      };
+      
+      fetch('/cart/update.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ attributes: attributes }),
+        credentials: 'same-origin'
+      }).then(function() {
+        console.log('🛒 ABboost: Cart attributes set for theme test:', variant);
+      }).catch(function(err) {
+        console.error('❌ ABboost: Failed to set cart attributes:', err);
+      });
+    } catch (e) {
+      console.error('❌ ABboost: Error setting cart attributes:', e);
+    }
+  }
+
+  // 🛒 Track Add to Cart events for theme tests
+  function setupThemeTestAddToCartTracking(testId, variant, sessionId) {
+    // Flag to prevent duplicate setup
+    if (window.__abboost_theme_atc_setup) return;
+    window.__abboost_theme_atc_setup = true;
+    
+    console.log('🛒 ABboost: Setting up Add to Cart tracking for theme test');
+    
+    // 🔧 Deduplication: Prevent multiple add_to_cart events for the same action
+    var lastAddToCartTime = 0;
+    var ADD_TO_CART_DEBOUNCE_MS = 2000; // 2 seconds debounce
+    
+    function trackAddToCartOnce(source) {
+      var now = Date.now();
+      if (now - lastAddToCartTime < ADD_TO_CART_DEBOUNCE_MS) {
+        console.log('🛒 ABboost: Add to Cart skipped (debounce) - source:', source);
+        return;
+      }
+      lastAddToCartTime = now;
+      console.log('🛒 ABboost: Add to Cart tracked - source:', source);
+      trackThemeTestEvent(testId, variant, 'add_to_cart', window.location.pathname, sessionId);
+    }
+    
+    // Method 1: Intercept form submissions to /cart/add
+    document.addEventListener('submit', function(e) {
+      var form = e.target;
+      if (form && form.action && form.action.includes('/cart/add')) {
+        trackAddToCartOnce('form submit');
+      }
+    }, true);
+    
+    // Method 2: Intercept fetch/XHR to /cart/add.js
+    var originalFetch = window.fetch;
+    window.fetch = function(url, options) {
+      var urlStr = typeof url === 'string' ? url : (url.url || '');
+      if (urlStr.includes('/cart/add')) {
+        trackAddToCartOnce('fetch');
+      }
+      return originalFetch.apply(this, arguments);
+    };
+    
+    // Method 3: Listen for Shopify's cart events (if available)
+    if (window.Shopify && window.Shopify.onCartUpdate) {
+      var originalOnCartUpdate = window.Shopify.onCartUpdate;
+      window.Shopify.onCartUpdate = function(cart) {
+        trackAddToCartOnce('Shopify event');
+        if (originalOnCartUpdate) originalOnCartUpdate(cart);
+      };
+    }
+    
+    // Method 4: Listen for common add-to-cart button clicks
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      // Check if clicked element or its parents have add-to-cart related attributes
+      while (target && target !== document.body) {
+        var name = (target.name || '').toLowerCase();
+        var id = (target.id || '').toLowerCase();
+        var className = (target.className || '').toLowerCase();
+        var type = (target.type || '').toLowerCase();
+        
+        if (name.includes('add') || id.includes('addtocart') || id.includes('add-to-cart') ||
+            className.includes('add-to-cart') || className.includes('addtocart') ||
+            (type === 'submit' && target.form && target.form.action && target.form.action.includes('/cart'))) {
+          // Small delay to let the form submit
+          setTimeout(function() {
+            trackAddToCartOnce('button click');
+          }, 100);
+          break;
+        }
+        target = target.parentElement;
+      }
+    }, true);
+  }
+
+  // 🎯 Track Engagement events for Theme Tests (scroll, click)
+  // This enables accurate bounce rate calculation
+  function setupThemeTestEngagementTracking(testId, variant, sessionId) {
+    // Flag to prevent duplicate setup
+    if (window.__abboost_theme_engagement_setup) return;
+    window.__abboost_theme_engagement_setup = true;
+    
+    // Check if already engaged this session
+    var engagementKey = 'abboost_theme_engaged_' + testId + '_' + sessionId;
+    if (sessionStorage.getItem(engagementKey)) {
+      console.log('✅ ABboost: User already engaged this session');
+      return;
+    }
+    
+    var hasEngaged = false;
+    
+    function markEngaged(source) {
+      if (hasEngaged) return;
+      hasEngaged = true;
+      sessionStorage.setItem(engagementKey, 'true');
+      
+      // Send engagement event to server
+      trackThemeTestEvent(testId, variant, 'engaged', window.location.pathname, sessionId);
+      console.log('✅ ABboost: User engaged via ' + source);
+    }
+    
+    // 1️⃣ Scroll tracking - user scrolled more than 100px
+    var scrollTracked = false;
+    window.addEventListener('scroll', function() {
+      if (!scrollTracked && window.scrollY > 100) {
+        scrollTracked = true;
+        markEngaged('scroll');
+      }
+    }, { passive: true });
+    
+    // 2️⃣ Click tracking - user clicked anywhere on the page
+    document.addEventListener('click', function() {
+      markEngaged('click');
+    }, { once: true });
+    
+    // 3️⃣ Keyboard interaction - user pressed a key (typing, navigation)
+    document.addEventListener('keydown', function(e) {
+      // Ignore modifier keys alone
+      if (['Shift', 'Control', 'Alt', 'Meta'].includes(e.key)) return;
+      markEngaged('keyboard');
+    }, { once: true });
+    
+    console.log('🎯 ABboost: Engagement tracking setup for theme test');
+  }
+
+  function handleSplitURLTest(test, currentPath) {
+    // console.log('🎯 ABboost: Handling Split URL Test:', test.name);
+    
+    // Check audience targeting
+    if (test.audienceTargeting) {
+      try {
+        const targeting = JSON.parse(test.audienceTargeting);
+        // console.log('🎯 ABboost: Audience targeting:', targeting);
+        
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isDesktop = !isMobile;
+        const isLoggedIn = window.Shopify && window.Shopify.customer;
+        const isReturning = localStorage.getItem('abboost_returning_visitor') === 'true';
+        
+        // Check if user matches ANY of the targeting criteria
+        const matchesMobile = targeting.includes('mobile') && isMobile;
+        const matchesDesktop = targeting.includes('desktop') && isDesktop;
+        const matchesLoggedIn = targeting.includes('logged_in') && isLoggedIn;
+        const matchesNewVisitors = targeting.includes('new_visitors') && !isReturning;
+        const matchesReturning = targeting.includes('returning') && isReturning;
+        
+        const shouldTarget = matchesMobile || matchesDesktop || matchesLoggedIn || matchesNewVisitors || matchesReturning;
+        
+        if (!shouldTarget) {
+          // console.log('⚠️ ABboost: User does not match audience targeting');
+          showPage();
+          return;
+        }
+        
+        // console.log('✅ ABboost: User matches audience targeting');
+      } catch (error) {
+        // console.error('❌ ABboost: Error parsing audience targeting:', error);
+      }
+    }
+    
+    // Mark as returning visitor
+    if (localStorage.getItem('abboost_returning_visitor') !== 'true') {
+      localStorage.setItem('abboost_returning_visitor', 'true');
+    }
+    
+    // Get session ID
+    const sessionId = getSessionId();
+    
+    // Get or create assignment based on redirectBehavior
+    let assignment;
+    const storageKey = 'abboost_split_url_' + test.id;
+    
+    if (test.alwaysTrigger) {
+      // "Redirect every time" - use sessionStorage (per session)
+      assignment = sessionStorage.getItem(storageKey);
+      if (!assignment) {
+        assignment = getConsistentAssignment(sessionId, test.id, test.trafficSplit);
+        sessionStorage.setItem(storageKey, assignment);
+        // console.log('📊 ABboost: Assignment (every_time):', assignment);
+      } else {
+        // console.log('📊 ABboost: Using existing assignment (every_time):', assignment);
+      }
+    } else {
+      // "Redirect once" - use hash-based (permanent across sessions)
+      assignment = getConsistentAssignment(sessionId, test.id, test.trafficSplit);
+      // console.log('📊 ABboost: Assignment (once):', assignment);
+    }
+    
+    // Check if redirect is needed (using 'test'/'original' like other tests)
+    // 🔧 FIX: Decode URLs for comparison (handles special chars like ®, ™, etc.)
+    let decodedControl = test.controlURL || '';
+    let decodedVariant = test.variantURL || '';
+    try { decodedControl = decodeURIComponent(decodedControl); } catch(e) {}
+    try { decodedVariant = decodeURIComponent(decodedVariant); } catch(e) {}
+    
+    // 🔧 FIX v2.9.6: Check if user is on variant page directly (from email, direct link, etc.)
+    // If user lands directly on variant page, they MUST be counted as 'test' variant
+    // because they're seeing the test content regardless of their random assignment
+    const isOnVariantPage = currentPath === decodedVariant || currentPath.endsWith(decodedVariant);
+    if (isOnVariantPage && assignment === 'original') {
+      console.log('🔄 ABboost: User on variant page with original assignment - overriding to test');
+      assignment = 'test';
+      // Update storage to maintain consistency
+      if (test.alwaysTrigger) {
+        sessionStorage.setItem(storageKey, 'test');
+      }
+    }
+    
+    // 🔧 FIX v2.3: Only redirect from control→variant, NEVER from variant→control!
+    // If someone visits the variant URL directly (from email, bookmark, etc.), 
+    // let them see it regardless of their assignment.
+    // This prevents redirect loops that cause double counting.
+    // 🔧 FIX v2.9.5: Also match collection paths (/collections/X/products/Y matches /products/Y)
+    const isOnControlPage = currentPath === decodedControl || currentPath.endsWith(decodedControl);
+    const shouldRedirectToVariant = assignment === 'test' && isOnControlPage;
+    // ❌ REMOVED: shouldRedirectToControl - causes redirect loops and double pageview counting
+    
+    if (shouldRedirectToVariant) {
+      let redirectURL = test.variantURL;
+      if (test.preserveQueryString && window.location.search) {
+        redirectURL += window.location.search;
+      }
+      
+      // console.log('🔀 ABboost: Redirecting to variant:', redirectURL);
+      
+      // 🔧 FIX v2.7.6: Deduplication for Split URL redirect case
+      const splitRedirectKey = 'abboost_split_redirect_' + test.id;
+      const alreadyTrackedSplitRedirect = sessionStorage.getItem(splitRedirectKey);
+      
+      if (!alreadyTrackedSplitRedirect) {
+        // Track redirect - only once per session
+        const trackData = {
+          testId: test.id,
+          variant: assignment,
+          eventType: 'pageview',
+          sessionId: sessionId,
+          fromURL: currentPath,
+          toURL: redirectURL,
+          timestamp: Date.now()
+        };
+        
+        if (navigator.sendBeacon) {
+          const blob = new Blob([JSON.stringify(trackData)], { type: 'application/json' });
+          navigator.sendBeacon(API_URL + '/api/split-url/track', blob);
+        }
+        
+        sessionStorage.setItem(splitRedirectKey, '1');
+      }
+      
+      window.location.replace(redirectURL);
+    } else {
+      // No redirect needed - track view and show page
+      // console.log('✅ ABboost: No redirect needed - showing page');
+      
+      // 🔧 FIX v2.7.8: First check if already tracked during redirect (same session)
+      const splitRedirectKey = 'abboost_split_redirect_' + test.id;
+      const alreadyTrackedRedirect = sessionStorage.getItem(splitRedirectKey);
+      
+      if (alreadyTrackedRedirect) {
+        // Already tracked during redirect - just show page, don't track again
+        console.log('✅ ABboost: Split URL - Already tracked during redirect - skipping duplicate');
+        setupUniversalTracking(test.id, assignment, sessionId, 'SPLIT_URL', null);
+        showPage();
+        return;
+      }
+      
+      // 🔧 FIX v2.3: Prevent duplicate pageview tracking per session/path
+      const pageviewKey = 'abboost_split_pv_' + test.id + '_' + currentPath;
+      const alreadyTracked = sessionStorage.getItem(pageviewKey);
+      
+      if (!alreadyTracked) {
+        const viewTrackData = {
+          testId: test.id,
+          variant: assignment,
+          eventType: 'pageview',
+          sessionId: sessionId,
+          fromURL: currentPath,
+          timestamp: Date.now()
+        };
+        
+        if (navigator.sendBeacon) {
+          const blob = new Blob([JSON.stringify(viewTrackData)], { type: 'application/json' });
+          navigator.sendBeacon(API_URL + '/api/split-url/track', blob);
+        }
+        
+        // Mark as tracked for this session/path
+        sessionStorage.setItem(pageviewKey, '1');
+      }
+      
+      // Setup event tracking for this page
+      setupUniversalTracking(test.id, assignment, sessionId, 'SPLIT_URL', null);
+      
+      showPage();
+    }
+  }
+
+  function setupUniversalTracking(testId, variant, sessionId, testType, productId) {
+    console.log('📊 ABboost: Setting up universal tracking (variant: ' + variant + ', type: ' + testType + ', productId: ' + productId + ')');
+    
+    // Determine tracking endpoint based on test type
+    var trackingEndpoint;
+    if (testType === 'SPLIT_URL') {
+      trackingEndpoint = '/api/split-url/track';
+    } else if (testType === 'DESCRIPTION') {
+      trackingEndpoint = '/api/description-test/track';
+    } else if (testType === 'PRODUCT_TITLE') {
+      trackingEndpoint = '/api/product-title-test/track';
+    } else if (testType === 'PRICE') {
+      trackingEndpoint = '/api/price-test/track';
+    } else {
+      trackingEndpoint = '/api/url-redirect/track';
+    }
+    
+    // 🔥 Store active test for thank-you page tracking
+    try {
+      var activeTests = JSON.parse(localStorage.getItem('abboost_active_tests') || '[]');
+      var existingIndex = activeTests.findIndex(function(t) { return t.testId === testId; });
+      var testInfo = {
+        testId: testId,
+        variant: variant,
+        sessionId: sessionId,
+        testType: testType,
+        trackingEndpoint: trackingEndpoint,
+        productId: productId || null, // 🎯 Store productId for purchase attribution
+        timestamp: Date.now()
+      };
+      if (existingIndex >= 0) {
+        activeTests[existingIndex] = testInfo;
+      } else {
+        activeTests.push(testInfo);
+      }
+      // Keep only tests from last 24 hours
+      activeTests = activeTests.filter(function(t) { return Date.now() - t.timestamp < 86400000; });
+      localStorage.setItem('abboost_active_tests', JSON.stringify(activeTests));
+    } catch (e) {}
+    
+    // 🔧 FIX: Use global dedupe map to prevent duplicate tracking
+    if (!window.__abboost_addtocart_dedupe) {
+      window.__abboost_addtocart_dedupe = {};
+    }
+    
+    // Track add to cart (form submission) - only add listener ONCE
+    if (!window.__abboost_submit_patched) {
+      window.__abboost_submit_patched = true;
+      document.addEventListener('submit', function(e) {
+        var form = e.target;
+        if (form && form.action && form.action.indexOf('/cart/add') !== -1) {
+          // Track for all active tests
+          try {
+            var activeTests = JSON.parse(localStorage.getItem('abboost_active_tests') || '[]');
+            activeTests.forEach(function(t) {
+              trackAddToCart(t.testId, t.variant, t.sessionId, t.trackingEndpoint, window.__abboost_addtocart_dedupe, t.productId);
+            });
+          } catch (e) {}
+        }
+      });
+    }
+    
+    // 🆕 Track add to cart (AJAX - intercept fetch)
+    if (!window.__abboost_fetch_patched) {
+      window.__abboost_fetch_patched = true;
+      var originalFetch = window.fetch;
+      window.fetch = function(url, options) {
+        var result = originalFetch.apply(this, arguments);
+        
+        // Check if this is an add-to-cart request
+        if (url && (url.indexOf('/cart/add') !== -1 || url.indexOf('cart/add') !== -1)) {
+          result.then(function(response) {
+            if (response.ok) {
+              // Get active tests from storage
+              try {
+                var activeTests = JSON.parse(localStorage.getItem('abboost_active_tests') || '[]');
+                activeTests.forEach(function(t) {
+                  trackAddToCart(t.testId, t.variant, t.sessionId, t.trackingEndpoint, window.__abboost_addtocart_dedupe, t.productId);
+                });
+              } catch (e) {}
+            }
+          }).catch(function() {});
+        }
+        
+        return result;
+      };
+    }
+    
+    // 🆕 Track add to cart (AJAX - intercept XMLHttpRequest)
+    if (!window.__abboost_xhr_patched) {
+      window.__abboost_xhr_patched = true;
+      var originalXHROpen = XMLHttpRequest.prototype.open;
+      var originalXHRSend = XMLHttpRequest.prototype.send;
+      
+      XMLHttpRequest.prototype.open = function(method, url) {
+        this._abboost_url = url;
+        return originalXHROpen.apply(this, arguments);
+      };
+      
+      XMLHttpRequest.prototype.send = function() {
+        var xhr = this;
+        if (xhr._abboost_url && (xhr._abboost_url.indexOf('/cart/add') !== -1 || xhr._abboost_url.indexOf('cart/add') !== -1)) {
+          xhr.addEventListener('load', function() {
+            if (xhr.status >= 200 && xhr.status < 300) {
+              try {
+                var activeTests = JSON.parse(localStorage.getItem('abboost_active_tests') || '[]');
+                activeTests.forEach(function(t) {
+                  trackAddToCart(t.testId, t.variant, t.sessionId, t.trackingEndpoint, window.__abboost_addtocart_dedupe, t.productId);
+                });
+              } catch (e) {}
+            }
+          });
+        }
+        return originalXHRSend.apply(this, arguments);
+      };
+    }
+    
+    // 🆕 Track Bundle Builder / Custom Add-to-Cart buttons
+    // These apps don't use standard /cart/add - they have custom buttons
+    if (!window.__abboost_bundle_patched) {
+      window.__abboost_bundle_patched = true;
+      
+      // Common Bundle Builder button selectors
+      var bundleSelectors = [
+        '.ai-bundle__cta-trwidget',           // AI Bundle Builder
+        '.bundle-add-to-cart',                // Generic bundle
+        '.bold-bundle-add-to-cart',           // Bold Bundle
+        '[data-bundle-add-to-cart]',          // Data attribute pattern
+        '.rebuy-cart__flyout-item-add-button', // Rebuy
+        '.monster-upsell-add-to-cart',        // Monster Upsells
+        '.frequently-bought-add-all',         // Frequently Bought Together
+        '.upsell-add-to-cart'                 // Generic upsell
+      ];
+      
+      document.addEventListener('click', function(e) {
+        var target = e.target;
+        var isBundle = false;
+        
+        // Check if clicked element or its parents match bundle selectors
+        for (var i = 0; i < bundleSelectors.length; i++) {
+          if (target.matches && target.matches(bundleSelectors[i])) {
+            isBundle = true;
+            break;
+          }
+          // Check parent elements (for nested buttons)
+          var parent = target.parentElement;
+          var depth = 0;
+          while (parent && depth < 5) {
+            if (parent.matches && parent.matches(bundleSelectors[i])) {
+              isBundle = true;
+              break;
+            }
+            parent = parent.parentElement;
+            depth++;
+          }
+          if (isBundle) break;
+        }
+        
+        if (isBundle) {
+          console.log('🎁 ABboost: Bundle/Custom Add-to-Cart detected!');
+          try {
+            var activeTests = JSON.parse(localStorage.getItem('abboost_active_tests') || '[]');
+            activeTests.forEach(function(t) {
+              trackAddToCart(t.testId, t.variant, t.sessionId, t.trackingEndpoint, window.__abboost_addtocart_dedupe, t.productId);
+            });
+          } catch (e) {}
+        }
+      });
+    }
+  }
+  
+  function trackAddToCart(testId, variant, sessionId, trackingEndpoint, dedupeMap, productId) {
+    // Prevent duplicate tracking within 2 seconds (debounce for multiple detection methods)
+    var now = Date.now();
+    if (dedupeMap[testId] && now - dedupeMap[testId] < 2000) {
+      console.log('🛒 ABboost: Add to Cart skipped (debounce) for test ' + testId);
+      return;
+    }
+    dedupeMap[testId] = now;
+    
+    console.log('🛒 ABboost: Add to cart detected for test ' + testId + ' (product: ' + productId + ')');
+    
+    var trackData = {
+      testId: testId,
+      variant: variant,
+      eventType: 'add_to_cart',
+      sessionId: sessionId,
+      fromURL: window.location.pathname,
+      productId: productId || null,
+      timestamp: Date.now()
+    };
+    
+    if (navigator.sendBeacon) {
+      var blob = new Blob([JSON.stringify(trackData)], { type: 'application/json' });
+      navigator.sendBeacon(API_URL + trackingEndpoint, blob);
+    }
+    
+    // 🔥 Save test info to cart note attributes for webhook tracking
+    saveTestToCartNotes();
+  }
+  
+  // 🔥 Save active test assignments to cart note attributes
+  // This allows the orders/create webhook to attribute conversions correctly
+  function saveTestToCartNotes() {
+    try {
+      var activeTests = JSON.parse(localStorage.getItem('abboost_active_tests') || '[]');
+      if (activeTests.length === 0) return;
+      
+      // Filter to recent tests only (last 24h)
+      var now = Date.now();
+      activeTests = activeTests.filter(function(t) {
+        return t && t.timestamp && (now - t.timestamp < 86400000);
+      });
+      
+      if (activeTests.length === 0) return;
+      
+      // Build array with essential data for webhook
+      // Format: [{ testId, variant, sessionId, testType }]
+      var testsArray = activeTests.map(function(t) {
+        return {
+          testId: t.testId,
+          variant: t.variant,
+          sessionId: t.sessionId,
+          testType: t.testType
+        };
+      });
+      
+      // Update cart with note attributes (Shopify Cart API)
+      fetch('/cart/update.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          attributes: {
+            '_abboost_tests': JSON.stringify(testsArray)
+          }
+        })
+      }).then(function() {
+        console.log('📝 ABboost: Test assignments saved to cart notes (' + testsArray.length + ' tests)');
+      }).catch(function(e) {
+        console.log('⚠️ ABboost: Failed to save cart notes:', e);
+      });
+    } catch (e) {}
+  }
+  
+  // 🔥 GLOBAL: Track purchases on thank-you page (runs on ANY page)
+  function checkThankYouPage() {
+    var currentPath = window.location.pathname;
+    if (currentPath.indexOf('/thank') === -1 && 
+        currentPath.indexOf('/orders/') === -1 && 
+        currentPath.indexOf('/checkouts/') === -1) {
+      return; // Not a thank-you page
+    }
+    
+    // Check if already tracked this order
+    var orderKey = 'abboost_order_tracked_' + currentPath;
+    if (sessionStorage.getItem(orderKey)) {
+      return; // Already tracked
+    }
+    sessionStorage.setItem(orderKey, 'true');
+    
+    console.log('✅ ABboost: Thank you page detected - checking for active tests');
+    
+    try {
+      var activeTests = JSON.parse(localStorage.getItem('abboost_active_tests') || '[]');
+      if (activeTests.length === 0) {
+        console.log('⚠️ ABboost: No active tests to track purchase for');
+        return;
+      }
+      
+      // Get order details from Shopify checkout object
+      var checkout = window.Shopify && window.Shopify.checkout;
+      var orderValue = checkout && checkout.total_price ? parseFloat(checkout.total_price) / 100 : null;
+      
+      // Get purchased product IDs from line items
+      var purchasedProductIds = [];
+      if (checkout && checkout.line_items) {
+        checkout.line_items.forEach(function(item) {
+          if (item.product_id) {
+            purchasedProductIds.push(String(item.product_id));
+          }
+        });
+      }
+      console.log('📦 ABboost: Purchased product IDs:', purchasedProductIds);
+      
+      // Track purchase for relevant tests only
+      activeTests.forEach(function(t) {
+        var shouldTrack = false;
+        var productValue = orderValue; // Default to total order value
+        
+        // 🎯 SPLIT_URL tests: Track ALL purchases (page-level test)
+        if (t.testType === 'SPLIT_URL') {
+          shouldTrack = true;
+          console.log('📊 Split URL test - tracking full order');
+        }
+        // 🎯 Product tests: Only track if the test product was purchased
+        else if (t.productId && purchasedProductIds.length > 0) {
+          var normalizedTestProductId = String(t.productId).replace('gid://shopify/Product/', '');
+          shouldTrack = purchasedProductIds.some(function(pid) {
+            return pid === normalizedTestProductId;
+          });
+          
+          if (shouldTrack && checkout && checkout.line_items) {
+            // Calculate value for just this product
+            productValue = 0;
+            checkout.line_items.forEach(function(item) {
+              if (String(item.product_id) === normalizedTestProductId) {
+                productValue += parseFloat(item.line_price || item.price || 0) / 100;
+              }
+            });
+            console.log('📊 Product test - product found in order, value: ' + productValue);
+          }
+        }
+        // 🎯 Product tests without checkout data: Track (fallback)
+        else if (t.productId && purchasedProductIds.length === 0) {
+          // Can't verify - track anyway as fallback (better than missing conversions)
+          shouldTrack = true;
+          console.log('⚠️ Product test - no checkout data, tracking anyway');
+        }
+        
+        if (!shouldTrack) {
+          console.log('⏭️ ABboost: Skipping test ' + t.testId + ' - product not in order');
+          return;
+        }
+        
+        console.log('💰 ABboost: Tracking purchase for test ' + t.testId + ' (' + t.variant + '), value: ' + productValue);
+        
+        var trackData = {
+          testId: t.testId,
+          variant: t.variant,
+          eventType: 'purchase',
+          sessionId: t.sessionId,
+          fromURL: currentPath,
+          value: productValue,
+          productId: t.productId,
+          timestamp: Date.now()
+        };
+        
+        if (navigator.sendBeacon) {
+          var blob = new Blob([JSON.stringify(trackData)], { type: 'application/json' });
+          navigator.sendBeacon(API_URL + t.trackingEndpoint, blob);
+        }
+      });
+      
+      // Clear active tests after purchase tracking
+      localStorage.removeItem('abboost_active_tests');
+      
+    } catch (e) {
+      console.error('❌ ABboost: Error tracking purchase:', e);
+    }
+  }
+  
+  // Run thank-you page check immediately
+  checkThankYouPage();
+
+  async function initFastRedirect() {
+    const currentPath = window.location.pathname;
+    const shop = getShopDomain();
+    const currentProductId = getProductId();
+    
+    // 👁️ Check for skip/preview mode - MUST BE FIRST CHECK!
+    const urlParams = new URLSearchParams(window.location.search);
+    const skipMode = urlParams.get('_ab_skip');
+    const previewMode = urlParams.get('abboost_preview');
+    
+    if (skipMode === '1' || previewMode) {
+      console.log('👁️ ABboost: Skip mode active - showing page without any redirects');
+      showPage();
+      return;
+    }
+    
+    // 🛡️ Skip tracking for Shopify Admin - Don't count admin visits!
+    if (window.location.href.includes('admin.shopify.com') || 
+        (document.referrer && document.referrer.includes('admin.shopify.com')) ||
+        (window.Shopify && window.Shopify.designMode)) {
+      console.log('🛡️ ABboost: Admin/Design mode detected - skipping tracking');
+      showPage();
+      return;
+    }
+    
+    console.log('🔍 ABboost: Current Product ID:', currentProductId || 'not found');
+    console.log('🔍 ABboost: Current Path:', currentPath);
+    
+    if (!shop) {
+      showPage();
+      return;
+    }
+    
+    try {
+      const tests = await getCachedTests(shop);
+      if (!tests || tests.length === 0) {
+        showPage();
+        return;
+      }
+      
+      // 🎯 PRIORITY 0: Check Theme Tests (HIGHEST PRIORITY - affects entire site!)
+      for (const test of tests) {
+        if (test.type === 'THEME') {
+          return handleThemeTest(test, currentPath);
+        }
+      }
+      
+      // 🎯 PRIORITY 1: Check Split URL Tests (ANY page)
+      // 🔧 FIX: Decode paths for comparison (handles special chars like ®, ™, etc.)
+      let decodedPath = currentPath;
+      try { decodedPath = decodeURIComponent(currentPath); } catch(e) {}
+      for (const test of tests) {
+        if (test.type === 'SPLIT_URL') {
+          let decodedControl = test.controlURL || '';
+          let decodedVariant = test.variantURL || '';
+          try { decodedControl = decodeURIComponent(decodedControl); } catch(e) {}
+          try { decodedVariant = decodeURIComponent(decodedVariant); } catch(e) {}
+          // 🔧 FIX v2.9.5: Match collection paths too!
+          // /collections/X/products/Y should match /products/Y
+          const matchesControl = decodedPath === decodedControl || decodedPath.endsWith(decodedControl);
+          const matchesVariant = decodedPath === decodedVariant || decodedPath.endsWith(decodedVariant);
+          if (matchesControl || matchesVariant) {
+            return handleSplitURLTest(test, decodedPath);
+          }
+        }
+      }
+      
+      // 🎯 PRIORITY 2: Check Product Tests (only /products/ pages)
+      if (!currentPath.includes('/products/')) {
+        showPage();
+        return;
+      }
+      
+      let matchedTest = null;
+      let triggerResult = null;
+      for (const test of tests) {
+        const result = checkTriggerConditions(test, currentPath, currentProductId);
+        if (result.shouldTrack) {
+          matchedTest = test;
+          triggerResult = result;
+          break;
+        }
+      }
+      
+      if (!matchedTest || !triggerResult) {
+        showPage();
+        return;
+      }
+      
+      const test = matchedTest;
+      const isReturningVisitor = localStorage.getItem('abboost_returning_visitor') === 'true';
+      
+      if (!test.targetNewVisitors && !isReturningVisitor) {
+        showPage();
+        return;
+      }
+      if (!test.targetReturning && isReturningVisitor) {
+        showPage();
+        return;
+      }
+      
+      if (!isReturningVisitor) {
+        localStorage.setItem('abboost_returning_visitor', 'true');
+      }
+      
+      const storageKey = 'abboost_url_redirect_' + test.id;
+      let assignment = localStorage.getItem(storageKey);
+      
+      // 🔧 FIX v2.7.5: Handle direct traffic to test product properly
+      // If user arrives at test product without going through assignment flow:
+      // - No assignment = came directly (Google, direct link) → redirect to original
+      // - assignment = 'original' = should be on original → redirect to original  
+      // - assignment = 'test' = legitimate → count them
+      if (triggerResult.variant === 'test') {
+        if (!assignment) {
+          // 🚫 User arrived directly at test product without assignment
+          // Redirect them to original product to go through proper flow
+          console.log('🔄 ABboost: Direct traffic to test product - redirecting to original for proper assignment');
+          if (test.originalURL) {
+            window.location.replace(test.originalURL);
+            return;
+          }
+          // If no originalURL, just show page without tracking
+          showPage();
+          return;
+        } else if (assignment === 'original') {
+          // 🔄 User was assigned to original but somehow on test product
+          // Redirect back to original
+          console.log('🔄 ABboost: User assigned to original but on test product - redirecting back');
+          if (test.originalURL) {
+            window.location.replace(test.originalURL);
+            return;
+          }
+          showPage();
+          return;
+        }
+        // assignment === 'test' - legitimate visitor, continue
+      }
+      
+      if (!test.alwaysTrigger) {
+        const hasTriggeredKey = 'abboost_url_redirect_triggered_' + test.id;
+        const hasTriggered = localStorage.getItem(hasTriggeredKey);
+        if (hasTriggered && assignment === 'test' && !triggerResult.shouldRedirect) {
+          // User is on test product after redirect - check if already tracked
+          const sessionId = getSessionId();
+          
+          // 🔧 FIX v2.7.8: Use SAME key as redirect to prevent double counting!
+          // If user was already counted during redirect, don't count again on test product
+          const redirectViewKey = 'abboost_redirect_view_' + test.id;
+          const alreadyTrackedRedirect = sessionStorage.getItem(redirectViewKey);
+          
+          if (alreadyTrackedRedirect) {
+            // Already tracked during redirect - just show page, don't track again
+            console.log('✅ ABboost: Already tracked during redirect - skipping duplicate');
+            var testProductId = test.originalProductId || test.duplicatedProductId || currentProductId;
+            setupUniversalTracking(test.id, assignment, sessionId, test.type, testProductId);
+            showPage();
+            return;
+          }
+          
+          // Fallback: check path-based key for edge cases
+          const viewKey = 'abboost_view_' + test.id + '_' + currentPath;
+          const alreadyTracked = sessionStorage.getItem(viewKey);
+          
+          if (!alreadyTracked) {
+            const trackData = {
+              testId: test.id,
+              variant: assignment,
+              eventType: test.type === 'SPLIT_URL' ? 'pageview' : 'view',
+              sessionId: sessionId,
+              fromURL: currentPath,
+              productId: currentProductId,
+              timestamp: Date.now()
+            };
+            
+            // Determine tracking endpoint based on test type
+            let trackingEndpoint;
+            if (test.type === 'SPLIT_URL') {
+              trackingEndpoint = '/api/split-url/track';
+            } else if (test.type === 'DESCRIPTION') {
+              trackingEndpoint = '/api/description-test/track';
+            } else if (test.type === 'PRODUCT_TITLE') {
+              trackingEndpoint = '/api/product-title-test/track';
+            } else if (test.type === 'PRICE') {
+              trackingEndpoint = '/api/price-test/track';
+            } else {
+              trackingEndpoint = '/api/url-redirect/track';
+            }
+            
+            if (navigator.sendBeacon) {
+              const blob = new Blob([JSON.stringify(trackData)], { type: 'application/json' });
+              navigator.sendBeacon(API_URL + trackingEndpoint, blob);
+            }
+            
+            // Mark as tracked for this session/path
+            sessionStorage.setItem(viewKey, '1');
+          }
+          
+          // 🔧 FIX: Setup add_to_cart & purchase tracking even for returning visitors!
+          var testProductId = test.originalProductId || test.duplicatedProductId || currentProductId;
+          setupUniversalTracking(test.id, assignment, sessionId, test.type, testProductId);
+          
+          showPage();
+          return;
+        }
+      }
+      
+      if (!assignment) {
+        // 🎯 Use consistent hash-based assignment
+        // Same sessionId always gets the same variant
+        const sessionId = getSessionId();
+        assignment = getConsistentAssignment(sessionId, test.id, test.trafficSplit);
+        
+        console.log('🎲 ABboost: Hash-based assignment:', {
+          sessionId: sessionId.substring(0, 20) + '...',
+          testId: test.id.substring(0, 10) + '...',
+          trafficSplit: test.trafficSplit,
+          result: assignment
+        });
+        
+        localStorage.setItem(storageKey, assignment);
+      }
+      
+      const shouldRedirect = assignment === 'test' && triggerResult.shouldRedirect && currentPath !== test.testURL;
+      const sessionId = getSessionId();
+      
+      if (shouldRedirect) {
+        let redirectURL = test.testURL;
+        if (test.preserveQueryString && window.location.search) {
+          redirectURL += window.location.search;
+        }
+        
+        if (!test.alwaysTrigger) {
+          localStorage.setItem('abboost_url_redirect_triggered_' + test.id, 'true');
+        }
+        
+        // 🔧 FIX v2.7.6: Deduplication for redirect case too!
+        // Only count ONE pageview per session, even if user visits original multiple times
+        const redirectViewKey = 'abboost_redirect_view_' + test.id;
+        const alreadyTrackedRedirect = sessionStorage.getItem(redirectViewKey);
+        
+        if (!alreadyTrackedRedirect) {
+          const trackData = {
+            testId: test.id,
+            variant: assignment,
+            eventType: 'pageview',
+            sessionId: sessionId,
+            fromURL: currentPath,
+            toURL: redirectURL,
+            productId: currentProductId,
+            timestamp: Date.now()
+          };
+          
+          // 🚨 CRITICAL: Send as Blob with application/json Content-Type
+          // Determine tracking endpoint based on test type
+          let trackingEndpoint;
+          if (test.type === 'SPLIT_URL') {
+            trackingEndpoint = '/api/split-url/track';
+          } else if (test.type === 'DESCRIPTION') {
+            trackingEndpoint = '/api/description-test/track';
+          } else if (test.type === 'PRODUCT_TITLE') {
+            trackingEndpoint = '/api/product-title-test/track';
+          } else if (test.type === 'PRICE') {
+            trackingEndpoint = '/api/price-test/track';
+          } else {
+            trackingEndpoint = '/api/url-redirect/track';
+          }
+          
+          if (navigator.sendBeacon) {
+            const blob = new Blob([JSON.stringify(trackData)], { type: 'application/json' });
+            navigator.sendBeacon(API_URL + trackingEndpoint, blob);
+          }
+          
+          // Mark as tracked for this session
+          sessionStorage.setItem(redirectViewKey, '1');
+        }
+        
+        window.location.replace(redirectURL);
+      } else {
+        // Track VIEW event (no redirect) - but only once per session/path!
+        // 🔧 FIX v2.4: Prevent duplicate view tracking for Price Tests
+        const viewKey = 'abboost_view_' + test.id + '_' + currentPath;
+        const alreadyTracked = sessionStorage.getItem(viewKey);
+        
+        if (!alreadyTracked) {
+          const viewTrackData = {
+            testId: test.id,
+            variant: assignment,
+            eventType: test.type === 'SPLIT_URL' ? 'pageview' : 'view',
+            sessionId: sessionId,
+            fromURL: currentPath,
+            productId: currentProductId,
+            timestamp: Date.now()
+          };
+          
+          // 🚨 CRITICAL: Send as Blob with application/json Content-Type
+          // Determine tracking endpoint based on test type
+          let trackingEndpoint;
+          if (test.type === 'SPLIT_URL') {
+            trackingEndpoint = '/api/split-url/track';
+          } else if (test.type === 'DESCRIPTION') {
+            trackingEndpoint = '/api/description-test/track';
+          } else if (test.type === 'PRODUCT_TITLE') {
+            trackingEndpoint = '/api/product-title-test/track';
+          } else if (test.type === 'PRICE') {
+            trackingEndpoint = '/api/price-test/track';
+          } else {
+            trackingEndpoint = '/api/url-redirect/track';
+          }
+          
+          if (navigator.sendBeacon) {
+            const blob = new Blob([JSON.stringify(viewTrackData)], { type: 'application/json' });
+            navigator.sendBeacon(API_URL + trackingEndpoint, blob);
+          }
+          
+          // Mark as tracked for this session/path
+          sessionStorage.setItem(viewKey, '1');
+        }
+        
+        // Setup event tracking for this page (add to cart + purchase)
+        // Pass productId for product-level tests (originalProductId or duplicatedProductId)
+        var testProductId = test.originalProductId || test.duplicatedProductId || currentProductId;
+        setupUniversalTracking(test.id, assignment, sessionId, test.type, testProductId);
+        
+        showPage();
+      }
+      
+    } catch (error) {
+      showPage();
+    }
+  }
+
+  initFastRedirect();
+  
+  // 🔥 GLOBAL LISTENERS: Set up add-to-cart tracking for existing tests
+  // This ensures tracking works on product pages when user came from a tested landing page
+  // (e.g., Split URL test on /pages/motywacja -> user navigates to /products/xyz)
+  (function setupGlobalListenersForExistingTests() {
+    try {
+      var activeTests = JSON.parse(localStorage.getItem('abboost_active_tests') || '[]');
+      
+      // Filter to only recent tests (last 24 hours)
+      var now = Date.now();
+      activeTests = activeTests.filter(function(t) { 
+        return t && t.timestamp && (now - t.timestamp < 86400000); 
+      });
+      
+      if (activeTests.length === 0) return;
+      
+      // Check if listeners are already set up (by initFastRedirect or previous run)
+      if (window.__abboost_global_listeners_setup) return;
+      window.__abboost_global_listeners_setup = true;
+      
+      console.log('📊 ABboost: Found ' + activeTests.length + ' active test(s) in localStorage, ensuring listeners are set up');
+      
+      // Use the first test to initialize listeners (they handle ALL tests via localStorage)
+      var t = activeTests[0];
+      if (t && t.testId && t.variant && t.sessionId && t.testType) {
+        // Only set up if listeners aren't already patched
+        if (!window.__abboost_submit_patched || !window.__abboost_fetch_patched) {
+          setupUniversalTracking(t.testId, t.variant, t.sessionId, t.testType, t.productId);
+          console.log('✅ ABboost: Global listeners initialized for existing tests');
+        }
+      }
+    } catch (e) {
+      console.warn('⚠️ ABboost: Error setting up global listeners:', e);
+    }
+  })();
+  
+  window.ABboostCriticalRedirectLoaded = true;
+  window.__ABBOOST_SNIPPET_LOADED__ = true; // Flag for ScriptTag fallback
+  
+})();
+</script>
+
+<!-- 🎨 STEP 3: Description Test Logic (URL Redirect - same as Product Split!) -->
+<script>
+(function() {
+  'use strict';
+  
+  // Description Tests work EXACTLY like URL Redirect Tests!
+  // They redirect to a duplicated product with different description.
+  // So we just include them in the same redirect logic above.
+  
+  // The only difference is the tracking endpoint, but that's handled by
+  // the unified metafield structure (type: 'DESCRIPTION' vs 'URL_REDIRECT')
+  
+  // console.log('🎨 ABboost: Description Tests handled by URL Redirect logic');
+  
+})();
+</script>
+
+<!-- ✅ All tracking is now handled inline (no external tracking.js needed) -->
+<!-- Variant tests + Product cards will be added in future versions if needed -->

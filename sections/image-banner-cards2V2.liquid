@@ -1,0 +1,903 @@
+{% comment %}
+  Safety Features Carousel (Dawn)
+  - Full width background image per slide (desktop + mobile)
+  - Global heading + text (in main schema)
+  - Each slide has 3 feature cards (icon + richtext heading + richtext text)
+  - Carousel with dots + drag
+  - Mobile: 1 slide at a time + autoplay
+{% endcomment %}
+
+{%- liquid
+  assign sid = section.id
+  assign total = section.blocks.size
+-%}
+
+<style>
+  .sfc-{{ sid }}{
+    width:100%;
+    background: {{ section.settings.fallback_bg }};
+  }
+
+  .sfc-{{ sid }} .sfc__wrap{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+  }
+
+  .sfc-{{ sid }} .sfc__viewport{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+  }
+
+  .sfc-{{ sid }} .sfc__track{
+    display:flex;
+    width:100%;
+    transform: translateX(0%);
+    transition: transform 520ms ease;
+    will-change: transform;
+  }
+
+  .sfc-{{ sid }} .sfc__slide{
+    position:relative;
+    flex: 0 0 100%;
+    width:100%;
+    min-height: {{ section.settings.min_height_desktop }}px;
+    display:flex;
+    align-items: center;
+  }
+
+  /* background media */
+  .sfc-{{ sid }} .sfc__bg{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    overflow:hidden;
+  }
+  .sfc-{{ sid }} .sfc__bg img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    object-position: center;
+    display:block;
+  }
+
+  .sfc-{{ sid }} .sfc__overlay{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    background: rgba(0,0,0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});
+    pointer-events:none;
+  }
+
+  /* content container */
+  .sfc-{{ sid }} .sfc__inner{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width: {{ section.settings.container_width }}px;
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px;
+    box-sizing:border-box;
+  }
+
+  /* layout like figma: left content, big product to the right stays in bg image */
+  .sfc-{{ sid }} .sfc__content{
+    width: min(640px, 55%);
+    max-width: 640px;
+  }
+
+  .sfc-{{ sid }} .sfc__heading{
+    margin:0 0 {{ section.settings.heading_gap }}px;
+    color: {{ section.settings.heading_color }};
+    font-size: {{ section.settings.heading_size_desktop }}px;
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-transform: {{ section.settings.heading_transform }};
+  }
+
+  .sfc-{{ sid }} .sfc__text{
+    margin:0 0 {{ section.settings.text_gap }}px;
+    color: {{ section.settings.text_color }};
+    font-size: {{ section.settings.text_size_desktop }}px;
+    line-height: 1.5;
+    opacity: 0.95;
+    max-width: {{ section.settings.text_max_width }}px;
+  }
+
+  /* feature cards */
+  .sfc-{{ sid }} .sfc__cards{
+    display:grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: {{ section.settings.card_gap }}px;
+    width: min(630px, 100%);
+  }
+
+  .sfc-{{ sid }} .sfc__card{
+    background: rgba(255,255,255, {{ section.settings.card_bg_opacity | divided_by: 100.0 }});
+    border: 1px solid rgba(255,255,255, {{ section.settings.card_border_opacity | divided_by: 100.0 }});
+    border-radius: {{ section.settings.card_radius }}px;
+    padding: 28px 12px;
+    box-sizing:border-box;
+    text-align:center;
+    backdrop-filter: blur({{ section.settings.blur_amount }}px);
+    -webkit-backdrop-filter: blur({{ section.settings.blur_amount }}px);
+  }
+
+  .sfc-{{ sid }} .sfc__icon{
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+    margin: 0 auto 10px;
+    border-radius: 999px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: rgba(255,255,255, {{ section.settings.icon_bg_opacity | divided_by: 100.0 }});
+    overflow:hidden;
+  }
+  .sfc-{{ sid }} .sfc__icon img{
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+    display:block;
+  }
+
+  .sfc-{{ sid }} .sfc__cardTitle{
+    margin:0 0 6px;
+    color: {{ section.settings.card_title_color }};
+    font-size: {{ section.settings.card_title_size }}px;
+    line-height: 1.2;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .sfc-{{ sid }} .sfc__cardText{
+    margin:0;
+    color: {{ section.settings.card_text_color }};
+    font-size: {{ section.settings.card_text_size }}px;
+    line-height: 1.35;
+    opacity: 0.95;
+  }
+
+  /* dots */
+  .sfc-{{ sid }} .sfc__dots{
+    position:absolute;
+    left:50%;
+    transform: translateX(-50%);
+    bottom: {{ section.settings.dots_bottom }}px;
+    z-index:3;
+    display:flex;
+    gap: 10px;
+    align-items:center;
+    justify-content:center;
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: rgba(0,0,0, {{ section.settings.dots_bg_opacity | divided_by: 100.0 }});
+  }
+
+  .sfc-{{ sid }} .sfc__dot{
+    appearance:none;
+    border:0;
+    padding:0;
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.35);
+    cursor:pointer;
+    transition: transform .2s ease, background .2s ease;
+  }
+  .sfc-{{ sid }} .sfc__dot[aria-current="true"]{
+    background: rgba(255,255,255,0.95);
+    transform: scale(1.15);
+  }
+ @media (max-width: 1100px){
+   .sfc__cardText{
+    font-size: 11px!important;
+    }
+}
+  /* tablet */
+  @media (max-width: 989px){
+   
+    .sfc-{{ sid }} .sfc__content{
+      width: min(700px, 70%);
+    }
+    .sfc-{{ sid }} .sfc__cards{
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      width: min(640px, 100%);
+    }
+  }
+
+  /* mobile */
+  @media (max-width: 749px){
+    .sfc-{{ sid }} .sfc__slide{
+      min-height: {{ section.settings.min_height_mobile }}px;
+      align-items:flex-start;
+    }
+
+    .sfc-{{ sid }} .sfc__inner{
+      padding: {{ section.settings.padding_top_mobile }}px 16px {{ section.settings.padding_bottom_mobile }}px;
+      text-align:center;
+    }
+
+    .sfc-{{ sid }} .sfc__content{
+      width: 100%;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .sfc-{{ sid }} .sfc__heading{
+      font-size: {{ section.settings.heading_size_mobile }}px;
+    }
+
+    .sfc-{{ sid }} .sfc__text{
+      font-size: {{ section.settings.text_size_mobile }}px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .sfc-{{ sid }} .sfc__cards{
+      grid-template-columns: 1fr;
+      gap: {{ section.settings.card_gap_mobile }}px;
+      width: min(360px, 100%);
+      margin: 14px auto 0;
+    }
+
+    .sfc-{{ sid }} .sfc__dots{
+      bottom: {{ section.settings.dots_bottom_mobile }}px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .sfc-{{ sid }} .sfc__track{ transition:none; }
+    .sfc-{{ sid }} .sfc__dot{ transition:none; }
+  }
+</style>
+
+<section class="sfc-{{ sid }}" data-sfc data-section-id="{{ sid }}">
+  <div class="sfc__wrap">
+    <div class="sfc__viewport" role="region" aria-label="Safety features carousel">
+      <div class="sfc__track" data-sfc-track>
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign bg_d = block.settings.bg_desktop
+            assign bg_m = block.settings.bg_mobile
+          -%}
+
+          <div class="sfc__slide" data-sfc-slide data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+            <div class="sfc__bg">
+              {%- if bg_d != blank -%}
+                {%- assign bg_d_url = bg_d | image_url: width: 2600 -%}
+                {%- assign bg_m_url = '' -%}
+                {%- if bg_m != blank -%}
+                  {%- assign bg_m_url = bg_m | image_url: width: 1400 -%}
+                {%- endif -%}
+
+                <picture>
+                  {%- if bg_m != blank -%}
+                    <source media="(max-width: 749px)" srcset="{{ bg_m_url }}">
+                  {%- endif -%}
+                  <img
+                    src="{{ bg_d_url }}"
+                    alt="{{ bg_d.alt | escape }}"
+                    loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                    width="{{ bg_d.width }}"
+                    height="{{ bg_d.height }}"
+                  >
+                </picture>
+              {%- else -%}
+                <div style="width:100%;height:100%;background:#111;"></div>
+              {%- endif -%}
+            </div>
+
+            <div class="sfc__overlay"></div>
+
+            <div class="sfc__inner">
+              <div class="sfc__content">
+                {%- if section.settings.heading != blank -%}
+                  <div class="sfc__heading rte">{{ section.settings.heading }}</div>
+                {%- endif -%}
+
+                {%- if section.settings.text != blank -%}
+                  <div class="sfc__text rte">{{ section.settings.text }}</div>
+                {%- endif -%}
+
+                <div class="sfc__cards">
+                  {%- for i in (1..3) -%}
+                    {%- assign icon_key = 'icon_' | append: i -%}
+                    {%- assign title_key = 'card_heading_' | append: i -%}
+                    {%- assign text_key  = 'card_text_' | append: i -%}
+
+                    {%- assign icon_img = block.settings[icon_key] -%}
+                    {%- assign c_title = block.settings[title_key] -%}
+                    {%- assign c_text  = block.settings[text_key] -%}
+
+                    <div class="sfc__card">
+                      <div class="sfc__icon">
+                        {%- if icon_img != blank -%}
+                          <img
+                            src="{{ icon_img | image_url: width: 200 }}"
+                            alt="{{ icon_img.alt | escape }}"
+                            loading="lazy"
+                            width="{{ icon_img.width }}"
+                            height="{{ icon_img.height }}"
+                          >
+                        {%- endif -%}
+                      </div>
+
+                      {%- if c_title != blank -%}
+                        <div class="sfc__cardTitle rte">{{ c_title }}</div>
+                      {%- endif -%}
+
+                      {%- if c_text != blank -%}
+                        <div class="sfc__cardText rte">{{ c_text }}</div>
+                      {%- endif -%}
+                    </div>
+                  {%- endfor -%}
+                </div>
+
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.show_dots and section.blocks.size > 1 -%}
+        <div class="sfc__dots" data-sfc-dots aria-label="Carousel pagination">
+          {%- for block in section.blocks -%}
+            <button
+              type="button"
+              class="sfc__dot"
+              data-sfc-dot
+              aria-label="Go to slide {{ forloop.index }}"
+              aria-current="{% if forloop.first %}true{% else %}false{% endif %}"
+            ></button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var root = document.querySelector('[data-sfc][data-section-id="{{ sid }}"]');
+  if(!root) return;
+
+  var track = root.querySelector('[data-sfc-track]');
+  var slides = Array.prototype.slice.call(root.querySelectorAll('[data-sfc-slide]'));
+  var dots = Array.prototype.slice.call(root.querySelectorAll('[data-sfc-dot]'));
+  if(!track || slides.length < 2) return;
+
+  var index = 0;
+  var total = slides.length;
+  var autoplayTimer = null;
+
+  function setActive(i, userAction){
+    index = (i + total) % total;
+    track.style.transform = 'translateX(' + (-100 * index) + '%)';
+    if(dots.length){
+      dots.forEach(function(d, di){
+        d.setAttribute('aria-current', di === index ? 'true' : 'false');
+      });
+    }
+    if(userAction) restartAutoplay();
+  }
+
+  // dots click
+  if(dots.length){
+    dots.forEach(function(dot, i){
+      dot.addEventListener('click', function(){ setActive(i, true); });
+    });
+  }
+
+  // swipe
+  var startX = 0, dx = 0, down = false;
+  function onDown(e){
+    down = true;
+    startX = (e.touches ? e.touches[0].clientX : e.clientX);
+    dx = 0;
+  }
+  function onMove(e){
+    if(!down) return;
+    var x = (e.touches ? e.touches[0].clientX : e.clientX);
+    dx = x - startX;
+  }
+  function onUp(){
+    if(!down) return;
+    down = false;
+    if(Math.abs(dx) > 45){
+      if(dx < 0) setActive(index + 1, true);
+      else setActive(index - 1, true);
+    }
+  }
+
+  root.addEventListener('mousedown', onDown);
+  root.addEventListener('mousemove', onMove);
+  window.addEventListener('mouseup', onUp);
+
+  root.addEventListener('touchstart', onDown, {passive:true});
+  root.addEventListener('touchmove', onMove, {passive:true});
+  root.addEventListener('touchend', onUp);
+
+  // autoplay on MOBILE ONLY
+  var speed = Math.max(2, {{ section.settings.autoplay_seconds | json }});
+
+  function startAutoplay(){
+    if(!window.matchMedia('(max-width: 749px)').matches) return null;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+    return setInterval(function(){ setActive(index + 1, false); }, speed * 1000);
+  }
+  function stopAutoplay(){
+    if(autoplayTimer){ clearInterval(autoplayTimer); autoplayTimer = null; }
+  }
+  function restartAutoplay(){
+    stopAutoplay();
+    autoplayTimer = startAutoplay();
+  }
+
+  // init
+  setActive(0, false);
+  autoplayTimer = startAutoplay();
+
+  window.addEventListener('resize', function(){
+    // keep transform correct + restart mobile autoplay logic
+    setActive(index, false);
+    restartAutoplay();
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Safety features carousel",
+  "settings": [
+    {
+      "type": "color",
+      "id": "fallback_bg",
+      "label": "Fallback background",
+      "default": "#0B0B0B"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Content max width (px)",
+      "min": 960,
+      "max": 1800,
+      "step": 20,
+      "default": 1440
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top desktop (px)",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom desktop (px)",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top mobile (px)",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom mobile (px)",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "default": 56
+    },
+
+    {
+      "type": "range",
+      "id": "min_height_desktop",
+      "label": "Min height desktop (px)",
+      "min": 360,
+      "max": 820,
+      "step": 10,
+      "default": 520
+    },
+    {
+      "type": "range",
+      "id": "min_height_mobile",
+      "label": "Min height mobile (px)",
+      "min": 420,
+      "max": 900,
+      "step": 10,
+      "default": 720
+    },
+
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity (%)",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "default": 40
+    },
+
+    {
+      "type": "header",
+      "content": "Heading & text"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p><strong>SAFETY</strong><br><strong>FEATURES</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Charge it in the cozy dock and use it up to 2 days per charge</p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_transform",
+      "label": "Heading transform",
+      "default": "uppercase",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "label": "Heading size desktop (px)",
+      "min": 22,
+      "max": 90,
+      "step": 1,
+      "default": 54
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size mobile (px)",
+      "min": 18,
+      "max": 60,
+      "step": 1,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "text_size_desktop",
+      "label": "Text size desktop (px)",
+      "min": 12,
+      "max": 26,
+      "step": 1,
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "text_size_mobile",
+      "label": "Text size mobile (px)",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "heading_gap",
+      "label": "Space under heading (px)",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "text_gap",
+      "label": "Space under text (px)",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "text_max_width",
+      "label": "Text max width (px)",
+      "min": 280,
+      "max": 900,
+      "step": 20,
+      "default": 420
+    },
+
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Gap between cards (px)",
+      "min": 8,
+      "max": 28,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "card_gap_mobile",
+      "label": "Gap between cards mobile (px)",
+      "min": 8,
+      "max": 24,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card radius (px)",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Card padding (px)",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "card_bg_opacity",
+      "label": "Card background opacity (%)",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "card_border_opacity",
+      "label": "Card border opacity (%)",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "blur_amount",
+      "label": "Glass blur (px)",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "default": 10
+    },
+
+    {
+      "type": "header",
+      "content": "Icon"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon circle size (px)",
+      "min": 34,
+      "max": 80,
+      "step": 2,
+      "default": 54
+    },
+    {
+      "type": "range",
+      "id": "icon_bg_opacity",
+      "label": "Icon circle bg opacity (%)",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 18
+    },
+
+    {
+      "type": "header",
+      "content": "Card typography"
+    },
+    {
+      "type": "color",
+      "id": "card_title_color",
+      "label": "Card title color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card text color",
+      "default": "rgba(255,255,255,0.85)"
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "label": "Card title size (px)",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "card_text_size",
+      "label": "Card text size (px)",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "default": 11
+    },
+
+    {
+      "type": "header",
+      "content": "Carousel"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Show dots",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "dots_bg_opacity",
+      "label": "Dots background opacity (%)",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "dots_bottom",
+      "label": "Dots bottom desktop (px)",
+      "min": 8,
+      "max": 80,
+      "step": 2,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "dots_bottom_mobile",
+      "label": "Dots bottom mobile (px)",
+      "min": 8,
+      "max": 80,
+      "step": 2,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "autoplay_seconds",
+      "label": "Mobile autoplay speed (sec)",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 4
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "bg_desktop",
+          "label": "Background image desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_mobile",
+          "label": "Background image mobile"
+        },
+
+        {
+          "type": "header",
+          "content": "Card 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_1",
+          "label": "Icon"
+        },
+        {
+          "type": "richtext",
+          "id": "card_heading_1",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "card_text_1",
+          "label": "Text"
+        },
+
+        {
+          "type": "header",
+          "content": "Card 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_2",
+          "label": "Icon"
+        },
+        {
+          "type": "richtext",
+          "id": "card_heading_2",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "card_text_2",
+          "label": "Text"
+        },
+
+        {
+          "type": "header",
+          "content": "Card 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_3",
+          "label": "Icon"
+        },
+        {
+          "type": "richtext",
+          "id": "card_heading_3",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "card_text_3",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Banner Card 2 V2",
+      "blocks": [
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" }
+      ]
+    }
+  ]
+}
+{% endschema %}

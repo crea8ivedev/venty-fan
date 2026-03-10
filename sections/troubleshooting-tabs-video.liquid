@@ -1,0 +1,604 @@
+<!-- Start troubleshooting-tabs-video  -->
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+{%- endstyle -%}
+
+<style>
+     .product-tab-main {
+              display: none;
+          }
+  .product-tab-main.active {
+      display: flex;
+
+  }
+    button.product-tab-link-btn.active {
+      border: 3px solid rgba(20, 43, 79, 1);
+  }
+  .product-tab-flex {
+      justify-content: space-between;
+        flex-wrap: wrap;
+      row-gap: 40px;
+  }
+    .product-main-inner {
+      width: 30%;
+  }
+    .products-tab-product-title {
+      font-family: General Sans;
+      font-size: 19px;
+      font-weight: 500;
+      line-height: 29.7px;
+      text-align: left;
+      color: rgba(13, 24, 47, 1);
+      margin: 10px;
+  }
+    .products-tab-product-price {
+      font-family: General Sans;
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 29.7px;
+      text-align: left;
+      color: rgba(13, 24, 47, 1);
+      margin-left: 10px;
+  }
+    .products-tab-product-image img {
+      width: 100%;
+  }
+    button#product-tab-btn1 img {
+      width: 80px;
+  }
+  button#product-tab-btn2 img {
+      width: 63px;
+  }
+  button#product-tab-btn3 img {
+      width: 82px;
+  }
+  .product-tab-controls button {
+      border: none;cursor: pointer;
+      outline: none;
+      background: rgba(241, 242, 244, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      border-radius: 15px;
+      padding: 5px 29px;
+      border: 3px solid transparent;
+
+  }
+  .product-tab-controls {
+      display: flex;
+      justify-content: center;
+      gap: 47px;
+      margin-bottom:70px;
+  }
+  .product-tab-controls h2 {
+      margin: 0;
+      color: rgba(77, 77, 77, 1);
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 20.91px;
+      text-align: left;
+  }
+  .prdcsts-tabs-main-heading {
+      color: rgba(13, 24, 47, 1);
+      font-size: 50px;
+      font-weight: 500;
+      line-height: 70.68px;
+      letter-spacing: -0.01em;
+      text-align: center;
+      margin-bottom: 40px;
+  }
+          @media(max-width:1025px){
+            .product-tab-controls {
+      gap: 20px;
+      margin-bottom: 50px;
+  }
+            button#product-tab-btn1 img {
+      width: 65px;
+  }
+            button#product-tab-btn2 img {
+      width: 55px;
+  }
+            button#product-tab-btn3 img {
+      width: 65px;
+  }
+          }
+          @media(max-width:880px){
+            .product-main-inner {
+      width: 47%;
+  }
+            .product-tab-controls {
+      flex-wrap: wrap;
+  }
+
+
+          }
+
+          @media(max-width:768px){
+  .prdcsts-tabs-main-heading {
+      font-size: 39px;
+  }
+          }
+          @media(max-width:500px){
+    .product-tab-controls button {
+      width: 100%;
+  }
+          .prdcsts-tabs-main-heading {
+          font-size: 34px;
+          margin-bottom: 20px;
+      }
+            .product-main-inner {
+      width: 100%;
+  }
+          }
+</style>
+
+ 
+
+<div
+  class="section-{{ section.id }}-padding product-tabs-section"
+>
+  <div class="page-width">
+    <div class="product-tab-gallery">
+      <div class="prdcsts-tabs-main-heading">{{ section.settings.mainheading }}</div>
+      <div class="product-tab-controls">
+        <button type="button" class="product-tab-link-btn active" id="product-tab-btn1" data-tab="1">
+ {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+{%- capture sizes -%}
+(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 3 }}px,
+(min-width: 750px) calc((100vw - 130px) / 1), calc((100vw - 50px) / 1)
+{%- endcapture -%}       
+          {% if section.settings.tabsimg1 %}
+{% assign alt = section.settings.tabsimg1.alt  %}
+{{
+section.settings.tabsimg1
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt:alt
+
+}}   
+          {% endif %}
+          <h2>{{ section.settings.tab1title }}</h2>
+        </button>
+        {% if section.settings.tabsimg2 != blank or section.settings.tab2title != blank %}
+        <button type="button" class="product-tab-link-btn" id="product-tab-btn2" data-tab="2">
+          {% if section.settings.tabsimg2 %}
+{% assign  alt = section.settings.tabsimg2.alt  %}
+                      
+{{
+section.settings.tabsimg2
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths, alt:alt
+
+}}
+          
+          {% endif %}
+          <h2>{{ section.settings.tab2title }}</h2>
+        </button>
+        {% endif %}
+        <button type="button" class="product-tab-link-btn" id="product-tab-btn3" data-tab="3">
+          {% if section.settings.tabsimg3 %}
+{% assign  alt = section.settings.tabsimg3.alt  %}
+{{
+section.settings.tabsimg3
+| image_url: width: 1500
+| image_tag: sizes: sizes, widths: widths,alt:alt
+
+}}
+          
+          {% endif %}
+          <h2>{{ section.settings.tab3title }}</h2>
+        </button>
+      </div>
+
+      <div class="product-tab-flex product-tab-main active" id="product-tab-1">
+        {% for block in section.blocks %}
+          {% if block.type == 'tabs1' %}
+            <div class="product-main-inner">
+              <div class="products-tab-product-image">
+       
+  {% if block.settings.self_hosted_video != blank %}
+    <div
+      class="video-container">
+      {{
+        block.settings.self_hosted_video
+        | video_tag:
+         controls: section.settings.controller,
+          autoplay: section.settings.autoplay,
+          loop: true,
+      image_size: '1100x',
+          width: '100%'
+      }}
+    </div>
+  {% endif %}
+              </div>
+              <div class="products-tab-product-title">{{ block.settings.producttitle }}</div>
+              
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+{% if section.settings.button_Label1 != blank %}
+<div class="button-content-part ">   
+<a href="{{ section.settings.button_link1}}" target="_blank"> 
+{% if section.settings.button-img1 != blank %}
+<img src="{{section.settings.button-img1 | img_url: 'master' }}" alt="">
+{% endif %}
+
+<h3> {{ section.settings.button_Label1 }}</h3> 
+
+</a> 
+</div>
+{% endif %}
+
+      
+      <div class="product-tab-flex product-tab-main" id="product-tab-2">
+        {% for block in section.blocks %}
+          {% if block.type == 'tabs2' %}
+            <div class="product-main-inner">
+              <div class="products-tab-product-image">
+                {% if block.settings.self_hosted_video != blank %}
+    <div
+      class="video-container">
+      {{
+        block.settings.self_hosted_video
+        | video_tag:
+         controls: section.settings.controller,
+          autoplay: section.settings.autoplay,
+          loop: true,
+      image_size: '1100x',
+          width: '100%'
+      }}
+    </div>
+  {% endif %}
+              </div>
+              <div class="products-tab-product-title">{{ block.settings.producttitle }}</div>
+              
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% if section.settings.button_Label2 != blank %}
+<div class="button-content-part ">   
+<a href="{{ section.settings.button_link2}}" target="_blank"> 
+{% if section.settings.button-img2 != blank %}
+<img src="{{section.settings.button-img2 | img_url: 'master' }}" alt="">
+{% endif %}
+
+<h3> {{ section.settings.button_Label2 }}</h3> 
+
+</a> 
+</div>
+{% endif %}
+
+      <div class="product-tab-flex product-tab-main" id="product-tab-3">
+        {% for block in section.blocks %}
+          {% if block.type == 'tabs3' %}
+            <div class="product-main-inner">
+              <div class="products-tab-product-image">
+               {% if block.settings.self_hosted_video != blank %}
+    <div
+      class="video-container">
+      {{
+        block.settings.self_hosted_video
+        | video_tag:
+         controls: section.settings.controller,
+          autoplay: section.settings.autoplay,
+          loop: true,
+      image_size: '1100x',
+          width: '100%'
+      }}
+    </div>
+  {% endif %}
+              </div>
+              <div class="products-tab-product-title">{{ block.settings.producttitle }}</div>
+             
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+{% if section.settings.button_Label3 != blank %}
+<div class="button-content-part ">   
+<a href="{{ section.settings.button_link3}}" target="_blank"> 
+{% if section.settings.button-img3 != blank %}
+<img src="{{section.settings.button-img3 | img_url: 'master' }}" alt="">
+{% endif %}
+
+<h3> {{ section.settings.button_Label3 }}</h3> 
+
+</a> 
+</div>
+{% endif %}
+    
+    </div>
+  </div>
+</div>
+
+<!-- End troubleshooting-tabs-video  -->
+{% schema %}
+{
+  "name": "Troubleshooting Tabs",
+  "settings": [
+      {
+      "type": "text",
+      "id": "mainheading",
+      "label": "Main Heading"
+    },
+    {
+      "type": "header",
+      "content": "Tab 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "tabsimg1",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "tab1title",
+      "label": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id":"button-img1",
+      "label":"Button Icon"
+    },
+    {      "type": "inline_richtext",
+      "id":"button_Label1",
+      "label":"Button Label"
+    },
+    {
+      "type": "url",
+      "id":"button_link1",
+      "label":"Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Tab 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "tabsimg2",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "tab2title",
+      "label": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id":"button-img2",
+      "label":"Button Icon"
+    },
+    {
+      "type": "inline_richtext",
+      "id":"button_Label2",
+      "label":"Button Label"
+    },
+    {
+      "type": "url",
+      "id":"button_link2",
+      "label":"Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Tab 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "tabsimg3",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "tab3title",
+      "label": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id":"button-img3",
+      "label":"Button Icon"
+    },
+    {
+      "type": "inline_richtext",
+      "id":"button_Label3",
+      "label":"Button Label"
+    },
+    {
+      "type": "url",
+      "id":"button_link3",
+      "label":"Button Link"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay video",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "controller",
+      "label": "Enable Controls",
+      "default": true
+    },
+    
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top Mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom Mobile",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tabs1",
+      "name": "Tab 1",
+      "settings": [
+        {
+      "type": "video",
+      "id": "self_hosted_video",
+      "label":"Select Video"
+    },
+        {
+          "type": "text",
+          "id": "producttitle",
+          "label": "Product Title"
+        }
+        
+      ]
+    },
+     {
+      "type": "tabs2",
+      "name": "Tab 2",
+      "settings": [
+        {
+      "type": "video",
+      "id": "self_hosted_video",
+      "label":"Select Video"
+    },
+        {
+          "type": "text",
+          "id": "producttitle",
+          "label": "Product Title"
+        }
+      ]
+    },
+     {
+      "type": "tabs3",
+      "name": "Tab 3",
+      "settings": [
+        {
+      "type": "video",
+      "id": "self_hosted_video",
+      "label":"Select Video"
+    },
+        {
+          "type": "text",
+          "id": "producttitle",
+          "label": "Product Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Troubleshooting Tabs",
+      "blocks": [
+        {
+          "type": "tabs1"
+        },
+        {
+          "type": "tabs2"
+        },
+        {
+          "type": "tabs3"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+<!-- tabs simple script -->
+{% javascript %}
+ document.addEventListener('DOMContentLoaded', () => {
+    // Get the hash from the URL (e.g., #product-tab-btn2)
+    const hash = window.location.hash;
+
+    // Check if there is a hash and if it matches one of the tab buttons
+    if (hash) {
+        const button = document.querySelector(hash);
+        if (button) {
+            const tabID = button.getAttribute('data-tab');
+
+            // Remove 'active' class from all buttons and tab contents
+            document.querySelectorAll('.product-tab-link-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.product-tab-main').forEach(tab => tab.classList.remove('active'));
+
+            // Add 'active' class to the corresponding button and tab content
+            button.classList.add('active');
+            document.getElementById('product-tab-' + tabID).classList.add('active');
+        }
+    }
+
+    // Add event listeners to buttons for manual clicking
+    document.querySelectorAll('.product-tab-link-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const tabID = button.getAttribute('data-tab');
+
+            // Update the URL hash without reloading the page
+            window.location.hash = button.id;
+
+            // Remove 'active' class from all buttons and tab contents
+            document.querySelectorAll('.product-tab-link-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.product-tab-main').forEach(tab => tab.classList.remove('active'));
+
+            // Add 'active' class to the clicked button and corresponding tab content
+            button.classList.add('active');
+            document.getElementById('product-tab-' + tabID).classList.add('active');
+        });
+    });
+});
+
+{% endjavascript %}

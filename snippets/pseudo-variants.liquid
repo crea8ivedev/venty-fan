@@ -1,0 +1,437 @@
+{{ 'dev-pseudo-variants.css' | asset_url | stylesheet_tag }}
+
+{%- assign variant = product.selected_or_first_available_variant -%}
+
+<div data-product="{{ product | json | escape }}" data-money-format="{{ shop.money_format | escape }}" class="pseudo-variants" data-section-id="{{ section.id }}">
+  <div class="pseudo-variant-single">
+    <div class="pseudo-variant-left">
+      <div class="pseudo-variant-checkbox">
+        <label class="pseudo-variant-checkbox--wrapper">
+          <input checked type="checkbox" name="pseudo_variant_checkbox--single" value="single">
+        </label>
+      </div>
+      <div class="pseudo-variant-left-image-wrapper pseudo-variant-left-image-wrapper-signle-first">
+        <div class="pseudo-variant-left-image">
+          <img src="{{ variant.featured_image | img_url: "large" }}" width="66px" height="66px" alt="">
+        </div>
+        {% comment %}
+          <div class="pseudo-variant-select-wrapper">
+            <select name="pseudo-variant-select--single" class="pseudo-variant-select">
+              {%- for v in product.variants -%}
+                <option
+                  value="{{ v.id }}"
+                  {% if v.id == variant.id %}
+                    selected
+                  {% endif %}
+                >
+                  {{ v.title }}
+                </option>
+              {%- endfor -%}
+            </select>
+          </div>
+        {% endcomment %}
+      </div>
+      <div class="pseudo-variant-left-headings">
+        <div class="pseudo-variant-left__buy">BUY 1</div>
+        {% comment %} <div class="pseudo-variant-left__title">
+          {{ product.title }}
+        </div> {% endcomment %}
+      </div>
+    </div>
+    <div class="pseudo-variant-left__buy pseudo-variant-left__buy--mobile">BUY 1</div>
+    <div class="pseudo-variant-right">
+      <span class="pseudo-variant-price">
+        {{ variant.price | money }}
+      </span>
+      {% comment %} {% if variant.compare_at_price > variant.price %}
+        <span class="pseudo-variant-compare-price">
+          {{ variant.compare_at_price | money }}
+        </span>
+      {% endif %} {% endcomment %}
+    </div>
+  </div>
+  <div data-double-discount="{{ double_discount }}" class="pseudo-variant-double">
+    <div class="pseudo-variant-left">
+      <div class="pseudo-variant-checkbox">
+        <label class="pseudo-variant-checkbox--wrapper">
+          <input type="checkbox" name="pseudo_variant_checkbox--double" value="single">
+        </label>
+      </div>
+      <div class="pseudo-variant-left-image-wrapper pseudo-variant-left-image-wrapper--dobule-first">
+        <div class="pseudo-variant-left-image">
+          <img src="{{ variant.featured_image | img_url: "large" }}" width="66px" height="66px" alt="">
+        </div>
+        {% comment %}
+          <div class="pseudo-variant-select-wrapper">
+            <select name="pseudo-variant-select--double" class="pseudo-variant-select">
+              {%- for v in product.variants -%}
+                <option
+                  value="{{ v.id }}"
+                  {% if v.id == variant.id %}
+                    selected
+                  {% endif %}
+                >
+                  {{ v.title }}
+                </option>
+              {%- endfor -%}
+            </select>
+          </div>
+        {% endcomment %}
+      </div>
+      <div class="pseudo-variant-left-image-wrapper pseudo-variant-left-image-wrapper--dobule-second">
+        <div class="pseudo-variant-left-image">
+          <img src="{{ variant.featured_image | img_url: "large" }}" width="66px" height="66px" alt="">
+        </div>
+        {% comment %}
+          <div class="pseudo-variant-select-wrapper">
+            <select name="pseudo-variant-select--double" class="pseudo-variant-select">
+              {%- for v in product.variants -%}
+                <option
+                  value="{{ v.id }}"
+                  {% if v.id == variant.id %}
+                    selected
+                  {% endif %}
+                >
+                  {{ v.title }}
+                </option>
+              {%- endfor -%}
+            </select>
+          </div>
+        {% endcomment %}
+      </div>
+      <div class="pseudo-variant-left-headings">
+        <div class="pseudo-variant-left__buy">BUY 2</div>
+        {% comment %} <div class="pseudo-variant-left__title">
+          {{ product.title }}
+        </div> {% endcomment %}
+      </div>
+    </div>
+    <div class="pseudo-variant-left__buy pseudo-variant-left__buy--mobile">BUY 2</div>
+    <div class="pseudo-variant-right">
+      {% assign price = variant.price | times: 2 %}
+      {% assign compare_price = variant.compare_at_price | times: 2 %}
+
+      <span class="pseudo-variant-price">
+        {% if double_discount != blank %}
+          {% assign converted_double_discount  = double_discount | times: 100 %}
+          {{ price | minus: converted_double_discount | money }}
+        {% else %}
+          {{ price  | money }}
+        {% endif %}
+      </span>
+      {% if double_discount != 0  %}
+        <span class="pseudo-variant-compare-price">
+          {{ price | money }}
+        </span>
+      {% endif %}
+    </div>
+    {% if double_discount != 0  %}
+      {% assign converted_discount = double_discount | times: 100 | money_without_trailing_zeros %}
+      <div class="pseudo-variant-double-badge">{{ bundle_discount_text | replace: '()', converted_discount }}</div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const pseudo = document.querySelector('.pseudo-variants');
+    if (!pseudo) return;
+
+    /* ---------- Гроші ---------- */
+    const moneyFormat = pseudo.dataset.moneyFormat || window.Shopify.money_format;
+    const formatMoney = (cents) => {
+      {% comment %} try {
+        if (window.Shopify?.formatMoney) return Shopify.formatMoney(cents);
+      } catch {}
+      return '$' + (Number(cents || 0) / 100).toFixed(2); {% endcomment %}
+      {% comment %} console.log("window.Shopify.money_format", Shopify.money_format) {% endcomment %}
+      return Shopify.formatMoney(cents, moneyFormat);
+    };
+
+    /* ---------- Дані продукту ---------- */
+    let product = null;
+    try {
+      product = JSON.parse(pseudo.dataset.product);
+      console.log('[Pseudo] Product loaded:', product?.title);
+    } catch (e) {
+      console.error('[Pseudo] Failed to parse product JSON', e);
+      return;
+    }
+
+    const variantsById = product.variants.reduce((acc, v) => {
+      acc[String(v.id)] = v;
+      return acc;
+    }, {});
+
+    /* ---------- Оновлення double total ---------- */
+    const updateDoubleTotal = (variant) => {
+      const doubleBlock = pseudo.querySelector('.pseudo-variant-double');
+      if (!doubleBlock || !variant) return;
+
+      const discountPercent = Number(doubleBlock.dataset.doubleDiscount) || 0;
+
+      const totalBefore = variant.price * 2;
+      let totalAfter = totalBefore;
+      if (discountPercent > 0) {
+        totalAfter = Math.round(totalBefore - discountPercent * 100);
+      }
+
+      const totalEl = doubleBlock.querySelector('.pseudo-variant-price');
+      const compareEl =
+        doubleBlock.querySelector('.pseudo-variant-compare-price') ||
+        (() => {
+          const span = document.createElement('span');
+          span.className = 'pseudo-variant-compare-price';
+          totalEl?.after(span);
+          return span;
+        })();
+
+      if (totalEl) totalEl.innerHTML = formatMoney(totalAfter);
+
+      if (discountPercent > 0) {
+        compareEl.innerHTML = formatMoney(totalBefore);
+        compareEl.style.display = '';
+      } else {
+        compareEl.style.display = 'none';
+      }
+
+      console.log(
+        `[Pseudo] Double total updated: before=${formatMoney(totalBefore)}, after=${formatMoney(
+          totalAfter
+        )}, discount=${discountPercent}%`
+      );
+    };
+
+    /* ---------- Sticky cart integration ---------- */
+    let stickyCartObserver = null;
+    let updateTimeout = null;
+    let stickyCartReady = false;
+    
+    // Check if Kaching bundle is present on the page
+    const isKachingBundlePresent = () => {
+      return document.querySelector('kaching-bundles-block, .kaching-bundles__bars, .kaching-bundles__bar');
+    };
+    
+    const updateStickyCartPricing = (bundleType, variant) => {
+      // Only apply custom bundle pricing if Kaching bundle is NOT present
+      if (isKachingBundlePresent()) {
+        return;
+      }
+
+      clearTimeout(updateTimeout);
+      updateTimeout = setTimeout(() => {
+        const stickyPriceElement = document.querySelector('.zrx-sticky-atc-product-price');
+        if (!stickyPriceElement || !variant) return;
+
+        if (bundleType === 'double') {
+          const doubleBlock = pseudo.querySelector('.pseudo-variant-double');
+          const discountPercent = Number(doubleBlock?.dataset.doubleDiscount) || 0;
+          
+          if (discountPercent > 0) {
+            const doublePrice = variant.price * 2;
+            const discountedDoublePrice = Math.round(doublePrice - discountPercent * 100);
+            stickyPriceElement.innerHTML = `<span class="money" style="text-decoration: line-through; color: #848484 !important;">${formatMoney(doublePrice)}</span><span class="money" style="margin-left: 8px; color: #d2401e; font-weight: bold;">${formatMoney(discountedDoublePrice)}</span>`;
+          } else {
+            const doublePrice = variant.price * 2;
+            stickyPriceElement.innerHTML = `<span class="money">${formatMoney(doublePrice)}</span>`;
+          }
+        } else {
+          stickyPriceElement.innerHTML = `<span class="money">${formatMoney(variant.price)}</span>`;
+        }
+      }, 30);
+    };
+
+    const initializeStickyCartIntegration = () => {
+      // Don't initialize if Kaching bundle is present
+      if (isKachingBundlePresent()) {
+        return;
+      }
+
+      // Single observer for all sticky cart changes
+      stickyCartObserver = new MutationObserver((mutations) => {
+        let shouldUpdate = false;
+        let stickyCartAdded = false;
+        
+        mutations.forEach((mutation) => {
+          mutation.addedNodes.forEach((node) => {
+            if (node.nodeType === 1) {
+              // Check if sticky cart was added
+              if (node.classList?.contains('zrx-sticky-atc-bar') || 
+                  node.querySelector?.('.zrx-sticky-atc-product-price')) {
+                stickyCartAdded = true;
+                stickyCartReady = true;
+              }
+              
+              // Check if price element content changed
+              if (node.classList?.contains('zrx-sticky-atc-product-price') ||
+                  node.parentElement?.classList?.contains('zrx-sticky-atc-product-price')) {
+                shouldUpdate = true;
+              }
+            }
+          });
+          
+          // Watch for price content changes
+          if (mutation.type === 'childList' && mutation.target.classList?.contains('zrx-sticky-atc-product-price')) {
+            shouldUpdate = true;
+          }
+        });
+
+        if (stickyCartAdded || shouldUpdate) {
+          setTimeout(() => {
+            const currentVariant = readVariant();
+            const currentBundleType = pseudo.classList.contains('is-double') ? 'double' : 'single';
+            
+            // Only update double bundles if they don't have correct formatting
+            if (currentBundleType === 'single' || !document.querySelector('.zrx-sticky-atc-product-price')?.innerHTML.includes('line-through')) {
+              updateStickyCartPricing(currentBundleType, currentVariant);
+            }
+          }, stickyCartAdded ? 200 : 100);
+        }
+      });
+      
+      stickyCartObserver.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    };
+
+    const checkAndUpdateStickyCart = (retryCount = 0) => {
+      // Don't update if Kaching bundle is present
+      if (isKachingBundlePresent()) {
+        return;
+      }
+
+      const currentVariant = readVariant();
+      const currentBundleType = pseudo.classList.contains('is-double') ? 'double' : 'single';
+      
+      if (document.querySelector('.zrx-sticky-atc-product-price')) {
+        stickyCartReady = true;
+        updateStickyCartPricing(currentBundleType, currentVariant);
+      } else if (!stickyCartReady && retryCount < 10) {
+        // Retry up to 10 times with exponential backoff
+        setTimeout(() => checkAndUpdateStickyCart(retryCount + 1), Math.min(1000, 100 * Math.pow(1.5, retryCount)));
+      }
+    };
+
+    /* ---------- Застосування варіанта ---------- */
+    const applyVariant = (variant) => {
+      if (!variant) return;
+      console.log('[Pseudo] Apply variant:', variant.title);
+
+      const imgUrl =
+        variant.featured_image?.src ||
+        variant.featured_image?.url ||
+        variant.featured_media?.preview_image?.src ||
+        null;
+
+      // Оновлення зображень
+      if (imgUrl) {
+        pseudo.querySelectorAll('.pseudo-variant-left-image img').forEach((img) => {
+          img.src = imgUrl.startsWith('http') ? imgUrl : 'https:' + imgUrl;
+          img.alt = variant.title || '';
+        });
+      }
+
+      // Оновлення ціни для single
+      pseudo
+        .querySelectorAll('.pseudo-variant-single .pseudo-variant-price')
+        .forEach((el) => (el.innerHTML = formatMoney(variant.price)));
+
+      pseudo.querySelectorAll('.pseudo-variant-single .pseudo-variant-compare-price').forEach((el) => {
+        if (variant.compare_at_price > variant.price) {
+          el.innerHTML = formatMoney(variant.compare_at_price);
+          el.style.display = '';
+        } else el.style.display = 'none';
+      });
+
+      // Оновити double total
+      updateDoubleTotal(variant);
+      
+      // Update sticky cart pricing based on current bundle selection
+      const currentBundleType = pseudo.classList.contains('is-double') ? 'double' : 'single';
+      updateStickyCartPricing(currentBundleType, variant);
+    };
+
+    /* ---------- Читання варіанта ---------- */
+    const readVariant = () => {
+      try {
+        const raw = pseudo.getAttribute('data-selected-variant-id');
+        return raw ? JSON.parse(raw) : null;
+      } catch {
+        return null;
+      }
+    };
+
+    /* ---------- Seed поточного варіанта після reload ---------- */
+    const seedInitialVariantFromFormOrUrl = () => {
+      // якщо вже є значення – нічого не робимо
+      if (pseudo.getAttribute('data-selected-variant-id')) return;
+
+      // 1) пробуємо зчитати з основної форми продукту
+      let vid = document.querySelector('form[action*="/cart/add"] [name="id"]')?.value?.trim() || '';
+
+      // 2) якщо у формі нема – беремо з URL (?variant=123)
+      if (!vid) {
+        const urlVid = new URLSearchParams(window.location.search).get('variant');
+        if (urlVid) vid = urlVid.trim();
+      }
+
+      // 3) мапимо на об’єкт варіанта з product JSON
+      const v = vid ? variantsById[String(vid)] : null;
+      if (v) {
+        pseudo.setAttribute('data-selected-variant-id', JSON.stringify(v));
+        console.log('[Pseudo] Seeded initial variant from form/URL:', v.id, v.title);
+      } else {
+        console.log('[Pseudo] No initial variant found to seed');
+      }
+    };
+
+    seedInitialVariantFromFormOrUrl();
+
+    /* ---------- Початкове оновлення ---------- */
+    applyVariant(readVariant());
+
+    /* ---------- Слухач оновлень з product-info ---------- */
+    const observer = new MutationObserver((mutations) => {
+      for (const m of mutations) {
+        if (m.type === 'attributes' && m.attributeName === 'data-selected-variant-id') {
+          const variant = readVariant();
+          applyVariant(variant);
+        }
+      }
+    });
+    observer.observe(pseudo, { attributes: true, attributeFilter: ['data-selected-variant-id'] });
+
+    /* ---------- BUY 1 / BUY 2 взаємовиключно ---------- */
+    const singleCheckbox = pseudo.querySelector('input[name="pseudo_variant_checkbox--single"]');
+    const doubleCheckbox = pseudo.querySelector('input[name="pseudo_variant_checkbox--double"]');
+
+    // Initialize sticky cart monitoring
+    initializeStickyCartIntegration();
+    
+    // Check for existing sticky cart and retry if not found
+    checkAndUpdateStickyCart();
+
+    const toggleBundle = (sel) => {
+      if (sel === 'single') {
+        singleCheckbox.checked = true;
+        doubleCheckbox.checked = false;
+        pseudo.classList.add('is-single');
+        pseudo.classList.remove('is-double');
+      } else {
+        doubleCheckbox.checked = true;
+        singleCheckbox.checked = false;
+        pseudo.classList.add('is-double');
+        pseudo.classList.remove('is-single');
+      }
+      
+      // Update sticky cart pricing when bundle changes
+      const currentVariant = readVariant();
+      updateStickyCartPricing(sel, currentVariant);
+    };
+
+    singleCheckbox?.addEventListener('change', () => toggleBundle('single'));
+    doubleCheckbox?.addEventListener('change', () => toggleBundle('double'));
+    toggleBundle(singleCheckbox?.checked ? 'single' : 'double');
+  });
+</script>

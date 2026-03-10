@@ -1,0 +1,888 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "protable_fan_banner_h8FRD3": {
+      "type": "protable-fan-banner",
+      "custom_css": [
+        ".custom-banner-content-cozy-pad {align-items: self-start;}",
+        ".custom-banner-content-cozy-pad p {font-size: 48px; line-height: 1.4;}"
+      ],
+      "settings": {
+        "allow_transparent_header": true,
+        "video": "shopify://files/videos/Venty_07 (online-video-cutter.com).mp4",
+        "heightcstm": 100,
+        "bgimgdesktop": "shopify://shop_images/DSC08358.png",
+        "subtopheading": "",
+        "heading": "<p>The <strong>Clip Fan<br/></strong>You Will Take <strong>Everywhere</strong></p>",
+        "paragraph": "",
+        "button_text_1": "ORDER NOW",
+        "button_link_1": "#cozpod-btn",
+        "background": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "relative_banner_image_mkDiDh": {
+      "type": "relative-banner-image",
+      "settings": {
+        "image_link": "#cozpod-btn",
+        "img": "shopify://shop_images/10.png",
+        "mobile-img": "shopify://shop_images/11_957bf6bc-2079-40a9-8abf-ce0c4022061a.png"
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "rating_qnt8pf": {
+          "type": "rating",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_Wzzxe3": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "title_n8JPq6": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_Eb933X": {
+          "type": "price",
+          "settings": {}
+        },
+        "benefits_kdEhCh": {
+          "type": "benefits",
+          "settings": {
+            "benefits-img1": "shopify://shop_images/checkmark-circle-primary_1.png",
+            "benefits-txt1": "Aluminum Clip",
+            "benefits-img2": "shopify://shop_images/checkmark-circle-primary_1_79a7bcfa-5fcc-4a57-afe7-66ea4fc8ae38.png",
+            "benefits-txt2": "10 hour Battery",
+            "benefits-img3": "shopify://shop_images/checkmark-circle-primary_1_1e467ae5-db09-484f-a37a-26c886427734.png",
+            "benefits-txt3": "Smart Touch Display",
+            "benefits-img4": "shopify://shop_images/checkmark-circle-primary_1_3a2797e1-bbfe-4621-b030-eefb6f35969d.png",
+            "benefits-txt4": "Scented Faceplate",
+            "benefits-img5": "shopify://shop_images/checkmark-circle-primary_1_c5143096-9127-4ceb-9be5-40035f85ec74.png",
+            "benefits-txt5": "LED Light Base",
+            "benefits-img6": "shopify://shop_images/checkmark-circle-primary_1_08e51845-6bb4-49c1-a414-2ed0c84a53be.png",
+            "benefits-txt6": "Oscillation"
+          }
+        },
+        "variant_picker_dC4kGN": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_zKaCQU": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "iconwithtext_LkDqRd": {
+          "type": "iconwithtext",
+          "settings": {
+            "icon-shipping": "shopify://shop_images/ca22f309cab155faf701d001bf0137d9.png",
+            "textshipping0": "£10 OFF + FREE SHIPPING ON ANY 2 OR MORE",
+            "textshipping1": "$10 OFF + FREE SHIPPING ON ANY 2 OR MORE",
+            "textshipping2": ""
+          }
+        },
+        "buy_buttons_kqXwFR": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "iconwithtext2_Tx3L9X": {
+          "type": "iconwithtext2",
+          "settings": {
+            "icon-shipping1": "shopify://shop_images/ca22f309cab155faf701d001bf0137d9.png",
+            "textshipping0": "£10 OFF + FREE SHIPPING ON ANY 2 OR MORE",
+            "textshipping1": "$10 OFF + FREE SHIPPING ON ANY 2 OR MORE",
+            "textshipping3": "Located in the US and Ships From Local Warehouses"
+          }
+        },
+        "custom_liquid_YcyKe6": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<h4 class=\"pre-sale\" id=\"scented\"> Pre-Orders Ship Feb. 20 </h4>"
+          }
+        },
+        "complementary_NeFQHR": {
+          "type": "complementary",
+          "disabled": true,
+          "settings": {
+            "block_heading": "8 Pack - Aromatherapy Scented Tabs",
+            "collection": "bundle",
+            "enable_quick_add": true
+          }
+        }
+      },
+      "block_order": [
+        "rating_qnt8pf",
+        "judge_me_reviews_preview_badge_Wzzxe3",
+        "title_n8JPq6",
+        "price_Eb933X",
+        "benefits_kdEhCh",
+        "variant_picker_dC4kGN",
+        "quantity_selector_zKaCQU",
+        "iconwithtext_LkDqRd",
+        "buy_buttons_kqXwFR",
+        "iconwithtext2_Tx3L9X",
+        "custom_liquid_YcyKe6",
+        "complementary_NeFQHR"
+      ],
+      "custom_css": [
+        ".icon-with-text-cstm {min-height: 45px;}",
+        ".btn-benefit-wrapper {width: 100%; text-align: center; justify-content: center;}",
+        "label.variant-images-selectable img {object-fit: contain;}"
+      ],
+      "settings": {
+        "bundle_discount_text": "BUNDLE OFFER: () OFF + FREE SHIPPING",
+        "double_bundle_discount": 10,
+        "sticky_cart": false,
+        "enable_sticky_info": true,
+        "product_off": false,
+        "color_scheme": "scheme-3a101b2e-80e1-4dcb-ba5b-8e268ef99b9f",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "enable_group_media": true,
+        "media_grouping_option": "Choose Your Color"
+      }
+    },
+    "banner_popup_x6NpRX": {
+      "type": "banner-popup",
+      "blocks": {
+        "benefits_EJBX9P": {
+          "type": "benefits",
+          "settings": {
+            "heading": "Mixed Scent Pack",
+            "sub-heading": "8 Pack - Mixed Scents",
+            "content": "<p>Not sure which scent is right for you? Indulge in our 8 pack which features 2 of each scent: Rose, Freesia, Cedar and Sage. Find the aromatherapy scent that works best for your space.</p>",
+            "title": "MIXED SCENT INCLUDES",
+            "benefits-img1": "shopify://shop_images/scent.svg",
+            "benefits-txt1": "Freesia",
+            "benefits-img2": "shopify://shop_images/scent.svg",
+            "benefits-txt2": "Rose",
+            "benefits-img3": "shopify://shop_images/scent.svg",
+            "benefits-txt3": "Cendar",
+            "benefits-img4": "shopify://shop_images/scent.svg",
+            "benefits-txt4": "Sage",
+            "benefits-txt5": "",
+            "benefits-txt6": ""
+          }
+        },
+        "benefits_C9thAX": {
+          "type": "benefits",
+          "settings": {
+            "heading": "Peace",
+            "sub-heading": "Smells Like Freesia",
+            "content": "<p>Freesia is often used to reduce stress, anxiety, and depression and promote relaxation. It can also be used to improve your mental health, respiratory health, and skin health.  The sweet floral aroma promotes a peaceful atmosphere.</p>",
+            "title": "PEACE SCENT INCLUDES",
+            "benefits-img1": "shopify://shop_images/scent.svg",
+            "benefits-txt1": "Muskmelon",
+            "benefits-img2": "shopify://shop_images/scent.svg",
+            "benefits-txt2": "Pear",
+            "benefits-img3": "shopify://shop_images/scent.svg",
+            "benefits-txt3": "Freesia",
+            "benefits-img4": "shopify://shop_images/scent.svg",
+            "benefits-txt4": "Rose Musk",
+            "benefits-img5": "shopify://shop_images/scent.svg",
+            "benefits-txt5": "Amber",
+            "benefits-img6": "shopify://shop_images/scent.svg",
+            "benefits-txt6": "Rhubarb"
+          }
+        },
+        "benefits_wNcFBd": {
+          "type": "benefits",
+          "settings": {
+            "heading": "Focus",
+            "sub-heading": "Smells Like Rose",
+            "content": "<p>Inhale the unmistakable calming scent of rose oil to relax. Studies suggest it releases endorphins, chemical signals in the brain that increase feelings of wellbeing. Focus on what matters to you with the soothing smell of Rose.</p>",
+            "title": "Focus Scent Includes",
+            "benefits-img1": "shopify://shop_images/scent.svg",
+            "benefits-txt1": "Pink Pepper",
+            "benefits-img2": "shopify://shop_images/scent.svg",
+            "benefits-txt2": "Turkish Rose",
+            "benefits-img3": "shopify://shop_images/scent.svg",
+            "benefits-txt3": "Raspberry Flower",
+            "benefits-img4": "shopify://shop_images/scent.svg",
+            "benefits-txt4": "Papyrus",
+            "benefits-img5": "shopify://shop_images/scent.svg",
+            "benefits-txt5": "Amber",
+            "benefits-txt6": ""
+          }
+        },
+        "benefits_M8AebG": {
+          "type": "benefits",
+          "settings": {
+            "heading": "Breathe",
+            "sub-heading": "Smells Like Cedar",
+            "content": "<p>The warm, woody scent of Cedarwood oil, can promote feelings of vitality and wellness. Its fragrant, resinous wood is used to create fragrances with a warm, woody character. This olfactory note is particularly appreciated for its richness and depth, bringing a certain power and singular elegance to aromatic compositions.</p>",
+            "title": "Breathe Scent Includes",
+            "benefits-img1": "shopify://shop_images/scent.svg",
+            "benefits-txt1": "Geranium",
+            "benefits-img2": "shopify://shop_images/scent.svg",
+            "benefits-txt2": "Pink Pepper",
+            "benefits-img3": "shopify://shop_images/scent.svg",
+            "benefits-txt3": "Green Cardamom",
+            "benefits-img4": "shopify://shop_images/scent.svg",
+            "benefits-txt4": "Vetiver",
+            "benefits-img5": "shopify://shop_images/scent.svg",
+            "benefits-txt5": "Cedar",
+            "benefits-txt6": ""
+          }
+        },
+        "benefits_gtqddY": {
+          "type": "benefits",
+          "settings": {
+            "heading": "Balance",
+            "sub-heading": "Smells Like Sage",
+            "content": "<p>Sage extracts are being examined in research for common medical conditions, including lowering cholesterol, enhancing memory, improving inflammatory conditions, and reducing menopausal symptoms.</p>",
+            "title": "Balance Scent Includes",
+            "benefits-img1": "shopify://shop_images/scent.svg",
+            "benefits-txt1": "Ambrette",
+            "benefits-img2": "shopify://shop_images/scent.svg",
+            "benefits-txt2": "Sage",
+            "benefits-img3": "shopify://shop_images/scent.svg",
+            "benefits-txt3": "Seaweed",
+            "benefits-img4": "shopify://shop_images/scent.svg",
+            "benefits-txt4": "Grapefruit",
+            "benefits-txt5": "",
+            "benefits-txt6": ""
+          }
+        }
+      },
+      "block_order": [
+        "benefits_EJBX9P",
+        "benefits_C9thAX",
+        "benefits_wNcFBd",
+        "benefits_M8AebG",
+        "benefits_gtqddY"
+      ],
+      "settings": {
+        "image5": "shopify://shop_images/WhatsApp_Image_2025-01-01_at_15.32.59.jpg",
+        "sub-title1": "8 Pack",
+        "title1": "Mixed Scents",
+        "image1": "shopify://shop_images/peace.jpg",
+        "sub-title2": "Smells Like",
+        "title2": "Freesia",
+        "image2": "shopify://shop_images/refresh.jpg",
+        "sub-title3": "Smells Like",
+        "title3": "Rose",
+        "image3": "shopify://shop_images/breath.jpg",
+        "sub-title4": "Smells Like",
+        "title4": "Cedar",
+        "image4": "shopify://shop_images/balance.jpg",
+        "sub-title5": "Smells Like",
+        "title5": "Sage"
+      }
+    },
+    "featured_collection_kpVrA9": {
+      "type": "featured-collection",
+      "disabled": true,
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "title": "Featured collection",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "scented-tabs",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "portable_fan_section_hNyUY4": {
+      "type": "portable-fan-section",
+      "blocks": {
+        "boxes_gnwwPR": {
+          "type": "boxes",
+          "settings": {
+            "icon": "shopify://shop_images/clip.svg",
+            "title": "ALUMINUM CLIP",
+            "para": "Extend the base to clip anywhere. Padded grip <br> for non-slip."
+          }
+        },
+        "boxes_ihM7Ld": {
+          "type": "boxes",
+          "settings": {
+            "icon": "shopify://shop_images/battery-full_c81feae0-fed6-47cf-b92c-4845d2e60dab.svg",
+            "title": "10 HOUR BATTERY",
+            "para": "Internal 5000 mAh battery for up to 10 hours on the road."
+          }
+        },
+        "boxes_nnXd3Y": {
+          "type": "boxes",
+          "settings": {
+            "icon": "shopify://shop_images/base_light.svg",
+            "title": "LED LIGHT BASE",
+            "para": "Patented glowing base provides 5 settings of ambient light."
+          }
+        },
+        "boxes_pgtrcX": {
+          "type": "boxes",
+          "settings": {
+            "icon": "shopify://shop_images/display.svg",
+            "title": "SMART TOUCH DISPLAY",
+            "para": "Adjust the oscillation, fan speed, and light from the smart touch display."
+          }
+        },
+        "boxes_AVg8nU": {
+          "type": "boxes",
+          "settings": {
+            "icon": "shopify://shop_images/rotate-360_1f78d172-aff7-4e6f-bce4-2ddc9ca23b4b.svg",
+            "title": "360 DEGREE ROTATION",
+            "para": "Completely turn the head upwards or backwards."
+          }
+        },
+        "boxes_6atJty": {
+          "type": "boxes",
+          "settings": {
+            "icon": "shopify://shop_images/Scent_tab.svg",
+            "title": "SCENTED FACEPLATE",
+            "para": "Center faceplate opens up to put in our Venty aromatherapy tabs."
+          }
+        },
+        "centerdotsdetails_drHjgL": {
+          "type": "centerdotsdetails",
+          "settings": {
+            "titledots": "Pulls Open",
+            "descriptiondots": "<p>Replaceable aromatherapy tabs fit into the faceplate for a soothing scent<br/></p>",
+            "horizontal_position_desktop": 40,
+            "vertical_position_desktop": 30,
+            "horizontal_position_tablet": 40,
+            "vertical_position_tablet": 30,
+            "horizontal_position_mobile": 40,
+            "vertical_position_mobile": 30
+          }
+        },
+        "centerdotsdetails_U9YmjD": {
+          "type": "centerdotsdetails",
+          "settings": {
+            "titledots": "Removable Faceplate",
+            "descriptiondots": "<p>Easy to clean. Just twist the faceplate counterclockwise and clean the blades<br/></p>",
+            "horizontal_position_desktop": 29,
+            "vertical_position_desktop": 49,
+            "horizontal_position_tablet": 29,
+            "vertical_position_tablet": 60,
+            "horizontal_position_mobile": 29,
+            "vertical_position_mobile": 49
+          }
+        },
+        "centerdotsdetails_QDggx9": {
+          "type": "centerdotsdetails",
+          "settings": {
+            "titledots": "Touch Display",
+            "descriptiondots": "<p>Control the fan speed, oscillation, light, and see the battery display<br/></p>",
+            "horizontal_position_desktop": 48,
+            "vertical_position_desktop": 70,
+            "horizontal_position_tablet": 48,
+            "vertical_position_tablet": 70,
+            "horizontal_position_mobile": 48,
+            "vertical_position_mobile": 70
+          }
+        },
+        "centerdotsdetails_HGfVGr": {
+          "type": "centerdotsdetails",
+          "settings": {
+            "titledots": "LED Lamp",
+            "descriptiondots": "<p>Adjust from 5 different brightness settings for perfect ambiance<br/></p>",
+            "horizontal_position_desktop": 30,
+            "vertical_position_desktop": 74,
+            "horizontal_position_tablet": 30,
+            "vertical_position_tablet": 74,
+            "horizontal_position_mobile": 30,
+            "vertical_position_mobile": 74
+          }
+        },
+        "centerdotsdetails_4MRh8R": {
+          "type": "centerdotsdetails",
+          "settings": {
+            "titledots": "Aluminum Clip",
+            "descriptiondots": "<p>Slides & Snaps onto surfaces for convenient mounting<br/></p>",
+            "horizontal_position_desktop": 50,
+            "vertical_position_desktop": 83,
+            "horizontal_position_tablet": 50,
+            "vertical_position_tablet": 83,
+            "horizontal_position_mobile": 50,
+            "vertical_position_mobile": 83
+          }
+        }
+      },
+      "block_order": [
+        "boxes_gnwwPR",
+        "boxes_ihM7Ld",
+        "boxes_nnXd3Y",
+        "boxes_pgtrcX",
+        "boxes_AVg8nU",
+        "boxes_6atJty",
+        "centerdotsdetails_drHjgL",
+        "centerdotsdetails_U9YmjD",
+        "centerdotsdetails_QDggx9",
+        "centerdotsdetails_HGfVGr",
+        "centerdotsdetails_4MRh8R"
+      ],
+      "settings": {
+        "imgmain": "shopify://shop_images/8ec8f1934c12de5bbe40d6a49b81fbfd_e98c694e-2b90-4002-9e32-0203bc109a7f.png",
+        "heading": "<p><strong>CLIP</strong> FAN</p>",
+        "content": "<p>A versatile Venty clip fan with an extending clip that can mount onto many surfaces. Perfect for work, bedside, or anywhere that you need some extra air.</p>",
+        "button_text_1": "Order Now",
+        "button_link_1": "#cozpod-btn",
+        "background": "",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "gallery_scroll_XX9phf": {
+      "type": "gallery-scroll",
+      "blocks": {
+        "column1_QGhpBC": {
+          "type": "column1",
+          "settings": {
+            "image1": "shopify://shop_images/Frame_287_2.png",
+            "title1": "Treadmill"
+          }
+        },
+        "column2_FcCGqx": {
+          "type": "column2",
+          "settings": {
+            "image2": "shopify://shop_images/Frame_287_3.png",
+            "title2": "Cash Register",
+            "image3": "shopify://shop_images/Frame_287_1.png",
+            "title3": "Camping Tent"
+          }
+        },
+        "column1_gRRRrT": {
+          "type": "column1",
+          "settings": {
+            "image1": "shopify://shop_images/Frame_288.png",
+            "title1": "Stroller"
+          }
+        },
+        "column1_hmKDVp": {
+          "type": "column1",
+          "settings": {
+            "image1": "shopify://shop_images/Frame_289_1.png",
+            "title1": "Outdoor Table"
+          }
+        },
+        "column2_pPUU9a": {
+          "type": "column2",
+          "settings": {
+            "image2": "shopify://shop_images/Frame_290.png",
+            "title2": "AirPlane",
+            "image3": "shopify://shop_images/DSC08305.png",
+            "title3": "Work Desk"
+          }
+        }
+      },
+      "block_order": [
+        "column1_QGhpBC",
+        "column2_FcCGqx",
+        "column1_gRRRrT",
+        "column1_hmKDVp",
+        "column2_pPUU9a"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "<strong>One Fan</strong>, Endless Possibilities...",
+        "heading_size": "h0",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mob": 44,
+        "padding_bottom_mob": 44
+      }
+    },
+    "rich_text_ABd6UU": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_NjHJm4": {
+          "type": "heading",
+          "settings": {
+            "heading": "Designed to <strong>Clip Everywhere</strong>",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_NjHJm4"
+      ],
+      "custom_css": [
+        "h2.rich-text__heading.rte.inline-richtext.h1 {font-weight: normal; font-size: 56px; color: #fff;}",
+        ".rich-text {background: #031133; color: #fff;}",
+        " {background: #031133;}",
+        "@media only screen and (max-width: 667px) {h2.rich-text__heading.rte.inline-richtext.h1 {font-weight: normal; font-size: 28px; }}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 52,
+        "padding_bottom": 32
+      }
+    },
+    "gallery_tabs_gQegFU": {
+      "type": "Gallery-Tabs",
+      "blocks": {
+        "tab1_TFHre8": {
+          "type": "Tab1",
+          "settings": {
+            "title1": "Bedroom",
+            "img1": "shopify://shop_images/DSC08406.png",
+            "img2": "shopify://shop_images/DSC08507.png",
+            "img3": "shopify://shop_images/Screenshot_2024-10-04_at_5.00.43_C_PM.png"
+          }
+        },
+        "tab2_GpeWCL": {
+          "type": "Tab2",
+          "settings": {
+            "title2_1": "Poolside",
+            "img2_1": "shopify://shop_images/IMG_4403.png",
+            "img2_2": "shopify://shop_images/IMG_4488_2.png",
+            "img2_3": "shopify://shop_images/IMG_4398.png"
+          }
+        },
+        "tab3_pU8q8Q": {
+          "type": "Tab3",
+          "settings": {
+            "title3_1": "Gym",
+            "img3_1": "shopify://shop_images/IMG_4448.heic",
+            "img3_2": "shopify://shop_images/IMG_4480.png",
+            "img3_3": "shopify://shop_images/IMG_4486_1.heic"
+          }
+        },
+        "tab4_Fmh4r7": {
+          "type": "Tab4",
+          "settings": {
+            "title4_1": "Work",
+            "img4_1": "shopify://shop_images/IMG_4565.png",
+            "img4_2": "shopify://shop_images/IMG_4527.heic",
+            "img4_3": "shopify://shop_images/IMG_4567.png"
+          }
+        },
+        "tab5_UQhwfe": {
+          "type": "Tab5",
+          "disabled": true,
+          "settings": {
+            "title5_1": "Study",
+            "img5_1": "shopify://shop_images/IMG_4439.png",
+            "img5_2": "shopify://shop_images/IMG_4424.png",
+            "img5_3": "shopify://shop_images/IMG_4369.png"
+          }
+        },
+        "tab6_AAzbdG": {
+          "type": "Tab6",
+          "settings": {
+            "title6_1": "Travel",
+            "img6_1": "shopify://shop_images/IMG_4711.heic",
+            "img6_2": "shopify://shop_images/IMG_4724.heic",
+            "img6_3": "shopify://shop_images/IMG_4656.heic"
+          }
+        }
+      },
+      "block_order": [
+        "tab1_TFHre8",
+        "tab2_GpeWCL",
+        "tab3_pU8q8Q",
+        "tab4_Fmh4r7",
+        "tab5_UQhwfe",
+        "tab6_AAzbdG"
+      ],
+      "custom_css": [
+        ".table-main.active {margin-top: 0;}",
+        ".table-main {padding: 0;}",
+        ".plan-controls button.active {background: #fff; color: #031133;}",
+        ".main-tabs-gallery .plan-controls {border-bottom: none; padding-bottom: 0;}",
+        ".plan-controls button {border: 2px solid rgb(234 235 235); border-radius: 100px; background: transparent; color: #fff; font-size: 18px;}",
+        ".main-tabs-gallery {margin-top: 0px;}",
+        ".gallery-part-2 {flex-direction: column !important;}",
+        "@media (max-width: 1200px) and (min-width: 769px) {.main-tabs-gallery {padding-top: 0px !important; }}"
+      ],
+      "settings": {
+        "class": "gallery-part-2",
+        "background": "#031133",
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 36
+      }
+    },
+    "portable_clip_fan_banner_bcMQ8G": {
+      "type": "portable-clip-fan-banner",
+      "blocks": {
+        "column_3me6fb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/WhatsApp_Image_2024-12-26_at_12.17.16.jpg",
+            "title": "Freesia",
+            "text": "<p>Smells Like</p>",
+            "link": "#scented"
+          }
+        },
+        "column_FADizX": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/WhatsApp_Image_2024-12-26_at_12.17.15_5f3bf421-732e-41a9-baa9-1de6e26ab1af.jpg",
+            "title": "Rose",
+            "text": "<p>Smells Like </p>",
+            "link": "#scented"
+          }
+        },
+        "column_kx6ELL": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/WhatsApp_Image_2024-12-26_at_12.17.16_2_53512cf9-5362-4cd8-8613-8fd0d8fb7279.jpg",
+            "title": "Cedar",
+            "text": "<p>Smells Like </p>",
+            "link": "#scented"
+          }
+        },
+        "column_9pGyMF": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/WhatsApp_Image_2024-12-26_at_12.17.16_1_d4fbe76d-64f2-427b-9609-952eee708d8b.jpg",
+            "title": "Sage",
+            "text": "<p>Smells Like </p>",
+            "link": "#scented"
+          }
+        }
+      },
+      "block_order": [
+        "column_3me6fb",
+        "column_FADizX",
+        "column_kx6ELL",
+        "column_9pGyMF"
+      ],
+      "custom_css": [
+        "{background-color: #f0f2f6; color: #142b4f; text-align: center;}",
+        ".rich-text__heading {color: #142b4f; line-height: 1; margin: 10px 0;}",
+        ".rich-text__text.rte {padding: 0 0 20px; max-width: 400px; margin: auto;}"
+      ],
+      "settings": {
+        "subheading": "A Soothing Space",
+        "sub_heading_size": "hxl",
+        "heading": "With 4 Aromatherapy Scents",
+        "heading_size": "h1",
+        "text": "<p>Add on our 8 pack of four different scents that fit right into the Venty faceplate to relax the mood</p>",
+        "button_label": "Buy <strong>Scents NOW</strong>",
+        "button_link": "#buynow",
+        "button_style_secondary": true,
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_secondary_2": false,
+        "image": "shopify://shop_images/Group_1_copy_2x_2x_1.png",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "protable_fan_banner_aEzJzL": {
+      "type": "protable-fan-banner",
+      "settings": {
+        "allow_transparent_header": false,
+        "video": "shopify://files/videos/vanty (online-video-cutter.com).mp4",
+        "heightcstm": 100,
+        "bgimgdesktop": "shopify://shop_images/DSC08358.png",
+        "subtopheading": "",
+        "heading": "",
+        "paragraph": "",
+        "button_text_1": "",
+        "button_link_1": "",
+        "background": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "main_product_2_zi6MaY": {
+      "type": "main-product-2",
+      "blocks": {
+        "rating_RqtGYa": {
+          "type": "rating",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_prMmBK": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "title_YMtrM4": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_zCFEhc": {
+          "type": "price",
+          "settings": {}
+        },
+        "benefits_4Dmz4a": {
+          "type": "benefits",
+          "settings": {
+            "benefits-img1": "shopify://shop_images/checkmark-circle-primary_1_08e51845-6bb4-49c1-a414-2ed0c84a53be.png",
+            "benefits-txt1": "Aluminum Clip",
+            "benefits-img2": "shopify://shop_images/checkmark-circle-primary_1_08e51845-6bb4-49c1-a414-2ed0c84a53be.png",
+            "benefits-txt2": "10 hour Battery",
+            "benefits-img3": "shopify://shop_images/checkmark-circle-primary_1_08e51845-6bb4-49c1-a414-2ed0c84a53be.png",
+            "benefits-txt3": "Smart Touch Display",
+            "benefits-img4": "shopify://shop_images/checkmark-circle-primary_1_08e51845-6bb4-49c1-a414-2ed0c84a53be.png",
+            "benefits-txt4": "Scented Faceplate",
+            "benefits-img5": "shopify://shop_images/checkmark-circle-primary_1_08e51845-6bb4-49c1-a414-2ed0c84a53be.png",
+            "benefits-txt5": "LED Light Base",
+            "benefits-img6": "shopify://shop_images/checkmark-circle-primary_1_08e51845-6bb4-49c1-a414-2ed0c84a53be.png",
+            "benefits-txt6": "Oscillation"
+          }
+        },
+        "variant_picker_Rrw9tK": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_tVFLXa": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "iconwithtext_KQEUdQ": {
+          "type": "iconwithtext",
+          "settings": {
+            "icon-shipping": "shopify://shop_images/ca22f309cab155faf701d001bf0137d9.png",
+            "textshipping0": "$10 OFF + FREE SHIPPING ON ANY 2 OR MORE",
+            "textshipping1": "$10 OFF + FREE SHIPPING ON ANY 2 OR MORE",
+            "textshipping2": "Ships From Our Local Warehouse"
+          }
+        },
+        "buy_buttons_pbzz9T": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "iconwithtext2_Ux6KGG": {
+          "type": "iconwithtext2",
+          "settings": {
+            "icon-shipping1": "shopify://shop_images/ca22f309cab155faf701d001bf0137d9.png",
+            "textshipping0": "$10 OFF + FREE SHIPPING ON ANY 2 OR MORE",
+            "textshipping1": "$10 OFF + FREE SHIPPING ON ANY 2 OR MORE",
+            "textshipping3": "Ships From Our Local Warehouse"
+          }
+        },
+        "complementary_GpY4dR": {
+          "type": "complementary",
+          "disabled": true,
+          "settings": {
+            "block_heading": "8 Packs of Scented Tabs",
+            "collection": "bundle",
+            "enable_quick_add": true
+          }
+        }
+      },
+      "block_order": [
+        "rating_RqtGYa",
+        "judge_me_reviews_preview_badge_prMmBK",
+        "title_YMtrM4",
+        "price_zCFEhc",
+        "benefits_4Dmz4a",
+        "variant_picker_Rrw9tK",
+        "quantity_selector_tVFLXa",
+        "iconwithtext_KQEUdQ",
+        "buy_buttons_pbzz9T",
+        "iconwithtext2_Ux6KGG",
+        "complementary_GpY4dR"
+      ],
+      "disabled": true,
+      "settings": {
+        "product": "clip-fan",
+        "sticky_cart": true,
+        "enable_sticky_info": false,
+        "color_scheme": "scheme-3a101b2e-80e1-4dcb-ba5b-8e268ef99b9f",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "right",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "enable_group_media": false,
+        "media_grouping_option": "Color"
+      }
+    },
+    "17315724347a4ac88b": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_btxwAK": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_btxwAK"
+      ],
+      "settings": {
+        "include_margins": true,
+        "class": "",
+        "id": ""
+      }
+    }
+  },
+  "order": [
+    "protable_fan_banner_h8FRD3",
+    "relative_banner_image_mkDiDh",
+    "main",
+    "banner_popup_x6NpRX",
+    "featured_collection_kpVrA9",
+    "portable_fan_section_hNyUY4",
+    "gallery_scroll_XX9phf",
+    "rich_text_ABd6UU",
+    "gallery_tabs_gQegFU",
+    "portable_clip_fan_banner_bcMQ8G",
+    "protable_fan_banner_aEzJzL",
+    "main_product_2_zi6MaY",
+    "17315724347a4ac88b"
+  ]
+}

@@ -1,0 +1,530 @@
+{% comment %}
+  Cozy Case Add-on (Dawn) — CLEAN + NO DUPLICATION
+  ✅ Desktop/Tablet: Left richtext content + Right image (no crop)
+  ✅ Mobile: ONE background image with content on top (no separate right image)
+  ✅ Fully responsive (large desktop -> 1920 -> iPad -> mobile)
+{% endcomment %}
+
+{%- liquid
+  assign sid = section.id
+  assign img_right = section.settings.image_desktop
+  assign img_mobile_fallback = section.settings.image_mobile
+  assign mobile_bg = section.settings.mobile_bg
+-%}
+
+<style>
+  .cca-{{ sid }}{
+    width:100%;
+    background: {{ section.settings.section_bg }};
+  }
+
+  .cca-{{ sid }} .cca__inner{
+    max-width: {{ section.settings.container_width }}px;
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px;
+    box-sizing: border-box;
+  }
+
+  /* ===== DESKTOP/TABLET LAYOUT ===== */
+  .cca-{{ sid }} .cca__grid{
+    display:grid;
+    grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.35fr);
+    gap: {{ section.settings.gap_desktop }}px;
+    align-items:center;
+  }
+
+.cca-{{ sid }} .cca__content{
+  max-width: 100%;
+}
+
+  .cca-{{ sid }} .cca__heading{
+    margin: 0 0 {{ section.settings.heading_gap }}px;
+    color: {{ section.settings.heading_color }};
+    font-size: {{ section.settings.heading_size_desktop }}px;
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .cca-{{ sid }} .cca__text{
+    margin: 0;
+    color: {{ section.settings.text_color }};
+    font-size: {{ section.settings.text_size_desktop }}px;
+    line-height: 1.55;
+    max-width: {{ section.settings.text_max_width }}px;
+  }
+
+  .cca-{{ sid }} .cca__media{
+    width:100%;
+    border-radius: {{ section.settings.media_radius }}px;
+    overflow:hidden;
+    background: rgba(0,0,0,0.03);
+  }
+
+  .cca-{{ sid }} .cca__media img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit: contain; /* no crop */
+  }
+
+  /* Hide mobile layout by default (prevents duplication) */
+  .cca-{{ sid }} .cca__mobile{
+    display:none;
+  }
+
+  /* ===== TABLET TUNING ===== */
+  @media (max-width: 989px){
+    .cca-{{ sid }} .cca__inner{
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    .cca-{{ sid }} .cca__grid{
+      grid-template-columns: 1fr 1.1fr;
+      gap: {{ section.settings.gap_tablet }}px;
+    }
+
+    .cca-{{ sid }} .cca__heading{
+      font-size: {{ section.settings.heading_size_tablet }}px;
+    }
+
+    .cca-{{ sid }} .cca__text{
+      font-size: {{ section.settings.text_size_tablet }}px;
+    }
+  }
+
+  /* ===== MOBILE LAYOUT ===== */
+  @media (max-width: 749px){
+    .cca-{{ sid }} .cca__inner{
+      max-width: 100%;
+      padding: {{ section.settings.mobile_padding_top }}px 16px {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    /* Hide desktop/tablet grid entirely on mobile */
+    .cca-{{ sid }} .cca__grid{
+      display:none;
+    }
+
+    /* Show mobile layout */
+    .cca-{{ sid }} .cca__mobile{
+      display:block;
+      position:relative;
+      border-radius: {{ section.settings.mobile_bg_radius }}px;
+      overflow:hidden;
+      min-height: {{ section.settings.mobile_min_height }}px;
+      background:#eee;
+    }
+
+    .cca-{{ sid }} .cca__mobile-bg{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+    }
+
+    .cca-{{ sid }} .cca__mobile-bg img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      object-position:center;
+      display:block;
+    }
+
+    .cca-{{ sid }} .cca__mobile-overlay{
+      position:absolute;
+      inset:0;
+      background: rgba(0,0,0, {{ section.settings.mobile_overlay_opacity | divided_by: 100.0 }});
+      pointer-events:none;
+    }
+
+    .cca-{{ sid }} .cca__mobile-content{
+      position:relative;
+      z-index:2;
+      padding: {{ section.settings.mobile_content_padding }}px;
+      text-align: {{ section.settings.mobile_text_align }};
+    }
+
+    .cca-{{ sid }} .cca__heading{
+      font-size: {{ section.settings.heading_size_mobile }}px;
+      color: {{ section.settings.mobile_heading_color }};
+      margin-bottom: {{ section.settings.heading_gap_mobile }}px;
+    }
+
+    .cca-{{ sid }} .cca__text{
+      font-size: {{ section.settings.text_size_mobile }}px;
+      color: {{ section.settings.mobile_text_color }};
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>
+
+<section class="cca-{{ sid }}">
+  <div class="cca__inner">
+
+    {%- comment -%} DESKTOP/TABLET {%- endcomment -%}
+    <div class="cca__grid">
+      <div class="cca__content">
+        {%- if section.settings.heading != blank -%}
+          <div class="cca__heading rte">{{ section.settings.heading }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.text != blank -%}
+          <div class="cca__text rte">{{ section.settings.text }}</div>
+        {%- endif -%}
+      </div>
+
+      <div class="cca__media">
+        {%- if img_right != blank -%}
+          <img
+            src="{{ img_right | image_url: width: 2400 }}"
+            alt="{{ img_right.alt | escape }}"
+            loading="lazy"
+            width="{{ img_right.width }}"
+            height="{{ img_right.height }}"
+          >
+        {%- else -%}
+          <div style="width:100%;aspect-ratio: 16/9;background:#e9e9e9;"></div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- comment -%} MOBILE (single background image + content) {%- endcomment -%}
+    <div class="cca__mobile">
+      <div class="cca__mobile-bg">
+        {%- if mobile_bg != blank -%}
+          <img
+            src="{{ mobile_bg | image_url: width: 1600 }}"
+            alt="{{ mobile_bg.alt | escape }}"
+            loading="lazy"
+            width="{{ mobile_bg.width }}"
+            height="{{ mobile_bg.height }}"
+          >
+        {%- elsif img_mobile_fallback != blank -%}
+          <img
+            src="{{ img_mobile_fallback | image_url: width: 1600 }}"
+            alt="{{ img_mobile_fallback.alt | escape }}"
+            loading="lazy"
+            width="{{ img_mobile_fallback.width }}"
+            height="{{ img_mobile_fallback.height }}"
+          >
+        {%- elsif img_right != blank -%}
+          <img
+            src="{{ img_right | image_url: width: 1600 }}"
+            alt="{{ img_right.alt | escape }}"
+            loading="lazy"
+            width="{{ img_right.width }}"
+            height="{{ img_right.height }}"
+          >
+        {%- endif -%}
+      </div>
+
+      <div class="cca__mobile-overlay"></div>
+
+      <div class="cca__mobile-content">
+        {%- if section.settings.heading != blank -%}
+          <div class="cca__heading rte">{{ section.settings.heading }}</div>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="cca__text rte">{{ section.settings.text }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cozy case add-on",
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section background",
+      "default": "#F3F2F2"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Container max width (px)",
+      "min": 900,
+      "max": 1800,
+      "step": 20,
+      "default": 1440
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top desktop (px)",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom desktop (px)",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "gap_desktop",
+      "label": "Gap desktop (px)",
+      "min": 10,
+      "max": 80,
+      "step": 2,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "gap_tablet",
+      "label": "Gap tablet (px)",
+      "min": 10,
+      "max": 70,
+      "step": 2,
+      "default": 28
+    },
+
+    {
+      "type": "header",
+      "content": "Left content"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p><strong>COZY CASE<br>ADD-ON</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Protect your COZYPOD with our premium hard case, reverse pull zippers, and plush interior</p>"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color (desktop/tablet)",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color (desktop/tablet)",
+      "default": "#2B2B2B"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "label": "Heading size desktop (px)",
+      "min": 20,
+      "max": 90,
+      "step": 1,
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "heading_size_tablet",
+      "label": "Heading size tablet (px)",
+      "min": 18,
+      "max": 70,
+      "step": 1,
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size mobile (px)",
+      "min": 18,
+      "max": 60,
+      "step": 1,
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "text_size_desktop",
+      "label": "Text size desktop (px)",
+      "min": 12,
+      "max": 26,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "text_size_tablet",
+      "label": "Text size tablet (px)",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "text_size_mobile",
+      "label": "Text size mobile (px)",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "heading_gap",
+      "label": "Space under heading desktop (px)",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "heading_gap_mobile",
+      "label": "Space under heading mobile (px)",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Content max width (px)",
+      "min": 260,
+      "max": 900,
+      "step": 20,
+      "default": 520
+    },
+    {
+      "type": "range",
+      "id": "text_max_width",
+      "label": "Text max width (px)",
+      "min": 260,
+      "max": 900,
+      "step": 20,
+      "default": 420
+    },
+
+    {
+      "type": "header",
+      "content": "Right image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Desktop/Tablet image (right)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile fallback image (optional)"
+    },
+    {
+      "type": "range",
+      "id": "media_radius",
+      "label": "Image corner radius (px)",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Mobile background"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_bg",
+      "label": "Mobile background image (recommended)"
+    },
+    {
+      "type": "range",
+      "id": "mobile_min_height",
+      "label": "Mobile min height (px)",
+      "min": 320,
+      "max": 900,
+      "step": 10,
+      "default": 520
+    },
+    {
+      "type": "range",
+      "id": "mobile_bg_radius",
+      "label": "Mobile background radius (px)",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_overlay_opacity",
+      "label": "Mobile overlay opacity (%)",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_content_padding",
+      "label": "Mobile content padding (px)",
+      "min": 12,
+      "max": 46,
+      "step": 2,
+      "default": 22
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_align",
+      "label": "Mobile text alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "mobile_heading_color",
+      "label": "Mobile heading color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "mobile_text_color",
+      "label": "Mobile text color",
+      "default": "#2B2B2B"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Section padding top mobile (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Section padding bottom mobile (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Banner Right Image V2"
+    }
+  ]
+}
+{% endschema %}

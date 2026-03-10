@@ -1,0 +1,176 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "clip_fan_banner_kXiGF7": {
+      "type": "clip-fan-banner",
+      "custom_css": [
+        "@media only screen and (max-width: 600px) {.form-main-clip-fan {max-width: 250px; margin: 15px auto 0 auto; }}"
+      ],
+      "settings": {
+        "allow_transparent_header": true,
+        "title1": "<span>Venty Clip<\/span> Live on <strong> Kickstarter <\/strong>",
+        "title": "<p><em><strong>Venty Clip<\/strong><\/em> Live on <strong>Kickstarter<\/strong><\/p>",
+        "para": "",
+        "btntext": "get NOTIFIED",
+        "img1": "shopify:\/\/shop_images\/clip_expand_2_2_1-_1_4545716b-1d9f-48cc-9cb0-b3de1548fad1.png",
+        "img2": "shopify:\/\/shop_images\/clip_expand_2_2_1-_1_4545716b-1d9f-48cc-9cb0-b3de1548fad1.png",
+        "background": "#eef0f6",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 60
+      }
+    },
+    "video_with_text_wrVCt7": {
+      "type": "video-with-text",
+      "custom_css": [
+        "@media only screen and (max-width: 600px) {.waitlistmain {padding-top: 20px; }}"
+      ],
+      "settings": {
+        "title": "LIVE ON KICKSTARTER",
+        "desc": "<p>Join us on our third campaign for the launch of the Clip Fan. Limited supply for backers wanting this before Christmas!<\/p>",
+        "video1": "shopify:\/\/files\/videos\/29f14285-c910-4714-a5df-4e1c12c89bf4_7fdd81eb-4c08-4ba3-8c37-4ae5afba4fcc.MP4"
+      }
+    },
+    "clip_fan_boxes_8JGVcR": {
+      "type": "clip-fan-boxes",
+      "settings": {
+        "title1": "CLIP IT",
+        "txt1": "The 2.7” anti-skid clip ensures the fan clamps almost everywhere",
+        "img1": "shopify:\/\/shop_images\/image_10_4ba957cd-8ed3-487a-915a-388f6a70bb04.png",
+        "title2": "MOUNT IT",
+        "txt2": "Mount enclosed to fasten to any wall or flat surface",
+        "img2": "shopify:\/\/shop_images\/mount_2_72d07d7f-bb24-44fb-abb4-6f489e8a559a.png",
+        "title3": "SMELL IT",
+        "txt3": "Replaceable scented tabs fit into the faceplate for a refreshing scent",
+        "img3": "shopify:\/\/shop_images\/image_14_b70b600e-9f3b-41ff-832b-2c955d86a296.png",
+        "title4": "RECHARGE IT",
+        "txt4": "15 hours per charge. Perfect for keeping   cool during your shift, and will run through the night",
+        "img4": "shopify:\/\/shop_images\/image_12_1_82d54866-0b72-4a80-be99-532db0f3ed74.png",
+        "background": "",
+        "padding_top": 200,
+        "padding_bottom": 44,
+        "padding_top_mob": 100,
+        "padding_bottom_mob": 36
+      }
+    },
+    "rich_text_3gBxEQ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_N36UFc": {
+          "type": "heading",
+          "settings": {
+            "heading": "Live on Kickstarter",
+            "heading_size": "h0"
+          }
+        },
+        "text_ecERCA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Save $20 off our Product Launch on Kickstarter on Launch Day<\/p>"
+          }
+        },
+        "button_Tt8U3Y": {
+          "type": "button",
+          "settings": {
+            "button_label": "Buy it on Kickstarter",
+            "button_link": "https:\/\/www.kickstarter.com\/projects\/teamvento\/the-venty-clip-fan?ref=1rfpyo&token=c5482ad3",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_N36UFc",
+        "text_ecERCA",
+        "button_Tt8U3Y"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-3a101b2e-80e1-4dcb-ba5b-8e268ef99b9f",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "newsletter_a6kWjD": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_e84YQh": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sign up <strong>now<\/strong>",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_zDThb3": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Save $30 off our Product Launch on Kickstarter on Launch Day<\/p>"
+          }
+        },
+        "email_form_gDtjRV": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_e84YQh",
+        "paragraph_zDThb3",
+        "email_form_gDtjRV"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".newsletter__wrapper {padding-left: 15px; padding-right: 15px;}",
+        "@media screen and (max-width: 749px) {.newsletter__wrapper {padding: 15px; }}"
+      ],
+      "settings": {
+        "enable_new_design": true,
+        "btntext": "get NOTIFIED",
+        "color_scheme": "scheme-3a101b2e-80e1-4dcb-ba5b-8e268ef99b9f",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 52
+      }
+    },
+    "clip_fan_image_only_PBgWLF": {
+      "type": "Clip-Fan-image-Only",
+      "settings": {
+        "img1": "shopify:\/\/shop_images\/banner-fan-img_49150ea7-3df5-4f68-900c-8e83661b9795.png",
+        "background": "",
+        "padding_top": 0,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "clip_fan_banner_kXiGF7",
+    "video_with_text_wrVCt7",
+    "clip_fan_boxes_8JGVcR",
+    "rich_text_3gBxEQ",
+    "newsletter_a6kWjD",
+    "clip_fan_image_only_PBgWLF"
+  ]
+}

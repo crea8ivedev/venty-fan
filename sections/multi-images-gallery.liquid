@@ -1,0 +1,241 @@
+{% comment %}
+  Section: Promo Grid with Header + Button (First Image + 2x2 Grid)
+{% endcomment %}
+{% style %}
+.promo-grid {
+  margin: 0 auto;
+  padding-top: {{ section.settings.padding-top }}px;
+  padding-bottom: {{ section.settings.padding-bottom }}px;
+}
+.promo-header {
+    display: flex;
+    justify-content: normal;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 40px;
+}
+.promo-header h2 {
+  font-size:40px;
+  font-weight: 400;
+  color: #0D182F;
+}
+.promo-header h2 strong {
+  font-weight: 700;
+}
+.promo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #152B4F;
+  color: #fff;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: 0.3s;     text-transform: uppercase;
+}
+.promo-btn:hover {
+    color: #031133;
+    background: #fff;
+    box-shadow: 0 0 10px 10px #0000001f;
+}
+.promo-btn .icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: #1cb5a3;
+  border-radius: 50%;
+  font-size: 15px;
+}
+.promo-btn span.icon-circle img {
+    max-width: 13px;
+}
+/*  Two column layout */
+.main-holder-div {
+  display: flex;
+  gap: 20px;
+  align-items: stretch; /* ensures both sides equal height */
+}
+
+/* First image column */
+.main-first-image {
+  flex: 1 1 50%;
+}
+.main-first-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+/* Second column (grid of block images) */
+.promo-grid-images {
+  flex: 1 1 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr; /* 4 equal images */
+  gap: 20px;
+}
+
+
+.promo-img-item {
+    position: relative;
+ 
+}
+
+
+.promo-img-item img {
+  width: 100%;
+  height: 100%;
+}
+
+/*  Responsive */
+@media (max-width: 768px) {
+  .main-holder-div {
+    flex-direction: column;
+  }
+  .main-first-image,
+  .promo-grid-images {
+    flex: 1 1 100%;
+  }
+  .promo-grid-images {
+    grid-template-columns: 1fr 1fr; /* still 2x2 on mobile */
+    grid-template-rows: auto;
+  }
+
+
+.promo-header {
+    margin-bottom: 25px;
+    gap: 0;
+    flex-direction: column;
+}
+.promo-header h2 {
+    font-size: 32px;
+    font-weight: 400;
+    color: #0d223d;
+    margin: 0 0 10px; text-align:center;
+}
+}
+{% endstyle %}
+
+
+<div class="promo-grid page-width">
+  <div class="promo-header">
+    <h2>
+      {{ section.settings.headline }}
+      {% if section.settings.highlight_text != blank %}
+        <strong>{{ section.settings.highlight_text }}</strong>
+      {% endif %}
+    </h2>
+    
+    {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+      <a href="{{ section.settings.button_link }}" class="promo-btn" target="blank">
+        {{ section.settings.button_text }}
+        <span class="icon-circle">
+          <img src="https://cdn.shopify.com/s/files/1/0613/3297/9961/files/Right_25.png">
+        </span>
+      </a>
+    {% endif %}
+  </div>
+
+  <div class="main-holder-div">
+    <div class="main-first-image">
+      {% if section.settings.first_image != blank %}
+        <img src="{{ section.settings.first_image | img_url: '800x' }}" alt="Promo Image">
+      {% endif %}
+    </div>
+
+    <div class="promo-grid-images">
+      {% for block in section.blocks %}
+        {% if block.settings.image != blank %}
+          <div class="promo-img-item">
+            <img src="{{ block.settings.image | img_url: '600x' }}" alt="Promo Image">
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Multi images gallery",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline Text",
+      "default": "Pre-Orders Open"
+    },
+    {
+      "type": "text",
+      "id": "highlight_text",
+      "label": "Highlighted Text",
+      "default": "October 20th"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Mark Your Calendar"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "image_picker",
+      "id": "first_image",
+      "label": "First Big Image"
+    },
+    {
+        "type": "color",
+        "id": "main-bg-color",
+        "label": "Background Color"
+    },
+    {
+        "type": "range",
+        "id": "padding-top",
+        "label": "Padding Top",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 40
+    },
+    {
+        "type": "range",
+        "id": "padding-bottom",
+        "label": "Padding Bottom",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "promo_image",
+      "name": "Promo Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Upload Image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Multi images gallery"
+    }
+  ]
+}
+{% endschema %}
