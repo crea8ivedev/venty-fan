@@ -389,7 +389,6 @@ endfor
 
 </div>
 
-{% assign side_menu = linklists[mega_block.settings.side_links] %}
 {% assign mega_block = blank %}
 
 {% for block in section.blocks %}
@@ -408,12 +407,50 @@ endfor
 
   <ul class="mobile-mega-side-links">
 
-    {% for side_link in side_menu.links %}
-      <li>
-        <a href="{{ side_link.url }}">
-          {{ side_link.title }}
+    {% for parent_link in side_menu.links %}
+
+      <li class="mobile-side-parent">
+
+        <a href="{{ parent_link.url }}">
+          {{ parent_link.title }}
         </a>
+
+        {% if parent_link.links != blank %}
+        <ul class="mobile-side-child-links">
+
+          {% for child_link in parent_link.links %}
+
+            <li class="mobile-side-child">
+
+              <a href="{{ child_link.url }}">
+                {{ child_link.title }}
+              </a>
+
+              {% if child_link.links != blank %}
+              <ul class="mobile-side-grandchild-links">
+
+                {% for grandchild_link in child_link.links %}
+
+                  <li class="mobile-side-grandchild">
+                    <a href="{{ grandchild_link.url }}">
+                      {{ grandchild_link.title }}
+                    </a>
+                  </li>
+
+                {% endfor %}
+
+              </ul>
+              {% endif %}
+
+            </li>
+
+          {% endfor %}
+
+        </ul>
+        {% endif %}
+
       </li>
+
     {% endfor %}
 
   </ul>

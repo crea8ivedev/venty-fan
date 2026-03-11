@@ -170,24 +170,64 @@ Usage:
 
   </div>
   </div>
-  {% assign side_menu = linklists[mega_block.settings.side_links] %}
+{% assign side_menu = linklists[mega_block.settings.side_links] %}
 
 {% if side_menu != blank %}
+
 <div class="mega-side-panel">
 
   <ul class="mega-side-links">
 
-    {% for side_link in side_menu.links %}
-      <li>
-        <a href="{{ side_link.url }}">
-          {{ side_link.title }}
+    {% for parent_link in side_menu.links %}
+
+      <li class="side-parent">
+
+        <a href="{{ parent_link.url }}" class="ctm-menu-parent">
+          {{ parent_link.title }}
         </a>
+
+        {% if parent_link.links != blank %}
+        <ul class="side-child-links">
+
+          {% for child_link in parent_link.links %}
+
+            <li class="side-child">
+
+              <a href="{{ child_link.url }}" class="{% if child_link.active %}menu-active{% endif %}">
+                {{ child_link.title }}
+              </a>
+
+              {% if child_link.links != blank %}
+              <ul class="side-grandchild-links">
+
+                {% for grandchild_link in child_link.links %}
+
+                  <li class="side-grandchild">
+                    <a href="{{ grandchild_link.url }}">
+                      {{ grandchild_link.title }}
+                    </a>
+                  </li>
+
+                {% endfor %}
+
+              </ul>
+              {% endif %}
+
+            </li>
+
+          {% endfor %}
+
+        </ul>
+        {% endif %}
+
       </li>
+
     {% endfor %}
 
   </ul>
 
 </div>
+
 {% endif %}
 
 </li>
@@ -220,7 +260,13 @@ Usage:
 </nav>
 
 <style>
-
+.header-custom-mega-menu .mega-menu .mega-menu__content .mega-menu__list  {
+    box-shadow: 0 0 16px rgba(0,0,0,0.1);
+}
+.header-custom-mega-menu .mega-menu .mega-menu__content {
+    margin-top:-50px;
+    padding-top:50px !important;
+}
 .header-custom-mega-menu .mega-products-small {
   display:grid;
   grid-template-columns: repeat(2, 1fr);
@@ -315,7 +361,8 @@ Usage:
   list-style:none;
   padding:0;
 }
-.header-custom-mega-menu .mega-side-panel ul li a:hover {
+.header-custom-mega-menu .mega-side-panel ul li a:hover,
+.header-custom-mega-menu .mega-side-panel ul li a.menu-active {
   font-weight: 700 ;
   color: #031133 ;
 }
@@ -330,11 +377,32 @@ Usage:
   text-align: left;
   text-transform: uppercase;
 }
+.header-custom-mega-menu .mega-side-panel .ctm-menu-parent {
+  pointer-events:none;
+  font-weight: 600;
+  color: #031133;
+  padding-bottom:4px;
+  border-bottom:1px solid #c7c7c7;
+  width:100%;
+  display:block;
+  margin-bottom:4px;
+}
 @media only screen and (max-width:1280px) {
+  .header-custom-mega-menu #MegaMenu-Content-1 .mega-side-panel {
+    flex-basis:30%;
+  }
+  .header-custom-mega-menu .mega-products-small {
+    flex-basis:40%;
+  }
+  .header-custom-mega-menu .mega-products-featured {
+    flex-basis:60%;
+  }
   .header-custom-mega-menu .mega-products-small.mega-products-small-more-four {
     max-height:263px;
   }
-  .header-custom-mega-menu .mega-menu-products-inner ,
+    .header-custom-mega-menu .mega-menu-products-inner  {
+    padding:20px 10px 20px 20px;
+  }
   .header-custom-mega-menu #MegaMenu-Content-1 .mega-side-panel {
     padding:20px;
   }
@@ -345,8 +413,11 @@ Usage:
   .header-custom-mega-menu .mega-products-small .mega-product-card {
     padding:10px;
   }
+  .header-custom-mega-menu .mega-menu-products-container .mega-product-card {
+    gap:10px;
+  }
   .header-custom-mega-menu .mega-menu-products-container .mega-products-small .mega-product-card img {
-    max-width: 60px;
+    max-width: 80px;
   }
 }
 {% comment %} mobile menu  {% endcomment %}
