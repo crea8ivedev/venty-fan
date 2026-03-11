@@ -32,7 +32,7 @@
 .mega-menu[open] .mega-menu__content {
   opacity: 1;
   transform: translateY(0);
-  width: fit-content !important;
+  /* width: fit-content !important; */
 }
 
 .mega-menu__list {
