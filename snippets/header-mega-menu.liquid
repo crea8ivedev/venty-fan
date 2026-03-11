@@ -193,7 +193,7 @@ Usage:
 
             <li class="side-child">
 
-              <a href="{{ child_link.url }}" class="ctm-child-menu {% if child_link.active %}menu-active{% endif %}">
+              <a href="{{ child_link.url }}" class="{% if child_link.active %}menu-active{% endif %}">
                 {{ child_link.title }}
               </a>
 
@@ -464,19 +464,22 @@ Usage:
   height: 130px;
   aspect-ratio: 1 / 1;
 }
-.menu-drawer__inner-container ul.mobile-mega-side-links ,
-.menu-drawer__inner-container ul.mobile-side-child-links {
+.menu-drawer__inner-container .mobile-mega-side-links .ctm-child-menu {
+
+}
+.menu-drawer__inner-container .mobile-mega-side-links ,
+.menu-drawer__inner-container .mobile-side-child-links {
   margin-top:30px;
   margin-bottom:10px;
   padding-inline:20px;
   list-style:none;
 }
-.menu-drawer__inner-container ul.mobile-side-child-links {
+.menu-drawer__inner-container .mobile-side-child-links {
   margin-top:0;
   padding:0;
 }
-.menu-drawer__inner-container ul.mobile-side-child-links li a,
-.menu-drawer__inner-container ul.mobile-mega-side-links li a {
+.menu-drawer__inner-container .mobile-side-child-links  a,
+.menu-drawer__inner-container .mobile-mega-side-links  a {
   width:100%;
   padding-block:6px;
   line-height: calc(1 + 0.3 / var(--font-body-scale));
