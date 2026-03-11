@@ -1,194 +1,410 @@
 {% comment %}
-  Renders a megamenu for the header.
+Renders a megamenu for the header.
 
-  Usage:
-  {% render 'header-mega-menu' %}
+Usage:
+{% render 'header-mega-menu' %}
 {% endcomment %}
 
-<nav class="header__inline-menu">
+<nav class="header__inline-menu header-custom-mega-menu">
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
-      <li class="menu-hover-class">
-        {%- if link.links != blank -%}
-          <header-menu>
-            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
-              <summary
-                id="HeaderMenu-{{ link.handle }}"
-                class="header__menu-item list-menu__item link focus-inset"
-              >
-                <span   
-                 
-                >
-                  {{- link.title | escape -}}
-                </span>
-                {% render 'icon-caret' %}
-              </summary>
-              <div
-                id="MegaMenu-Content-{{ forloop.index }}"
-                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
-                tabindex="-1"
-              >
-                <ul
-                  class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
-                  role="list"
-                >
-                  {%- for childlink in link.links -%}
-                    <li class="main-li-of-child-menu {% if childlink.current %} mega-menu__link--active{% endif %}">
+    <li class="menu-hover-class">
+      {%- if link.links != blank -%}
+      <header-menu>
+        <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
 
-
-          
-                      <a 
-                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-                        href=" {% if request.host contains 'ventyfan.co.uk' %}
-{% if childlink.url == '/products/foldable-fan' %}
-/products/foldable-fan-uk 
-{% else %}
-{{ childlink.url }} 
-{% endif %}
-{% else %} {{ childlink.url }} {% endif %}"
-                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.type == 'collection_link' and childlink.object.featured_image %} have-image-coll{% endif %} 
-                        
-{% if request.host contains 'ventyfan.co.uk'  and childlink.title contains 'VENTY CLIP FAN' or childlink.title contains 'COZYPOD' %}
-no-URL
-{% endif %}
-
-{% if   shop.secure_url contains 'en-au'  and childlink.title contains 'VENTY CLIP FAN' %} no-URL {% endif %}
-{% if   shop.secure_url contains 'en-au'  and childlink.title contains 'COZYPOD' %} no-URL {% endif %}
-"               
-                         
-                        {%- if childlink.current -%}
-                          aria-current="page"
-                        {%- endif -%}
-                      >
-                   
-<span class="title-coll-nav">
-
-{% if request.host contains 'ventyfan.co.uk'  and childlink.title contains 'VENTY CLIP FAN' %}
-<span style="color: #35b339 !important; line-height:1; margin-bottom:0px; font-size:12px; text-transform: uppercase;"> NOT AVAILABLE IN UK </span>  
-{% endif %}
-
-{% if   shop.secure_url contains 'en-au'  and childlink.title contains 'VENTY CLIP FAN' %}
-<span style="color: #35b339 !important; line-height:1; margin-bottom:0px; font-size:12px; text-transform: uppercase;"> NOT AVAILABLE IN AUS </span>
-{% endif %}  
-
-
-  {% if request.host contains 'ventyfan.co.uk'  and childlink.title contains 'COZYPOD' %}
-<span style="color: #35b339 !important; line-height:1; margin-bottom:0px; font-size:12px; text-transform: uppercase;"> NOT AVAILABLE IN UK </span>
-{% endif %}
-
-{% if   shop.secure_url contains 'en-au'  and childlink.title contains 'COZYPOD' %}
-<span style="color: #35b339 !important; line-height:1; margin-bottom:0px; font-size:12px; text-transform: uppercase;"> NOT AVAILABLE IN Aus </span>   
-{% endif %}  
- 
-{{ childlink.title | escape }}
-</span>
-  {%- if childlink.title == 'TOWER FAN'-%}
-                               <span style="color: #35b339 !important; line-height:1; margin-bottom:-10px; font-size:12px;">COMING SOON!</span>
-                              {%- endif -%}
-                           <div class="nav-product_image only-without-product">
-                           </div>
-
-                        {%- if childlink.type == 'collection_link' -%}
-                          {% assign linkCollection = childlink.object %}
-                          <div class="nav-collection_image">
-                            {%- if linkCollection.featured_image -%}
-                              <img
-                                crossorigin="anonymous"
-                                class="nav-child-link-image"
-                                src="{{ linkCollection.featured_image.src | img_url: '170x' }}"
-                                alt="{{ linkCollection.title }}"
-                              >
-                              <span class="nav-collection_title">
-                                {{ linkCollection.title | escape }}
-                              </span>
-                            {%- endif -%}
-                          </div>
-                        {%- endif -%}
-
-
-
-                          {%- if childlink.type == 'product_link' -%}
-                          {% assign linkedProduct = childlink.object %}
-                          {%- if linkedProduct.featured_image -%}
-                            <div class="nav-product_image">
-                              <img
-                                crossorigin="anonymous"
-                                class="nav-child-link-image"
-                                src="{{ linkedProduct.featured_image.src | img_url: '340x' }}"
-                                alt="{{ linkedProduct.title }}"
-                              >
-                              <!-- <span class="nav-product_title">
-                                {{ linkedProduct.title | escape }}
-                              </span> -->
-                            </div>
-                          {%- endif -%}
-                        {%- endif -%}
-
-                        {%- if childlink.type == 'page_link' -%}
-                            <div class="nav-product_image"></div>
-                        {%- endif -%}
-                        
-
-                        
-                      </a>
-                      
-
-                      {%- if childlink.links != blank -%}
-                        <ul class="list-unstyled" role="list">
-                          {%- for grandchildlink in childlink.links -%}
-                            <li>
-                              <a
-                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                                href="{{ grandchildlink.url }}"
-                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
-                                {%- if grandchildlink.current -%}
-                                  aria-current="page"
-                                {%- endif -%}
-                              >
-                                {{ grandchildlink.title | escape }}
-                              </a>
-                            </li>
-                          {%- endfor -%}
-                        </ul>
-                      {%- endif -%}
-                    </li>
-                  {%- endfor -%}
-                </ul>
-              </div>
-            </details>
-          </header-menu>
-        {%- else -%}
-          <a
-            id="HeaderMenu-{{ link.handle }}"
-            href="
-             {% if request.host contains 'ventyfan.co.uk' %}  
-{% if link.url == '/products/foldable-fan' %}
-/products/foldable-fan-uk 
-{% else %}
-{{ link.url }} 
-{% endif %}
-{% else %} {{ link.url }} {% endif %}"
-            
-             "
-
-
-
-            
-            class="header__menu-item list-menu__item link link--text focus-inset"
-            {%- if link.current -%}
-              aria-current="page"
-            {%- endif -%}
-          >
-            <span
-              {% if link.current %}
-                class="header__active-menu-item"
-              {% endif %}
-            >
+          <summary id="HeaderMenu-{{ link.handle }}" class="header__menu-item list-menu__item link focus-inset">
+            <span>
               {{- link.title | escape -}}
             </span>
-          </a>
-        {%- endif -%}
+            {% render 'icon-caret' %}
+          </summary>
+          <div id="MegaMenu-Content-{{ forloop.index }}"
+            class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+            tabindex="-1">
+            
+            <ul class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+              role="list">
+              {%- for childlink in link.links -%}
+              <li class="main-li-of-child-menu {% if childlink.current %} mega-menu__link--active{% endif %}">
+
+
+
+                <a id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}" href=" {% if request.host contains 'ventyfan.co.uk' %}
+                  {% if childlink.url == '/products/foldable-fan' %}
+                  /products/foldable-fan-uk 
+                  {% else %}
+                  {{ childlink.url }} 
+                  {% endif %}
+                  {% else %} {{ childlink.url }} {% endif %}" class="mega-menu__link mega-menu__link--level-2 link{% if childlink.type == 'collection_link' and childlink.object.featured_image %} have-image-coll{% endif %} 
+                                          
+                  {% if request.host contains 'ventyfan.co.uk'  and childlink.title contains 'VENTY CLIP FAN' or childlink.title contains 'COZYPOD' %}
+                  no-URL
+                  {% endif %}
+
+                  {% if   shop.secure_url contains 'en-au'  and childlink.title contains 'VENTY CLIP FAN' %} no-URL {% endif %}
+                  {% if   shop.secure_url contains 'en-au'  and childlink.title contains 'COZYPOD' %} no-URL {% endif %}
+                  " {%- if childlink.current -%} aria-current="page" {%- endif -%}>
+
+                  <span class="title-coll-nav">
+
+                    {% if request.host contains 'ventyfan.co.uk' and childlink.title contains 'VENTY CLIP FAN' %}
+                    <span
+                      style="color: #35b339 !important; line-height:1; margin-bottom:0px; font-size:12px; text-transform: uppercase;">
+                      NOT AVAILABLE IN UK </span>
+                    {% endif %}
+
+                    {% if shop.secure_url contains 'en-au' and childlink.title contains 'VENTY CLIP FAN' %}
+                    <span
+                      style="color: #35b339 !important; line-height:1; margin-bottom:0px; font-size:12px; text-transform: uppercase;">
+                      NOT AVAILABLE IN AUS </span>
+                    {% endif %}
+
+
+                    {% if request.host contains 'ventyfan.co.uk' and childlink.title contains 'COZYPOD' %}
+                    <span
+                      style="color: #35b339 !important; line-height:1; margin-bottom:0px; font-size:12px; text-transform: uppercase;">
+                      NOT AVAILABLE IN UK </span>
+                    {% endif %}
+
+                    {% if shop.secure_url contains 'en-au' and childlink.title contains 'COZYPOD' %}
+                    <span
+                      style="color: #35b339 !important; line-height:1; margin-bottom:0px; font-size:12px; text-transform: uppercase;">
+                      NOT AVAILABLE IN Aus </span>
+                    {% endif %}
+
+                    {{ childlink.title | escape }}
+                  </span>
+
+                  {%- if childlink.title == 'TOWER FAN'-%}
+                  <span style="color: #35b339 !important; line-height:1; margin-bottom:-10px; font-size:12px;">COMING
+                    SOON!</span>
+                  {%- endif -%}
+                  <div class="nav-product_image only-without-product">
+                  </div>
+
+                  {%- if childlink.type == 'collection_link' -%}
+                  {% assign linkCollection = childlink.object %}
+                  <div class="nav-collection_image">
+                    {%- if linkCollection.featured_image -%}
+                    <img crossorigin="anonymous" class="nav-child-link-image"
+                      src="{{ linkCollection.featured_image.src | img_url: '170x' }}" alt="{{ linkCollection.title }}">
+                    <span class="nav-collection_title">
+                      {{ linkCollection.title | escape }}
+                    </span>
+                    {%- endif -%}
+                  </div>
+                  {%- endif -%}
+
+
+
+                  {%- if childlink.type == 'page_link' -%}
+                  <div class="nav-product_image"></div>
+                  {%- endif -%}
+
+                </a>
+
+                {%- if childlink.links != blank -%}
+                <ul class="list-unstyled" role="list">
+                  {%- for grandchildlink in childlink.links -%}
+                  <li>
+                    <a id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                      href="{{ grandchildlink.url }}"
+                      class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}" {%-
+                      if grandchildlink.current -%} aria-current="page" {%- endif -%}>
+                      {{ grandchildlink.title | escape }}
+                    </a>
+                  </li>
+                  {%- endfor -%}
+                </ul>
+                {%- endif -%}
+              </li>
+              {%- endfor -%}
+
+{% assign mega_block = blank %}
+
+{% for block in section.blocks %}
+  {% if block.type == 'mega_menu_products' %}
+
+    {% assign block_title = block.settings.menu_title | strip | downcase %}
+    {% assign link_title = link.title | strip | downcase %}
+
+    {% if block_title == link_title %}
+      {% assign mega_block = block %}
+    {% endif %}
+
+  {% endif %}
+{% endfor %}
+
+{% if mega_block != null %}
+
+{% assign mega_products = mega_block.settings.products %}
+
+<li class="mega-menu-products-container">
+  <div class="mega-menu-products-inner">
+  <div class="mega-products-featured">
+
+    {% for product in mega_products limit: 2 %}
+      <a href="{{ product.url }}" class="mega-product-card featured">
+        <img
+          src="{{ product.featured_image | image_url: width: 500 }}"
+          alt="{{ product.title }}" height="auto" width="auto"
+          loading="lazy">
+        <span>{{ product.title }}</span>
+      </a>
+    {% endfor %}
+
+  </div>
+{% assign visible_products = mega_products.size | minus: 2 %}
+  <div class="mega-products-small {% if visible_products > 4 %}mega-products-small-more-four{% endif %}">
+
+    {% for product in mega_products offset: 2 %}
+      <a href="{{ product.url }}" class="mega-product-card small ">
+        <img
+          src="{{ product.featured_image | image_url: width: 300 }}"
+          alt="{{ product.title }}" height="auto" width="auto"
+          loading="lazy">
+        <span>{{ product.title }}</span>
+      </a>
+    {% endfor %}
+
+  </div>
+  </div>
+  {% assign side_menu = linklists[mega_block.settings.side_links] %}
+
+{% if side_menu != blank %}
+<div class="mega-side-panel">
+
+  <ul class="mega-side-links">
+
+    {% for side_link in side_menu.links %}
+      <li>
+        <a href="{{ side_link.url }}">
+          {{ side_link.title }}
+        </a>
       </li>
+    {% endfor %}
+
+  </ul>
+
+</div>
+{% endif %}
+
+</li>
+
+{% endif %}
+
+            </ul>
+          </div>
+        </details>
+      </header-menu>
+      {%- else -%}
+      <a id="HeaderMenu-{{ link.handle }}" href="
+        {% if request.host contains 'ventyfan.co.uk' %}  
+        {% if link.url == '/products/foldable-fan' %}
+        /products/foldable-fan-uk 
+        {% else %}
+        {{ link.url }} 
+        {% endif %}
+        {% else %} {{ link.url }} {% endif %}"
+        class=" header__menu-item list-menu__item link link--text focus-inset" {%- if link.current -%}
+        aria-current="page" {%- endif -%}>
+        <span {% if link.current %} class="header__active-menu-item" {% endif %}>
+          {{- link.title | escape -}}
+        </span>
+      </a>
+      {%- endif -%}
+    </li>
     {%- endfor -%}
   </ul>
 </nav>
+
+<style>
+
+.header-custom-mega-menu .mega-products-small {
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:10px;
+  flex-basis:35%;
+  padding-right:10px;
+}
+.header-custom-mega-menu .mega-products-small.mega-products-small-more-four::-webkit-scrollbar-thumb {
+  background:#f1f2f4;
+}
+.header-custom-mega-menu .mega-products-small.mega-products-small-more-four::-webkit-scrollbar-track {
+  background:transparent;
+}
+.header-custom-mega-menu .mega-products-small.mega-products-small-more-four::-webkit-scrollbar {
+  width:4px;
+}
+.header-custom-mega-menu .mega-products-small.mega-products-small-more-four {
+  overflow-y:scroll;
+  max-height:343px;
+}
+.header-custom-mega-menu .mega-menu-products-container .mega-product-card img {
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  aspect-ratio:1/1;
+  flex-grow:1;
+}
+.header-custom-mega-menu .mega-menu-products-container .mega-product-card:hover {
+  font-weight: 700 ;
+  color: #031133 ;
+}
+.header-custom-mega-menu .mega-products-small .mega-product-card span {
+  max-width:100px;
+  margin-inline:auto;
+}
+.header-custom-mega-menu .mega-menu-products-container 
+ {
+  display: flex;
+}
+.header-custom-mega-menu .mega-products-featured {
+  display: flex;
+  gap:10px;
+  flex-basis:65%;
+}
+.header-custom-mega-menu .mega-products-small .mega-product-card {
+  background: #f1f2f4;
+    border-radius: 16px;
+    padding:20px 10px;
+    margin:0;
+  }
+  .header-custom-mega-menu .mega-menu-products-container .mega-product-card {
+    text-decoration:none;
+    font-size: 12px;
+    font-weight: 500; 
+    line-height: 15px;
+    text-align: center;
+    color: #000;
+    margin: 0;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:16px;
+}
+  .header-custom-mega-menu .mega-products-featured .mega-product-card {
+    font-size: 14px;
+    line-height: 17px; 
+  background: #f1f2f4;
+    border-radius: 16px;
+    padding: 20px;
+    margin:0;
+  }
+.header-custom-mega-menu .mega-menu-products-inner {
+  display:flex;
+  padding:30px 20px 30px 30px;
+  align-items:stretch;
+  gap:10px;
+}
+.header-custom-mega-menu #MegaMenu-Content-1 .main-li-of-child-menu  {
+  display:none;
+}
+.header-custom-mega-menu #MegaMenu-Content-1 .mega-side-panel {
+  background:#f8f9fa;
+  border-radius:0 14px 14px 0px;
+  padding:30px;
+  flex-basis:20%;
+} 
+.header-custom-mega-menu .mega-menu-products-container .mega-products-small .mega-product-card img {
+    max-width: 80px;
+}
+.header-custom-mega-menu .mega-side-panel ul {
+  list-style:none;
+  padding:0;
+}
+.header-custom-mega-menu .mega-side-panel ul li a:hover {
+  font-weight: 700 ;
+  color: #031133 ;
+}
+.header-custom-mega-menu .mega-side-panel ul li a {
+  margin:0;
+  padding:0;
+  text-decoration:none;
+  font-size: 14px;
+  line-height: 23px;
+  color: #000;
+  font-weight: 500;
+  text-align: left;
+  text-transform: uppercase;
+}
+@media only screen and (max-width:1280px) {
+  .header-custom-mega-menu .mega-products-small.mega-products-small-more-four {
+    max-height:263px;
+  }
+  .header-custom-mega-menu .mega-menu-products-inner ,
+  .header-custom-mega-menu #MegaMenu-Content-1 .mega-side-panel {
+    padding:20px;
+  }
+  .header-custom-mega-menu .mega-products-featured .mega-product-card,
+  .header-custom-mega-menu .mega-products-small .mega-product-card {
+    border-radius:10px;
+  }
+  .header-custom-mega-menu .mega-products-small .mega-product-card {
+    padding:10px;
+  }
+  .header-custom-mega-menu .mega-menu-products-container .mega-products-small .mega-product-card img {
+    max-width: 60px;
+  }
+}
+{% comment %} mobile menu  {% endcomment %}
+.menu-drawer__inner-container .mobile-menu-image {
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:20px 10px;
+  margin:80px 20px 0;
+  align-items:stretch;
+}
+.menu-drawer__inner-container .mobile-menu-image .mobile-sub-menu {
+  margin:0;
+}
+.menu-drawer__inner-container .mobile-menu-image .mobile-sub-menu a {
+  border:none;
+  background:transparent;
+  border-radius:10px;
+  flex-direction:column;
+  gap:10px;
+  align-items:start;
+}
+.menu-drawer__inner-container .mobile-menu-image .mobile-sub-menu img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.menu-drawer__inner-container .mobile-menu-image .mobile-sub-menu h5 {
+  margin:0;
+  font-size: 14px;
+  line-height: 17px; 
+  color: #000;
+  font-weight:500;
+  text-transform:uppercase;
+}
+.menu-drawer__inner-container .mobile-menu-image .mobile-sub-menu .mobile-sub-image {
+  border-radius:10px;
+  background: #fff;
+  width:100%;
+  height:100%;
+  padding:20px;
+  height: 130px;
+  aspect-ratio: 1 / 1;
+}
+.menu-drawer__inner-container ul.mobile-mega-side-links {
+  margin-top:30px;
+  margin-bottom:10px;
+  padding-inline:20px;
+  list-style:none;
+}
+.menu-drawer__inner-container ul.mobile-mega-side-links li a {
+  width:100%;
+  padding-block:6px;
+  line-height: calc(1 + 0.3 / var(--font-body-scale));
+  font-size: 1.8rem;
+  text-decoration: none;
+  color:#000;
+  text-transform:capitalize;
+  display:block;
+}
+{% comment %} mobile menu  {% endcomment %}
+</style>
