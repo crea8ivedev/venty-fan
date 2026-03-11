@@ -170,24 +170,64 @@ Usage:
 
   </div>
   </div>
-  {% assign side_menu = linklists[mega_block.settings.side_links] %}
+{% assign side_menu = linklists[mega_block.settings.side_links] %}
 
 {% if side_menu != blank %}
+
 <div class="mega-side-panel">
 
   <ul class="mega-side-links">
 
-    {% for side_link in side_menu.links %}
-      <li>
-        <a href="{{ side_link.url }}">
-          {{ side_link.title }}
+    {% for parent_link in side_menu.links %}
+
+      <li class="side-parent">
+
+        <a href="{{ parent_link.url }}">
+          {{ parent_link.title }}
         </a>
+
+        {% if parent_link.links != blank %}
+        <ul class="side-child-links">
+
+          {% for child_link in parent_link.links %}
+
+            <li class="side-child">
+
+              <a href="{{ child_link.url }}">
+                {{ child_link.title }}
+              </a>
+
+              {% if child_link.links != blank %}
+              <ul class="side-grandchild-links">
+
+                {% for grandchild_link in child_link.links %}
+
+                  <li class="side-grandchild">
+                    <a href="{{ grandchild_link.url }}">
+                      {{ grandchild_link.title }}
+                    </a>
+                  </li>
+
+                {% endfor %}
+
+              </ul>
+              {% endif %}
+
+            </li>
+
+          {% endfor %}
+
+        </ul>
+        {% endif %}
+
       </li>
+
     {% endfor %}
 
   </ul>
 
 </div>
+
 {% endif %}
 
 </li>
