@@ -6245,9 +6245,9 @@ button.newsletter-form__button-cozy-field__button {
     width: 100%; 
   }
     ul.mega-menu__list.page-width {
-        display: grid !important;
+        /* display: grid !important; */
         /* grid-template-columns: repeat(5, auto); */
-        grid-template-columns: repeat(4, 25%);
+        /* grid-template-columns: repeat(4, 25%); */
         border-radius: 14px !important;
         background: #FFF;
 
@@ -6375,12 +6375,12 @@ box-shadow: 0px 1px 1px 0px #FFF, 0px 16px 15px 0px rgba(0, 0, 0, 0.13);
 
 @media (min-width: 992px) {
   .mega-menu__content {
-    width: 160% !important;
+    width: 150% !important;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .mega-menu__content {
-    width: 198% !important;
+    width: 190% !important;
   }
 }
 @media (min-width: 769px) {
