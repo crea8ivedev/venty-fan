@@ -59,11 +59,27 @@
     },
     "header_designed_C48Kx8": {
       "type": "header-designed",
+      "blocks": {
+        "mega_menu_products_3hc4Nx": {
+          "type": "mega_menu_products",
+          "settings": {
+            "menu_title": "Shop",
+            "products": [
+              "foldable-fan",
+              "clip-fan",
+              "venty-cozypod",
+              "tower-fan",
+              "replacement-remote",
+              "the-cozy-case"
+            ],
+            "side_links": "header-side-panel-menu"
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_products_3hc4Nx"
+      ],
       "settings": {
-        "first_menu_icon": "shopify://shop_images/VENTY-FAN_1c061da6-e89f-4768-8266-b926c83ffcce.png",
-        "second_menu_icon": "shopify://shop_images/product-3_031aee9e-c708-4b66-9951-51d6bf829cb9.png",
-        "third_menu_icon": "shopify://shop_images/cozypod.png",
-        "fourty_menu_icon": "shopify://shop_images/product-1_8f24ddec-7b1c-4bc9-9132-154ec3d1c5f8.png",
         "menu": "main-menu",
         "menu_type_desktop": "mega",
         "sticky_header_type": "none",
