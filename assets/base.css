@@ -4829,7 +4829,7 @@ nav.header__inline-menu ul li a,
   text-transform: uppercase;
   padding-left: 14px;
   padding-right: 14px;
-  margin: 0 5px;
+  /* margin: 0 5px; */
 }
 .header__icon .icon {
   color: black;
