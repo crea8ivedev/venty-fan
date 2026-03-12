@@ -166,9 +166,13 @@ flex-direction:row;
     margin-bottom: 25px;
 }
 .launch-upgrade-banner .banner-wrapper .banner-text p {
-     font-family: "Lato", sans-serif !important;
+    font-family: "Lato", sans-serif !important;
     font-weight: 400;
+    margin-bottom:30px;
 } 
+.launch-upgrade-banner .banner-wrapper .banner-text p::last-child {
+    margin-bottom:0;
+}
 .launch-upgrade-banner .banner-wrapper .banner-text p strong {
     font-weight: 900;
 }
