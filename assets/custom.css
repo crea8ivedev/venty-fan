@@ -160,5 +160,6 @@ flex-direction:row;
 }
 .launch-upgrade-banner .banner-wrapper .banner-subheading {
     font-size: 56px;
+    margin-top: -12px;  
 }
 /* venty pro cozypad landing page  */
