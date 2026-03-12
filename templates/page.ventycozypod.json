@@ -287,7 +287,7 @@
             "mobile_image": "shopify://shop_images/fan-image.png",
             "bg_color": "linear-gradient(270deg, #EBEBEB00 0%, #8585854A 100%)",
             "image_position": "right",
-            "title": "<strong>20%</strong> MORE WIND<strong>POWER</strong>",
+            "title": "<strong>20%</strong> MORE <br>WIND<strong>POWER</strong>",
             "text": ""
           }
         },
@@ -299,7 +299,7 @@
             "mobile_image": "shopify://shop_images/half-fan.png",
             "bg_color": "linear-gradient(90deg, #EBEBEB00 0%, #8585854A 100%)",
             "image_position": "left",
-            "title": "Digital <strong>Display & Battery </strong>Gauge",
+            "title": "Digital <br><strong>Display &amp; <br>Battery </strong><br>Gauge",
             "text": ""
           }
         },
@@ -311,7 +311,7 @@
             "mobile_image": "shopify://shop_images/charger-port.png",
             "bg_color": "linear-gradient(270deg, #EBEBEB00 0%, #8585854A 100%)",
             "image_position": "right",
-            "title": "<strong>Dual Charging Ports</strong> - In & Out",
+            "title": "<strong>Dual Charging <br>Ports</strong> - In &amp; Out",
             "text": ""
           }
         },
@@ -323,7 +323,7 @@
             "mobile_image": "shopify://shop_images/fan-top-side.png",
             "bg_color": "linear-gradient(90deg, #EBEBEB00 0%, #8585854A 100%)",
             "image_position": "left",
-            "title": "<strong>Redesigned </strong>lighter Base",
+            "title": "<strong>Redesigned </strong><br>lighter Base",
             "text": ""
           }
         },
@@ -335,7 +335,7 @@
             "mobile_image": "shopify://shop_images/wire-option.png",
             "bg_color": "linear-gradient(270deg, #EBEBEB00 0%, #8585854A 100%)",
             "image_position": "right",
-            "title": "<strong>30W</strong> Fast Charging",
+            "title": "<strong>30W</strong> Fast<br> Charging",
             "text": ""
           }
         }
