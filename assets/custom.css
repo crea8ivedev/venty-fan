@@ -53,7 +53,8 @@ section.ventypro-hero {
 .ventypro-hero .ventypro-hero__logo {
     position: relative;
 }
-.launch-section .launch-text h2 {
+.launch-section .launch-text h2 ,
+.launch-section .launch-text h2.heading.-two {
     font-size: 72px;
     line-height: 66px;
 }
