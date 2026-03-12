@@ -59,6 +59,6 @@ section.ventypro-hero {
 }
 .launch-section .launch-text p {
     margin-top: 0;
-    font-family: "Lato", sans-serif;
+    font-family: "Lato", sans-serif !important;
 }
 /* venty pro cozypad landing page  */
