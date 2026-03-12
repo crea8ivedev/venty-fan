@@ -223,5 +223,8 @@ section.launch-upgrade-banner {
 .ventypro-hero .ventypro-hero__content {
     padding-top:0;
 }
+.ventypro-hero  .ventypro-hero__logo img {
+    padding:0;
+}
 }
 /* venty pro cozypad landing page  */
