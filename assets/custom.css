@@ -143,6 +143,9 @@ flex-direction:row;
     margin-top: 57px;
     position:relative;
     align-items:start;
+     max-width:1292px;
+    margin:0 auto;
+    padding-inline:20px;
 }
 .pro-series .pro-series-wrapper {
     gap:30px;
@@ -151,11 +154,11 @@ flex-direction:row;
     margin-left:94px;
     padding-top:57px;
 }
-/* .launch-upgrade-banner .banner-wrapper .banner-image {
+.launch-upgrade-banner .banner-wrapper .banner-image {
     position:absolute;
     right:0;
-    top:-57px;
-} */
+    top:0;
+}
 .launch-upgrade-banner .banner-wrapper .banner-heading {
     font-size: 82px;
     line-height: 86px;
