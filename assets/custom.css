@@ -228,7 +228,7 @@ section.launch-upgrade-banner {
 .ventypro-hero  .ventypro-hero__logo img {
     padding:0;
 }
-.ventypro-hero__content .ventypro-hero__text p {
+.ventypro-hero__content .ventypro-hero_wrapper .ventypro-hero__text p {
     line-height: 22px;
     font-size: 18px;
     text-transform: none;
