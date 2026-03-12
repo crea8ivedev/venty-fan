@@ -203,6 +203,9 @@ section.launch-upgrade-banner {
 
 }
 @media only screen and (max-width:1280px) {
+    .ventypro-hero .ventypro-hero__bg-image {
+        max-width:500px;
+    }
 .ventypro-hero .ventypro-hero__bg {
     position: static;
     order: 2;
