@@ -103,6 +103,7 @@ section.ventypro-hero {
     font-weight:300;
     font-size:56px;
     line-height:62px;
+    margin:0;
 }
 .pro-series-wrapper .feature-card .feature-content h3 strong {
     font-weight:700;
@@ -117,6 +118,12 @@ section.ventypro-hero {
 }
 .pro-series-wrapper .feature-card .feature-image img {
     width:auto;
+}
+.pro-series-wrapper .feature-card.feature-right .feature-content h3 {
+    padding-left:82px;
+}
+.pro-series-wrapper .feature-card.feature-left .feature-content h3 {
+    padding-right:82px;
 }
 .pro-series-wrapper .feature-card.feature-right {
 background: linear-gradient(270deg, rgba(235, 235, 235, 0) 0%, rgba(133, 133, 133, 0.29) 147.45%) !important;
