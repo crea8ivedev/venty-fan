@@ -159,13 +159,31 @@ Usage:
   <div class="mega-products-small {% if visible_products > 4 %}mega-products-small-more-four{% endif %}">
 
     {% for product in mega_products offset: 2 %}
-      <a href="{{ product.url }}" class="mega-product-card small ">
-        <img
-          src="{{ product.featured_image | image_url: width: 300 }}"
-          alt="{{ product.title }}" height="auto" width="auto"
-          loading="lazy">
+
+      {% assign mega_image = product.metafields.custom.product_megamenu.value %}
+
+      <a href="{{ product.url }}" class="mega-product-card small">
+
+        {% if mega_image != blank %}
+          <img
+            src="{{ mega_image | image_url: width: 300 }}"
+            alt="{{ product.title }}"
+            loading="lazy"
+            width="auto"
+            height="auto">
+        {% elsif product.featured_image %}
+          <img
+            src="{{ product.featured_image | image_url: width: 300 }}"
+            alt="{{ product.title }}"
+            loading="lazy"
+            width="auto"
+            height="auto">
+        {% endif %}
+
         <span>{{ product.title }}</span>
+
       </a>
+
     {% endfor %}
 
   </div>
