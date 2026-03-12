@@ -64,6 +64,7 @@ section.ventypro-hero {
 }
 .launch-section .play-button {
     box-shadow: 0px 4px 95.5px 0px #0000004F;
+    background:none;
 }
 .launch-section .play-button::before {
     content:none;
