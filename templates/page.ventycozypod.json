@@ -330,7 +330,7 @@
         "feature_7eJQgM": {
           "type": "feature",
           "settings": {
-            "custom_class": "30w-fast-charging",
+            "custom_class": "fast-charging",
             "image": "shopify://shop_images/00000000009_1.png",
             "mobile_image": "shopify://shop_images/wire-option.png",
             "bg_color": "linear-gradient(270deg, #EBEBEB00 0%, #8585854A 100%)",
@@ -386,16 +386,16 @@
         "image3": "shopify://shop_images/black-3-removebg-preview.png",
         "image4": "shopify://shop_images/black-4-removebg-preview.png",
         "image5": "shopify://shop_images/black-5-removebg-preview.png",
-        "whiteimage1": "shopify://shop_images/white1-removebg-preview.png",
-        "whiteimage2": "shopify://shop_images/white2-removebg-preview.png",
-        "whiteimage3": "shopify://shop_images/white3-removebg-preview.png",
-        "whiteimage4": "shopify://shop_images/white4-removebg-preview.png",
-        "whiteimage5": "shopify://shop_images/white5-removebg-preview.png",
-        "redimage1": "shopify://shop_images/red1-removebg-preview.png",
-        "redimage2": "shopify://shop_images/red2-removebg-preview.png",
-        "redimage3": "shopify://shop_images/red3-removebg-preview.png",
-        "redimage4": "shopify://shop_images/red4-removebg-preview.png",
-        "redimage5": "shopify://shop_images/red5-removebg-preview.png"
+        "whiteimage1": "shopify://shop_images/white1.png",
+        "whiteimage2": "shopify://shop_images/white2.png",
+        "whiteimage3": "shopify://shop_images/white3.png",
+        "whiteimage4": "shopify://shop_images/white4.png",
+        "whiteimage5": "shopify://shop_images/white5.png",
+        "redimage1": "shopify://shop_images/red1.png",
+        "redimage2": "shopify://shop_images/red2.png",
+        "redimage3": "shopify://shop_images/red3.png",
+        "redimage4": "shopify://shop_images/red4.png",
+        "redimage5": "shopify://shop_images/red5.png"
       }
     },
     "cst_fan_colors_Pz9Mxg": {
