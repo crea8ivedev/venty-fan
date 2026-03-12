@@ -80,4 +80,13 @@ section.ventypro-hero {
     width:100%;
     height:100%;
 }
+.pro-series h2.pro-series-title,
+.pro-series .pro-series-subtitle{
+    font-size: 96px;
+    line-height: 100%;
+    color:#434343;
+}
+.pro-series .pro-series-subtitle {
+    margin-top:-4px;
+}
 /* venty pro cozypad landing page  */
