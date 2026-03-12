@@ -171,7 +171,7 @@ Usage:
             loading="lazy"
             width="auto"
             height="auto">
-        {% elsif product.featured_image %}
+          {% else %}
           <img
             src="{{ product.featured_image | image_url: width: 300 }}"
             alt="{{ product.title }}"
