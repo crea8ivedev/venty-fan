@@ -145,6 +145,8 @@ Usage:
   <div class="mega-products-featured">
 
     {% for product in mega_products limit: 2 %}
+      {% assign mega_image = product.metafields.custom.product_megamenu %}
+
       <a href="{{ product.url }}" class="mega-product-card featured">
         {% if mega_image != blank %}
           <img
