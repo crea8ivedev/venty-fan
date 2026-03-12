@@ -234,7 +234,7 @@ section.launch-upgrade-banner {
     margin-bottom:41px;
 }
 .ventypro-hero .ventypro-hero__content {
-    padding-top:0;
+    padding-block:0;
 }
 .ventypro-hero  .ventypro-hero__logo img {
     padding:0;
