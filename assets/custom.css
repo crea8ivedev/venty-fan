@@ -292,6 +292,9 @@ section.launch-upgrade-banner {
         line-height: 36px !important;
         font-size: 38px !important;
 }
+.launch-section .launch-image img {
+    max-height:300px !important;
+}
     .ventypro-hero__content .vendypro-form_text {
     max-width:100%;
 }
