@@ -202,6 +202,7 @@ section.launch-upgrade-banner {
 
 .ventypro-hero__content .vendypro-form_text {
     order: 3;
+    margin-top:0;
 }
 
 .ventypro-hero__content .ventypro-hero__text {
