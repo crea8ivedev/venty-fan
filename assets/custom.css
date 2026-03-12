@@ -262,7 +262,17 @@ section.launch-upgrade-banner {
     padding: 0 !important;
 }
 }
-@media only screen and (max-width:640px) {
+@media only screen and (max-width:767px) {
+    .launch-section .launch-wrapper .launch-text {
+    padding-inline: 20px;
+}
+.launch-section .launch-wrapper .launch-text {
+    margin-top:29px !important;
+}
+
+.launch-section .launch-text h2, .launch-section .launch-text h2.heading.-two {
+    line-height: 41px !important;
+}
     .ventypro-hero__content .vendypro-form_text {
     max-width:100%;
 }
