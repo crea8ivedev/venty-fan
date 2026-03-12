@@ -1,0 +1,129 @@
+<section class="new-generation">
+  <div class="page-width">
+    <div class="new-generation__wrapper">
+
+      <div class="new-generation__content">
+        <h2>{{ section.settings.heading }}</h2>
+        <p>{{ section.settings.text }}</p>
+      </div>
+
+      <div class="new-generation__image">
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | image_url: width: 900 }}" alt="{{ section.settings.heading }}" loading="lazy">
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+section.new-generation {
+    margin-top: -268px;
+}
+
+.new-generation__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 2000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.new-generation__content {
+    max-width: 700px;
+    margin-left: 375px;
+}
+
+.new-generation__content h2 {
+    font-size: 90px;
+    font-weight: 800;
+    line-height: 1.1;
+    padding-bottom: 23px;
+    margin-bottom: 0px;
+    color:#434343;
+}
+
+.new-generation__content p {
+    font-size: 24px;
+    color: #434343;
+    line-height: 34px;
+    padding-top: 0px;
+    margin-top: 0px;
+    font-weight: 400;
+    max-width: 633px;
+}
+section.new-generation .page-width {
+    max-width: 100%;
+    padding: 0 !important;
+}
+.new-generation__image img {
+    max-width: 610px;
+    display: block;
+}
+
+/* Mobile */
+@media (max-width: 1440px) {
+    .new-generation__content {
+        max-width: 700px;
+        margin-left: 100px;
+    }
+    .banner-content {
+        margin-left: 100px;
+    }
+}
+
+@media (max-width: 1290px) {
+    .new-generation__content{
+        margin-left: 35px;
+    }
+    .banner-content {
+        margin-left: 50px;
+    }
+}
+
+@media screen and (max-width: 768px){
+
+  .new-generation__wrapper{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .new-generation__content h2{
+    font-size:32px;
+  }
+
+}
+</style>
+
+{% schema %}
+{
+  "name": "New Generation",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "THE NEW GENERATION"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "Venty Pro combines powerful airflow, extended battery life, integrated lighting, and precision controls in a sleek design."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right Image"
+    }
+  ],
+  "presets":[
+    {
+      "name":"New Generation Section"
+    }
+  ]
+}
+{% endschema %}

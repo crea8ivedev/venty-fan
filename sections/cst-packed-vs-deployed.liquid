@@ -1,0 +1,136 @@
+<section class="packed-deployed">
+  <div class="packed-wrapper">
+
+    <!-- LEFT SIDE -->
+    <div class="left-content">
+
+      <div class="heading">
+        <h2>{{ section.settings.heading_top }}</h2>
+        <p>{{ section.settings.heading_bottom }}</p>
+      </div>
+
+      <div class="center-image">
+        {% if section.settings.center_image %}
+          <img src="{{ section.settings.center_image | image_url: width: 1200 }}" alt="">
+        {% endif %}
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-content">
+      {% if section.settings.right_image %}
+        <img src="{{ section.settings.right_image | image_url: width: 900 }}" alt="">
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+<style>
+
+.packed-deployed{
+  padding:80px 35px;
+}
+
+.packed-wrapper {
+    max-width: 1254px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    align-items: center;
+}
+
+.heading h2 {
+    font-size: 65px;
+    line-height: 40px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.heading p {
+    font-size: 65px;
+    line-height: 90px;
+    color: #bfbfbf;
+    font-weight: 700;
+}
+
+.center-image{
+  margin-top:40px;
+}
+
+.center-image img{
+  width:100%;
+  max-width:700px;
+}
+
+.right-content {
+    display: flex;
+    justify-content: center;
+    margin-top: -70px;
+}
+
+.right-content img{
+  height:auto;
+  width:auto;
+}
+.left-content .heading {
+    TEXT-ALIGN: center;
+}
+
+@media (max-width:900px){
+
+.packed-wrapper{
+  grid-template-columns:1fr;
+  text-align:center;
+}
+
+.heading h2{
+  font-size:28px;
+}
+
+.heading p{
+  font-size:22px;
+}
+
+
+
+}
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Packed vs Deployed",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_top",
+      "label": "Heading Top",
+      "default": "3 INCHES PACKED"
+    },
+    {
+      "type": "text",
+      "id": "heading_bottom",
+      "label": "Heading Bottom",
+      "default": "3 FEET DEPLOYED"
+    },
+    {
+      "type": "image_picker",
+      "id": "center_image",
+      "label": "Left Image (Suitcase)"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Image (Fan)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Packed vs Deployed"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,187 @@
+.page-ventycozypod .shopify-section-group-footer-group,
+.page-ventycozypod .section-header.header-custom-sec,
+.page-ventycozypod .announcement-bar-section {
+    display: none;
+}
+
+
+
+
+@media (max-width: 1024px){
+    .launch-section {padding: 35px !Important; border-radius: 20px !Important;}
+    .launch-text {
+        margin-left: 40px !Important;
+    }
+    .launch-image {
+        margin-right: 40px !important;
+    }
+    .launch-image img {
+        max-width: 420px !important;
+        max-height: 600px !important;
+    }
+    .pro-series-title {
+        font-size: 80px !important;
+    }
+    .pro-series-subtitle {
+        font-size: 80px !Important;
+        margin-top: 0px !Important;
+        line-height: 80px;
+    }
+    .feature-content h3 {
+        font-size: 40px !Important;
+        margin-bottom: 10px !important;
+        margin-left: 56px !important;
+        line-height: 50px !important; 
+    }
+    .banner-heading {
+        font-size: 64px !important;
+        line-height: 70px ! important;
+    }
+    .banner-subheading {
+        font-size: 45px !important;
+    }
+    .banner-text {
+        font-size: 20px !important;
+        line-height: 30px !important;
+    }
+    .fan-title {
+        margin-top: 30px;
+        font-size: 75px !important;
+        line-height: 75px !important;
+    }
+    .fan-item{padding-top:0 !important}
+    .pro-series { padding: 40px 0px;}
+    .pro-series .page-width { padding: 0 30px;}
+    .banner-content {margin-left: 50px !important;}
+    /* .fan-image img {
+        height: 500px !important;
+        width: 300px !important;
+    } */
+    .new-generation__content h2 {
+        font-size: 80px !important;
+    }
+    .heading p {
+        font-size: 56px !important;
+        line-height: 60px !important;
+    }
+    .launch-title {
+        max-width: 410px !important;
+    }
+    .right-content {
+        display: flex !Important;
+        justify-content: flex-end !Important;
+    }
+    .packed-deployed {
+        padding: 80px 40px !Important;
+    }
+    .packed-wrapper {
+    grid-template-columns: 1.5fr 1fr !Important;
+
+    }
+    .fan-name { font-size: 24px !important; line-height: 28px !important;}
+    .fan-color-dot {width: 30px !important; height: 30px !important; margin: 20px auto 0 !important;}
+    .new-generation__content { margin-left: 50px !important;}
+    .new-generation__image img {max-width: 350px !important;}
+    .new-generation__image { margin-top: 40px !important;}
+    .addons-header h2 { font-size: 50px !important; margin-top: 0px !important;}
+    .divider-logo {width: 80px !important; height: 70px !important;}
+    .addons-divider .line { height: 3px !important; width: 366px !important; background: #434343;}
+    .addon-image img {width: 100%; max-width: 350px !important; border-radius: 12px !important; height: 100% !important; max-height: 550px !important;}
+    .addon-info h3 { margin-top: 20px!important; font-size: 26px !important; min-height: 68px !important;}
+    .addon-price {font-size: 26px!important;}
+    .campaign-addons {padding: 30px 20px !important;}
+    .heading h2 {font-size: 56px !important;}
+
+}
+
+@media (max-width:768px){
+.banner-image img {
+    max-width: 419px !important;
+}
+.packed-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    
+}
+
+.launch-wrapper {
+    display: flex;
+    flex-direction: column !important;
+    border-radius: 25px !important;
+    
+}
+.launch-text h2, h2.heading.-two {
+    font-size: 44px !important;
+    line-height:44px !important;
+    text-align:center;
+}
+.launch-section {
+    padding: 30px !important;
+    border-radius: 25px !important;
+}
+.launch-text {
+    margin-left: 0px !important;
+    margin-top: 20px !important;
+}
+.launch-text p {
+    font-size: 15px !important;
+    line-height: 19px !important;
+    text-align: center !important;
+}
+.play-button {
+    width: 130px !important;
+    height: 130px !important;
+    font-size: 60px !important;
+}
+.launch-image img {
+    max-width: 256px!important;
+    max-height: 487px !important;
+}
+.pro-series-title, .pro-series-subtitle {
+    font-size: 55px !important;
+    line-height: 55px !important;
+}
+.fan-title {
+    margin-top: 30px;
+    font-size: 53px!important;
+    line-height: 55px!important;
+}
+.fan-image img {
+    width: 100% !important;
+    max-width: 292px !important;
+    height: 100% !important;
+    max-height: 492px !important;
+}
+section.new-generation{
+    margin-top:0px !important;
+}
+.new-generation__content {
+    margin-left: 0px !important;
+}
+.new-generation__content h2 {
+    font-size: 51px !important;
+    line-height: 55px !important;
+    margin-top: 0px !important;
+}
+.new-generation__content p {
+    font-size: 18px !important;
+    line-height: 23px !important;
+    font-weight: 400;
+    max-width: 370px !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+}
+.new-generation__image img {
+    max-width: 281px !important;
+    margin-left: 145px !important;
+    margin-top: -140px !important;
+}
+.campaign-addons {padding: 0px 0px !important;}
+.addons-divider {
+    height: 83px !important;
+    width: 100% !important;
+}
+
+
+
+}

@@ -1,0 +1,291 @@
+<div class="launch-section">
+
+  <div class="launch-wrapper">
+
+    <div class="launch-text">
+      <h2>{{ section.settings.heading }}</h2>
+      <h2 class="heading -two">{{ section.settings.heading2 }}</h2>
+      <p>{{ section.settings.text }}</p>
+    </div>
+
+    <div class="launch-image">
+
+      <img src="{{ section.settings.image | image_url: width: 900 }}" alt="product">
+
+      <div class="play-button" id="playVideo">
+        ▶
+        {% comment %} <img src="https://cdn.shopify.com/s/files/1/0613/3297/9961/files/play-icon.svg?v=1773063858" alt="product"> {% endcomment %}
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- VIDEO POPUP -->
+
+<div class="video-popup" id="videoPopup">
+
+  <div class="video-popup-inner">
+
+    <span class="close-video">&times;</span>
+
+    {% if section.settings.video != blank %}
+      {{
+        section.settings.video
+        | video_tag:
+        autoplay: true,
+        loop: true,
+        controls: true,
+        class: 'popup-video'
+      }}
+    {% endif %}
+
+  </div>
+
+</div>
+
+
+<style>
+
+.launch-section{
+  padding:0px 80px 80px 80px;
+  {% comment %} background:#f3f3f3; {% endcomment %}
+  border-radius:20px;
+}
+.launch-text {
+    margin-left: 98px;
+}
+.launch-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1254px;
+    margin: auto;
+    background-color: #EBEBEB;
+    border-radius: 67px;
+}
+h2.heading.-two {
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 71px;
+    color: #434343;
+}
+.launch-text h2 {
+    font-size: 80px;
+    font-weight: 700;
+    max-width: 550px;
+    color: #434343;
+    line-height: 80px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.launch-text p {
+    max-width: 528px;
+    margin-top: 10px;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+
+.launch-image{
+  position:relative;
+  margin-right:80px;
+}
+
+.launch-image img {
+    max-width: 420px;
+    max-height: 700px;
+    vertical-align: middle;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: #ffffffcc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.play-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(to bottom right, #EBEBEB);
+    opacity: 0;
+    z-index: -1;
+}
+
+/* animation only on hover */
+.play-button:hover::before {
+    animation: ping 1s cubic-bezier(0,0,.2,1) infinite;
+}
+
+/* ping animation */
+@keyframes ping {
+    0% {
+        transform: scale(1);
+        opacity: .3;
+    }
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+.video-popup{
+  display: none;  /* Keep this as the only display property */
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+  z-index:999;
+  align-items:center;
+  justify-content:center;
+}
+
+
+.video-popup-inner {
+    width: 600px;
+    height: 100%;
+    position: relative;
+    background: #000;
+    border-radius: 12px;
+    max-height: 630px;
+}
+
+.popup-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    max-height: 630px;
+}
+
+.close-video {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    font-size: 43px;
+    color: #ffffff;
+    cursor: pointer;
+    border: 1px solid #ffffff;
+    line-height: 26px;
+    border-radius: 40px;
+    z-index: 1000;
+}
+.cst-popup-active {
+    overflow: hidden;
+}
+
+
+
+@media only screen and (max-width: 1290px){
+    .launch-section {
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+}
+
+
+</style>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  const playBtn = document.getElementById("playVideo");
+  const popup = document.getElementById("videoPopup");
+  const closeBtn = document.querySelector(".close-video");
+  const video = popup.querySelector("video");
+
+  playBtn.addEventListener("click", function(){
+    popup.style.display = "flex";
+    document.body.classList.add("cst-popup-active");
+    if(video){
+      video.currentTime = 0;
+      video.play();
+    }
+  });
+
+  closeBtn.addEventListener("click", function(e){
+    e.stopPropagation();
+    popup.style.display = "none";
+    document.body.classList.remove("cst-popup-active");
+    if(video){
+      video.pause();
+      video.currentTime = 0;
+    }
+  });
+
+  popup.addEventListener("click", function(e){
+    if(e.target === popup){
+      popup.style.display = "none";
+      document.body.classList.remove("cst-popup-active");
+      if(video){
+        video.pause();
+        video.currentTime = 0;
+      }
+    }
+  });
+
+});
+
+</script>
+
+
+{% schema %}
+{
+  "name": "Launch Video Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "LAUNCHING"
+    },
+    {
+      "type": "text",
+      "id": "heading2",
+      "label": "Heading2",
+      "default": "IN APRIL"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Meet Venty Pro — delivering more power and longer battery life."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Product Image"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Upload Video"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Launch Video Popup"
+    }
+  ]
+}
+{% endschema %}
