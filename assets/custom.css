@@ -127,6 +127,7 @@ section.ventypro-hero {
 }
 .pro-series-wrapper .feature-card.feature-right .feature-content h3 {
     padding-left:82px;
+    margin-left:0 !important;
 }
 .pro-series-wrapper .feature-card.feature-left .feature-content h3 {
     padding-right:82px;
