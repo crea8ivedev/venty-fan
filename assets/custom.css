@@ -51,7 +51,8 @@ section.ventypro-hero {
     height:100%;
 }
 .ventypro-hero .ventypro-hero__logo {
-    position: relative;
+    position: static;
+    transform:none;
 }
 .launch-section .launch-text h2 ,
 .launch-section .launch-text h2.heading.-two {
