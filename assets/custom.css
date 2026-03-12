@@ -304,9 +304,9 @@ section.launch-upgrade-banner {
         font-size: 32px;
     line-height: 40px;
 }
-.pro-series-wrapper .feature-card .feature-content h3 br {
+/* .pro-series-wrapper .feature-card .feature-content h3 br {
     display:none;
-}
+} */
 .feature-card.feature-right.image-fan .feature-image {
     margin-top: -60px;
 }
