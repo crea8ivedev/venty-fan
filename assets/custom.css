@@ -145,4 +145,7 @@ flex-direction:row;
 .pro-series .pro-series-wrapper {
     gap:30px;
 }
+.pro-series .pro-series-wrapper .banner-content {
+    margin-left:94px;
+}
 /* venty pro cozypad landing page  */
