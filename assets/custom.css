@@ -274,6 +274,10 @@ section.launch-upgrade-banner {
 }
 }
 @media only screen and (max-width:767px) {
+    .launch-section .play-button {
+        width: 90px !important;
+        height: 90px !important;
+    }
     .launch-section .launch-wrapper .launch-text {
     padding-inline: 20px;
 }
