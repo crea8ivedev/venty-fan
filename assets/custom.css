@@ -140,7 +140,7 @@ flex-direction:row;
     max-width:unset;
 }
 .launch-upgrade-banner .banner-wrapper {
-    margin-top: 57px;
+    margin-top: 115px;
     position:relative;
     align-items:start;
      max-width:1292px;
@@ -152,9 +152,6 @@ flex-direction:row;
 }
 section.launch-upgrade-banner {
     position:relative;
-}
-.launch-upgrade-banner .banner-wrapper .banner-content {
-    padding-top:115px;
 }
 .launch-upgrade-banner .banner-image {
     position:absolute;
