@@ -352,6 +352,8 @@ section.launch-upgrade-banner {
 .pro-series-wrapper .feature-card.image-fan {
     align-items: end;
 }
-
+.pro-series-wrapper .feature-card .feature-content h3 {
+    font-weight:300;
+}
 }
 /* venty pro cozypad landing page  */
