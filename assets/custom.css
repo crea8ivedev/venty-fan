@@ -256,6 +256,7 @@ section.launch-upgrade-banner {
     align-items: center;
     text-align: center;
     margin-bottom:41px;
+    margin-top:0;
 }
 .ventypro-hero .ventypro-hero__content {
     padding-block:0;
