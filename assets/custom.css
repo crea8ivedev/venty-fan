@@ -184,6 +184,9 @@ section.launch-upgrade-banner {
     max-width:542px;
 }
 @media only screen and (max-width:1366px) {
+    .ventypro-hero__heading span.ventypro-hero-word:nth-child(2) {
+        margin:0;
+    }
 .ventypro-hero .ventypro-hero__bg-image {
     max-width: 600px;
 }
