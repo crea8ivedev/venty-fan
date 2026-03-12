@@ -152,7 +152,7 @@ flex-direction:row;
 .launch-upgrade-banner .banner-wrapper .banner-image {
     position:absolute;
     right:0;
-    top:0;
+    top:-57px;
 }
 .launch-upgrade-banner .banner-wrapper .banner-heading {
     font-size: 82px;
