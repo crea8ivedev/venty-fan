@@ -133,10 +133,6 @@
     height: 130px !important;
     font-size: 60px !important;
 }
-.launch-image img {
-    max-width: 256px!important;
-    max-height: 487px !important;
-}
 .pro-series-title, .pro-series-subtitle {
     font-size: 55px !important;
     line-height: 55px !important;
