@@ -89,4 +89,7 @@ section.ventypro-hero {
 .pro-series .pro-series-subtitle {
     margin-top:-12px;
 }
+.pro-series-wrapper .feature-card {
+    min-height: 473px;
+}
 /* venty pro cozypad landing page  */
