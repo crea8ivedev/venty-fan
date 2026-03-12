@@ -310,6 +310,10 @@ section.launch-upgrade-banner {
 .launch-section .launch-text p {
     margin-top: 8px;
 }
+.pro-series h2.pro-series-title, .pro-series .pro-series-subtitle {
+        font-size: 48px !important;
+        line-height: 48px !important;
+    }
 
 }
 /* venty pro cozypad landing page  */
