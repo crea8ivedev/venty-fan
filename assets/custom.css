@@ -1,0 +1,21 @@
+/* venty pro cozypad landing page  */
+.ventypro-hero__content .ventypro-hero__text h1 {
+    font-size: 80px;
+    line-height: 72px;
+}
+.ventypro-hero__heading span.ventypro-hero-word:nth-child(2) {
+    margin-top:-5px
+}
+.ventypro-hero__content {
+    max-width: 1292px;
+    transform: none;
+    padding-top: 94px;
+}
+.ventypro-hero__content .ventypro-hero__text {
+    padding-left: 36px;
+    justify-content: space-between;
+}
+.ventypro-hero__content .ventypro-hero__text p {
+    color:#484848;
+}
+/* venty pro cozypad landing page  */
