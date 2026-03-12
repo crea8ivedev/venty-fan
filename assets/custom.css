@@ -136,4 +136,7 @@ flex-direction:row;
 .feature-card.feature-right.image-fan .feature-image {
     margin-right:54px;
 }
+.pro-series-wrapper .feature-content {
+    max-width:unset;
+}
 /* venty pro cozypad landing page  */
