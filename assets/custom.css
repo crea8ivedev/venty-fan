@@ -211,6 +211,10 @@ section.launch-upgrade-banner {
     .launch-section .launch-wrapper {
     border-radius:25px;
 }
+.launch-section .play-button {
+    width: 134px;
+    height: 133px;
+}
     .ventypro-hero .ventypro-hero__bg-image {
         max-width:500px;
     }
