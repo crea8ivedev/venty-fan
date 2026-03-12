@@ -167,4 +167,7 @@ flex-direction:row;
      font-family: "Lato", sans-serif !important;
     font-weight: 400;
 } 
+.launch-upgrade-banner .banner-wrapper .banner-text {
+    max-width:542px;
+}
 /* venty pro cozypad landing page  */
