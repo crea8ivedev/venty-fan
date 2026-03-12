@@ -210,7 +210,10 @@ section.launch-upgrade-banner {
 }
 @media only screen and (max-width:1280px) {
     .pro-series-wrapper .feature-card.feature-right .feature-content h3 {
-    padding-left:30px;
+    padding-left:20px;
+}
+    .pro-series-wrapper .feature-card.feature-left .feature-content h3 {
+    padding-right:20px;
 }
 .feature-card.feature-right.image-fan .feature-image {
     margin-right:0;
