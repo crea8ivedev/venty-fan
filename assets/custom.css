@@ -35,9 +35,10 @@
     height:100%;
 }
 .ventypro-hero__content .vendypro-form_text {
-    background: #EBEBEB;
+        -webkit-backdrop-filter: blur(25px);
     backdrop-filter: blur(25px);
     border-radius: 25px;
-    box-shadow:none;
+    box-shadow: none;
+    padding: 15px 20px 20px;
 }
 /* venty pro cozypad landing page  */
