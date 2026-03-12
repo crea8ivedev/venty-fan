@@ -30,7 +30,7 @@
 }
 .ventypro-hero .ventypro-hero__bg {
     top: 0;
-    left: 0;
+    left: -80px;
 } 
 .ventypro-hero .ventypro-hero__bg-image {
     height: auto;
@@ -52,5 +52,12 @@ section.ventypro-hero {
 }
 .ventypro-hero .ventypro-hero__logo {
     position: relative;
+}
+.launch-section .launch-text h2 {
+    font-size: 72px;
+    line-height: 66px;
+}
+.launch-section .launch-text p {
+    margin-top: 0;
 }
 /* venty pro cozypad landing page  */
