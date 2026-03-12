@@ -110,7 +110,7 @@ section.ventypro-hero {
     right:0;
 }
 .pro-series-wrapper .feature-card.feature-left .feature-image {
-    right:unset:
+    right:unset;
     left:0;
 }
 .pro-series-wrapper .feature-card .feature-image img {
