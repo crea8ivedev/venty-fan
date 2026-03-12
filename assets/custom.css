@@ -307,6 +307,9 @@ section.launch-upgrade-banner {
 .feature-card.feature-right.image-fan .feature-image {
     margin-top: -60px;
 }
+.pro-series-wrapper .feature-card .feature-content h3 {
+    max-width: 400px;
+}
 }
 @media only screen and (max-width:767px) {
     .launch-section .play-button {
