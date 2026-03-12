@@ -1,4 +1,4 @@
-@media (max-width: 989px) {
+@media (max-width: 1440px) {
 .launch-upgrade-banner .banner-image {
         max-width: 330px;
 }
@@ -10,5 +10,11 @@
 @media (max-width: 989px) {
     .launch-upgrade-banner .banner-image {
         position: relative;
+            max-width: 100%;
+            top:0;
     }
+    .launch-upgrade-banner .banner-wrapper .banner-text {
+        max-width: 100%;
+    }
+    
 }
