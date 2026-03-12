@@ -105,6 +105,14 @@ section.ventypro-hero {
 .pro-series-wrapper .feature-card .feature-content h3 strong {
     font-weight:700;
 }
+.pro-series-wrapper .feature-card .feature-image {
+    position:absolute;
+    right:0;
+}
+.pro-series-wrapper .feature-card.feature-left .feature-image {
+    right:unset:
+    left:0;
+}
 .pro-series-wrapper .feature-card .feature-image img {
     width:auto;
 }
