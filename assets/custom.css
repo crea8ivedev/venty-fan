@@ -180,7 +180,7 @@ section.launch-upgrade-banner {
     font-weight: 400;
     margin-bottom:30px;
 } 
-.launch-upgrade-banner .banner-wrapper .banner-text p::last-child {
+.launch-upgrade-banner .banner-wrapper .banner-text p:last-child {
     margin-bottom:0;
 }
 .launch-upgrade-banner .banner-wrapper .banner-text p strong {
@@ -216,7 +216,7 @@ section.launch-upgrade-banner {
     margin-right:0;
 }
 .pro-series-wrapper .feature-card {
-    min-height:251px;s
+    min-height:251px;
 }
     .launch-section .launch-wrapper {
     border-radius:25px;
