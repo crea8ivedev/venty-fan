@@ -364,26 +364,35 @@ endfor
 
 {% if mega_products != blank %}
 
-  {% for product in mega_products %}
+{% for product in mega_products %}
 
-    <div class="mobile-sub-menu">
-      <a href="{{ product.url }}">
+  {% assign mega_image = product.metafields.custom.product_megamenu.value %}
 
-        {% if product.featured_image %}
-        <div class="mobile-sub-image">
+  <div class="mobile-sub-menu">
+    <a href="{{ product.url }}">
+
+      <div class="mobile-sub-image">
+
+        {% if mega_image != blank %}
+          <img
+            src="{{ mega_image | image_url: width: 300 }}"
+            alt="{{ product.title }}"
+            loading="lazy">
+        {% elsif product.featured_image %}
           <img
             src="{{ product.featured_image | image_url: width: 300 }}"
             alt="{{ product.title }}"
             loading="lazy">
-        </div>
         {% endif %}
 
-        <h5>{{ product.title }}</h5>
+      </div>
 
-      </a>
-    </div>
+      <h5>{{ product.title }}</h5>
 
-  {% endfor %}
+    </a>
+  </div>
+
+{% endfor %}
 
 {% endif %}
 
