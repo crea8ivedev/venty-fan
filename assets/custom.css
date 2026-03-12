@@ -272,6 +272,7 @@ section.launch-upgrade-banner {
 .shopify-section .launch-section {
     padding-top: 0 !important;
     padding-inline: 0 !important;
+    padding-bottom:60px !important;
 }
 .launch-section .launch-image {
     margin:0 !important;
