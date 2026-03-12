@@ -258,6 +258,9 @@ section.launch-upgrade-banner {
     margin-top:30px;
     max-width:90%;
 }
+.shopify-section .launch-section {
+    padding: 0 !important;
+}
 }
 @media only screen and (max-width:640px) {
     .ventypro-hero__content .vendypro-form_text {

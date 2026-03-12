@@ -1,6 +1,6 @@
 <div class="launch-section animate--zoom-in">
-  <div class="launch-main-container animate--zoom-in">
-  <div class="launch-wrapper animate--zoom-in">
+  <div class="launch-main-container">
+  <div class="launch-wrapper">
 
     <div class="launch-text">
       <h2>{{ section.settings.heading }}</h2>
@@ -10,7 +10,7 @@
 
     <div class="launch-image">
 
-      <img src="{{ section.settings.image | image_url: width: 900 }}" alt="product">
+      <img src="{{ section.settings.image | image_url: width: 900 }}" alt="product" height="auto" width="auto">
 
       <div class="play-button" id="playVideo">
         
