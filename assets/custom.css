@@ -275,6 +275,10 @@ section.launch-upgrade-banner {
 .launch-section .launch-image {
     margin:0 !important;
 }
+.pro-series h2.pro-series-title, .pro-series .pro-series-subtitle {
+    font-size: 70px !important;
+    line-height: 70px;
+}
 }
 @media only screen and (max-width:767px) {
     .launch-section .play-button {
