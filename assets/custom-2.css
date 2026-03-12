@@ -22,3 +22,20 @@
 }
     
 }
+
+@media (max-width: 768px) {
+
+    .launch-upgrade-banner .banner-image img {
+    max-width: 40% !important;
+}
+    
+}
+
+
+@media (max-width: 575px) {
+
+    .launch-upgrade-banner .banner-image img {
+    max-width: 30% !important;
+}
+    
+}
