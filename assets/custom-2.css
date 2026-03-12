@@ -14,7 +14,7 @@
             top:0;
     }
     .launch-upgrade-banner .banner-wrapper .banner-text {
-        max-width: 100%;
+        max-width: 100% !important;;
     }
     
 }
