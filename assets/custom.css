@@ -270,7 +270,8 @@ section.launch-upgrade-banner {
     max-width:90%;
 }
 .shopify-section .launch-section {
-    padding: 0 !important;
+    padding-top: 0 !important;
+    padding-inline: 0 !important;
 }
 .launch-section .launch-image {
     margin:0 !important;
