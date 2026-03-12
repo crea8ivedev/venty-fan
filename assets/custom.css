@@ -142,6 +142,7 @@ flex-direction:row;
 .launch-upgrade-banner .banner-wrapper {
     margin-top: 115px;
     position:relative;
+    align-items:start;
 }
 .pro-series .pro-series-wrapper {
     gap:30px;
