@@ -12,6 +12,7 @@
     transform: none;
     display: flex;
     width: 100%;
+    min-height:1017px;
 }
 .ventypro-hero__content .ventypro-hero__text {
     margin-left: 36px;
@@ -40,5 +41,8 @@
     box-shadow: none;
     padding: 15px 20px 20px;
     max-width:290px;
+}
+section.ventypro-hero {
+    height:100%;
 }
 /* venty pro cozypad landing page  */
