@@ -209,6 +209,9 @@ section.launch-upgrade-banner {
 
 }
 @media only screen and (max-width:1280px) {
+    .pro-series-wrapper .feature-card.feature-right .feature-content h3 {
+    padding-left:30px;
+}
     .launch-section .launch-wrapper {
     border-radius:25px;
 }
