@@ -146,6 +146,7 @@ flex-direction:row;
     margin:0 auto;
     padding-top: 115px;
     padding-inline:20px;
+    padding-bottom:11.8%;
 }
 .pro-series .pro-series-wrapper {
     gap:30px;
@@ -156,7 +157,7 @@ section.launch-upgrade-banner {
 .launch-upgrade-banner .banner-image {
     position:absolute;
     right:0;
-    top:0;
+    top:57px;
 }
 .launch-upgrade-banner .banner-wrapper .banner-heading {
     font-size: 82px;
