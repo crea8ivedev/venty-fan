@@ -139,4 +139,7 @@ flex-direction:row;
 .pro-series-wrapper .feature-content {
     max-width:unset;
 }
+.launch-upgrade-banner .banner-wrapper {
+    padding-top: 57px;
+}
 /* venty pro cozypad landing page  */
