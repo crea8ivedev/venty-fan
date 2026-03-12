@@ -278,8 +278,8 @@ section.launch-upgrade-banner {
 }
 @media only screen and (max-width:767px) {
     .launch-section .play-button {
-        width: 80px !important;
-        height: 80px !important;
+        width: 70px !important;
+        height: 70px !important;
     }
     .launch-section .launch-wrapper .launch-text {
     padding-inline: 20px;
