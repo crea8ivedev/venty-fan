@@ -219,5 +219,8 @@ section.launch-upgrade-banner {
     align-items: center;
     text-align: center;
 }
+.ventypro-hero .ventypro-hero__content {
+    padding-top:0;
+}
 }
 /* venty pro cozypad landing page  */
