@@ -345,6 +345,13 @@ section.launch-upgrade-banner {
     margin-bottom:0;
     padding-bottom:100px;
 }
+.pro-series-wrapper .feature-card.image-fan .feature-content h3 {
+    padding-left: 43px;
+    padding-bottom:19px;
+}
+.pro-series-wrapper .feature-card.image-fan {
+    align-items: end;
+}
 
 }
 /* venty pro cozypad landing page  */
