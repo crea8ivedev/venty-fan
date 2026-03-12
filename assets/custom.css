@@ -235,5 +235,8 @@ section.launch-upgrade-banner {
     font-weight: 500;
     letter-spacing: 0.1em;
 }
+.ventypro-hero__content .vendypro-form_text {
+    margin-top:30px;
+}
 }
 /* venty pro cozypad landing page  */
