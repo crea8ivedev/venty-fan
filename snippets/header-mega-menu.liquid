@@ -160,7 +160,7 @@ Usage:
 
     {% for product in mega_products offset: 2 %}
 
-      {% assign mega_image = product.metafields.custom.product_megamenu.value %}
+      {% assign mega_image = product.metafields.custom.product_megamenu %}
 
       <a href="{{ product.url }}" class="mega-product-card small">
 
