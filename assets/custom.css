@@ -378,5 +378,12 @@ section.launch-upgrade-banner {
 .pro-series-wrapper .feature-card.feature-right.dual-charging-ports {
     align-items: end;
 }
+.pro-series-wrapper .feature-card.redesigned-base .feature-content h3 {
+    padding-bottom: 12px;
+    max-width: 200px;
+}
+.pro-series-wrapper .feature-card.feature-right.fast-charging .feature-content h3 {
+    padding-left: 49px;
+}
 }
 /* venty pro cozypad landing page  */
