@@ -151,7 +151,7 @@ flex-direction:row;
     gap:30px;
 }
 section.launch-upgrade-banner {
-    positionL:relative;
+    position:relative;
 }
 .launch-upgrade-banner .banner-wrapper .banner-content {
     padding-top:57px;
