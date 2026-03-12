@@ -140,7 +140,7 @@ flex-direction:row;
     max-width:unset;
 }
 .launch-upgrade-banner .banner-wrapper {
-    padding-top: 57px;
+    margin-top: 57px;
 }
 .pro-series .pro-series-wrapper {
     gap:30px;
