@@ -56,6 +56,9 @@ section.ventypro-hero {
     padding-top: 35px;
     padding-bottom:28px;
 }
+.ventypro-hero .ventypro-hero__logo img {
+    max-width:110px;
+}
 .launch-section .launch-text h2 ,
 .launch-section .launch-text h2.heading.-two {
     font-size: 72px;
