@@ -212,6 +212,9 @@ section.launch-upgrade-banner {
     .pro-series-wrapper .feature-card.feature-right .feature-content h3 {
     padding-left:30px;
 }
+.feature-card.feature-right.image-fan .feature-image {
+    margin-right:0;
+}
     .launch-section .launch-wrapper {
     border-radius:25px;
 }
