@@ -53,6 +53,8 @@ section.ventypro-hero {
 .ventypro-hero .ventypro-hero__logo {
     position: static;
     transform:none;
+    padding-top: 35px;
+    padding-bottom:28px;
 }
 .launch-section .launch-text h2 ,
 .launch-section .launch-text h2.heading.-two {
