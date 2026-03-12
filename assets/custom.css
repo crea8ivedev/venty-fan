@@ -272,6 +272,9 @@ section.launch-upgrade-banner {
 .shopify-section .launch-section {
     padding: 0 !important;
 }
+.launch-section .launch-image {
+    margin:0 !important;
+}
 }
 @media only screen and (max-width:767px) {
     .launch-section .play-button {
