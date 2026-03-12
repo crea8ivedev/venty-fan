@@ -208,6 +208,9 @@ section.launch-upgrade-banner {
 
 }
 @media only screen and (max-width:1280px) {
+    .launch-section .launch-wrapper {
+    border-radius:25px;
+}
     .ventypro-hero .ventypro-hero__bg-image {
         max-width:500px;
     }
@@ -276,5 +279,6 @@ section.launch-upgrade-banner {
     .ventypro-hero__content .vendypro-form_text {
     max-width:100%;
 }
+
 }
 /* venty pro cozypad landing page  */
