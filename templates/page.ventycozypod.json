@@ -282,7 +282,7 @@
         "feature_rb6hQ7": {
           "type": "feature",
           "settings": {
-            "custom_class": "image-fan",
+            "custom_class": "image-fan 20-more-windpower",
             "image": "shopify://shop_images/0052_1.png",
             "mobile_image": "shopify://shop_images/fan-image.png",
             "bg_color": "linear-gradient(270deg, #EBEBEB00 0%, #8585854A 100%)",
@@ -294,7 +294,7 @@
         "feature_KqBdFM": {
           "type": "feature",
           "settings": {
-            "custom_class": "",
+            "custom_class": "digital-display-battery",
             "image": "shopify://shop_images/Mask_group_3aacaa0c-1afa-4ebd-b793-5cb9ccef45e4.png",
             "mobile_image": "shopify://shop_images/half-fan.png",
             "bg_color": "linear-gradient(90deg, #EBEBEB00 0%, #8585854A 100%)",
@@ -306,7 +306,7 @@
         "feature_marmWL": {
           "type": "feature",
           "settings": {
-            "custom_class": "Dual-Charging",
+            "custom_class": "dual-charging-ports",
             "image": "shopify://shop_images/000000000008_1.png",
             "mobile_image": "shopify://shop_images/charger-port.png",
             "bg_color": "linear-gradient(270deg, #EBEBEB00 0%, #8585854A 100%)",
@@ -318,7 +318,7 @@
         "feature_zPmda6": {
           "type": "feature",
           "settings": {
-            "custom_class": "",
+            "custom_class": "redesigned-base",
             "image": "shopify://shop_images/Mask_group_1_3b5edc8e-9847-41c2-985e-e7571dd3c012.png",
             "mobile_image": "shopify://shop_images/fan-top-side.png",
             "bg_color": "linear-gradient(90deg, #EBEBEB00 0%, #8585854A 100%)",
@@ -330,7 +330,7 @@
         "feature_7eJQgM": {
           "type": "feature",
           "settings": {
-            "custom_class": "",
+            "custom_class": "30w-fast-charging",
             "image": "shopify://shop_images/00000000009_1.png",
             "mobile_image": "shopify://shop_images/wire-option.png",
             "bg_color": "linear-gradient(270deg, #EBEBEB00 0%, #8585854A 100%)",
