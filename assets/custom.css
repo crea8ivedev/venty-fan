@@ -24,8 +24,7 @@
 }
 .ventypro-hero .ventypro-hero__bg {
     top: 160px;
-    left: 49%;
-    transform: translateX(-50%);
+    left: 0;
 }
 .ventypro-hero .ventypro-hero__bg-image {
     height: auto;
