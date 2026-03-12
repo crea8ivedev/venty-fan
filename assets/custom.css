@@ -385,10 +385,14 @@ section.launch-upgrade-banner {
     padding-left: 49px;
 }
 }
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:420px) {
 .pro-series-wrapper .feature-card .feature-content h3 {
     font-size: 16px !important;
     line-height: 20px !important;
+}
+.pro-series-wrapper .feature-card.feature-right .feature-content h3 {
+    padding-left: 14px !important;
+    padding-bottom: 14px !important;
 }
 }
 /* venty pro cozypad landing page  */
