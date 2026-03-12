@@ -20,7 +20,7 @@
     align-items: end;
     justify-content:space-between;
     flex-direction:column;
-    margin-top: 94px;
+    margin-top: 40px;
     position: relative;
 }
 .ventypro-hero__content .ventypro-hero__text p {
@@ -33,7 +33,7 @@
 }
 .ventypro-hero .ventypro-hero__bg-image {
     height: auto;
-    max-width: 810px;
+    max-width: 650px;
 }
 .ventypro-hero__content-wrapper {
     height:100%;
