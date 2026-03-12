@@ -371,7 +371,6 @@ section.launch-upgrade-banner {
 .pro-series-wrapper .feature-card.feature-left.redesigned-base {
     align-items: flex-start;
 }
-
 .pro-series-wrapper .feature-card.redesigned-base .feature-content {
     margin-top: auto;
 }
@@ -384,6 +383,12 @@ section.launch-upgrade-banner {
 }
 .pro-series-wrapper .feature-card.feature-right.fast-charging .feature-content h3 {
     padding-left: 49px;
+}
+}
+@media only screen and (max-width:767px) {
+.pro-series-wrapper .feature-card .feature-content h3 {
+    font-size: 16px !important;
+    line-height: 20px !important;
 }
 }
 /* venty pro cozypad landing page  */
