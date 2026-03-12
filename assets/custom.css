@@ -92,4 +92,16 @@ section.ventypro-hero {
 .pro-series-wrapper .feature-card {
     min-height: 473px;
 }
+.pro-series-wrapper .feature-card {
+    min-height: 473px;
+}
+.pro-series-wrapper .feature-card .feature-content h3 {
+    font-weight:300;
+}
+.pro-series-wrapper .feature-card .feature-content h3 strong {
+    font-weight:700;
+}
+.pro-series-wrapper .feature-card .feature-image img {
+    width:auto;
+}
 /* venty pro cozypad landing page  */
