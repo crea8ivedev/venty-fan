@@ -298,6 +298,9 @@ section.launch-upgrade-banner {
     .ventypro-hero__content .vendypro-form_text {
     max-width:100%;
 }
+.launch-section .launch-text p {
+    margin-top: 8px;
+}
 
 }
 /* venty pro cozypad landing page  */
