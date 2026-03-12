@@ -21,4 +21,8 @@
     left: 50%;
     transform: translateX(-50%);
 }
+.ventypro-hero .ventypro-hero__bg-image {
+    height: 100%;
+    max-width: 810px;
+}
 /* venty pro cozypad landing page  */
