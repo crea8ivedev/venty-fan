@@ -215,6 +215,10 @@ section.launch-upgrade-banner {
     width: 134px;
     height: 133px;
 }
+.launch-section .launch-text h2, .launch-section .launch-text h2.heading.-two {
+    font-size: 56px;
+    line-height: 60px;
+}
     .ventypro-hero .ventypro-hero__bg-image {
         max-width:500px;
     }
