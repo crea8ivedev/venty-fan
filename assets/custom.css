@@ -20,6 +20,8 @@
     align-items: end;
     justify-content:space-between;
     flex-direction:column;
+    margin-top: 94px;
+    position: relative;
 }
 .ventypro-hero__content .ventypro-hero__text p {
     color:#484848;
