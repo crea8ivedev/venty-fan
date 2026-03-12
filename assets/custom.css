@@ -253,4 +253,9 @@ section.launch-upgrade-banner {
     max-width:90%;
 }
 }
+@media only screen and (max-width:640px) {
+    .ventypro-hero__content .vendypro-form_text {
+    max-width:100%;
+}
+}
 /* venty pro cozypad landing page  */
