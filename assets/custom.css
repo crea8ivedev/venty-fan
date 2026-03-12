@@ -28,7 +28,7 @@
     transform: translateX(-50%);
 }
 .ventypro-hero .ventypro-hero__bg-image {
-    height: 100%;
+    height: auto;
     max-width: 810px;
 }
 .ventypro-hero__content-wrapper {
