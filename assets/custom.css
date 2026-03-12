@@ -218,6 +218,13 @@ section.launch-upgrade-banner {
 .pro-series-wrapper .feature-card.feature-left.digital-display-battery h3 {
     padding-right: 12px;
 }
+.pro-series-wrapper .feature-card.feature-right.dual-charging-ports {
+    align-items: end;
+}
+.pro-series-wrapper .feature-card.feature-right.dual-charging-ports .feature-content h3 {
+    padding-left:26px;
+    padding-bottom:25px;
+}
 .feature-card.feature-right.image-fan .feature-image {
     margin-right:0;
 }
