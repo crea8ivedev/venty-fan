@@ -154,4 +154,8 @@ flex-direction:row;
     right:0;
     top:0;
 }
+.launch-upgrade-banner .banner-wrapper .banner-heading {
+    font-size: 82px;
+    line-height: 86px;
+}
 /* venty pro cozypad landing page  */
