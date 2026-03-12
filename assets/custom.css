@@ -284,6 +284,9 @@ section.launch-upgrade-banner {
     font-size: 60px !important;
     line-height: 60px !important;
 }
+.launch-section .launch-wrapper .launch-text {
+    margin-top:29px !important;
+}
 }
 @media only screen and (max-width:767px) {
     .launch-section .play-button {
@@ -293,9 +296,7 @@ section.launch-upgrade-banner {
     .launch-section .launch-wrapper .launch-text {
     padding-inline: 20px;
 }
-.launch-section .launch-wrapper .launch-text {
-    margin-top:29px !important;
-}
+
 
 .launch-section .launch-text h2, .launch-section .launch-text h2.heading.-two {
         line-height: 36px !important;
