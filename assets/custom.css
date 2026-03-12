@@ -215,6 +215,9 @@ section.launch-upgrade-banner {
 .feature-card.feature-right.image-fan .feature-image {
     margin-right:0;
 }
+.pro-series-wrapper .feature-card {
+    min-height:251px;s
+}
     .launch-section .launch-wrapper {
     border-radius:25px;
 }
