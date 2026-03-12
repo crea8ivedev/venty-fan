@@ -140,11 +140,11 @@ flex-direction:row;
     max-width:unset;
 }
 .launch-upgrade-banner .banner-wrapper {
-    margin-top: 115px;
     position:relative;
     align-items:start;
-     max-width:1292px;
+    max-width:1292px;
     margin:0 auto;
+    padding-top: 115px;
     padding-inline:20px;
 }
 .pro-series .pro-series-wrapper {
