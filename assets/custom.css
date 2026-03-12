@@ -274,6 +274,9 @@ section.launch-upgrade-banner {
     padding-inline: 0 !important;
     padding-bottom:60px !important;
 }
+.launch-section .launch-image img {
+        max-height: 550px;
+}
 .launch-section .launch-image {
     margin:0 !important;
 }
