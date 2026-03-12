@@ -25,27 +25,27 @@
       </div>
     </div>
 
-    <div class="banner-image">
+    
+  </div>
+  <div class="banner-image">
 
-      <div class="banner-form banner-form-mobile">
-        <input
-          type="email"
-          placeholder="{{ section.settings.email_placeholder }}"
-        >
-        <button class="signup-btn">
-          {{ section.settings.button_text }}
-        </button>
-      </div>
-
-      {% if section.settings.image %}
-        <img
-          src="{{ section.settings.image | image_url: width: 800 }}"
-          alt="banner image"
-          loading="lazy"
-        >
-      {% endif %}
+    <div class="banner-form banner-form-mobile">
+      <input
+        type="email"
+        placeholder="{{ section.settings.email_placeholder }}"
+      >
+      <button class="signup-btn">
+        {{ section.settings.button_text }}
+      </button>
     </div>
 
+    {% if section.settings.image %}
+      <img
+        src="{{ section.settings.image | image_url: width: 800 }}"
+        alt="banner image"
+        loading="lazy"
+      >
+    {% endif %}
   </div>
 </section>
 <style>
