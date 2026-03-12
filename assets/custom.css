@@ -227,6 +227,7 @@ section.launch-upgrade-banner {
 .pro-series-wrapper .feature-card.feature-right.dual-charging-ports .feature-content h3 {
     padding-left:26px;
     padding-bottom:25px;
+    max-width:250px;
 }
 .feature-card.feature-right.image-fan .feature-image {
     margin-right:0;
