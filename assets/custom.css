@@ -218,9 +218,7 @@ section.launch-upgrade-banner {
 .pro-series-wrapper .feature-card.feature-left.digital-display-battery h3 {
     padding-right: 12px;
 }
-.pro-series-wrapper .feature-card.feature-right.dual-charging-ports {
-    align-items: end;
-}
+
 .pro-series-wrapper .feature-card.feature-right.dual-charging-ports .feature-content h3 br {
     display:none;
 }
@@ -376,6 +374,9 @@ section.launch-upgrade-banner {
 
 .pro-series-wrapper .feature-card.redesigned-base .feature-content {
     margin-top: auto;
+}
+.pro-series-wrapper .feature-card.feature-right.dual-charging-ports {
+    align-items: end;
 }
 }
 /* venty pro cozypad landing page  */
