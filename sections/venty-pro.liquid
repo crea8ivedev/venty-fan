@@ -492,7 +492,18 @@ height: auto;
 <section class="ventypro-hero">
 
 <!-- Background -->
-
+  <div class="ventypro-hero__bg">
+    {% if section.settings.bg_image %}
+      <img
+        src="{{ section.settings.bg_image | image_url: width: 2000 }}"
+        class="ventypro-hero__bg-image"
+        alt=""
+        width="{{ section.settings.bg_image.width }}"
+        height="{{ section.settings.bg_image.height }}"
+        loading="eager"
+      >
+    {% endif %}
+  </div>
 
  {% comment %} <div class="ventypro-hero__bg-mobile">
      {% if section.settings.bg_image_mobile %}
@@ -508,9 +519,9 @@ height: auto;
   </div>  {% endcomment %}
 
 <!-- Content -->
-<div class="ventypro-hero__content-wrapper">
+<div>
  {% if section.settings.hero_logo %}
-    <div class="ventypro-hero__logo"> 
+    <div class="ventypro-hero__logo">
       <a href="/">
       <img
         src="{{ section.settings.hero_logo | image_url: width: 300 }}"
@@ -527,18 +538,6 @@ height: auto;
   </div> {% endcomment %}
 <div class="ventypro-hero__content">
   <div class="ventypro-hero__text">
-      <div class="ventypro-hero__bg">
-    {% if section.settings.bg_image %}
-      <img
-        src="{{ section.settings.bg_image | image_url: width: 2000 }}"
-        class="ventypro-hero__bg-image"
-        alt=""
-        width="{{ section.settings.bg_image.width }}"
-        height="{{ section.settings.bg_image.height }}"
-        loading="eager"
-      >
-    {% endif %}
-  </div>
     <div class="ventypro-hero_wrapper">
       <h1 class="ventypro-hero__heading">
         <span class="ventypro-hero-word ventypro-hero-word--bold">
