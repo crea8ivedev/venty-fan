@@ -66,9 +66,9 @@ section.ventypro-hero {
     box-shadow: 0px 4px 95.5px 0px #0000004F;
     background:none;
 }
-.launch-section .play-button::before {
+/* .launch-section .play-button::before {
     content:none;
-}
+} */
 .launch-section .play-button img {
     max-width: unset;
     max-height: unset;
