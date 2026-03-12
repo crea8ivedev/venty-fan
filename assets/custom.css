@@ -101,6 +101,8 @@ section.ventypro-hero {
 }
 .pro-series-wrapper .feature-card .feature-content h3 {
     font-weight:300;
+    font-size:56px;
+    line-height:62px;
 }
 .pro-series-wrapper .feature-card .feature-content h3 strong {
     font-weight:700;
