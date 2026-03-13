@@ -282,7 +282,7 @@ section.launch-upgrade-banner {
   flex: unset !important;
 }
 
-.launch-upgrade-banner .klaviyo-form .needsclick [data-testid="form-row"] {
+.launch-upgrade-banner .klaviyo-form .needsclick [data-testid="form-row"] [component="[object Object]"] {
   padding:0 !important;
 }
 
