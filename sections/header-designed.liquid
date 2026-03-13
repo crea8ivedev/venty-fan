@@ -366,30 +366,58 @@ endfor
 
 {% for product in mega_products %}
 
-  {% assign mega_image = product.metafields.custom.product_megamenu.value %}
+  {% assign mega_object = product.metafields.custom.product_megamenu.value %}
+
+  {% assign mega_url = product.url %}
+  {% assign mega_title = product.title %}
+  {% assign mega_image = product.featured_image %}
+  {% assign mega_subtitle = blank %}
+
+  {% if mega_object != blank %}
+
+    {% if mega_object.url != blank %}
+      {% assign mega_url = mega_object.url %}
+    {% endif %}
+
+    {% if mega_object.title != blank %}
+      {% assign mega_title = mega_object.title %}
+    {% endif %}
+
+    {% if mega_object.image != blank %}
+      {% assign mega_image = mega_object.image %}
+    {% endif %}
+
+    {% if mega_object.sub_title != blank %}
+      {% assign mega_subtitle = mega_object.sub_title %}
+    {% endif %}
+
+  {% endif %}
 
   <div class="mobile-sub-menu">
-    <a href="{{ product.url }}">
+
+    <a href="{{ mega_url }}">
 
       <div class="mobile-sub-image">
 
-        {% if mega_image != blank %}
+        {% if mega_image %}
           <img
             src="{{ mega_image | image_url: width: 300 }}"
-            alt="{{ product.title }}"
-            loading="lazy">
-        {% elsif product.featured_image %}
-          <img
-            src="{{ product.featured_image | image_url: width: 300 }}"
-            alt="{{ product.title }}"
+            alt="{{ mega_title }}"
             loading="lazy">
         {% endif %}
 
       </div>
 
-      <h5>{{ product.title }}</h5>
+      {% if mega_subtitle != blank %}
+        <span style="color:#35b339; font-size:12px; display:block;">
+          {{ mega_subtitle }}
+        </span>
+      {% endif %}
+
+      <h5>{{ mega_title }}</h5>
 
     </a>
+
   </div>
 
 {% endfor %}
