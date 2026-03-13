@@ -283,6 +283,7 @@ section.launch-upgrade-banner {
 .fan-colors-section .fan-title {
   font-size: 70px; 
   line-height: 74px;
+  margin-bottom: 10px;
 }
 }
 @media only screen and (max-width: 1279px) {
