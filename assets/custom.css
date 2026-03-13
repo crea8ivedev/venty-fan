@@ -420,6 +420,9 @@ section.launch-upgrade-banner {
   .pro-series-wrapper .feature-card.image-fan {
     align-items: end;
   }
+  .feature-card.feature-right.image-fan .feature-image .featuremobile-image {
+        margin-top: -120px;
+  }
   .pro-series-wrapper .feature-card .feature-content h3 {
     font-weight: 300;
   }
