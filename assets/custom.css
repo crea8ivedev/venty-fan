@@ -489,5 +489,8 @@ section.launch-upgrade-banner {
     .pro-series-wrapper .feature-card.redesigned-base .feature-content h3 {
     max-width: 145px;
   }
+  .launch-upgrade-banner .banner-wrapper .banner-subheading {
+    font-size: 26px !important;
+  }
 }
 /* venty pro cozypad landing page  */
