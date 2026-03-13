@@ -432,6 +432,11 @@ margin-top: 14px !important;
     max-height: 500px;
     object-fit: contain;
   }
+
+  .fan-colors-section .fan-color-dot {
+        width: 45px;
+    height: 45px;
+  }
 }
 @media only screen and (max-width: 1279px) {
      .ventypro-hero__content .ventypro-hero__text {
