@@ -259,7 +259,7 @@ section.launch-upgrade-banner {
 .launch-upgrade-banner .klaviyo-form .needsclick [data-testid="form-row"]:first-child  [component="[object Object]"] input {
     background-color: #989898 !important;
   border: 1px solid #989898 !important;
-  min-height: 61px!important;
+  min-height: 49px!important;
   color: white !important;
   padding: 0px 0px 0px 23px !important;
   letter-spacing: 0 !important;
