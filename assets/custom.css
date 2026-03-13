@@ -383,6 +383,10 @@ section.launch-upgrade-banner {
     margin-top: 29px !important;
   }
 
+  .launch-upgrade-banner .banner-wrapper {
+    padding-top: 60px;
+  }
+
 }
 @media only screen and (max-width: 767px) {
   .launch-section .play-button {
