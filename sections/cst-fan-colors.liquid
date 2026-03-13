@@ -94,6 +94,29 @@
     border-radius: 50%;
     margin: 40px auto 0;
     border: 1px solid #ddd;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+/* Outer ring on hover */
+.fan-color-dot::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: border-color 0.25s ease, inset 0.25s ease;
+}
+
+.fan-color-dot:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.fan-color-dot:hover::after {
+    border-color: rgba(0, 0, 0, 0.25);
+    inset: -7px;
 }
 
 @media(max-width:768px){
