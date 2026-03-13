@@ -389,10 +389,10 @@ section.launch-upgrade-banner {
   line-height: 74px;
   margin-bottom: 10px;
 }
-.addons-header h2 {
+.campaign-addons .addons-header h2 {
       margin-bottom: 10px;
 }
-.divider-logo {
+.campaign-addons .divider-logo {
   width: 75px;
     height: 106px;
 }
