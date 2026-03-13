@@ -6,17 +6,50 @@
 
     <!-- LEFT SIDE -->
     <div class="ventry-left">
-        <div class="ventry-left-lists">
-            <ul class="ventry-list">
-                <li class="active" data-index="0">{{ section.settings.text1 }}</li>
-                <li data-index="1">{{ section.settings.text2 }}</li>
-                <li data-index="2">{{ section.settings.text3 }}</li>
-                <li data-index="3">{{ section.settings.text4 }}</li>
-                <li data-index="4">{{ section.settings.text5 }}</li>        
-            </ul>
-            <ul class="ventry-list-inner">
-                <li data-index="5">{{ section.settings.text6 }}</li>
-            </ul>
+        <div class="ventry-row-grid" id="ventry-row-grid">
+
+            <!-- ROW 1 -->
+            <div class="ventry-row">
+                <li class="ventry-row-li active" data-index="0">{{ section.settings.text1 }}</li>
+                <div class="ventry-row-text active">{{ section.settings.content1 }}</div>
+            </div>
+
+            <!-- ROW 2 -->
+            <div class="ventry-row">
+                <li class="ventry-row-li" data-index="1">{{ section.settings.text2 }}</li>
+                <div class="ventry-row-text">{{ section.settings.content2 }}</div>
+            </div>
+
+            <!-- ROW 3 -->
+            <div class="ventry-row">
+                <li class="ventry-row-li" data-index="2">{{ section.settings.text3 }}</li>
+                <div class="ventry-row-text">{{ section.settings.content3 }}</div>
+            </div>
+
+            <!-- ROW 4 -->
+            <div class="ventry-row">
+                <li class="ventry-row-li" data-index="3">{{ section.settings.text4 }}</li>
+                <div class="ventry-row-text">{{ section.settings.content4 }}</div>
+            </div>
+
+            <!-- ROW 5 -->
+            <div class="ventry-row">
+                <li class="ventry-row-li" data-index="4">{{ section.settings.text5 }}</li>
+                <div class="ventry-row-text">{{ section.settings.content5 }}</div>
+            </div>
+
+            <!-- ROW 6 — color picker row -->
+            <div class="ventry-row">
+                <li class="ventry-row-li ventry-row-li--inner" data-index="5">{{ section.settings.text6 }}</li>
+                <div class="ventry-row-text">
+                    <div class="ventry-colors">
+                        <span class="color-dot" data-img="0" style="background:#8b1d2c"></span>
+                        <span class="color-dot" data-img="1" style="background:#cfcfcf"></span>
+                        <span class="color-dot active" data-img="2" style="background:#333"></span>
+                    </div>
+                </div>
+            </div>
+
         </div>
       <div class="ventry-line">
         <div class="ventry-indicator"></div>
@@ -24,38 +57,8 @@
     </div>
 
 
-    <!-- MIDDLE TEXT -->
-    <div class="ventry-content">
-
-      <div class="ventry-text active">
-        {{ section.settings.content1 }}
-      </div>
-
-      <div class="ventry-text">
-        {{ section.settings.content2 }}
-      </div>
-
-      <div class="ventry-text">
-        {{ section.settings.content3 }}
-      </div>
-
-      <div class="ventry-text">
-       {{ section.settings.content4 }}
-      </div>
-
-      <div class="ventry-text">
-        {{ section.settings.content5 }}
-      </div>
-
-      <div class="ventry-text">
-        <div class="ventry-colors">
-            <span class="color-dot" data-img="0" style="background:#8b1d2c"></span>
-            <span class="color-dot" data-img="1" style="background:#cfcfcf"></span>
-            <span class="color-dot active" data-img="2" style="background:#333"></span>
-        </div>
-      </div>
-
-    </div>
+    <!-- MIDDLE TEXT — now inside row-grid above, keeping empty div for layout -->
+    <div class="ventry-content" style="display:none;" aria-hidden="true"></div>
 
 
     <!-- RIGHT SIDE -->
@@ -143,35 +146,64 @@
       display:flex;
       align-items:flex-start;
       justify-content: space-between;
-      max-width: 250px;
+      width: 100%;
+      flex: 1;
+  }
+
+  /* Grid columns: left label col + right text col */
+  .ventry-row-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      column-gap: 40px;
       width: 100%;
   }
 
-  /* ── ALIGNMENT FIX START ── */
-  /*
-     ventry-left-lists અને ventry-content બંને ને
-     display:grid + same row heights મળે એ માટે
-     JS dynamically heights set કરે છે.
-     CSS ફક્ત min-height remove કરે છે જેથી
-     JS ની height override ન થાય.
-  */
-  .ventry-left-lists {
-      width: 100%;
+  /* Each row: display:contents so children sit in grid */
+  .ventry-row {
+      display: contents;
   }
 
-  .ventry-list li,
-  .ventry-list-inner li {
-      display: flex;
-      align-items: flex-start;
-  }
-
-  .ventry-list li,
-  .ventry-list-inner li,
-  .ventry-text {
+  /* Label (left) cell */
+  .ventry-row-li {
+      list-style: none;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 100%;
+      color: rgba(145, 145, 145, 1);
+      font-weight: 700;
+      transition: 0.3s;
+      max-width: 145px;
+      padding-bottom: 18px;
       box-sizing: border-box;
-      /* min-height JS દ્વારા set થશે, CSS min-height હટાવ્યું */
+      align-self: start;
   }
-  /* ── ALIGNMENT FIX END ── */
+
+  .ventry-row-li.active {
+      color: #000;
+  }
+
+  /* Text (right) cell */
+  .ventry-row-text {
+      font-size: 16px;
+      line-height: 24px;
+      color: #8a8a8a;
+      font-weight: 500;
+      transition: 0.3s;
+      padding-bottom: 18px;
+      box-sizing: border-box;
+      align-self: start;
+      max-width: 420px;
+  }
+
+  .ventry-row-text.active {
+      color: #000;
+  }
+
+  /* Last row: no bottom gap */
+  .ventry-row:last-child .ventry-row-li,
+  .ventry-row:last-child .ventry-row-text {
+      padding-bottom: 0;
+  }
 
   .ventry-list{
       list-style:none;
@@ -215,7 +247,6 @@
       color: rgba(145, 145, 145, 1);
       font-weight: 700;
       transition:0.3s;
-      min-height: 100px;
       max-width: 145px;
   }
 
@@ -231,8 +262,7 @@
         transition: 0.3s;
         font-weight: 500;
         font-size: 16px;
-        line-height: 24px;  
-        min-height: 100px;  
+        line-height: 24px;
     }
 
     .ventry-text.active{
@@ -377,9 +407,6 @@
       .ventry-text {
         margin-bottom: 10px;
       }
-      .ventry-list-inner li, .ventry-list li {
-        min-height: 90px;
-      }
       .ventry-images img {
         max-width: 350px;
       }
@@ -388,11 +415,9 @@
 
 
 @media(max-width:1024px){
-  .ventry-left{
-        max-width: 160px;
-    }
-  .ventry-content {
-      max-width: 360px;
+  .ventry-row-grid {
+      grid-template-columns: 160px 1fr;
+      column-gap: 28px;
   }
 }
 
@@ -407,17 +432,20 @@
     }  
     .ventry-left {
         max-width: 100%;
-        width: calc(30% - 20px);
+        width: 100%;
     }  
     .ventry-content {
-        max-width: 100%;
-        width: calc(70% - 20px);
+        display: none !important;
     }  
     .ventry-wrapper {
         gap: 40px;
         flex-wrap: wrap;
         row-gap: 60px;
-    }  
+    }
+    .ventry-row-grid {
+        grid-template-columns: calc(30% - 20px) calc(70% - 20px);
+        column-gap: 40px;
+    }
 
 }
 
@@ -438,14 +466,10 @@
 }
 
 @media(max-width:590px){ 
-  .ventry-left {
-      max-width: 100%;
-      width: calc(40% - 12px);
+  .ventry-row-grid {
+      grid-template-columns: calc(40% - 12px) calc(60% - 12px);
+      column-gap: 24px;
   }
-  .ventry-content {
-      max-width: 100%;
-      width: calc(60% - 12px);
-  }    
   .ventry-wrapper {
       gap: 24px;
   }  
@@ -455,17 +479,12 @@
   .ventry-images img {
       max-width: 350px;
   }
-
-
 }
 
 @media(max-width:420px){ 
-.ventry-left {
-  width: calc(45% - 12px);
-}
-.ventry-content {
-  width: calc(55% - 12px);
-}
+  .ventry-row-grid {
+      grid-template-columns: calc(45% - 12px) calc(55% - 12px);
+  }
 }
 
 </style>
@@ -563,122 +582,65 @@ images[index].classList.add("active");
 }); {% endcomment %}
 {% comment %} hardeep singh {% endcomment %}
  document.addEventListener("DOMContentLoaded", function() {
-  const items = document.querySelectorAll(".ventry-list li");
+  const items = document.querySelectorAll(".ventry-row-li");
   const indicator = document.querySelector(".ventry-indicator");
-  const list = document.querySelector(".ventry-list");
-  const texts = document.querySelectorAll(".ventry-text");
+  const grid = document.querySelector("#ventry-row-grid");
+  const texts = document.querySelectorAll(".ventry-row-text");
   const images = document.querySelectorAll(".ventry-images-black .ventry-img");
   const imagesRed = document.querySelectorAll(".ventry-images-red .ventry-img");
   const imageswhite = document.querySelectorAll(".ventry-images-white .ventry-img");
   
   let currentIndex = 0;
 
-  /* ── ALIGNMENT FIX: sync heights of list items & text items ── */
-  function syncRowHeights() {
-    const listItems = document.querySelectorAll(".ventry-list li");
-    const textItems = document.querySelectorAll(".ventry-text");
-
-    // Reset heights first so we get natural content heights
-    listItems.forEach(function(li) { li.style.height = ''; li.style.minHeight = ''; });
-    textItems.forEach(function(t)  { t.style.height  = ''; t.style.minHeight  = ''; });
-
-    // For each pair, set both to the taller of the two
-    var count = Math.min(listItems.length, textItems.length);
-    for (var i = 0; i < count; i++) {
-      var liH  = listItems[i].getBoundingClientRect().height;
-      var txtH = textItems[i].getBoundingClientRect().height;
-      var maxH = Math.max(liH, txtH);
-      listItems[i].style.height = maxH + 'px';
-      textItems[i].style.height = maxH + 'px';
-    }
-  }
-
-  // Run on load and on resize
-  syncRowHeights();
-  window.addEventListener('resize', syncRowHeights);
-  /* ── ALIGNMENT FIX END ── */
-
   function moveIndicator(index) {
     if (index < 0) index = 0;
     if (index >= items.length) index = items.length - 1;
 
     const item = items[index];
-    const itemTop = item.getBoundingClientRect().top - list.getBoundingClientRect().top;
-
+    // indicator top: item ની top position relative to grid wrapper
+    const itemTop = item.getBoundingClientRect().top - grid.getBoundingClientRect().top;
     indicator.style.top = itemTop + "px";
 
-    items.forEach((item, i) => {
-      if (i === index) {
-        item.classList.add("active");
-      } else {
-        item.classList.remove("active");
-      }
+    items.forEach((it, i) => {
+      it.classList.toggle("active", i === index);
     });
 
     texts.forEach((text, i) => {
-      if (i === index) {
-        text.classList.add("active");
-      } else {
-        text.classList.remove("active");
-      }
+      text.classList.toggle("active", i === index);
     });
 
-    images.forEach((text, i) => {
-      if (i === index) {
-        text.classList.add("active");
-      } else {
-        text.classList.remove("active");
-      }
-    });    
-    imagesRed.forEach((text, i) => {
-      if (i === index) {
-        text.classList.add("active");
-      } else {
-        text.classList.remove("active");
-      }
+    images.forEach((img, i) => {
+      img.classList.toggle("active", i === index);
     });
 
-    imageswhite.forEach((text, i) => {
-      if (i === index) {
-        text.classList.add("active");
-      } else {
-        text.classList.remove("active");
-      }
+    imagesRed.forEach((img, i) => {
+      img.classList.toggle("active", i === index);
+    });
+
+    imageswhite.forEach((img, i) => {
+      img.classList.toggle("active", i === index);
     });
 
     currentIndex = index;
   }
 
-  list.addEventListener("wheel", function(e) {
+  // Scroll on list area
+  grid.addEventListener("wheel", function(e) {
     e.preventDefault();
-    
-    if (e.deltaY > 0) {
-      currentIndex++;
-    } else {
-      currentIndex--;
-    }
-
+    currentIndex += e.deltaY > 0 ? 1 : -1;
     if (currentIndex < 0) currentIndex = 0;
     if (currentIndex >= items.length) currentIndex = items.length - 1;
-
     moveIndicator(currentIndex);
   });
 
   items.forEach((item, index) => {
-    item.addEventListener("mouseenter", function() {
-      moveIndicator(index);
-    });
-  });
-
-  items.forEach((item, index) => {
-    item.addEventListener("click", function() {
-      moveIndicator(index);
-    });
+    item.addEventListener("mouseenter", function() { moveIndicator(index); });
+    item.addEventListener("click",      function() { moveIndicator(index); });
   });
 
   moveIndicator(currentIndex);
 
-}); 
+});
 
 
 {% comment %} blabla {% endcomment %}
