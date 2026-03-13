@@ -228,8 +228,11 @@ section.launch-upgrade-banner {
   flex: unset !important;
 }
 .launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:first-child  [component="[object Object]"] {
-      min-height: 61px;
-          background-color: #989898 !important;
+background-color: #989898 !important;
+    border: 1px solid #989898 !important;
+    min-height: 61px;
+        color: white !important;
+            padding: 0px 0px 0px 23px !important;
 }
 .launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:last-child {
   width: 189px !important;
