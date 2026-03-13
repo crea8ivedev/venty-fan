@@ -277,7 +277,7 @@ section.launch-upgrade-banner {
 }
 
 
-.launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:last-child  {
+.launch-upgrade-banner .klaviyo-form .needsclick [data-testid="form-row"]:last-child  {
   width: 150px !important;
   flex: unset !important;
 }
