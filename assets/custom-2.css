@@ -30,7 +30,10 @@
 .launch-upgrade-banner .banner-wrapper {
   padding-bottom: 2%;
 }
-
+.launch-upgrade-banner .banner-wrapper .banner-content {
+            padding-right: 0px;
+        padding-left: 0px;
+}
     
 }
 
