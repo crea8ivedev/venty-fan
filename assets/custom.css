@@ -204,6 +204,12 @@ section.launch-upgrade-banner {
 .launch-email-section .sign-up-klaviyo-form .needsclick form {
   background-color: transparent !important; 
 }
+.launch-email-section .sign-up-klaviyo-form {
+  width: 48%  !important;
+}
+.launch-email-section .sign-up-klaviyo-form [data-testid="form-row"] {
+  align-items: center !important; 
+}
 @media only screen and (max-width: 1600px) {
     .pro-series h2.pro-series-title, .pro-series .pro-series-subtitle {
     font-size: 60px;
