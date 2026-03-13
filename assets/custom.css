@@ -271,7 +271,7 @@ section.launch-upgrade-banner {
         padding-inline:0px;
     }
   .pro-series-wrapper .feature-card.feature-right .feature-content h3 {
-    margin-left: 35px;
+    margin-left: 35px !important;;
     padding-left: 0px;
   }
   .pro-series-wrapper .feature-card.feature-left .feature-content h3 {
