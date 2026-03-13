@@ -6,13 +6,7 @@
         {{ section.settings.heading }}
       </h2>
 
-      <form method="post" action="/contact#contact_form" class="launch-form">
-        <input type="hidden" name="contact[tags]" value="launch-email">
-        <input type="email" name="contact[email]" placeholder="Email address" required class="launch-input">
-        <button type="submit" class="launch-button">
-          {{ section.settings.button_text }}
-        </button>
-      </form>
+
     </div>
 
     <div class="launch-divider"></div>
@@ -130,10 +124,9 @@
       "default": "ENTER EMAIL FOR LAUNCH DAY PRICE & FREE REMOTE UPGRADE"
     },
     {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button Text",
-      "default": "Signup Now"
+      "type": "html",
+      "id": "klaviyo_form",
+      "label": "Klaviyo Div"
     },
     {
       "type": "text",
