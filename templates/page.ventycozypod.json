@@ -453,7 +453,7 @@
         "addon_PBMpBD": {
           "type": "addon",
           "settings": {
-            "image": "shopify://shop_images/Group_1597883960.png",
+            "image": "shopify://shop_images/Group_1597883969.png",
             "title": "Premium  travel case",
             "price": "$25.00"
           }
@@ -461,7 +461,7 @@
         "addon_WHUrAK": {
           "type": "addon",
           "settings": {
-            "image": "shopify://shop_images/Frame_1000001649.png",
+            "image": "shopify://shop_images/Group_1597883970.png",
             "title": "30w fAst charging head",
             "price": "$20.00"
           }
@@ -469,7 +469,7 @@
         "addon_LcYM8h": {
           "type": "addon",
           "settings": {
-            "image": "shopify://shop_images/Frame_1000001650.png",
+            "image": "shopify://shop_images/Group_1597883971.png",
             "title": "Back lit remote",
             "price": "$25.00"
           }
@@ -501,7 +501,7 @@
       "name": "Launch Email Signup",
       "settings": {
         "heading": "ENTER EMAIL FOR LAUNCH DAY PRICE & FREE REMOTE UPGRADE",
-        "klaviyo_form": "<div class=\"klaviyo-form-RckEEV\"></div>",
+        "klaviyo_form": "",
         "footer_text": "VENTY"
       }
     }
