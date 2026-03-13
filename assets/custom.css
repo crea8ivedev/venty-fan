@@ -602,6 +602,11 @@ section.launch-upgrade-banner {
       grid-template-columns: repeat(2,1fr);
       gap: 24px;
   }
+
+  .packed-deployed .heading h2{
+            font-size: 50px !important;
+        line-height: 55px !important;
+  }
 }
 @media only screen and (max-width: 575px) {
     .new-generation .new-generation__content h2 {
