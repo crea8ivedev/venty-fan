@@ -150,6 +150,7 @@ section.ventypro-hero {
 
 .pro-series-wrapper .feature-card .feature-image img {
   width: auto;
+  height: 100%;
 }
 
 .pro-series-wrapper .feature-card.feature-right .feature-content h3 {
