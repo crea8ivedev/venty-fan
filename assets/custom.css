@@ -205,8 +205,11 @@ section.launch-upgrade-banner {
   background-color: transparent !important; 
   padding: 0 !important;
 }
+.launch-email-section .launch-title {
+  width: 47% !important
+}
 .launch-email-section .sign-up-klaviyo-form {
-  width: 48%  !important;
+  width: 45% !important;
 }
 .launch-email-section .sign-up-klaviyo-form [data-testid="form-row"] {
   align-items: center !important; 
