@@ -276,6 +276,9 @@ section.launch-upgrade-banner {
   flex: unset !important;
 }
 
+.launch-upgrade-banner .klaviyo-form .needsclick [data-testid="form-row"]:first-child  [component="[object Object]"] {
+  padding:0 !important;
+}
 
 
 @media only screen and (max-width: 1600px) {
