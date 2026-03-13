@@ -59,16 +59,47 @@
     max-height: 693px;
 }
 
-.fan-item{
-    border-radius:20px;
-    padding:40px 0px;
+.fan-item {
+    border-radius: 20px;
+    padding: 40px 0px;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
-.fan-image img{
-    margin:auto;
-    display:block;
-    max-width: 100%;
+.fan-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 60%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
 }
+
+.fan-image img {
+    margin: auto;
+    display: block;
+    max-width: 100%;
+    transition: transform 0.4s ease;
+}
+
+
+/* Name color brightens on hover */
+.fan-item:hover .fan-name {
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+/* Dot pulses on card hover */
+.fan-item:hover .fan-color-dot {
+    transform: scale(1.12);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+ 
 
 .fan-name {
     margin-top: 20px !important;
