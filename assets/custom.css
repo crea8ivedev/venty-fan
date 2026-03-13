@@ -456,6 +456,9 @@ margin-top: 14px !important;
         font-size: 28px;
     line-height: 34px;
   }
+  .new-generation .new-generation__content h2 { 
+    font-size: 80px;
+  }
 }
 @media only screen and (max-width: 1279px) {
      .ventypro-hero__content .ventypro-hero__text {
