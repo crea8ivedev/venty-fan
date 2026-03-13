@@ -179,20 +179,18 @@
       padding: 0px;
       list-style: none;
   }
-.ventry-list-inner li,
-.ventry-list li {
-    margin: 0px;
-    cursor: pointer;
-    font-size: 16px;
-    line-height: 100%;
-    color: rgba(145, 145, 145, 1);
-    font-weight: 700;
-    transition: 0.3s;
-    min-height: unset;
-    max-width: 145px;
-    display: flex;
-    align-items: flex-start;
-}
+  .ventry-list-inner li,
+  .ventry-list li{
+      margin: 0px 0 18px 0;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 100%;
+      color: rgba(145, 145, 145, 1);
+      font-weight: 700;
+      transition:0.3s;
+      min-height: 100px;
+      max-width: 145px;
+  }
 
   .ventry-list li.active{
       color:#000;
@@ -200,21 +198,18 @@
   }
 
   .ventry-content{ max-width:420px;}
-.ventry-text {
-    margin-bottom: 0px;
-    color: #8a8a8a;
-    transition: 0.3s;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    min-height: unset;
-    display: flex;
-    align-items: flex-start;
-}
+  .ventry-text{
+        margin-bottom: 18px;
+        color: #8a8a8a;
+        transition: 0.3s;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;  
+        min-height: 100px;  
+    }
 
     .ventry-text.active{
         display:block;
-        color: #000;
     }
 
     .ventry-images img{
@@ -509,80 +504,128 @@ images[index].classList.add("active");
 
 }); {% endcomment %}
 {% comment %} hardeep singh {% endcomment %}
-document.addEventListener("DOMContentLoaded", function () {
-
+ document.addEventListener("DOMContentLoaded", function() {
   const items = document.querySelectorAll(".ventry-list li");
   const indicator = document.querySelector(".ventry-indicator");
   const list = document.querySelector(".ventry-list");
   const texts = document.querySelectorAll(".ventry-text");
   const images = document.querySelectorAll(".ventry-images-black .ventry-img");
   const imagesRed = document.querySelectorAll(".ventry-images-red .ventry-img");
-  const imagesWhite = document.querySelectorAll(".ventry-images-white .ventry-img");
-
+  const imageswhite = document.querySelectorAll(".ventry-images-white .ventry-img");
+  
   let currentIndex = 0;
-
-  function syncHeights() {
-    // Reset first
-    items.forEach(item => item.style.minHeight = "");
-    texts.forEach(text => text.style.minHeight = "");
-
-    // Match each title row height to its corresponding description row
-    items.forEach((item, i) => {
-      if (texts[i]) {
-        const itemH = item.getBoundingClientRect().height;
-        const textH = texts[i].getBoundingClientRect().height;
-        const maxH = Math.max(itemH, textH);
-        item.style.minHeight = maxH + "px";
-        texts[i].style.minHeight = maxH + "px";
-      }
-    });
-  }
-
+  
   function moveIndicator(index) {
     if (index < 0) index = 0;
     if (index >= items.length) index = items.length - 1;
 
     const item = items[index];
     const itemTop = item.getBoundingClientRect().top - list.getBoundingClientRect().top;
+
     indicator.style.top = itemTop + "px";
 
-    // Highlight active title and description
-    items.forEach((el, i) => el.classList.toggle("active", i === index));
-    texts.forEach((el, i) => el.classList.toggle("active", i === index));
+    items.forEach((item, i) => {
+      if (i === index) {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
+      }
+    });
 
-    // Switch active image
-    images.forEach((el, i) => el.classList.toggle("active", i === index));
-    imagesRed.forEach((el, i) => el.classList.toggle("active", i === index));
-    imagesWhite.forEach((el, i) => el.classList.toggle("active", i === index));
+    texts.forEach((text, i) => {
+      if (i === index) {
+        text.classList.add("active");
+      } else {
+        text.classList.remove("active");
+      }
+    });
+
+    images.forEach((text, i) => {
+      if (i === index) {
+        text.classList.add("active");
+      } else {
+        text.classList.remove("active");
+      }
+    });    
+    imagesRed.forEach((text, i) => {
+      if (i === index) {
+        text.classList.add("active");
+      } else {
+        text.classList.remove("active");
+      }
+    });
+
+    imageswhite.forEach((text, i) => {
+      if (i === index) {
+        text.classList.add("active");
+      } else {
+        text.classList.remove("active");
+      }
+    });
 
     currentIndex = index;
   }
 
-  // Hover & click triggers
-  items.forEach((item, index) => {
-    item.addEventListener("mouseenter", () => moveIndicator(index));
-    item.addEventListener("click", () => moveIndicator(index));
-  });
-
-  // Scroll wheel
-  list.addEventListener("wheel", function (e) {
+  list.addEventListener("wheel", function(e) {
     e.preventDefault();
-    currentIndex += e.deltaY > 0 ? 1 : -1;
+    
+    if (e.deltaY > 0) {
+      currentIndex++;
+    } else {
+      currentIndex--;
+    }
+
     if (currentIndex < 0) currentIndex = 0;
     if (currentIndex >= items.length) currentIndex = items.length - 1;
+
     moveIndicator(currentIndex);
   });
 
-  // Color dot switching
-  const colorDots = document.querySelectorAll(".color-dot");
-  const ventryImageGroups = document.querySelectorAll(".ventry-images-red, .ventry-images-white, .ventry-images-black");
+  items.forEach((item, index) => {
+    item.addEventListener("mouseenter", function() {
+      moveIndicator(index);
+    });
+  });
 
-  colorDots.forEach(function (dot, index) {
-    dot.addEventListener("click", function () {
-      colorDots.forEach(d => d.classList.remove("active"));
-      dot.classList.add("active");
-      ventryImageGroups.forEach(g => g.style.display = "none");
-      if (index === 0) document.querySelector(".ventry-images-red").style.display = "
+  items.forEach((item, index) => {
+    item.addEventListener("click", function() {
+      moveIndicator(index);
+    });
+  });
+
+  moveIndicator(currentIndex);
+
+}); 
+
+
+{% comment %} blabla {% endcomment %}
+document.addEventListener('DOMContentLoaded', function() {
+    const colorDots = document.querySelectorAll('.color-dot');
+
+    const ventryImages = document.querySelectorAll('.ventry-images-red, .ventry-images-white, .ventry-images-black');
+
+    colorDots.forEach(function(colorDot, index) {
+        colorDot.addEventListener('click', function() {
+            colorDots.forEach(function(dot) {
+                dot.classList.remove('active');
+            });
+
+            colorDot.classList.add('active');
+
+            ventryImages.forEach(function(image) {
+                image.style.display = 'none';
+            });
+
+            if (index === 0) {
+                document.querySelector('.ventry-images-red').style.display = 'block';
+            } else if (index === 1) {
+                document.querySelector('.ventry-images-white').style.display = 'block';
+            } else if (index === 2) {
+                document.querySelector('.ventry-images-black').style.display = 'block';
+            }
+        });
+    });
+}); 
 </script>
 
 
