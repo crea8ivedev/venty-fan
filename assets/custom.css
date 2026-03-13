@@ -370,6 +370,11 @@ section.launch-upgrade-banner {
   background-color: #303B43 !important;
 }
 
+.vendypro-form_text .klaviyo-form .needsclick[data-testid="form-row"]:first-child [component="[object Object]"] input {
+  background-color: #989898 !important;
+  opacity: 50% !important;
+}
+
 @media only screen and (max-width: 1780px) {
 
   .pro-series h2.pro-series-title,
@@ -695,7 +700,7 @@ section.launch-upgrade-banner {
     padding-top: 60px;
   }
 
-      .pro-series-wrapper .feature-card {
+  .pro-series-wrapper .feature-card {
     min-height: 251px;
   }
 
