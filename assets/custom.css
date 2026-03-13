@@ -288,7 +288,7 @@ section.launch-upgrade-banner {
 
 
 .launch-upgrade-banner .klaviyo-form .needsclick [data-testid="form-row"]:last-child [component="[object Object]"] button {
-      min-height: 59px; 
+      min-height: 49px !important; 
           font-size: 14px !important;
     text-transform: capitalize !important;
     letter-spacing: 0 !important;
