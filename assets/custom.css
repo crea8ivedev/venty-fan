@@ -594,7 +594,7 @@ section.launch-upgrade-banner {
 .new-generation__content {
       padding: 0 35px;
 }
-.addons-header h2 {
+.campaign-addons-main .addons-header h2 {
   font-size: 46px !important;
 }
   .campaign-addons-main .addons-grid{
