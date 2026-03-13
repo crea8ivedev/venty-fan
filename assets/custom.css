@@ -34,7 +34,7 @@
 } 
 .ventypro-hero .ventypro-hero__bg-image {
     height: auto;
-    max-width: 700px;
+    max-width: 600px;
 }
 .ventypro-hero__content-wrapper {
     height:100%;
@@ -250,9 +250,6 @@ section.launch-upgrade-banner {
     font-size: 56px;
     line-height: 60px;
 }
-    .ventypro-hero .ventypro-hero__bg-image {
-        max-width:500px;
-    }
 .ventypro-hero .ventypro-hero__bg {
     position: static;
     order: 2;
