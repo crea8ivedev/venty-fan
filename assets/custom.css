@@ -384,10 +384,16 @@ section.launch-upgrade-banner {
 .fan-image img {
   height: 100%;
 }
+.fan-colors-section .fan-item {
+    padding: 20px 0px;
+}
 .fan-colors-section .fan-title {
-  font-size: 70px; 
-  line-height: 74px;
-  margin-bottom: 20px;
+        font-size: 54px;
+        line-height: 60px;
+        margin-bottom: 10px;
+}
+.fan-colors-section  .fan-color-dot {
+      margin: 20px auto 0;
 }
 .campaign-addons .addons-header h2 {
       margin-bottom: 10px;
@@ -399,6 +405,8 @@ section.launch-upgrade-banner {
 .campaign-addons .addons-divider {
       padding-bottom: 20px;
 }
+
+
 
 .campaign-addons .addons-header h2 {
     font-size: 48px;
