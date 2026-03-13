@@ -30,6 +30,7 @@
 .launch-upgrade-banner .banner-wrapper {
   padding-bottom: 2%;
 }
+
     
 }
 
@@ -46,6 +47,10 @@
 
     .launch-upgrade-banner .banner-image img {
     max-width: 45% !important;
+}
+
+.banner-form.banner-form-mobile {
+    max-width: 160px;
 }
     
 }
