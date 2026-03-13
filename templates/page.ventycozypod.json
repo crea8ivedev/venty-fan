@@ -501,7 +501,7 @@
       "name": "Launch Email Signup",
       "settings": {
         "heading": "ENTER EMAIL FOR LAUNCH DAY PRICE & FREE REMOTE UPGRADE",
-        "klaviyo_form": "",
+        "klaviyo_form": "<div class=\"klaviyo-form-RckEEV\"></div>",
         "footer_text": "VENTY"
       }
     }
