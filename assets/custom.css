@@ -117,6 +117,7 @@ section.ventypro-hero {
 .pro-series-wrapper .feature-card .feature-image {
   position: absolute;
   right: 0;
+  height:100%;
 }
 .pro-series-wrapper .feature-card.feature-left .feature-image {
   right: unset;
