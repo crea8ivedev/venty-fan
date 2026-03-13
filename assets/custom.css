@@ -198,6 +198,9 @@ section.launch-upgrade-banner {
   max-width: 542px;
 }
 @media only screen and (max-width: 1600px) {
+    .ventypro-hero__content .ventypro-hero__text {
+        padding-inline:60px;
+    }
   .launch-section .play-button {
     width: 134px;
     height: 133px;
