@@ -396,10 +396,26 @@ section.launch-upgrade-banner {
         width: 56px;
         height: 56px;
 }
+.campaign-addons .addons-divider {
+      padding-bottom: 20px;
+}
 
 .campaign-addons .addons-header h2 {
     font-size: 48px;
         line-height: 54px;
+}
+
+.campaign-addons .addon-price {
+      margin-top: 0;
+    font-size: 28px;
+}
+
+.campaign-addons  .addon-info h3 {
+    margin: 0 auto;
+margin-top: 14px !important;
+        font-size: 26px;
+            min-height: auto;
+
 }
 
   .campaign-addons `.addon-image img {
