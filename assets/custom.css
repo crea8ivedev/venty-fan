@@ -595,12 +595,13 @@ section.launch-upgrade-banner {
       padding: 0 35px;
 }
 }
-/* @media only screen and (max-width: 575px) {
-  .pro-series-wrapper .feature-card.redesigned-base .feature-content h3 {
-    padding-bottom: 12px;
-    max-width: 145px;
+@media only screen and (max-width: 575px) {
+    .new-generation__content h2 {
+        font-size: 43px !important;
+        line-height: 50px !important;
+        margin-top: 0 !important;
+    }
   }
-} */
 @media only screen and (max-width: 420px) {
   .pro-series-wrapper .feature-card .feature-content h3 {
     font-size: 20px !important;
