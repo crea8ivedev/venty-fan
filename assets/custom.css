@@ -243,6 +243,9 @@ section.launch-upgrade-banner {
     margin-bottom: 23px;
     gap: 0;
   }
+    .pro-series-wrapper .feature-card {
+    min-height: 251px;
+  }
 }
 @media only screen and (max-width: 1279px) {
      .ventypro-hero__content .ventypro-hero__text {
@@ -276,9 +279,7 @@ section.launch-upgrade-banner {
   .feature-card.feature-right.image-fan .feature-image {
     margin-right: 0;
   }
-  .pro-series-wrapper .feature-card {
-    min-height: 251px;
-  }
+
   .launch-section .launch-wrapper {
     border-radius: 25px;
   }
