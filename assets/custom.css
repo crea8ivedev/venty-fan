@@ -282,9 +282,10 @@ section.launch-upgrade-banner {
   flex: unset !important;
 }
 
-.launch-upgrade-banner .klaviyo-form .needsclick [data-testid="form-row"]:first-child  [component="[object Object]"] {
+.launch-upgrade-banner .klaviyo-form .needsclick [data-testid="form-row"] {
   padding:0 !important;
 }
+
 
 .launch-upgrade-banner .klaviyo-form .needsclick [data-testid="form-row"]:last-child [component="[object Object]"] button {
       min-height: 61px; 
