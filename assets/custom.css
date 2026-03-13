@@ -612,6 +612,11 @@ section.launch-upgrade-banner {
     .new-generation .new-generation__image img {
       max-width: 220px !important;
     }
+      .campaign-addons-main .addons-grid{
+      display: grid;
+      grid-template-columns: repeat(1,1fr);
+      gap: 24px;
+  }
   }
 @media only screen and (max-width: 420px) {
   .pro-series-wrapper .feature-card .feature-content h3 {
