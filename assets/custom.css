@@ -266,6 +266,12 @@ section.launch-upgrade-banner {
   opacity: 50% !important;
 }
 
+.launch-upgrade-banner .klaviyo-form .needsclick [data-testid="form-row"]:first-child  [component="[object Object]"] input::placeholder {
+        color: white !important;
+        
+}
+
+
 
 @media only screen and (max-width: 1600px) {
     .pro-series h2.pro-series-title, .pro-series .pro-series-subtitle {
