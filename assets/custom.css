@@ -78,7 +78,7 @@ section.ventypro-hero {
     content:none;
 } */
 .launch-section .launch-image img {
-  max-height: 750px;
+  max-height: 720px;
 }
 .launch-section .play-button img {
   max-width: unset;
