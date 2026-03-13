@@ -34,6 +34,11 @@
             padding-right: 0px;
         padding-left: 0px;
 }
+
+    .launch-upgrade-banner .banner-wrapper .banner-heading {
+        font-size: 55px !important;
+        line-height: 60px !important;
+    }
     
 }
 
