@@ -415,6 +415,7 @@ section.launch-upgrade-banner {
 margin-top: 14px !important;
         font-size: 26px;
             min-height: auto;
+            max-width: 100%;
 
 }
 
