@@ -216,6 +216,7 @@ section.launch-upgrade-banner {
 }
 .launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:first-child [component="[object Object]"] {
   width: 422px !important;
+  flex: unset !important;
 }
 @media only screen and (max-width: 1600px) {
     .pro-series h2.pro-series-title, .pro-series .pro-series-subtitle {
