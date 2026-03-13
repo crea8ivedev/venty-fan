@@ -154,8 +154,8 @@ Usage:
   {% assign mega_subtitle = blank %}
 
   {% if mega_object != blank %}
-    {% if mega_object.url != blank %}
-      {% assign mega_url = mega_object.url %}
+    {% if mega_object.urls != blank %}
+      {% assign mega_url = mega_object.urls %}
     {% endif %}
 
     {% if mega_object.title != blank %}
@@ -207,7 +207,7 @@ Usage:
 
   {% if mega_object != blank %}
 
-    {% if mega_object.url != blank %}
+    {% if mega_object.urls != blank %}
       {% assign mega_url = mega_object.urls %}
     {% endif %}
 
