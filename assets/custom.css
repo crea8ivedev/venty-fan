@@ -230,16 +230,24 @@ section.launch-upgrade-banner {
 .launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:first-child  [component="[object Object]"] input {
 background-color: #989898 !important;
     border: 1px solid #989898 !important;
-    min-height: 61px;
+    min-height: 61px!important;
         color: white !important;
             padding: 0px 0px 0px 23px !important;
 }
 .launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:first-child  [component="[object Object]"] input::placeholder {
         color: white !important;
+        
 }
+
 .launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:last-child {
   width: 189px !important;
   flex: unset !important;
+}
+
+.launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:last-child [component="[object Object]"] {
+      min-height: 61px; 
+          font-size: 14px !important;
+    text-transform: capitalize !important;
 }
 .launch-email-section .sign-up-klaviyo-form [data-testid="form-row"] [component="[object Object]"]  {
   padding: 0 !important;
