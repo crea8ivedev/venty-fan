@@ -223,9 +223,13 @@ section.launch-upgrade-banner {
   min-height: auto !important;
   gap: 20px !important;
 }
-.launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:first-child  {
+.launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:first-child   {
   width: 422px !important;
   flex: unset !important;
+}
+.launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:first-child  [component="[object Object]"] {
+      min-height: 61px;
+          background-color: #989898 !important;
 }
 .launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:last-child {
   width: 189px !important;
