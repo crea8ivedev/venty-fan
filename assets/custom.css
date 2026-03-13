@@ -396,6 +396,11 @@ section.launch-upgrade-banner {
   width: 75px;
     height: 106px;
 }
+
+  .campaign-addons .addon-image img {
+    max-height: 500px;
+    object-fit: contain;
+  }
 }
 @media only screen and (max-width: 1279px) {
      .ventypro-hero__content .ventypro-hero__text {
