@@ -383,6 +383,7 @@ section.launch-upgrade-banner {
 }
 .fan-colors-section .fan-image img {
   height: 100%;
+  object-fit: contain;
 }
 .fan-colors-section .fan-item {
     padding: 20px 0px;
