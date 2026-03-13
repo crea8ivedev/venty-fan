@@ -196,6 +196,9 @@ section.launch-upgrade-banner {
 .ventypro-hero .ventypro-hero__bg-image {
     max-width: 480px;
 }
+.ventypro-hero .ventypro-hero__content {
+    min-height:530px;
+}
 .ventypro-hero .ventypro-hero__bg {
     left: -90px;
 }
