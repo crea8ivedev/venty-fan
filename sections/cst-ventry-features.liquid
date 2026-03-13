@@ -285,16 +285,53 @@
     }
 
     .color-dot{
-        width:31px;
-        height:31px;
-        border-radius:50%;
-        cursor:pointer;
-        border:2px solid transparent;
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    outline: none;
     }
 
-    .color-dot.active{
-        border-color:#000;
-    }
+    /* Outer ring pulse on hover */
+.color-dot::after {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: border-color 0.25s ease, inset 0.25s ease;
+}
+
+.color-dot:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.color-dot:hover::after {
+    border-color: rgba(0, 0, 0, 0.25);
+    inset: -6px;
+}
+
+
+.color-dot.active {
+    border-color: #000;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.color-dot.active::after {
+    border-color: rgba(0, 0, 0, 0.15);
+    inset: -6px;
+}
+
+/* Active + hover together */
+.color-dot.active:hover {
+    transform: scale(1.2);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
 
 
     .ventry-text:last-child {
