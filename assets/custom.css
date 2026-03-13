@@ -585,6 +585,12 @@ section.launch-upgrade-banner {
   .launch-upgrade-banner .banner-wrapper .banner-subheading {
     margin-bottom: 5px;
   }
+  .fan-colors-section .fan-title {
+            margin-top: 0;
+  font-size: 44px !important;
+  line-height: 54px;
+          margin-bottom: 40px;
+}
 }
 /* @media only screen and (max-width: 575px) {
   .pro-series-wrapper .feature-card.redesigned-base .feature-content h3 {
