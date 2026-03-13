@@ -295,7 +295,8 @@ section.launch-upgrade-banner {
 }
 
 .launch-upgrade-banner .klaviyo-form .needsclick form > div.kl-private-reset-css-Xuajs1 {
-      gap: 10px;
+          gap: 10px;
+    min-height: auto !important;
 }
 
 .launch-upgrade-banner .klaviyo-form .needsclick form {
