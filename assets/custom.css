@@ -239,12 +239,12 @@ background-color: #989898 !important;
         
 }
 
-.launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:last-child {
+.launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:last-child  {
   width: 189px !important;
   flex: unset !important;
 }
 
-.launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:last-child [component="[object Object]"] {
+.launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:last-child [component="[object Object]"] button {
       min-height: 61px; 
           font-size: 14px !important;
     text-transform: capitalize !important;
