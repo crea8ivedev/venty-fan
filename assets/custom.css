@@ -265,6 +265,15 @@ section.launch-upgrade-banner {
     .pro-series-wrapper .feature-card.redesigned-base {
         align-items:stretch;
     }
+
+    .launch-upgrade-banner .banner-wrapper .banner-heading {
+    font-size: 70px;
+    line-height: 86px;
+}
+.launch-upgrade-banner .banner-wrapper .banner-subheading {
+    font-size: 50px;
+    line-height: 46px;
+}
 }
 @media only screen and (max-width: 1279px) {
      .ventypro-hero__content .ventypro-hero__text {
