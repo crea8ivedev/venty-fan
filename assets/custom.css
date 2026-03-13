@@ -190,6 +190,9 @@ section.launch-upgrade-banner {
     max-width:542px;
 }
 @media only screen and (max-width:1600px) {
+    .launch-section .launch-image img {
+            max-height: 700px;
+    }
     .ventypro-hero__heading span.ventypro-hero-word:nth-child(2) {
         margin:0;
     }
