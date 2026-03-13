@@ -418,7 +418,7 @@ margin-top: 14px !important;
 
 }
 
-  .campaign-addons `.addon-image img {
+  .campaign-addons .addon-image img {
     max-height: 500px;
     object-fit: contain;
   }
