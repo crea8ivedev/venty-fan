@@ -1,6 +1,7 @@
 <div class="cst-ventry-features-main scroll-trigger animate--slide-in">
 <div class="cst-ventry-features">
 <div class="ventry-features">
+
   <div class="ventry-wrapper">
 
     <!-- LEFT SIDE -->
@@ -145,6 +146,32 @@
       max-width: 250px;
       width: 100%;
   }
+
+  /* ── ALIGNMENT FIX START ── */
+  /*
+     ventry-left-lists અને ventry-content બંને ને
+     display:grid + same row heights મળે એ માટે
+     JS dynamically heights set કરે છે.
+     CSS ફક્ત min-height remove કરે છે જેથી
+     JS ની height override ન થાય.
+  */
+  .ventry-left-lists {
+      width: 100%;
+  }
+
+  .ventry-list li,
+  .ventry-list-inner li {
+      display: flex;
+      align-items: flex-start;
+  }
+
+  .ventry-list li,
+  .ventry-list-inner li,
+  .ventry-text {
+      box-sizing: border-box;
+      /* min-height JS દ્વારા set થશે, CSS min-height હટાવ્યું */
+  }
+  /* ── ALIGNMENT FIX END ── */
 
   .ventry-list{
       list-style:none;
@@ -545,7 +572,32 @@ images[index].classList.add("active");
   const imageswhite = document.querySelectorAll(".ventry-images-white .ventry-img");
   
   let currentIndex = 0;
-  
+
+  /* ── ALIGNMENT FIX: sync heights of list items & text items ── */
+  function syncRowHeights() {
+    const listItems = document.querySelectorAll(".ventry-list li");
+    const textItems = document.querySelectorAll(".ventry-text");
+
+    // Reset heights first so we get natural content heights
+    listItems.forEach(function(li) { li.style.height = ''; li.style.minHeight = ''; });
+    textItems.forEach(function(t)  { t.style.height  = ''; t.style.minHeight  = ''; });
+
+    // For each pair, set both to the taller of the two
+    var count = Math.min(listItems.length, textItems.length);
+    for (var i = 0; i < count; i++) {
+      var liH  = listItems[i].getBoundingClientRect().height;
+      var txtH = textItems[i].getBoundingClientRect().height;
+      var maxH = Math.max(liH, txtH);
+      listItems[i].style.height = maxH + 'px';
+      textItems[i].style.height = maxH + 'px';
+    }
+  }
+
+  // Run on load and on resize
+  syncRowHeights();
+  window.addEventListener('resize', syncRowHeights);
+  /* ── ALIGNMENT FIX END ── */
+
   function moveIndicator(index) {
     if (index < 0) index = 0;
     if (index >= items.length) index = items.length - 1;
