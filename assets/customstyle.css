@@ -102,6 +102,12 @@
     gap:100px;   
 }
 
+
+.right-content img{
+  height:400px;
+  width:auto;
+}
+
 .launch-wrapper {
     display: flex;
     flex-direction: column !important;
