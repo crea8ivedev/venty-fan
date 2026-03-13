@@ -99,7 +99,7 @@
 .packed-wrapper {
     display: flex !important;
     flex-direction: column !important;
-    
+    gap:100px;   
 }
 
 .launch-wrapper {
