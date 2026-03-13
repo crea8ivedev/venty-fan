@@ -199,6 +199,11 @@ section.launch-upgrade-banner {
   max-width: 542px;
 }
 .feature-card.feature-right.image-fan .feature-image {margin-top: -366px;}
+
+
+.launch-email-section .sign-up-klaviyo-form .needsclick form {
+  background-color: transparent !important; 
+}
 @media only screen and (max-width: 1600px) {
     .pro-series h2.pro-series-title, .pro-series .pro-series-subtitle {
     font-size: 60px;
