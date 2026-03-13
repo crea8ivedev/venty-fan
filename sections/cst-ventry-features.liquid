@@ -306,6 +306,7 @@
 }
 
 .color-dot:hover {
+    transform: scale(1.15);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
 
@@ -315,7 +316,9 @@
 }
 
 
-.color-dot.active {    
+.color-dot.active {
+    {% comment %} border-color: #000; {% endcomment %}
+    
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 }
 
@@ -326,6 +329,7 @@
 
 /* Active + hover together */
 .color-dot.active:hover {
+   
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
