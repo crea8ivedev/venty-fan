@@ -294,6 +294,7 @@ section.launch-upgrade-banner {
     padding-left: 26px;
     padding-bottom: 25px;
     max-width: 400px;
+    margin-left: 20px !important;
   }
   .feature-card.feature-right.image-fan .feature-image {
     margin-right: 0;
