@@ -198,6 +198,12 @@ section.launch-upgrade-banner {
   max-width: 542px;
 }
 @media only screen and (max-width: 1600px) {
+    .pro-series h2.pro-series-title, .pro-series .pro-series-subtitle {
+    font-size: 60px;
+}
+.pro-series .pro-series-header {
+    padding-bottom: 0px;
+}
     .launch-section .launch-text h2, .launch-section .launch-text h2.heading.-two {
     font-size: 52px;
     line-height: 52px;
