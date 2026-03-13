@@ -310,6 +310,9 @@ section.launch-upgrade-banner {
 .shopify-section .launch-section {
     padding: 0 0 82px;
 }
+.pro-series .pro-series-subtitle {
+      margin-top: 0;
+}
 .pro-series .pro-series-header {
     padding-bottom: 0px;
         margin-bottom: 80px;
