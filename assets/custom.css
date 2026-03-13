@@ -225,6 +225,9 @@ section.launch-upgrade-banner {
   width: 189px !important;
   flex: unset !important;
 }
+.launch-email-section .sign-up-klaviyo-form [data-testid="form-row"] [component="[object Object]"]  {
+  padding: 0 !important;
+}
 @media only screen and (max-width: 1600px) {
     .pro-series h2.pro-series-title, .pro-series .pro-series-subtitle {
     font-size: 60px;
