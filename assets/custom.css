@@ -601,7 +601,7 @@ section.launch-upgrade-banner {
         line-height: 50px !important;
         margin-top: 0 !important;
     }
-    .new-generation__image img {
+    .new-generation .new-generation__image img {
       max-width: 220px !important;
     }
   }
