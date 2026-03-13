@@ -298,6 +298,12 @@ section.launch-upgrade-banner {
           font-size: 14px !important;
     text-transform: capitalize !important;
     letter-spacing: 0 !important;
+     transition: background-color 0.3s ease;
+}
+  
+
+.launch-upgrade-banner .klaviyo-form .needsclick [data-testid="form-row"]:last-child [component="[object Object]"] button:hover {
+  background-color: #303B43 !important;
 }
 
 .launch-upgrade-banner .klaviyo-form .needsclick form > div.kl-private-reset-css-Xuajs1 {
