@@ -460,9 +460,9 @@ section.launch-upgrade-banner {
     align-items: stretch;
   }
 
-  .pro-series-wrapper .feature-card .feature-image img {
+  /* .pro-series-wrapper .feature-card .feature-image img {
     height: 100%;
-  }
+  } */
 
   .launch-upgrade-banner .banner-wrapper .banner-heading {
     font-size: 60px;
