@@ -254,6 +254,15 @@ section.launch-upgrade-banner {
     font-size: 32px;
     line-height: 40px;
   }
+  .pro-series-wrapper .feature-card.redesigned-base .feature-content {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    }
+    .pro-series-wrapper .feature-card.redesigned-base {
+        align-items:stretch;
+    }
 }
 @media only screen and (max-width: 1279px) {
      .ventypro-hero__content .ventypro-hero__text {
@@ -421,6 +430,7 @@ section.launch-upgrade-banner {
     padding-bottom: 12px;
     max-width: 200px;
   }
+  
   .pro-series-wrapper
     .feature-card.feature-right.fast-charging
     .feature-content
