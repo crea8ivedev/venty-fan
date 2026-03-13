@@ -371,8 +371,8 @@ section.launch-upgrade-banner {
 }
 
 .vendypro-form_text .klaviyo-form .needsclick[data-testid="form-row"]:first-child [component="[object Object]"] input {
-  background-color: #989898 !important;
-  opacity: 50% !important;
+  background-color: #363636 !important;
+  opacity: 30% !important;
 }
 
 @media only screen and (max-width: 1780px) {
