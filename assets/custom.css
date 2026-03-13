@@ -288,10 +288,14 @@ section.launch-upgrade-banner {
 
 
 .launch-upgrade-banner .klaviyo-form .needsclick [data-testid="form-row"]:last-child [component="[object Object]"] button {
-      min-height: 61px; 
+      min-height: 59px; 
           font-size: 14px !important;
     text-transform: capitalize !important;
     letter-spacing: 0 !important;
+}
+
+.launch-upgrade-banner .klaviyo-form .needsclick form > div.kl-private-reset-css-Xuajs1 {
+      gap: 10px;
 }
 
 
