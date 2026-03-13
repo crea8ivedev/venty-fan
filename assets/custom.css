@@ -209,7 +209,7 @@ section.launch-upgrade-banner {
   width: 47% !important
 }
 .launch-email-section .sign-up-klaviyo-form {
-  width: 45% !important;
+  width: 50% !important;
 }
 .launch-email-section .sign-up-klaviyo-form [data-testid="form-row"] {
   align-items: center !important; 
