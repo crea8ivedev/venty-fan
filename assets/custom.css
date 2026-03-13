@@ -464,10 +464,6 @@ section.launch-upgrade-banner {
     height: 100%;
   }
 
-  .feature-card.feature-right.image-fan .feature-image img {
-    height: auto;
-  }
-
   .launch-upgrade-banner .banner-wrapper .banner-heading {
     font-size: 60px;
     line-height: 66px;
