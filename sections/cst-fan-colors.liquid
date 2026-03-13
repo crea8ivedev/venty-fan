@@ -1,0 +1,185 @@
+<section class="fan-colors-section scroll-trigger animate--slide-in">
+  <div class="fan-colors-section-wrapper page-width">
+
+    <h2 class="fan-title">{{ section.settings.heading }}</h2>
+
+    <div class="fan-grid">
+      {% for block in section.blocks %}
+<div class="fan-item {{ block.settings.custom_class }}" {{ block.shopify_attributes }}>
+          <div class="fan-image">
+            {% if block.settings.image != blank %}
+              <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title }}" loading="lazy">
+            {% endif %}
+          </div>
+
+          <h4 class="fan-name">{{ block.settings.title }}</h4>
+
+          {% if block.settings.color != blank %}
+            <div class="fan-color-dot" style="background-color: {{ block.settings.color }};"></div>
+          {% endif %}
+
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+
+<style>
+
+  .ctm-new-genration {
+    position: relative;
+    z-index: -1;
+}
+.fan-colors-section-wrapper{
+    max-width: 1254px;
+    padding: 0px;
+}
+    .fan-colors-section{
+        padding:0px 35px;
+        text-align:center;
+    }
+
+.fan-title {
+    font-size: 110px;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    color: #434343;
+    line-height: 100px;
+}
+.fan-title strong{
+    display:block;
+}
+
+.fan-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    {% comment %} align-items:center; {% endcomment %}
+}
+.fan-image {
+    max-height: 693px;
+}
+
+.fan-item{
+    border-radius:20px;
+    padding:40px 0px;
+}
+
+.fan-image img{
+    margin:auto;
+    display:block;
+    max-width: 100%;
+}
+
+.fan-name {
+    margin-top: 20px !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 35px;
+    line-height: 35px;
+    width: 230px;
+    margin: 0 auto;
+    font-weight:600;
+}
+.fan-item.Metallic-Burgundy h4.fan-name {
+    color: #571D28;
+}
+.fan-item.Metallic-Silver h4.fan-name {
+    color: #B1B1B1;
+}
+.fan-item.Matte-Black h4.fan-name {
+    color: #636363;
+}
+.fan-color-dot {
+    display: block !important;
+    width: 59px;
+    height: 59px;
+    border-radius: 50%;
+    margin: 40px auto 0;
+    border: 1px solid #ddd;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+/* Outer ring on hover */
+.fan-color-dot::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: border-color 0.25s ease, inset 0.25s ease;
+}
+
+.fan-color-dot:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.fan-color-dot:hover::after {
+    border-color: rgba(0, 0, 0, 0.25);
+    inset: -7px;
+}
+
+@media(max-width:768px){
+
+.fan-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Fan Colors",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "LAUNCHING 3 COLORS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "color_item",
+      "name": "Color Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Fan Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Color Name",
+          "default": "Metallic Burgundy"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Color Dot"
+        },
+        {
+        "type": "text",
+        "id": "custom_class",
+        "label": "Custom Class"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Fan Colors"
+    }
+  ]
+}
+{% endschema %}

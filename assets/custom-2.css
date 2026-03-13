@@ -1,0 +1,77 @@
+@media (max-width: 1780px) { 
+.launch-upgrade-banner .banner-image img {
+    max-width: 470px;
+}
+}
+
+@media (max-width: 1440px) {
+.launch-upgrade-banner .banner-image {
+        max-width: 330px;
+}
+.launch-upgrade-banner .banner-image img {
+    max-width: 100% !important;
+}
+}
+
+@media (max-width: 989px) {
+    .launch-upgrade-banner .banner-image {
+        position: relative;
+            max-width: 100%;
+            top:0;
+    }
+    .launch-upgrade-banner .banner-wrapper .banner-text {
+        max-width: 100% !important;;
+    }
+
+    .launch-upgrade-banner .banner-image img {
+    max-width: 45% !important;
+}
+
+.launch-upgrade-banner .banner-wrapper {
+  padding-bottom: 2%;
+}
+.launch-upgrade-banner .banner-wrapper .banner-content {
+            padding-right: 0px;
+        padding-left: 0px;
+}
+
+    .launch-upgrade-banner .banner-wrapper .banner-heading {
+        font-size: 55px !important;
+        line-height: 60px !important;
+    }
+    
+}
+
+@media (max-width: 768px) {
+
+    .launch-upgrade-banner .banner-image img {
+    max-width: 40% !important;
+}
+    
+}
+
+
+@media (max-width: 575px) {
+
+    .launch-upgrade-banner .banner-image img {
+    max-width: 45% !important;
+}
+
+.banner-form.banner-form-mobile {
+    max-width: 160px;
+}
+
+.launch-upgrade-banner .klaviyo-form .needsclick [data-testid=form-row]:first-child {
+        width: 195px !important;
+}
+    
+}
+
+@media (max-width: 420px) {
+    .launch-upgrade-banner .klaviyo-form .needsclick [data-testid=form-row]:first-child {
+        width: 165px !important;
+    }
+.launch-upgrade-banner .klaviyo-form .needsclick [data-testid=form-row]:last-child {
+    width: 130px !important;
+}
+}

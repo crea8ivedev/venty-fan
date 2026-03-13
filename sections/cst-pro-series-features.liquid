@@ -1,0 +1,265 @@
+<section class="pro-series scroll-trigger animate--slide-in">
+  <div class="pro-series-container">
+
+    {% if section.settings.heading != blank %}
+      <div class="pro-series-header">
+        <h2 class="pro-series-title">{{ section.settings.heading }}</h2>
+        <p class="pro-series-subtitle">{{ section.settings.subheading }}</p>
+      </div>
+    {% endif %}
+
+    <div class="pro-series-wrapper">
+
+      {% for block in section.blocks %}
+    
+      <div class = "feature-card feature-{{ block.settings.image_position }} {{ block.settings.custom_class }} scroll-trigger animate--slide-in" style="background: {{ block.settings.bg_color }};" {{ block.shopify_attributes }}>
+          <div class="feature-image">
+            {% if block.settings.mobile_image != blank %}
+              <img class="featuremobile-image"  src="{{ block.settings.mobile_image | img_url: 'master' }}" alt="{{ block.settings.title }}" loading="lazy">
+            {% endif %}
+            {% if block.settings.image != blank %}
+                <img class="featuredesktop-image" src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.title }}" loading="lazy">
+            {% endif %}
+            
+          </div>
+
+          <div class="feature-content">
+            {% if block.settings.title != blank %}
+              <h3>{{ block.settings.title }}</h3>
+            {% endif %}
+
+            {% if block.settings.text != blank %}
+              <p>{{ block.settings.text }}</p>
+            {% endif %}
+          </div>
+
+        </div>
+      {% endfor %}
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+section.launch-upgrade-banner{
+    max-width: 100%;
+    padding: 0 !important;
+}
+.pro-series-header {
+    text-align: center;
+    margin-bottom: 100px;
+    padding-bottom: 100px;
+    color: #434343;
+}
+
+.pro-series-title {
+    font-size: 104px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.pro-series-subtitle {
+    font-size: 104px;
+    margin-top: 10px;
+    color: #434343;
+    margin-bottom: 0;
+    line-height: 88px;
+}
+
+.pro-series-wrapper{
+  display:flex;
+  flex-direction:column;
+  gap:35px;
+}
+
+.feature-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 67px;
+    gap: 40px;
+    {% if section.settings.overflow_hidden %}overflow: hidden;{% endif %}
+}
+
+.feature-left{  flex-direction:row;}
+
+.feature-right{  flex-direction:row-reverse;}
+
+.feature-image img{width:100%;  vertical-align: middle;}
+
+.feature-content{ max-width:570px;}
+.feature-card.feature-right.Dual-Charging{
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    border-radius: 67px;
+    gap: 40px;
+}
+.feature-card.feature-left.image-one, .feature-card.feature-left.Redesign-cst {background: linear-gradient( 90deg, rgba(235, 235, 235, 0) 0%, rgba(133, 133, 133, 0.29) 147.45%);}
+.feature-content h3 {
+    font-size: 65px;
+    margin-bottom: 10px;
+    margin-left: 82px;
+    color: #434343;
+    line-height: 65px;
+    Text-transform:uppercase;
+    margin-top:0px;
+}
+.feature-card.feature-right.Dual-Charging .feature-image {
+    margin-top: 80px;
+    margin-bottom: -24px;
+}
+.feature-content p{
+  font-size:18px;
+  color:#555;
+  margin:0;
+}
+.feature-card.feature-right.Dual-Charging .feature-content { max-width: 55%;}
+.feature-card.feature-left.Redesign-cst .feature-content h3 {
+    font-size: 65px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    margin-right:40px;
+    color: #434343;
+    line-height: 65px;
+    Text-transform: uppercase;
+    margin-top: 0;
+}
+
+/* Example custom classes you could use */
+
+.highlight{background:#000; color:#fff;}
+.highlight p{color:#ddd;}
+.large-image .feature-image img{max-width:320px;}
+.center-content{text-align:center;}
+
+.featuremobile-image{display: none;}
+
+/* Mobile */
+@media only screen and (max-width: 1279px){
+  .featuredesktop-image{display: none;}
+  .featuremobile-image{display: block;}
+}
+@media only screen and (max-width: 1280px){
+    .pro-series .page-width {
+        padding-right: 35px;
+        padding-left: 35px;
+      }
+}
+@media (max-width:768px){
+  .pro-series-header {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+  }
+  .feature-card.feature-right.image-fan .feature-image {
+      margin-top: -120px;
+  }
+    .feature-card{
+        {% comment %} flex-direction:column !important; {% endcomment %}
+        text-align:center;
+        padding:0px 0px;
+        border-radius: 25px;
+    }
+
+    .feature-card.feature-right.Dual-Charging{    justify-content: space-between; border-radius: 25px;}
+    {% comment %} .feature-image img{max-width:180px;} {% endcomment %}
+
+    .feature-content h3 {
+        font-size: 25px !important;
+        margin-left: 56px !important;
+        line-height: 30px !important;
+        text-align: left;
+    }
+
+}
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Pro Series Features",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "THE UPGRADED"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "PRO SERIES"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "custom_class",
+          "label": "Custom CSS Class",
+          "info": "Add a custom class for this block"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Feature Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Feature Image Mobile"
+        },        
+        {
+          "type": "color_background",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "linear-gradient(180deg, #EBEBEB00 0%, #8585854A 100%)"
+        },
+        {
+          "type": "select",
+          "id": "image_position",
+          "label": "Image Position",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "Image Left"
+            },
+            {
+              "value": "right",
+              "label": "Image Right"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "id": "title",
+          "label": "Title",
+          "default": "20% MORE WINDPOWER"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Feature description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pro Series Features",
+      "blocks": [
+        { "type": "feature" },
+        { "type": "feature" }
+      ]
+    }
+  ]
+}
+{% endschema %}

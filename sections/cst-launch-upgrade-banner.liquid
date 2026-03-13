@@ -1,0 +1,193 @@
+<section class="launch-upgrade-banner scroll-trigger animate--slide-in">
+  <div class="banner-wrapper">
+
+    <div class="banner-content">
+      <h2 class="banner-heading">
+        {{ section.settings.heading }}
+      </h2>
+
+      <h3 class="banner-subheading">
+        {{ section.settings.subheading }}
+      </h3>
+
+      <div class="banner-text">
+        {{ section.settings.description }}
+      </div>
+
+      <div class="banner-form banner-form-desktop">
+        {{ section.settings.klaviyo_form }}
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="banner-image">
+
+    <div class="banner-form banner-form-mobile">
+        {{ section.settings.klaviyo_form }}
+    </div>
+
+    {% if section.settings.image %}
+      <img
+        src="{{ section.settings.image | image_url: width: 800 }}"
+        alt="banner image"
+        loading="lazy"
+      >
+    {% endif %}
+  </div>
+</section>
+<style>
+.launch-upgrade-banner{
+  padding:60px 0;
+}
+.page-width.banner-wrapper {
+    padding: 0;
+}
+
+{% comment %} .banner-wrapper{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+} {% endcomment %}
+.banner-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 2000px;
+    width: 100%;
+}
+
+.banner-heading{
+  font-size:94px;
+  font-weight:700;
+  margin:0;
+  line-height:90px;
+  color:#434343;
+}
+
+.banner-subheading {
+    font-size: 66px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    color:#434343;
+}
+
+.banner-text {
+    color: #434343;
+    margin-bottom: 25px;
+    max-width: 536px;
+    font-size: 25px;
+    line-height: 34px;
+}
+
+.banner-form {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.banner-form input{
+  padding:12px 16px;
+  border-radius:30px;
+  border:none;
+  background:#989898;
+  max-width:376px;
+  font-size:15px;
+  color:#fff;
+  height:49px;
+}
+input::placeholder {
+  color: #fff;
+}
+
+.signup-btn{
+  padding:12px 24px;
+  border-radius:30px;
+  background:#01003D;
+  color:white;
+  border:none;
+  cursor:pointer;
+  max-width:156px;
+  font-size:14px;
+  height:49px;
+}
+
+.banner-image img{
+  max-width:736px;
+}
+.banner-form.banner-form-mobile{display: none;}
+@media(max-width:989px){
+  .banner-content {
+    margin-left: 0px !important;
+    padding-right: 35px;
+    padding-left: 35px;
+  }
+  .banner-wrapper{
+    flex-direction:column;
+    text-align:center;
+  }
+  .banner-form.banner-form-desktop {
+    display: none;
+}
+  .banner-form.banner-form-mobile{display: flex;}
+  .banner-image {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+  }
+  .banner-form.banner-form-mobile {
+      margin-top: 0px;
+      margin-left: 35px;
+      display: block.
+  }
+  .banner-wrapper {
+      max-width: 100%;
+      width: 100%;
+  }
+
+}
+</style>
+{% schema %}
+{
+  "name": "Launch Upgrade Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "FREE UPGRADE"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "ONLY ON LAUNCH DAY"
+    },
+    {
+      "type": "html",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "html",
+      "id": "klaviyo_form",
+      "label": "Klaviyo Div"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Launch Upgrade Banner"
+    }
+  ]
+}
+{% endschema %}

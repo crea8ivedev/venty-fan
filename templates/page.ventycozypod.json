@@ -11,6 +11,7 @@
   "sections": {
     "venty_pro_zaQCHq": {
       "type": "venty-pro",
+      "disabled": true,
       "name": "Ventypro",
       "settings": {
         "hero_logo": "shopify://shop_images/venty2.png",
@@ -245,6 +246,264 @@
         "popup_button_link": "https://www.kickstarter.com/projects/teamvento/staycozy",
         "popup_image": "shopify://shop_images/image_57-removebg-preview.png"
       }
+    },
+    "cst_ventypro_herocozypad_mbjnVy": {
+      "type": "cst-ventypro-herocozypad",
+      "name": "Cozypad Ventypro",
+      "settings": {
+        "hero_logo": "shopify://shop_images/Group_1597883959.png",
+        "bg_image": "shopify://shop_images/main-banner.png",
+        "center_image": "shopify://shop_images/main-banner-mob.png",
+        "word_plug": "Venty",
+        "word_cozy": "Pro",
+        "subheading": "Meet the new generation\nof portable travel fans",
+        "joinus": "Join us on our <b>April launch</b> for a special discounted price.",
+        "email_placeholder": "Email address",
+        "button_label": "Sign up to See Launch Day Pricing",
+        "show_signup_form": true,
+        "alt_button_text": "Learn More",
+        "alt_button_link": ""
+      }
+    },
+    "cst_video_popup_hMfCm4": {
+      "type": "cst-video-popup",
+      "name": "Launch Video Popup",
+      "settings": {
+        "heading": "LAUNCHING",
+        "heading2": "IN APRIL",
+        "text": "Meet Venty Pro — delivering 20% more power and longer battery life in a taller, lighter design built for wherever life takes you.",
+        "image": "shopify://shop_images/00000000000000000000_6.png",
+        "video": "shopify://files/videos/MattMash.mp4"
+      }
+    },
+    "cst_pro_series_features_FQn8rQ": {
+      "type": "cst-pro-series-features",
+      "blocks": {
+        "feature_rb6hQ7": {
+          "type": "feature",
+          "settings": {
+            "custom_class": "image-fan 20-more-windpower",
+            "image": "shopify://shop_images/0052_1.png",
+            "mobile_image": "shopify://shop_images/fan-image.png",
+            "bg_color": "linear-gradient(270deg, #EBEBEB00 0%, #8585854A 100%)",
+            "image_position": "right",
+            "title": "<strong>20%</strong> MORE <br>WIND<strong>POWER</strong>",
+            "text": ""
+          }
+        },
+        "feature_KqBdFM": {
+          "type": "feature",
+          "settings": {
+            "custom_class": "digital-display-battery",
+            "image": "shopify://shop_images/Mask_group_3aacaa0c-1afa-4ebd-b793-5cb9ccef45e4.png",
+            "mobile_image": "shopify://shop_images/half-fan.png",
+            "bg_color": "linear-gradient(90deg, #EBEBEB00 0%, #8585854A 100%)",
+            "image_position": "left",
+            "title": "Digital <br><strong>Display</strong> &amp; <br><strong>Battery </strong><br>Gauge",
+            "text": ""
+          }
+        },
+        "feature_marmWL": {
+          "type": "feature",
+          "settings": {
+            "custom_class": "dual-charging-ports",
+            "image": "shopify://shop_images/000000000008_1.png",
+            "mobile_image": "shopify://shop_images/charger-port.png",
+            "bg_color": "linear-gradient(270deg, #EBEBEB00 0%, #8585854A 100%)",
+            "image_position": "right",
+            "title": "<strong>Dual Charging <br>Ports</strong> - In &amp; Out",
+            "text": ""
+          }
+        },
+        "feature_zPmda6": {
+          "type": "feature",
+          "settings": {
+            "custom_class": "redesigned-base",
+            "image": "shopify://shop_images/Mask_group_1_3b5edc8e-9847-41c2-985e-e7571dd3c012.png",
+            "mobile_image": "shopify://shop_images/fan-top-side.png",
+            "bg_color": "linear-gradient(90deg, #EBEBEB00 0%, #8585854A 100%)",
+            "image_position": "left",
+            "title": "<strong>Redesigned </strong><br>lighter Base",
+            "text": ""
+          }
+        },
+        "feature_7eJQgM": {
+          "type": "feature",
+          "settings": {
+            "custom_class": "fast-charging",
+            "image": "shopify://shop_images/00000000009_1.png",
+            "mobile_image": "shopify://shop_images/wire-option.png",
+            "bg_color": "linear-gradient(270deg, #EBEBEB00 0%, #8585854A 100%)",
+            "image_position": "right",
+            "title": "<strong>30W</strong> Fast<br> Charging",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_rb6hQ7",
+        "feature_KqBdFM",
+        "feature_marmWL",
+        "feature_zPmda6",
+        "feature_7eJQgM"
+      ],
+      "name": "Pro Series Features",
+      "settings": {
+        "heading": "THE UPGRADED",
+        "subheading": "PRO SERIES"
+      }
+    },
+    "cst_launch_upgrade_banner_MR9Ri8": {
+      "type": "cst-launch-upgrade-banner",
+      "name": "Launch Upgrade Banner",
+      "settings": {
+        "heading": "FREE UPGRADE",
+        "subheading": "ONLY ON LAUNCH DAY",
+        "description": "<p>The Pro Series backlit rechargeable remote is a $25 add-on which we are gifting to <strong>April 25th</strong> first day backers for your early support.</p>\n\n<p>Only on launch day.. </p>",
+        "klaviyo_form": "<div class=\"klaviyo-form-RckEEV\"></div>",
+        "image": "shopify://shop_images/Untitled-3_2.png"
+      }
+    },
+    "cst_ventry_features_jQT8Qi": {
+      "type": "cst-ventry-features",
+      "name": "Ventypro Features",
+      "settings": {
+        "text1": "Continuous  Power",
+        "content1": "<p>With an upgraded 20,000mAh battery, Venty delivers uninterrupted airflow for days, up to 60+ hours per charge—perfect for camping trips, road trips, and long weekends away.</p>",
+        "text2": "Powerful Airflow",
+        "content2": "<p>Engineered to be 20% more powerful than the Original Venty, the Pro Series reaches airflow speeds up to 5 m/s and features five finely tuned speed settings for personalized comfort.</p>",
+        "text3": "LED Ambient Light",
+        "content3": "<p>The same signature ambient lighting as the Original Venty—now refined in a sleeker, more modern design.</p>",
+        "text4": "Customized Oscillation",
+        "content4": "<p>Choose between a focused 60° oscillation or a wider 90° sweep for perfectly tailored airflow.</p>",
+        "text5": "12 Hr Smart Timer",
+        "content5": "<p>12-hour sleep timer for automatic shut-off.</p>",
+        "text6": "Color",
+        "content6": "",
+        "image1": "shopify://shop_images/black-1-removebg-preview.png",
+        "image2": "shopify://shop_images/black-2-removebg-preview.png",
+        "image3": "shopify://shop_images/black-3-removebg-preview.png",
+        "image4": "shopify://shop_images/black-4-removebg-preview.png",
+        "image5": "shopify://shop_images/black-5-removebg-preview.png",
+        "whiteimage1": "shopify://shop_images/image-removebg-preview.png",
+        "whiteimage2": "shopify://shop_images/12__1_-removebg-preview.png",
+        "whiteimage3": "shopify://shop_images/image__1_-removebg-preview.png",
+        "whiteimage4": "shopify://shop_images/14__1___1_-removebg-preview.png",
+        "whiteimage5": "shopify://shop_images/image-removebg-preview_1.png",
+        "redimage1": "shopify://shop_images/10__1-removebg-preview.png",
+        "redimage2": "shopify://shop_images/9__1_-removebg-preview.png",
+        "redimage3": "shopify://shop_images/8__1_-removebg-preview.png",
+        "redimage4": "shopify://shop_images/7__1_-removebg-preview.png",
+        "redimage5": "shopify://shop_images/6__1_removebg-preview.png"
+      }
+    },
+    "cst_fan_colors_Pz9Mxg": {
+      "type": "cst-fan-colors",
+      "blocks": {
+        "color_item_KrUkN3": {
+          "type": "color_item",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1000001645.png",
+            "title": "Metallic Burgundy",
+            "color": "#7e313f",
+            "custom_class": "Metallic-Burgundy"
+          }
+        },
+        "color_item_UKwhbX": {
+          "type": "color_item",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1000001646.png",
+            "title": "Metallic  Silver",
+            "color": "#b1b1b1",
+            "custom_class": "Metallic-Silver"
+          }
+        },
+        "color_item_yF4QwY": {
+          "type": "color_item",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1000001647.png",
+            "title": "Matte  Black",
+            "color": "#2b2b2b",
+            "custom_class": "Matte-Black"
+          }
+        }
+      },
+      "block_order": [
+        "color_item_KrUkN3",
+        "color_item_UKwhbX",
+        "color_item_yF4QwY"
+      ],
+      "name": "Fan Colors",
+      "settings": {
+        "heading": "LAUNCHING <strong>3 COLORS</strong>"
+      }
+    },
+    "cst_new_generation_R8FPDc": {
+      "type": "cst-new-generation",
+      "name": "New Generation Section",
+      "settings": {
+        "heading": "THE NEW GENERATION",
+        "text": "Venty Pro combines powerful airflow, extended battery life, integrated lighting, and precision controls in a sleek design.",
+        "image": "shopify://shop_images/22_1.png"
+      }
+    },
+    "cst_campaign_addons_Ufzwc9": {
+      "type": "cst-campaign-addons",
+      "blocks": {
+        "addon_PBMpBD": {
+          "type": "addon",
+          "settings": {
+            "image": "shopify://shop_images/Group_1597883969.png",
+            "title": "Premium  travel case",
+            "price": "$25.00"
+          }
+        },
+        "addon_WHUrAK": {
+          "type": "addon",
+          "settings": {
+            "image": "shopify://shop_images/Group_1597883970.png",
+            "title": "30w fAst charging head",
+            "price": "$20.00"
+          }
+        },
+        "addon_LcYM8h": {
+          "type": "addon",
+          "settings": {
+            "image": "shopify://shop_images/Group_1597883971.png",
+            "title": "Back lit remote",
+            "price": "$25.00"
+          }
+        }
+      },
+      "block_order": [
+        "addon_PBMpBD",
+        "addon_WHUrAK",
+        "addon_LcYM8h"
+      ],
+      "name": "Campaign Add-ons",
+      "settings": {
+        "heading": "Campaign Add-ons",
+        "logo": "shopify://shop_images/Group_1597883950.svg"
+      }
+    },
+    "cst_packed_vs_deployed_nQcVNK": {
+      "type": "cst-packed-vs-deployed",
+      "name": "Packed vs Deployed",
+      "settings": {
+        "heading_top": "3 INCHES PACKED",
+        "heading_bottom": "3 FEET DEPLOYED",
+        "center_image": "shopify://shop_images/Travel_Bag_0000003_2.png",
+        "right_image": "shopify://shop_images/fAN-1.png"
+      }
+    },
+    "cst_email_launch_signup_WFHLLF": {
+      "type": "cst-email-launch-signup",
+      "name": "Launch Email Signup",
+      "settings": {
+        "heading": "ENTER EMAIL FOR LAUNCH DAY PRICE & FREE REMOTE UPGRADE",
+        "klaviyo_form": "<div class=\"klaviyo-form-RckEEV\"></div>",
+        "footer_text": "VENTY"
+      }
     }
   },
   "order": [
@@ -255,6 +514,16 @@
     "recharge",
     "features",
     "cta",
-    "cozypod_popup_MjQ9pL"
+    "cozypod_popup_MjQ9pL",
+    "cst_ventypro_herocozypad_mbjnVy",
+    "cst_video_popup_hMfCm4",
+    "cst_pro_series_features_FQn8rQ",
+    "cst_launch_upgrade_banner_MR9Ri8",
+    "cst_ventry_features_jQT8Qi",
+    "cst_fan_colors_Pz9Mxg",
+    "cst_new_generation_R8FPDc",
+    "cst_campaign_addons_Ufzwc9",
+    "cst_packed_vs_deployed_nQcVNK",
+    "cst_email_launch_signup_WFHLLF"
   ]
 }
