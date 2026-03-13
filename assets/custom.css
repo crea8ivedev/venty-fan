@@ -203,6 +203,7 @@ section.launch-upgrade-banner {
 
 .launch-email-section .sign-up-klaviyo-form .needsclick form {
   background-color: transparent !important; 
+  padding: 0 !important;
 }
 .launch-email-section .sign-up-klaviyo-form {
   width: 48%  !important;
