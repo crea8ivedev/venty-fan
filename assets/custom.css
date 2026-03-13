@@ -597,7 +597,7 @@ section.launch-upgrade-banner {
 }
 @media only screen and (max-width: 575px) {
     .new-generation .new-generation__content h2 {
-        font-size: 43px !important;
+        font-size: 42px !important;
         line-height: 50px !important;
         margin-top: 0 !important;
     }
