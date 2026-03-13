@@ -601,6 +601,9 @@ section.launch-upgrade-banner {
         line-height: 50px !important;
         margin-top: 0 !important;
     }
+    .new-generation__image img {
+      max-width: 220px !important;
+    }
   }
 @media only screen and (max-width: 420px) {
   .pro-series-wrapper .feature-card .feature-content h3 {
