@@ -252,6 +252,11 @@ section.launch-upgrade-banner {
     text-transform: capitalize !important;
     letter-spacing: 0 !important;
 }
+
+.launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:last-child [component="[object Object]"] button:hover {
+  background-color: #303B43 !important;
+}
+
 .launch-email-section .sign-up-klaviyo-form [data-testid="form-row"] [component="[object Object]"]  {
   padding: 0 !important;
 }
