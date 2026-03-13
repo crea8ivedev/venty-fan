@@ -68,6 +68,9 @@
 }
 
 @media (max-width: 420px) {
+    .launch-upgrade-banner .klaviyo-form .needsclick [data-testid=form-row]:first-child {
+        width: 165px !important;
+    }
 .launch-upgrade-banner .klaviyo-form .needsclick [data-testid=form-row]:last-child {
     width: 130px !important;
 }
