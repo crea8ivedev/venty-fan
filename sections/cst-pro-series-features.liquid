@@ -12,7 +12,7 @@
 
       {% for block in section.blocks %}
     
-      <div class = "feature-card feature-{{ block.settings.image_position }} {{ block.settings.custom_class }}" style="background: {{ block.settings.bg_color }};" {{ block.shopify_attributes }}>
+      <div class = "feature-card feature-{{ block.settings.image_position }} {{ block.settings.custom_class }} scroll-trigger animate--slide-in" style="background: {{ block.settings.bg_color }};" {{ block.shopify_attributes }}>
           <div class="feature-image">
             {% if block.settings.mobile_image != blank %}
               <img class="featuremobile-image"  src="{{ block.settings.mobile_image | img_url: 'master' }}" alt="{{ block.settings.title }}" loading="lazy">
