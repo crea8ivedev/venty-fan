@@ -388,8 +388,8 @@ section.launch-upgrade-banner {
     padding: 20px 0px;
 }
 .fan-colors-section .fan-title {
-        font-size: 54px;
-        line-height: 60px;
+        font-size: 54px !important;
+        line-height: 60px !important;
         margin-bottom: 10px;
 }
 .fan-colors-section  .fan-color-dot {
