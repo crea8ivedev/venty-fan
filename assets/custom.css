@@ -271,6 +271,11 @@ section.launch-upgrade-banner {
         
 }
 
+.launch-upgrade-banner .klaviyo-form .needsclick [data-testid="form-row"]:first-child   {
+  width: 375px !important;
+  flex: unset !important;
+}
+
 
 
 @media only screen and (max-width: 1600px) {
