@@ -249,6 +249,7 @@ background-color: #989898 !important;
       min-height: 61px; 
           font-size: 14px !important;
     text-transform: capitalize !important;
+    letter-spacing: 0 !important;
 }
 .launch-email-section .sign-up-klaviyo-form [data-testid="form-row"] [component="[object Object]"]  {
   padding: 0 !important;
