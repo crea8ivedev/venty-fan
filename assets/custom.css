@@ -397,6 +397,11 @@ section.launch-upgrade-banner {
         height: 56px;
 }
 
+.campaign-addons .addons-header h2 {
+    font-size: 48px;
+        line-height: 54px;
+}
+
   .campaign-addons `.addon-image img {
     max-height: 500px;
     object-fit: contain;
