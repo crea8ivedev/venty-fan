@@ -619,6 +619,7 @@ section.launch-upgrade-banner {
   }
   .campaign-addons-main .addon-info h3 {
     margin-top: 20px !important;
+    min-height: auto !important;
   }
   }
 @media only screen and (max-width: 420px) {
