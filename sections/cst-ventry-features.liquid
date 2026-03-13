@@ -317,13 +317,13 @@
 
 
 .color-dot.active {
-    border-color: #000;
+    {% comment %} border-color: #000; {% endcomment %}
     transform: scale(1.1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 }
 
 .color-dot.active::after {
-    {% comment %} border-color: rgba(0, 0, 0, 0.15); {% endcomment %}
+    border-color: rgba(0, 0, 0, 0.15);
     inset: -6px;
 }
 
