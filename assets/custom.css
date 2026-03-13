@@ -197,6 +197,7 @@ section.launch-upgrade-banner {
 .launch-upgrade-banner .banner-wrapper .banner-text {
   max-width: 542px;
 }
+.feature-card.feature-right.image-fan .feature-image {margin-top: -186px;}
 @media only screen and (max-width: 1600px) {
     .pro-series h2.pro-series-title, .pro-series .pro-series-subtitle {
     font-size: 60px;
