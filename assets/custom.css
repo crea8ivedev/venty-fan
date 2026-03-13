@@ -549,6 +549,13 @@ margin-top: 14px !important;
   .launch-upgrade-banner .banner-wrapper {
     padding-top: 60px;
   }
+  .packed-deployed .center-image img {
+    max-width: 480px;
+  }
+
+  .packed-deployed .right-content img {
+        height: 670px;
+  }
 
 }
 @media only screen and (max-width: 767px) {
