@@ -460,6 +460,10 @@ section.launch-upgrade-banner {
     align-items: stretch;
   }
 
+  .pro-series-wrapper .feature-card .feature-image img {
+    height: 100%;
+  }
+
   .launch-upgrade-banner .banner-wrapper .banner-heading {
     font-size: 60px;
     line-height: 66px;
@@ -507,8 +511,6 @@ section.launch-upgrade-banner {
     padding-bottom: 20px;
   }
 
-
-
   .campaign-addons .addons-header h2 {
     font-size: 48px;
     line-height: 54px;
@@ -545,8 +547,6 @@ section.launch-upgrade-banner {
   .packed-deployed .right-content img {
     height: 670px;
   }
-
-
 
   .fan-colors-section .fan-name {
     width: 100%;
