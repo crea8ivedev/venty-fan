@@ -213,7 +213,7 @@ section.launch-upgrade-banner {
   margin:0;
 }
 .launch-email-section .sign-up-klaviyo-form {
-  width: 50% !important;
+  width: 53% !important;
 }
 .launch-email-section .sign-up-klaviyo-form [data-testid="form-row"] {
   align-items: center !important; 
