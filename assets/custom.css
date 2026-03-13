@@ -617,6 +617,9 @@ section.launch-upgrade-banner {
       grid-template-columns: repeat(1,1fr);
       gap: 24px;
   }
+  .campaign-addons-main .addon-info h3 {
+    margin-top: 20px !important;
+  }
   }
 @media only screen and (max-width: 420px) {
   .pro-series-wrapper .feature-card .feature-content h3 {
