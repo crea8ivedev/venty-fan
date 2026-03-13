@@ -461,6 +461,9 @@ section.launch-upgrade-banner {
   .launch-upgrade-banner .banner-wrapper .banner-subheading {
     font-size: 28px !important;
   }
+  .launch-upgrade-banner .banner-wrapper .banner-text p {
+    margin-bottom: 20px;
+  }
 }
 /* @media only screen and (max-width: 575px) {
   .pro-series-wrapper .feature-card.redesigned-base .feature-content h3 {
