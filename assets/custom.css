@@ -298,7 +298,7 @@ section.launch-upgrade-banner {
           font-size: 14px !important;
     text-transform: capitalize !important;
     letter-spacing: 0 !important;
-     transition: background-color 0.3s ease;
+     transition: background-color 0.3s ease !important;
 }
   
 
@@ -307,12 +307,20 @@ section.launch-upgrade-banner {
 }
 
 .launch-upgrade-banner .klaviyo-form .needsclick form > div.kl-private-reset-css-Xuajs1 {
-          gap: 10px;
+    gap: 10px;
     min-height: auto !important;
 }
 
 .launch-upgrade-banner .klaviyo-form .needsclick form {
   padding:0 !important;
+}
+
+.vendypro-form_text .klaviyo-form .needsclick [data-testid="form-row"]:last-child [component="[object Object]"] button {
+   transition: background-color 0.3s ease !important;
+}
+
+.vendypro-form_text .klaviyo-form .needsclick [data-testid="form-row"]:last-child [component="[object Object]"] button:hover {
+   background-color: #303B43 !important;
 }
 
 @media only screen and (max-width: 1780px) {
