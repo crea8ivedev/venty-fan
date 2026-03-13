@@ -504,98 +504,102 @@ images[index].classList.add("active");
 
 }); {% endcomment %}
 {% comment %} hardeep singh {% endcomment %}
- document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+
   const items = document.querySelectorAll(".ventry-list li");
   const indicator = document.querySelector(".ventry-indicator");
   const list = document.querySelector(".ventry-list");
   const texts = document.querySelectorAll(".ventry-text");
   const images = document.querySelectorAll(".ventry-images-black .ventry-img");
   const imagesRed = document.querySelectorAll(".ventry-images-red .ventry-img");
-  const imageswhite = document.querySelectorAll(".ventry-images-white .ventry-img");
-  
+  const imagesWhite = document.querySelectorAll(".ventry-images-white .ventry-img");
+
   let currentIndex = 0;
-  
+
+  // Sync each list item height to its corresponding .ventry-text height
+  function syncHeights() {
+    items.forEach((item, i) => {
+      item.style.minHeight = "";
+    });
+    texts.forEach((text, i) => {
+      text.style.minHeight = "";
+    });
+
+    items.forEach((item, i) => {
+      if (!texts[i]) return;
+
+      // Measure the natural height of the text block
+      const textHeight = texts[i].getBoundingClientRect().height;
+      const itemHeight = item.getBoundingClientRect().height;
+      const maxH = Math.max(textHeight, itemHeight);
+
+      item.style.minHeight = maxH + "px";
+      texts[i].style.minHeight = maxH + "px";
+    });
+  }
+
   function moveIndicator(index) {
     if (index < 0) index = 0;
     if (index >= items.length) index = items.length - 1;
 
-    const item = items[index];
-    const itemTop = item.getBoundingClientRect().top - list.getBoundingClientRect().top;
-
+    const itemTop = items[index].getBoundingClientRect().top - list.getBoundingClientRect().top;
     indicator.style.top = itemTop + "px";
 
-    items.forEach((item, i) => {
-      if (i === index) {
-        item.classList.add("active");
-      } else {
-        item.classList.remove("active");
-      }
-    });
-
-    texts.forEach((text, i) => {
-      if (i === index) {
-        text.classList.add("active");
-      } else {
-        text.classList.remove("active");
-      }
-    });
-
-    images.forEach((text, i) => {
-      if (i === index) {
-        text.classList.add("active");
-      } else {
-        text.classList.remove("active");
-      }
-    });    
-    imagesRed.forEach((text, i) => {
-      if (i === index) {
-        text.classList.add("active");
-      } else {
-        text.classList.remove("active");
-      }
-    });
-
-    imageswhite.forEach((text, i) => {
-      if (i === index) {
-        text.classList.add("active");
-      } else {
-        text.classList.remove("active");
-      }
-    });
+    items.forEach((el, i) => el.classList.toggle("active", i === index));
+    texts.forEach((el, i) => el.classList.toggle("active", i === index));
+    images.forEach((el, i) => el.classList.toggle("active", i === index));
+    imagesRed.forEach((el, i) => el.classList.toggle("active", i === index));
+    imagesWhite.forEach((el, i) => el.classList.toggle("active", i === index));
 
     currentIndex = index;
   }
 
-  list.addEventListener("wheel", function(e) {
-    e.preventDefault();
-    
-    if (e.deltaY > 0) {
-      currentIndex++;
-    } else {
-      currentIndex--;
-    }
+  // Hover & click
+  items.forEach((item, index) => {
+    item.addEventListener("mouseenter", () => moveIndicator(index));
+    item.addEventListener("click", () => moveIndicator(index));
+  });
 
+  // Scroll wheel
+  list.addEventListener("wheel", function (e) {
+    e.preventDefault();
+    currentIndex += e.deltaY > 0 ? 1 : -1;
     if (currentIndex < 0) currentIndex = 0;
     if (currentIndex >= items.length) currentIndex = items.length - 1;
-
     moveIndicator(currentIndex);
   });
 
-  items.forEach((item, index) => {
-    item.addEventListener("mouseenter", function() {
-      moveIndicator(index);
+  // Color dots
+  const colorDots = document.querySelectorAll(".color-dot");
+  const ventryImageGroups = document.querySelectorAll(".ventry-images-red, .ventry-images-white, .ventry-images-black");
+
+  colorDots.forEach(function (dot, index) {
+    dot.addEventListener("click", function () {
+      colorDots.forEach(d => d.classList.remove("active"));
+      dot.classList.add("active");
+      ventryImageGroups.forEach(g => g.style.display = "none");
+      if (index === 0) document.querySelector(".ventry-images-red").style.display = "block";
+      else if (index === 1) document.querySelector(".ventry-images-white").style.display = "block";
+      else if (index === 2) document.querySelector(".ventry-images-black").style.display = "block";
+      moveIndicator(currentIndex);
     });
   });
 
-  items.forEach((item, index) => {
-    item.addEventListener("click", function() {
-      moveIndicator(index);
-    });
+  // Init — sync heights first, then set active state
+  syncHeights();
+  moveIndicator(0);
+
+  // Re-sync on resize (debounced)
+  let resizeTimer;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      syncHeights();
+      moveIndicator(currentIndex);
+    }, 200);
   });
 
-  moveIndicator(currentIndex);
-
-}); 
+});
 
 
 {% comment %} blabla {% endcomment %}
