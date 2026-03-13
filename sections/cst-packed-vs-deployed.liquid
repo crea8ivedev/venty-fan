@@ -100,14 +100,23 @@
   font-size:22px;
 }
 
-.packed-wrapper .desktop-title {
-  display: none;
-}
-
 }
 
 .packed-wrapper .desktop-title {
   display: block;
+}
+
+  .packed-wrapper .mobile-title {
+     display: none;
+  }
+
+@media (max-width:768px){
+  .packed-wrapper .desktop-title {
+    display: none;
+  }
+  .packed-wrapper .mobile-title {
+     display: block;
+  }
 }
 
 </style>
