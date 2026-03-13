@@ -393,11 +393,11 @@ section.launch-upgrade-banner {
       margin-bottom: 10px;
 }
 .campaign-addons .divider-logo {
-  width: 75px;
-    height: 106px;
+        width: 56px;
+        height: 56px;
 }
 
-  .campaign-addons .addon-image img {
+  .campaign-addons `.addon-image img {
     max-height: 500px;
     object-fit: contain;
   }
