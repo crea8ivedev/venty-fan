@@ -179,18 +179,20 @@
       padding: 0px;
       list-style: none;
   }
-  .ventry-list-inner li,
-  .ventry-list li{
-      margin: 0px 0 18px 0;
-      cursor: pointer;
-      font-size: 16px;
-      line-height: 100%;
-      color: rgba(145, 145, 145, 1);
-      font-weight: 700;
-      transition:0.3s;
-      min-height: 100px;
-      max-width: 145px;
-  }
+.ventry-list-inner li,
+.ventry-list li {
+    margin: 0px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 100%;
+    color: rgba(145, 145, 145, 1);
+    font-weight: 700;
+    transition: 0.3s;
+    min-height: unset;
+    max-width: 145px;
+    display: flex;
+    align-items: flex-start;
+}
 
   .ventry-list li.active{
       color:#000;
@@ -198,18 +200,21 @@
   }
 
   .ventry-content{ max-width:420px;}
-  .ventry-text{
-        margin-bottom: 18px;
-        color: #8a8a8a;
-        transition: 0.3s;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 24px;  
-        min-height: 100px;  
-    }
+.ventry-text {
+    margin-bottom: 0px;
+    color: #8a8a8a;
+    transition: 0.3s;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    min-height: unset;
+    display: flex;
+    align-items: flex-start;
+}
 
     .ventry-text.active{
         display:block;
+        color: #000;
     }
 
     .ventry-images img{
