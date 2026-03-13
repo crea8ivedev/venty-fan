@@ -275,10 +275,12 @@ section.launch-upgrade-banner {
     padding-left: 0px;
   }
   .pro-series-wrapper .feature-card.feature-left .feature-content h3 {
-    padding-right: 20px;
+    padding-right: 0px;
+    margin-right :35px !important;
   }
   .pro-series-wrapper .feature-card.feature-left.digital-display-battery h3 {
-    padding-right: 35px;
+    padding-right: 0px;
+     margin-right :35px !important;
   }
 
   .pro-series-wrapper
