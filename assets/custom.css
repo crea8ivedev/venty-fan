@@ -437,6 +437,13 @@ margin-top: 14px !important;
         width: 45px;
     height: 45px;
   }
+    .packed-deployed .center-image img {
+    max-width: 480px;
+  }
+
+  .packed-deployed .right-content img {
+        height: 670px;
+  }
 }
 @media only screen and (max-width: 1279px) {
      .ventypro-hero__content .ventypro-hero__text {
@@ -548,13 +555,6 @@ margin-top: 14px !important;
 
   .launch-upgrade-banner .banner-wrapper {
     padding-top: 60px;
-  }
-  .packed-deployed .center-image img {
-    max-width: 480px;
-  }
-
-  .packed-deployed .right-content img {
-        height: 670px;
   }
 
 }
