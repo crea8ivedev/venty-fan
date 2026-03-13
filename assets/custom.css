@@ -276,6 +276,12 @@ section.launch-upgrade-banner {
   flex: unset !important;
 }
 
+
+.launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:last-child  {
+  width: 150px !important;
+  flex: unset !important;
+}
+
 .launch-upgrade-banner .klaviyo-form .needsclick [data-testid="form-row"]:first-child  [component="[object Object]"] {
   padding:0 !important;
 }
