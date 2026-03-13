@@ -217,7 +217,7 @@
       vertical-align: middle;
       margin: 0 auto;
       width: 100%;
-          margin-top: 20px;
+      margin-top: 20px;
     }
 
     .ventry-text.active{
@@ -436,7 +436,38 @@
 
 }
 
-@media(max-width:420px){ 
+@media (max-width:426px){
+  .ventry-list li {
+  min-height: 122px;
+}
+.ventry-list li:nth-child(3) {
+  min-height: 100px;
+}
+.ventry-list li:nth-child(4) {
+  min-height: 100px;
+}
+.ventry-list li:nth-child(5) {
+  min-height: 100px;
+}
+}
+
+@media(max-width:400px){ 
+  .ventry-list li {
+  min-height: 143px;
+}
+.ventry-list li:nth-child(3) {
+  min-height: 100px;
+}
+.ventry-list li:nth-child(4) {
+  min-height: 100px;
+}
+.ventry-list li:nth-child(5) {
+  min-height: 100px;
+}
+}
+
+
+@media(max-width:380px){ 
 .ventry-left {
   width: calc(45% - 12px);
 }
