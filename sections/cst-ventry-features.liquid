@@ -6,50 +6,17 @@
 
     <!-- LEFT SIDE -->
     <div class="ventry-left">
-        <div class="ventry-row-grid" id="ventry-row-grid">
-
-            <!-- ROW 1 -->
-            <div class="ventry-row">
-                <li class="ventry-row-li active" data-index="0">{{ section.settings.text1 }}</li>
-                <div class="ventry-row-text active">{{ section.settings.content1 }}</div>
-            </div>
-
-            <!-- ROW 2 -->
-            <div class="ventry-row">
-                <li class="ventry-row-li" data-index="1">{{ section.settings.text2 }}</li>
-                <div class="ventry-row-text">{{ section.settings.content2 }}</div>
-            </div>
-
-            <!-- ROW 3 -->
-            <div class="ventry-row">
-                <li class="ventry-row-li" data-index="2">{{ section.settings.text3 }}</li>
-                <div class="ventry-row-text">{{ section.settings.content3 }}</div>
-            </div>
-
-            <!-- ROW 4 -->
-            <div class="ventry-row">
-                <li class="ventry-row-li" data-index="3">{{ section.settings.text4 }}</li>
-                <div class="ventry-row-text">{{ section.settings.content4 }}</div>
-            </div>
-
-            <!-- ROW 5 -->
-            <div class="ventry-row">
-                <li class="ventry-row-li" data-index="4">{{ section.settings.text5 }}</li>
-                <div class="ventry-row-text">{{ section.settings.content5 }}</div>
-            </div>
-
-            <!-- ROW 6 — color picker row -->
-            <div class="ventry-row">
-                <li class="ventry-row-li ventry-row-li--inner" data-index="5">{{ section.settings.text6 }}</li>
-                <div class="ventry-row-text">
-                    <div class="ventry-colors">
-                        <span class="color-dot" data-img="0" style="background:#8b1d2c"></span>
-                        <span class="color-dot" data-img="1" style="background:#cfcfcf"></span>
-                        <span class="color-dot active" data-img="2" style="background:#333"></span>
-                    </div>
-                </div>
-            </div>
-
+        <div class="ventry-left-lists">
+            <ul class="ventry-list">
+                <li class="active" data-index="0">{{ section.settings.text1 }}</li>
+                <li data-index="1">{{ section.settings.text2 }}</li>
+                <li data-index="2">{{ section.settings.text3 }}</li>
+                <li data-index="3">{{ section.settings.text4 }}</li>
+                <li data-index="4">{{ section.settings.text5 }}</li>        
+            </ul>
+            <ul class="ventry-list-inner">
+                <li data-index="5">{{ section.settings.text6 }}</li>
+            </ul>
         </div>
       <div class="ventry-line">
         <div class="ventry-indicator"></div>
@@ -57,12 +24,41 @@
     </div>
 
 
-    <!-- MIDDLE TEXT — now inside row-grid above, keeping empty div for layout -->
-    <div class="ventry-content" style="display:none;" aria-hidden="true"></div>
+    <!-- MIDDLE TEXT -->
+    <div class="ventry-content">
+
+      <div class="ventry-text active">
+        {{ section.settings.content1 }}
+      </div>
+
+      <div class="ventry-text">
+        {{ section.settings.content2 }}
+      </div>
+
+      <div class="ventry-text">
+        {{ section.settings.content3 }}
+      </div>
+
+      <div class="ventry-text">
+       {{ section.settings.content4 }}
+      </div>
+
+      <div class="ventry-text">
+        {{ section.settings.content5 }}
+      </div>
+
+      <div class="ventry-text ventry-text--colors">
+        <div class="ventry-colors">
+            <span class="color-dot" data-img="0" style="background:#8b1d2c"></span>
+            <span class="color-dot" data-img="1" style="background:#cfcfcf"></span>
+            <span class="color-dot active" data-img="2" style="background:#333"></span>
+        </div>
+      </div>
+
+    </div>
 
 
     <!-- RIGHT SIDE -->
-    
     <div class="ventry-images">
         <div class="ventry-images-top-content">
             <h3>Included Remote</h3>
@@ -126,46 +122,53 @@
 </div>
 </div>
 </div>
+
 <style>
-  .cst-ventry-features-main{padding: 0px 35px;  }
-  .cst-ventry-features{  max-width:1254px;   margin: 0px auto;      
-  }
-  .ventry-features{
-      padding:96px 52px;
+  .cst-ventry-features-main { padding: 0px 35px; }
+  .cst-ventry-features { max-width: 1254px; margin: 0px auto; }
+
+  .ventry-features {
+      padding: 96px 52px;
       background: linear-gradient(270deg, rgb(235 235 235 / 30%) 0%, rgb(133 133 133 / 20%) 132.7%);
       border-radius: 67px;
   }
 
-  .ventry-wrapper{
-      display:flex;
-      gap:40px;
+  .ventry-wrapper {
+      display: flex;
+      gap: 40px;
       position: relative;
+      align-items: flex-start;
   }
 
-  .ventry-left{
-      display:flex;
-      align-items:flex-start;
+  /* ── LEFT col ── */
+  .ventry-left {
+      display: flex;
+      align-items: flex-start;
       justify-content: space-between;
+      max-width: 250px;
       width: 100%;
-      flex: 1;
+      flex-shrink: 0;
   }
 
-  /* Grid columns: left label col + right text col */
-  .ventry-row-grid {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      column-gap: 40px;
-      width: 100%;
-  }
+  .ventry-left-lists { width: 100%; }
 
-  /* Each row: display:contents so children sit in grid */
-  .ventry-row {
-      display: contents;
-  }
-
-  /* Label (left) cell */
-  .ventry-row-li {
+  .ventry-list {
       list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+  }
+
+  ul.ventry-list-inner {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+  }
+
+  /* LIST ITEMS — no min-height; JS sets height per-pair */
+  .ventry-list li {
+      margin: 0;
+      padding-bottom: 18px;
       cursor: pointer;
       font-size: 16px;
       line-height: 100%;
@@ -173,44 +176,40 @@
       font-weight: 700;
       transition: 0.3s;
       max-width: 145px;
-      padding-bottom: 18px;
       box-sizing: border-box;
-      align-self: start;
+      display: flex;
+      align-items: flex-start;
   }
 
-  .ventry-row-li.active {
-      color: #000;
-  }
-
-  /* Text (right) cell */
-  .ventry-row-text {
-      font-size: 16px;
-      line-height: 24px;
-      color: #8a8a8a;
-      font-weight: 500;
-      transition: 0.3s;
-      padding-bottom: 18px;
-      box-sizing: border-box;
-      align-self: start;
-      max-width: 420px;
-  }
-
-  .ventry-row-text.active {
-      color: #000;
-  }
-
-  /* Last row: no bottom gap */
-  .ventry-row:last-child .ventry-row-li,
-  .ventry-row:last-child .ventry-row-text {
+  ul.ventry-list-inner li {
+      margin: 0;
       padding-bottom: 0;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 100%;
+      color: rgba(145, 145, 145, 1);
+      font-weight: 700;
+      transition: 0.3s;
+      max-width: 145px;
+      box-sizing: border-box;
   }
 
-  .ventry-list{
-      list-style:none;
-      padding:0;
-      margin:0;
-      width: 100%;
+  .ventry-list li.active {
+      color: #000;
+      font-weight: 700;
   }
+
+  /* ── VERTICAL LINE ── */
+  .ventry-line {
+      width: 1px;
+      height: 100%;
+      background: #000000;
+      position: relative;
+      border-radius: 4px;
+      display: block;
+      flex-shrink: 0;
+  }
+
   .ventry-line:before {
       content: "";
       border: 1px solid #000000;
@@ -222,6 +221,7 @@
       left: -4px;
       top: -10px;
   }
+
   .ventry-line:after {
       content: "";
       border: 1px solid #000000;
@@ -233,265 +233,155 @@
       left: -4px;
       bottom: -10px;
   }
-  ul.ventry-list-inner {
-      margin: 0px;
-      padding: 0px;
-      list-style: none;
+
+  .ventry-indicator {
+      position: absolute;
+      display: block !important;
+      width: 18px;
+      height: 87px;
+      background: linear-gradient(180deg, #5E5E5E 0%, #C4C4C4 80.1%);
+      border: 1px solid rgba(48, 48, 48, 1);
+      left: -8px;
+      top: 0;
+      border-radius: 10px;
+      transition: top .35s ease;
   }
-  .ventry-list-inner li,
-  .ventry-list li{
-      margin: 0px 0 18px 0;
-      cursor: pointer;
+
+  /* ── MIDDLE col ── */
+  .ventry-content { max-width: 420px; width: 100%; }
+
+  /* TEXT ITEMS — no min-height; JS sets height per-pair */
+  .ventry-text {
+      margin: 0;
+      padding-bottom: 18px;
+      color: #8a8a8a;
+      transition: 0.3s;
+      font-weight: 500;
       font-size: 16px;
-      line-height: 100%;
-      color: rgba(145, 145, 145, 1);
-      font-weight: 700;
-      transition:0.3s;
-      max-width: 145px;
+      line-height: 24px;
+      box-sizing: border-box;
   }
 
-  .ventry-list li.active{
-      color:#000;
-      font-weight:700;
+  .ventry-text.active {
+      color: #000;
+      font-weight: 500;
   }
 
-  .ventry-content{ max-width:420px;}
-  .ventry-text{
-        margin-bottom: 18px;
-        color: #8a8a8a;
-        transition: 0.3s;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 24px;
-    }
+  /* color-picker row — no bottom padding */
+  .ventry-text--colors { padding-bottom: 0; }
 
-    .ventry-text.active{
-        display:block;
-    }
+  /* ── RIGHT col ── */
+  .ventry-images { position: relative; width: 100%; }
 
-    .ventry-images img{
+  .ventry-images img {
       max-width: 400px;
       vertical-align: middle;
       margin: 0 auto;
       width: 100%;
-          margin-top: 20px;
-    }
-
-    .ventry-text.active{
-        color:#000;
-        font-weight:500;
-    }
-
-    .ventry-images{
-        position:relative;
-        width:100%;
-    }
-
-    .ventry-img{
-        position:absolute;
-        top: 70px;
-        left:0;
-        right: 0;
-        opacity:0;
-        {% comment %} transition:opacity .4s ease; {% endcomment %}
-    }
-    .ventry-images-top-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-    }
-
-    .ventry-images-top-content h3 {
-        margin: 0px;
-        font-weight: 400;
-        text-align: center;
-        font-size: 16px;
-        line-height: normal;
-        letter-spacing: 0%;
-        color: rgba(116, 116, 116, 1);
-    }
-    .ventry-img.active{
-        opacity:1;
-    }
-    .ventry-line{
-        width:1px;
-        height:100%;
-        background:#000000;
-        position:relative;
-        border-radius:4px;
-        display: block;
-    }
-
-    .ventry-indicator{
-        position:absolute;
-        display: block !important;
-        width:18px;
-        height:87px;
-        background:#888;
-        background: linear-gradient(180deg, #5E5E5E 0%, #C4C4C4 80.1%);
-        border: 1px solid rgba(48, 48, 48, 1);
-        left:-8px;
-        top:0;
-        border-radius:10px;
-        transition:top .35s ease;
-    }
-    .ventry-colors{
-        display:flex;
-        gap:10px;
-        margin-top:15px;
-    }
-
-    .color-dot{
-    width: 31px;
-    height: 31px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid transparent;
-    position: relative;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    outline: none;
-    }
-
-    /* Outer ring pulse on hover */
-.color-dot::after {
-    content: "";
-    position: absolute;
-    inset: -5px;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    transition: border-color 0.25s ease, inset 0.25s ease;
-}
-
-.color-dot:hover {
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-}
-
-.color-dot:hover::after {
-    border-color: rgba(0, 0, 0, 0.25);
-    inset: -6px;
-}
-
-
-.color-dot.active {    
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
-}
-
-.color-dot.active::after {
-    border-color: rgba(0, 0, 0, 0.15);
-    inset: -6px;
-}
-
-/* Active + hover together */
-.color-dot.active:hover {
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-}
-    .ventry-text:last-child {
-        margin: 0px;
-        min-height: unset;
-    }
-
-    ul.ventry-list-inner li {
-        min-height: unset;
-        margin-bottom: 0px;
-    }
-    {% comment %} .ventry-list li:last-child {
-        margin: 0px;
-    } {% endcomment %}
-
-
-
-    @media(max-width:1600px){
-      .ventry-features {
-        padding: 60px 40px
-      }
-      .ventry-text {
-        margin-bottom: 10px;
-      }
-      .ventry-images img {
-        max-width: 350px;
-      }
-    }
-
-
-
-@media(max-width:1024px){
-  .ventry-row-grid {
-      grid-template-columns: 160px 1fr;
-      column-gap: 28px;
+      margin-top: 20px;
   }
-}
 
+  .ventry-images-top-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+  }
 
-@media(max-width:989px){ 
-    .ventry-features {
-        padding: 80px 0px;
-        background: transparent;
-        border-radius: 0;      
-        min-height: 1500px;
-        height: 100%;
-    }  
-    .ventry-left {
-        max-width: 100%;
-        width: 100%;
-    }  
-    .ventry-content {
-        display: none !important;
-    }  
-    .ventry-wrapper {
-        gap: 40px;
-        flex-wrap: wrap;
-        row-gap: 60px;
-    }
-    .ventry-row-grid {
-        grid-template-columns: calc(30% - 20px) calc(70% - 20px);
-        column-gap: 40px;
-    }
-
-}
-
-
-@media(max-width:768px){ 
-  .ventry-list li {
-      font-weight: 700;
+  .ventry-images-top-content h3 {
+      margin: 0;
+      font-weight: 400;
+      text-align: center;
       font-size: 16px;
-      line-height: 100%;
-      letter-spacing: -3%;
-  }  
-  .ventry-text p {
-      font-weight: 500;
-      font-size: 15px;
-      line-height: 17px;
-      letter-spacing: -3%;
+      line-height: normal;
+      letter-spacing: 0%;
+      color: rgba(116, 116, 116, 1);
   }
-}
 
-@media(max-width:590px){ 
-  .ventry-row-grid {
-      grid-template-columns: calc(40% - 12px) calc(60% - 12px);
-      column-gap: 24px;
+  .ventry-img {
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      {% comment %} transition:opacity .4s ease; {% endcomment %}
   }
-  .ventry-wrapper {
-      gap: 24px;
-  }  
-  .ventry-features {
-      min-height: 1410px;
-  }  
-  .ventry-images img {
-      max-width: 350px;
-  }
-}
 
-@media(max-width:420px){ 
-  .ventry-row-grid {
-      grid-template-columns: calc(45% - 12px) calc(55% - 12px);
-  }
-}
+  .ventry-img.active { opacity: 1; }
 
+  /* ── COLOR DOTS ── */
+  .ventry-colors { display: flex; gap: 10px; margin-top: 15px; }
+
+  .color-dot {
+      width: 31px;
+      height: 31px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      outline: none;
+  }
+
+  .color-dot::after {
+      content: "";
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      transition: border-color 0.25s ease, inset 0.25s ease;
+  }
+
+  .color-dot:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.2); }
+  .color-dot:hover::after { border-color: rgba(0,0,0,0.25); inset: -6px; }
+  .color-dot.active { box-shadow: 0 4px 12px rgba(0,0,0,0.18); }
+  .color-dot.active::after { border-color: rgba(0,0,0,0.15); inset: -6px; }
+  .color-dot.active:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:1600px) {
+      .ventry-features { padding: 60px 40px; }
+      .ventry-images img { max-width: 350px; }
+  }
+
+  @media(max-width:1024px) {
+      .ventry-left { max-width: 160px; }
+      .ventry-content { max-width: 360px; }
+  }
+
+  @media(max-width:989px) {
+      .ventry-features {
+          padding: 80px 0px;
+          background: transparent;
+          border-radius: 0;
+          min-height: 1500px;
+          height: 100%;
+      }
+      .ventry-left { max-width: 100%; width: calc(30% - 20px); }
+      .ventry-content { max-width: 100%; width: calc(70% - 20px); }
+      .ventry-wrapper { gap: 40px; flex-wrap: wrap; row-gap: 60px; }
+  }
+
+  @media(max-width:768px) {
+      .ventry-list li { font-weight: 700; font-size: 16px; line-height: 100%; letter-spacing: -3%; }
+      .ventry-text p  { font-weight: 500; font-size: 15px; line-height: 17px; letter-spacing: -3%; }
+  }
+
+  @media(max-width:590px) {
+      .ventry-left    { max-width: 100%; width: calc(40% - 12px); }
+      .ventry-content { max-width: 100%; width: calc(60% - 12px); }
+      .ventry-wrapper { gap: 24px; }
+      .ventry-features { min-height: 1410px; }
+      .ventry-images img { max-width: 350px; }
+  }
+
+  @media(max-width:420px) {
+      .ventry-left    { width: calc(45% - 12px); }
+      .ventry-content { width: calc(55% - 12px); }
+  }
 </style>
 
 
 <script>
-
 {% comment %} document.addEventListener("DOMContentLoaded", function(){
 
 const items = document.querySelectorAll(".ventry-list li");
@@ -528,149 +418,146 @@ indicator.style.top = top + "px";
 
 
 {% comment %} 
- 
 /* second option */
 document.addEventListener("DOMContentLoaded", function(){
-
-
-/* LIST INTERACTION */
 const items = document.querySelectorAll(".ventry-list li");
 const texts = document.querySelectorAll(".ventry-text");
 const indicator = document.querySelector(".ventry-indicator");
-
 items.forEach((item,index)=>{
-
 item.addEventListener("mouseenter", activate);
 item.addEventListener("click", activate);
-
 function activate(){
-
 items.forEach(i=>i.classList.remove("active"));
 texts.forEach(t=>t.classList.remove("active"));
-
 item.classList.add("active");
 texts[index].classList.add("active");
-
 indicator.style.top = item.offsetTop + "px";
-
 }
-
 });
-
-
-/* COLOR IMAGE SWITCH */
 const colors = document.querySelectorAll(".color-dot");
 const images = document.querySelectorAll(".ventry-img");
-
 colors.forEach(color => {
-
 color.addEventListener("click", function(){
-
 colors.forEach(c => c.classList.remove("active"));
 images.forEach(img => img.classList.remove("active"));
-
 color.classList.add("active");
-
 let index = color.dataset.img;
-
 images[index].classList.add("active");
-
 });
-
 });
-
 }); {% endcomment %}
-{% comment %} hardeep singh {% endcomment %}
- document.addEventListener("DOMContentLoaded", function() {
-  const items = document.querySelectorAll(".ventry-row-li");
-  const indicator = document.querySelector(".ventry-indicator");
-  const grid = document.querySelector("#ventry-row-grid");
-  const texts = document.querySelectorAll(".ventry-row-text");
-  const images = document.querySelectorAll(".ventry-images-black .ventry-img");
-  const imagesRed = document.querySelectorAll(".ventry-images-red .ventry-img");
-  const imageswhite = document.querySelectorAll(".ventry-images-white .ventry-img");
-  
-  let currentIndex = 0;
 
+{% comment %} hardeep singh {% endcomment %}
+document.addEventListener("DOMContentLoaded", function () {
+
+  var listItems   = Array.from(document.querySelectorAll(".ventry-list li"));
+  var textItems   = Array.from(document.querySelectorAll(".ventry-text"));
+  var indicator   = document.querySelector(".ventry-indicator");
+  var list        = document.querySelector(".ventry-list");
+  var images      = Array.from(document.querySelectorAll(".ventry-images-black .ventry-img"));
+  var imagesRed   = Array.from(document.querySelectorAll(".ventry-images-red .ventry-img"));
+  var imagesWhite = Array.from(document.querySelectorAll(".ventry-images-white .ventry-img"));
+
+  var currentIndex = 0;
+
+  function syncHeights() {
+    // Reset inline heights
+    listItems.forEach(function (li) { li.style.height = ''; });
+    textItems.forEach(function (t)  { t.style.height  = ''; });
+
+    // Force reflow
+    document.body.offsetHeight;
+
+    // Sync each paired row
+    var pairCount = Math.min(listItems.length, textItems.length);
+    for (var i = 0; i < pairCount; i++) {
+      var liH  = listItems[i].getBoundingClientRect().height;
+      var txtH = textItems[i].getBoundingClientRect().height;
+      var maxH = Math.max(liH, txtH);
+      listItems[i].style.height = maxH + 'px';
+      textItems[i].style.height = maxH + 'px';
+    }
+  }
+
+  /* ── INDICATOR + ACTIVE STATE ── */
   function moveIndicator(index) {
     if (index < 0) index = 0;
-    if (index >= items.length) index = items.length - 1;
+    if (index >= listItems.length) index = listItems.length - 1;
 
-    const item = items[index];
-    // indicator top: item ની top position relative to grid wrapper
-    const itemTop = item.getBoundingClientRect().top - grid.getBoundingClientRect().top;
+    var itemTop = listItems[index].getBoundingClientRect().top
+                - list.getBoundingClientRect().top;
     indicator.style.top = itemTop + "px";
 
-    items.forEach((it, i) => {
-      it.classList.toggle("active", i === index);
-    });
-
-    texts.forEach((text, i) => {
-      text.classList.toggle("active", i === index);
-    });
-
-    images.forEach((img, i) => {
-      img.classList.toggle("active", i === index);
-    });
-
-    imagesRed.forEach((img, i) => {
-      img.classList.toggle("active", i === index);
-    });
-
-    imageswhite.forEach((img, i) => {
-      img.classList.toggle("active", i === index);
-    });
+    listItems.forEach(function (li, i)  { li.classList.toggle("active",  i === index); });
+    textItems.forEach(function (t, i)   { t.classList.toggle("active",   i === index); });
+    images.forEach(function (img, i)    { img.classList.toggle("active", i === index); });
+    imagesRed.forEach(function (img, i) { img.classList.toggle("active", i === index); });
+    imagesWhite.forEach(function (img, i){ img.classList.toggle("active",i === index); });
 
     currentIndex = index;
   }
 
-  // Scroll on list area
-  grid.addEventListener("wheel", function(e) {
+  /* ── EVENTS ── */
+  list.addEventListener("wheel", function (e) {
     e.preventDefault();
     currentIndex += e.deltaY > 0 ? 1 : -1;
     if (currentIndex < 0) currentIndex = 0;
-    if (currentIndex >= items.length) currentIndex = items.length - 1;
+    if (currentIndex >= listItems.length) currentIndex = listItems.length - 1;
     moveIndicator(currentIndex);
   });
 
-  items.forEach((item, index) => {
-    item.addEventListener("mouseenter", function() { moveIndicator(index); });
-    item.addEventListener("click",      function() { moveIndicator(index); });
+  listItems.forEach(function (item, index) {
+    item.addEventListener("mouseenter", function () { moveIndicator(index); });
+    item.addEventListener("click",      function () { moveIndicator(index); });
   });
 
-  moveIndicator(currentIndex);
+  /* ── INIT: wait for images to load for accurate heights ── */
+  var imgEls = Array.from(document.querySelectorAll('.ventry-features img'));
+  var loaded = 0;
+  var total  = imgEls.length;
+
+  function onReady() {
+    syncHeights();
+    moveIndicator(0);
+  }
+
+  if (total === 0) {
+    onReady();
+  } else {
+    imgEls.forEach(function (img) {
+      if (img.complete) { loaded++; if (loaded >= total) onReady(); }
+      else {
+        img.addEventListener('load',  function () { loaded++; if (loaded >= total) onReady(); });
+        img.addEventListener('error', function () { loaded++; if (loaded >= total) onReady(); });
+      }
+    });
+    setTimeout(onReady, 400); // fallback
+  }
+
+  window.addEventListener('resize', function () {
+    syncHeights();
+    moveIndicator(currentIndex);
+  });
 
 });
 
 
 {% comment %} blabla {% endcomment %}
-document.addEventListener('DOMContentLoaded', function() {
-    const colorDots = document.querySelectorAll('.color-dot');
+document.addEventListener('DOMContentLoaded', function () {
+    var colorDots    = document.querySelectorAll('.color-dot');
+    var ventryImages = document.querySelectorAll('.ventry-images-red, .ventry-images-white, .ventry-images-black');
 
-    const ventryImages = document.querySelectorAll('.ventry-images-red, .ventry-images-white, .ventry-images-black');
-
-    colorDots.forEach(function(colorDot, index) {
-        colorDot.addEventListener('click', function() {
-            colorDots.forEach(function(dot) {
-                dot.classList.remove('active');
-            });
-
+    colorDots.forEach(function (colorDot, index) {
+        colorDot.addEventListener('click', function () {
+            colorDots.forEach(function (dot) { dot.classList.remove('active'); });
             colorDot.classList.add('active');
-
-            ventryImages.forEach(function(image) {
-                image.style.display = 'none';
-            });
-
-            if (index === 0) {
-                document.querySelector('.ventry-images-red').style.display = 'block';
-            } else if (index === 1) {
-                document.querySelector('.ventry-images-white').style.display = 'block';
-            } else if (index === 2) {
-                document.querySelector('.ventry-images-black').style.display = 'block';
-            }
+            ventryImages.forEach(function (image) { image.style.display = 'none'; });
+            if      (index === 0) document.querySelector('.ventry-images-red').style.display   = 'block';
+            else if (index === 1) document.querySelector('.ventry-images-white').style.display = 'block';
+            else if (index === 2) document.querySelector('.ventry-images-black').style.display = 'block';
         });
     });
-}); 
+});
 </script>
 
 
@@ -707,8 +594,7 @@ document.addEventListener('DOMContentLoaded', function() {
     { "type": "image_picker", "id": "redimage2", "label": "Red Image2" },
     { "type": "image_picker", "id": "redimage3", "label": "Red Image3" },
     { "type": "image_picker", "id": "redimage4", "label": "Red Image4" },
-    { "type": "image_picker", "id": "redimage5", "label": "Red Image5" },             
-
+    { "type": "image_picker", "id": "redimage5", "label": "Red Image5" }
 ],
 "presets": [
   { "name": "Ventypro Features" }
