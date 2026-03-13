@@ -280,6 +280,13 @@ section.launch-upgrade-banner {
   padding:0 !important;
 }
 
+.launch-upgrade-banner .klaviyo-form .needsclick [data-testid="form-row"]:last-child [component="[object Object]"] button {
+      min-height: 61px; 
+          font-size: 14px !important;
+    text-transform: capitalize !important;
+    letter-spacing: 0 !important;
+}
+
 
 @media only screen and (max-width: 1600px) {
     .pro-series h2.pro-series-title, .pro-series .pro-series-subtitle {
