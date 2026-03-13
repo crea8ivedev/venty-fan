@@ -94,12 +94,12 @@ section.ventypro-hero {
 }
 .pro-series h2.pro-series-title,
 .pro-series .pro-series-subtitle {
-  font-size: 92px;
+  font-size: 80px;
   line-height: 100%;
   color: #434343;
 }
 .pro-series .pro-series-subtitle {
-  margin-top: -12px;
+  margin-top: -8px;
 }
 .pro-series-wrapper .feature-card {
   min-height: 473px;
