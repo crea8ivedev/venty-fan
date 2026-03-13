@@ -232,6 +232,9 @@ section.launch-upgrade-banner {
   }
 }
 @media only screen and (max-width: 1279px) {
+     .ventypro-hero__content .ventypro-hero__text {
+        padding-inline:0px;
+    }
   .pro-series-wrapper .feature-card.feature-right .feature-content h3 {
     padding-left: 20px;
   }
