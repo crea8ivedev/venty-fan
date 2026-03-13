@@ -114,8 +114,22 @@
   .packed-wrapper .desktop-title {
     display: none;
   }
-  .packed-wrapper .mobile-title {
-     display: block;
+  .packed-wrapper .right-content {
+    position: relative;
+  }
+.packed-wrapper .mobile-title {
+    display: block;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-size: 28px;
+    font-weight: 700;
+    color: #bfbfbf;
+    letter-spacing: 2px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
   }
 }
 
