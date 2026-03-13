@@ -201,6 +201,9 @@ section.launch-upgrade-banner {
     .pro-series h2.pro-series-title, .pro-series .pro-series-subtitle {
     font-size: 60px;
 }
+.shopify-section .launch-section {
+    padding: 0 0 82px;
+}
 .pro-series .pro-series-header {
     padding-bottom: 0px;
 }
