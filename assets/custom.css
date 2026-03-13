@@ -206,14 +206,15 @@ section.launch-upgrade-banner {
   padding: 0 !important;
 }
 .launch-email-section .launch-title {
-  width: 47% !important
+  width: 47% !important;
+  margin:0;
 }
 .launch-email-section .sign-up-klaviyo-form {
   width: 50% !important;
 }
 .launch-email-section .sign-up-klaviyo-form [data-testid="form-row"] {
   align-items: center !important; 
-}
+}.launch-email-section .launch-title
 .launch-email-section .sign-up-klaviyo-form .needsclick form > div.kl-private-reset-css-Xuajs1 {
   flex-direction: row !important;
 }
