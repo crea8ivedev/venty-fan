@@ -108,6 +108,10 @@
     gap:100px;   
 }
 
+    .packed-deployed {
+        padding: 40px 35px !Important;
+    }
+
 
 .packed-wrapper .right-content img{
   height:400px;
