@@ -200,6 +200,9 @@ section.launch-upgrade-banner {
 }
 .feature-card.feature-right.image-fan .feature-image {margin-top: -366px;}
 
+.launch-content {
+  margin-bottom: 56px;
+}
 
 .launch-email-section .sign-up-klaviyo-form .needsclick form {
   background-color: transparent !important; 
