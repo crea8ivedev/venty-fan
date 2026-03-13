@@ -458,6 +458,9 @@ section.launch-upgrade-banner {
   .pro-series-wrapper .feature-card.feature-left .feature-content h3 {
             margin-right: 25px !important;
   }
+  .launch-upgrade-banner .banner-wrapper .banner-subheading {
+    font-size: 28px !important;
+  }
 }
 /* @media only screen and (max-width: 575px) {
   .pro-series-wrapper .feature-card.redesigned-base .feature-content h3 {
