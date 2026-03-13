@@ -60,5 +60,15 @@
 .banner-form.banner-form-mobile {
     max-width: 160px;
 }
+
+.launch-upgrade-banner .klaviyo-form .needsclick [data-testid=form-row]:first-child {
+        width: 195px !important;
+}
     
+}
+
+@media (max-width: 420px) {
+.launch-upgrade-banner .klaviyo-form .needsclick [data-testid=form-row]:last-child {
+    width: 130px !important;
+}
 }
