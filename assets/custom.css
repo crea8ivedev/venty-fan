@@ -190,6 +190,10 @@ section.launch-upgrade-banner {
     max-width:542px;
 }
 @media only screen and (max-width:1600px) {
+    .launch-section .play-button {
+    width: 134px;
+    height: 133px;
+}
     .launch-section .launch-image img {
             max-height: 650px;
     }
@@ -245,10 +249,7 @@ section.launch-upgrade-banner {
     .launch-section .launch-wrapper {
     border-radius:25px;
 }
-.launch-section .play-button {
-    width: 134px;
-    height: 133px;
-}
+
 .launch-section .launch-text h2, .launch-section .launch-text h2.heading.-two {
     font-size: 56px;
     line-height: 60px;
