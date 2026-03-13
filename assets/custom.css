@@ -217,11 +217,11 @@ section.launch-upgrade-banner {
 .launch-email-section .sign-up-klaviyo-form .needsclick form > div.kl-private-reset-css-Xuajs1 {
   flex-direction: row !important;
 }
-.launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:first-child [component="[object Object]"] {
+.launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:first-child  {
   width: 422px !important;
   flex: unset !important;
 }
-.launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:last-child [component="[object Object]"] {
+.launch-email-section .sign-up-klaviyo-form [data-testid="form-row"]:last-child {
   width: 189px !important;
   flex: unset !important;
 }
