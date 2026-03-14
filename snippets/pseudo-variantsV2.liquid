@@ -340,7 +340,7 @@ const updateMainProductPrice = (variant, qty) => {
     const compareEl = extra.querySelector('.pv-main-compare');
     const tagEl = extra.querySelector('.pv-main-tag');
 
-    if (q === 2 || q === 4) {
+    if (q === 4) {
       if (compareEl) {
         compareEl.textContent = formatMoneyText(baseTotal);
         compareEl.style.display = '';
