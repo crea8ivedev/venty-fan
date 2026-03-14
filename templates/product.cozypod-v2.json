@@ -793,6 +793,7 @@
         "card_GVKcQt",
         "card_QrqXhm"
       ],
+      "disabled": true,
       "name": "Image Cursol V2",
       "settings": {
         "section_bg": "#ffffff",
