@@ -282,24 +282,25 @@ extra.innerHTML = `
   return extra;
 };
 
+
 const updateMainProductPrice = (variant, qty) => {
   if (!variant) return;
 
   const root = getMainPriceRoot();
   const q = Number(qty || 1);
 
-  // Base total = price x qty (THIS is your strike-through amount for 4-pack)
   const baseTotal = Number(variant.price || 0) * q;
-
-  // Final price shown
   let totalPrice = baseTotal;
+  let discountLabel = '';
 
-  // ✅ Apply 20% OFF only for 4-pack
-// ✅ Apply $20 OFF only for 4-pack (price x4 - $20)
-const isFour = (q === 4);
-if (isFour) totalPrice = Math.max(0, baseTotal - 2000); // 2000 cents = $20
+  if (q === 4) {
+    totalPrice = Math.max(0, baseTotal - 2500); // $25 off
+    discountLabel = '$25 OFF';
+  } else if (q === 2) {
+    totalPrice = Math.max(0, baseTotal - 1000); // $10 off
+    discountLabel = '$10 OFF';
+  }
 
-  // Update visible/current price (robust for sale + non-sale themes)
   const setHTMLAll = (selectors, html) => {
     let hit = false;
     selectors.forEach((sel) => {
@@ -311,7 +312,6 @@ if (isFour) totalPrice = Math.max(0, baseTotal - 2000); // 2000 cents = $20
     return hit;
   };
 
-  // 1) SALE price nodes
   const didSale = setHTMLAll(
     [
       '.price__sale .price-item--sale',
@@ -321,7 +321,6 @@ if (isFour) totalPrice = Math.max(0, baseTotal - 2000); // 2000 cents = $20
     formatMoney(totalPrice)
   );
 
-  // 2) REGULAR (non-sale) visible nodes
   const didRegular = setHTMLAll(
     [
       '.price__regular .price-item--regular',
@@ -331,25 +330,23 @@ if (isFour) totalPrice = Math.max(0, baseTotal - 2000); // 2000 cents = $20
     formatMoney(totalPrice)
   );
 
-  // 3) Fallback: first .money inside .price
   if (!didSale && !didRegular) {
     const moneyEls = root.querySelectorAll('.price .money');
     if (moneyEls.length) moneyEls[0].innerHTML = formatMoney(totalPrice);
   }
 
-  // ✅ Custom STRIKE + TAG in the red-box area
   const extra = ensureMainPriceExtraUI();
   if (extra) {
     const compareEl = extra.querySelector('.pv-main-compare');
     const tagEl = extra.querySelector('.pv-main-tag');
 
-    if (isFour) {
+    if (q === 2 || q === 4) {
       if (compareEl) {
-        compareEl.textContent = formatMoneyText(baseTotal);// strike price = price x4
+        compareEl.textContent = formatMoneyText(baseTotal);
         compareEl.style.display = '';
       }
       if (tagEl) {
-        tagEl.textContent = '$20 OFF';
+        tagEl.textContent = discountLabel;
         tagEl.style.display = '';
       }
     } else {
@@ -361,46 +358,43 @@ if (isFour) totalPrice = Math.max(0, baseTotal - 2000); // 2000 cents = $20
   return true;
 };
 
+
   const getCurrentBundleQty = () =>
     pseudo.classList.contains('is-four') ? 4 :
     (pseudo.classList.contains('is-double') ? 2 : 1);
 
   /* ---------- Update totals for bundle blocks ---------- */
-  const updateBundleTotal = (bundleKey, variant) => {
-    const block = pseudo.querySelector(`.pseudo-variant-${bundleKey}`);
-    if (!block || !variant) return;
 
-    const qty = Number(block.dataset.qty) || 1;
-    const discountAttr = bundleKey === 'double' ? 'doubleDiscount' : (bundleKey === 'four' ? 'fourDiscount' : null);
-    const discountValue = discountAttr ? Number(block.dataset[discountAttr]) || 0 : 0;
+const updateBundleTotal = (bundleKey, variant) => {
+  const block = pseudo.querySelector(`.pseudo-variant-${bundleKey}`);
+  if (!block || !variant) return;
 
-const totalBefore = variant.price * qty;
+  const qty = Number(block.dataset.qty) || 1;
+  const totalBefore = variant.price * qty;
 
-let totalAfter = totalBefore;
+  let totalAfter = totalBefore;
 
-// 👉 Apply 20% OFF only for 4-pack
-// 👉 Apply $20 OFF only for 4-pack (price x4 - $20)
-if (bundleKey === 'four') {
-  totalAfter = Math.max(0, totalBefore - 2000); // 2000 cents = $20
-} else {
-  totalAfter = calcDiscountedTotal(totalBefore, discountValue);
-}
-
-    const totalEl = block.querySelector('.pseudo-variant-price');
-    const compareEl = block.querySelector('.pseudo-variant-compare-price');
-
-    if (totalEl) totalEl.innerHTML = formatMoney(totalAfter);
-
-if (compareEl) {
-  const showCompare = (bundleKey === 'four') || (discountValue > 0);
-  if (showCompare) {
-    compareEl.innerHTML = formatMoney(totalBefore);
-    compareEl.style.display = '';
-  } else {
-    compareEl.style.display = 'none';
+  if (bundleKey === 'double') {
+    totalAfter = Math.max(0, totalBefore - 1000); // $10 off
+  } else if (bundleKey === 'four') {
+    totalAfter = Math.max(0, totalBefore - 2500); // $25 off
   }
-}
-  };
+
+  const totalEl = block.querySelector('.pseudo-variant-price');
+  const compareEl = block.querySelector('.pseudo-variant-compare-price');
+
+  if (totalEl) totalEl.innerHTML = formatMoney(totalAfter);
+
+  if (compareEl) {
+    if (bundleKey === 'double' || bundleKey === 'four') {
+      compareEl.innerHTML = formatMoney(totalBefore);
+      compareEl.style.display = '';
+    } else {
+      compareEl.style.display = 'none';
+    }
+  }
+};
+
 
   /* ---------- Sticky cart integration ---------- */
   let stickyCartObserver = null;
@@ -411,43 +405,36 @@ if (compareEl) {
     document.querySelector('kaching-bundles-block, .kaching-bundles__bars, .kaching-bundles__bar');
 
   const updateStickyCartPricing = (bundleType, variant) => {
-    if (isKachingBundlePresent()) return;
+  if (isKachingBundlePresent()) return;
 
-    clearTimeout(updateTimeout);
-    updateTimeout = setTimeout(() => {
-      const stickyPriceElement = document.querySelector('.zrx-sticky-atc-product-price');
-      if (!stickyPriceElement || !variant) return;
+  clearTimeout(updateTimeout);
+  updateTimeout = setTimeout(() => {
+    const stickyPriceElement = document.querySelector('.zrx-sticky-atc-product-price');
+    if (!stickyPriceElement || !variant) return;
 
-      const qty = bundleType === 'four' ? 4 : (bundleType === 'double' ? 2 : 1);
+    const qty = bundleType === 'four' ? 4 : (bundleType === 'double' ? 2 : 1);
+    const totalBefore = variant.price * qty;
 
-      let discountValue = 0;
-      if (bundleType === 'double') {
-        discountValue = Number(pseudo.querySelector('.pseudo-variant-double')?.dataset.doubleDiscount) || 0;
-      } else if (bundleType === 'four') {
-        discountValue = Number(pseudo.querySelector('.pseudo-variant-four')?.dataset.fourDiscount) || 0;
-      }
+    let totalAfter = totalBefore;
+    let hasDiscount = false;
 
-const totalBefore = variant.price * qty;
+    if (bundleType === 'double') {
+      totalAfter = Math.max(0, totalBefore - 1000); // $10 off
+      hasDiscount = true;
+    } else if (bundleType === 'four') {
+      totalAfter = Math.max(0, totalBefore - 2500); // $25 off
+      hasDiscount = true;
+    }
 
-let totalAfter = totalBefore;
-
-// 👉 Apply 20% OFF for 4-pack
-// 👉 Apply $20 OFF for 4-pack (price x4 - $20)
-if (bundleType === 'four') {
-  totalAfter = Math.max(0, totalBefore - 2000); // 2000 cents = $20
-} else {
-  totalAfter = calcDiscountedTotal(totalBefore, discountValue);
-}
-
-      if (discountValue > 0) {
-        stickyPriceElement.innerHTML =
-          `<span class="money" style="text-decoration: line-through; color: #848484 !important;">${formatMoney(totalBefore)}</span>` +
-          `<span class="money" style="margin-left: 8px; color: #d2401e; font-weight: bold;">${formatMoney(totalAfter)}</span>`;
-      } else {
-        stickyPriceElement.innerHTML = `<span class="money">${formatMoney(totalBefore)}</span>`;
-      }
-    }, 30);
-  };
+    if (hasDiscount) {
+      stickyPriceElement.innerHTML =
+        `<span class="money" style="text-decoration: line-through; color: #848484 !important;">${formatMoney(totalBefore)}</span>` +
+        `<span class="money" style="margin-left: 8px; color: #d2401e; font-weight: bold;">${formatMoney(totalAfter)}</span>`;
+    } else {
+      stickyPriceElement.innerHTML = `<span class="money">${formatMoney(totalBefore)}</span>`;
+    }
+  }, 30);
+};
 
   const initializeStickyCartIntegration = () => {
     if (isKachingBundlePresent()) return;
